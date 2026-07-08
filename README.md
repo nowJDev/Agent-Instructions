@@ -89,7 +89,7 @@ Agent-Instructions/
 │  ├─ _disabled/ (4)      OFF MCP
 │  ├─ claude-ai-PlayMCP/  PlayMCP 하위 5개 서버
 │  └─ <server>.md         서버별 도구 표·연결방식
-└─ references/            ← 보조 참조 문서(CLI 셋업 등)
+└─ references/            ← 보조 참조 문서(CLI 셋업, Windows 바로가기 등)
 ```
 
 ---
@@ -241,6 +241,7 @@ Agent-Instructions/
 - **figma 9 vs 노출 8**: 카탈로그는 figma 9개(`generate-project-plan` 포함)다. 단 `generate-project-plan`은 캐시 `workflow-skills/` 소속이라 환경에 따라 **세션 노출이 8개일 수 있다**(카탈로그 자체는 자기일관적).
 - **neon 문서 성격**: `_disabled/neon/` 2개는 원본 `SKILL.md`가 깨진 심볼릭 링크라 **원문 대신 매니페스트 메타데이터로** 작성됨(문서 자체는 완결, "파일 없음"이 아님). 원문은 `github.com/neondatabase/agent-skills`에서 받는다.
 - **설치 가이드의 외부 전제**: `references/claude-code-cli-setup.md`의 설치 절차는 형제 저장소(`claude-code-cli-settings`)의 `dotfiles/`·`mcp-servers/`를 전제하며 **이 저장소엔 그 실물이 없다**. 또 Claude Code 전용이라 비-Claude AI엔 적용 불가(§5.5의 🔴).
+- **Windows Codex 바로가기**: `references/codex-windows-shortcut.md`는 바탕화면 `Codex.bat` 의존을 제거하고 공식 Codex 아이콘을 쓰는 `Codex.lnk`로 전환하는 재현 절차다. 아이콘 바이너리는 저장소에 포함하지 않고 사용자 전역 `%USERPROFILE%\.codex\assets\icons\`에 둔다.
 - **출처 근거**: 각 스킬/MCP 문서는 플러그인 캐시의 실제 `SKILL.md`·`.mcp.json`을 근거로 작성됨(추측 아님). 캐시 절대경로 표기는 작성 환경 기준.
 
 ---

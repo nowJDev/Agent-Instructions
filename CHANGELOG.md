@@ -1,6 +1,16 @@
 <!-- 이 문서는 Agent-Instructions 저장소의 공개 변경 이력을 기록한다. -->
 # Changelog
 
+## 2026-07-08
+
+### Added
+
+- Windows에서 바탕화면 `Codex.bat` 실행 방식을 공식 Codex 아이콘을 쓰는 `Codex.lnk` 바로가기로 전환하는 절차를 `references/codex-windows-shortcut.md`에 추가했다.
+
+### Changed
+
+- README의 `references/` 설명에 Windows Codex 바로가기 가이드를 반영했다.
+
 ## 2026-07-02
 
 ### Added
