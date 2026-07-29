@@ -1,6 +1,19 @@
 <!-- 이 문서는 Agent-Instructions 저장소의 공개 변경 이력을 기록한다. -->
 # Changelog
 
+## 2026-07-29
+
+### Added
+
+- 상태 변경 요청을 설계·계획·구현·검증·리뷰·문서화·통합 순서로 통제하는 자체 제작 `design-driven-delivery` Skill 원본을 `Owned-Skills/`에 추가했다.
+- `design-driven-delivery` 개인 글로벌 Skill 카탈로그와 설치·이식 안내를 추가했다.
+
+### Changed
+
+- 루트와 Codex 전역 `AGENTS.md`에 상태 변경 라우팅, 전문 Skill 재사용, 읽기 전용 예외 규칙을 반영했다.
+- README, Skill 인덱스와 사람용 설명서의 노출 Skill 수를 99개, 개인 글로벌 Skill 수를 6개로 갱신했다.
+- 타사 Skill 비재배포 원칙은 유지하고 직접 작성한 Skill 원본만 저장소에 둘 수 있도록 이식 정책을 명확히 했다.
+
 ## 2026-07-08
 
 ### Added

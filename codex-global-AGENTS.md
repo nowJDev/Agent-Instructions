@@ -45,6 +45,9 @@
 
 ## 스킬·MCP (언제 무엇을)
 - 실제 Codex 전역 스킬은 `~/.agents/skills`에 설치된 항목을 기준으로 사용한다.
+- 상태를 변경하는 기능 개발·버그 수정·리팩터링·코드·설정·문서·데이터·배포 작업에는 `design-driven-delivery`를 최상위 실행 프로세스로 사용한다.
+- `design-driven-delivery`는 `brainstorming`·`writing-plans`·TDD·검증·코드 리뷰·브랜치 종료 스킬을 중복 구현하지 않고 승인된 순서로 호출한다.
+- 단순 조회·설명·상태 보고와 수정 권한이 없는 진단에는 전체 설계 문서 프로세스를 강제하지 않는다.
 - 만들기 전 `brainstorming`→`writing-plans`, 구현은 `test-driven-development`·`systematic-debugging`, 마무리는 `verify`·`code-review`.
 - 웹은 `firecrawl-*`, 깊은 리서치는 `deep-research`, 라이브러리 문서는 `context7` MCP, 코드 질문은 사용 가능한 RAG/MCP를 먼저 확인한다.
 - **상황→도구 매핑·전체 목록**: [`Agent-Instructions/Skill/README.md`](Agent-Instructions/Skill/README.md)·[`Agent-Instructions/MCP/README.md`](Agent-Instructions/MCP/README.md)(또는 README §6~8). 스킬이 적용되면 먼저 호출하고 "Using [skill]"를 알린다.

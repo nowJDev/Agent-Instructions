@@ -1,0 +1,7 @@
+interface:
+  display_name: "Design-Driven Delivery"
+  short_description: "설계부터 검증·통합까지 변경 작업을 통제합니다"
+  default_prompt: "$design-driven-delivery로 이 변경 작업을 설계부터 검증과 통합까지 진행해 주세요."
+
+policy:
+  allow_implicit_invocation: true

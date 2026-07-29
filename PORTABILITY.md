@@ -1,7 +1,7 @@
 # PORTABILITY.md — 다른 AI 에이전트에서 사용하기
 
 > 이 저장소의 **스킬·MCP를 Claude 이외의 AI 에이전트**(OpenAI Codex/Agents SDK, Gemini, Cursor, Copilot 등)에서 쓰는 방법.
-> 핵심 원칙: **MCP는 그대로 이식**(오픈 표준), **Skill은 실물을 재배포하지 않고 "출처 포인터 + 각자 설치"**.
+> 핵심 원칙: **MCP는 그대로 이식**(오픈 표준), **타사 Skill은 출처 포인터 + 각자 설치**, **자체 제작 Skill은 `Owned-Skills/` 원본에서 설치**한다.
 
 ---
 
@@ -10,16 +10,16 @@
 | 대상 | 다른 AI에서 | 방법 |
 |---|---|---|
 | **MCP** | ✅ 그대로 | 오픈 표준. 각 클라이언트 설정에 **서버 등록**(아래 §2) |
-| **Skill** | ⚠️ 조건부 | **실물 재배포 금지**. 공개 **원본에서 각자 설치**(§3-A), 미지원 AI는 참조 활용(§3-B)·MCP 래핑(§3-C) |
+| **Skill** | ⚠️ 조건부 | 타사는 공개 **원본에서 각자 설치**(§3-A), 자체 제작은 `Owned-Skills/`, 미지원 AI는 참조 활용(§3-B)·MCP 래핑(§3-C) |
 
-> 전제: 이 저장소의 `Skill/`·`MCP/`는 **설명 문서(카탈로그)**다. 실행 실물이 아니다. 실물 MCP는 각 서버, 실물 스킬은 원본 저장소에 있다.
+> 전제: 이 저장소의 `Skill/`·`MCP/`는 **설명 문서(카탈로그)**다. 실행 실물이 아니다. 단, 직접 작성한 Agent Skill은 `Owned-Skills/`에 공개 원본을 함께 둔다.
 
 ---
 
 ## 1. 무엇이 왜 이식되는가
 
 - **MCP (Model Context Protocol)** — 오픈 표준. 2026년 기준 Anthropic·OpenAI·Google·Cloudflare·AWS·Microsoft·Cursor 등이 모두 지원(Linux Foundation 산하 관리). → 서버를 등록만 하면 어느 AI든 같은 도구를 쓴다.
-- **Agent Skills (SKILL.md)** — 역시 오픈 표준이나, **"skills-호환 에이전트"**여야 자동 작동한다. 실물 SKILL.md가 필요하며, 이 저장소는 그 실물을 담지 않는다(재배포 회피).
+- **Agent Skills (SKILL.md)** — 역시 오픈 표준이나, **"skills-호환 에이전트"**여야 자동 작동한다. 타사 Skill은 원본에서 설치하고, 이 저장소가 직접 작성한 Skill은 `Owned-Skills/`에서 설치한다.
 
 ---
 
@@ -93,10 +93,14 @@ figma    = MCPServerStreamableHttp(params={"url": "https://mcp.figma.com/mcp"})
 
 ---
 
-## 3. Skill 이식 (실물 재배포 없이)
+## 3. Skill 이식.
 
 ### 3.1 원칙
-**스킬 실물을 이 패키지에 복사·재배포하지 않는다.** 대부분이 타사 플러그인이라 재배포는 라이선스 위반이다. 대신 **공개 원본을 가리키고, 받는 팀이 직접 설치**한다(= 정당한 최종 사용, 재배포 아님).
+**타사 Skill 실물을 이 패키지에 복사·재배포하지 않는다.** 대신 공개 원본을 가리키고 받는 팀이 직접 설치한다. 이 저장소에서 직접 작성한 Skill은 `Owned-Skills/`에 원본을 보관하며 저장소 License에 따라 설치·재사용할 수 있다.
+
+현재 자체 제작 원본은 다음과 같다.
+
+- [`design-driven-delivery`](Owned-Skills/design-driven-delivery/SKILL.md) — 상태 변경 작업의 설계·계획·구현·검증·리뷰·통합을 조율한다.
 
 ### 3.2 경로 A — 출처에서 각자 설치 (주력)
 
@@ -118,12 +122,13 @@ github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마�
 스킬의 **기능**을 직접 MCP 서버나 함수 도구로 구현해 노출하면, MCP를 지원하는 **모든 AI**가 쓴다. 재배포가 아니라 자체 구현이므로 라이선스 자유. 노력은 크지만 가장 보편적.
 
 ### 3.5 라이선스 가드 (필수 확인)
-- 이 저장소엔 **스킬 실물을 넣지 않는다**(출처 링크만). 그래야 재배포 문제가 없다.
+- 이 저장소엔 **타사 Skill 실물을 넣지 않는다**(출처 링크만). 그래야 재배포 문제가 없다.
 - 받는 팀은 원본(`anthropics/claude-plugins-official` 등)의 **LICENSE**를 확인하고 그 조건에 따라 설치·사용한다.
-- 자유롭게 재배포 가능한 건 **당신이 직접 작성한 스킬**뿐. (현 환경에서 실물이 있는 자체 스킬은 사실상 없음 — `_personal`은 대부분 하네스 등록형)
+- 직접 작성한 Skill은 `Owned-Skills/`에만 두고 이 저장소의 License와 출처를 명시한다.
 
 ### 3.6 사전 점검 — 받는 AI가 Agent Skills를 지원하는가?
 - **지원** → 경로 A(출처 설치)로 SKILL.md 배치.
+- **지원 + 자체 제작 Skill** → `Owned-Skills/<name>` 패키지를 사용자 Skill 디렉터리에 복사.
 - **미지원** → 경로 B(참조) 또는 경로 C(MCP 래핑).
 
 ---
@@ -134,10 +139,11 @@ github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마�
 - [ ] **MCP 인증**: figma·hf는 OAuth 로그인, notion은 자기 토큰 주입(커밋 금지)
 - [ ] **PlayMCP 제외**: claude.ai 종속이므로 대체 MCP/API로 교체 (§2.4)
 - [ ] **Skill 출처 확인**: 쓰려는 스킬의 공개 원본(`anthropics/claude-plugins-official` 등) 확보
+- [ ] **자체 제작 Skill**: `Owned-Skills/` 원본과 `agents/openai.yaml`을 함께 배치
 - [ ] **Agent Skills 지원 여부** 확인 → 경로 A / B / C 결정
 - [ ] **LICENSE 확인**: 원본 라이선스 조건 준수, 실물 재배포 금지
 - [ ] (선택) 자주 쓰는 스킬을 **경로 C(MCP 래핑)**로 만들어 크로스-AI 표준화
 
 ---
 
-*이 문서는 "이식 방법"을 안내한다. 실물 스킬은 담지 않으며(재배포 회피), MCP 연결정보는 현 환경 `.mcp.json` 기준이다.*
+*이 문서는 이식 방법을 안내한다. 타사 Skill 실물은 담지 않고, 자체 제작 Skill만 `Owned-Skills/`에 보관하며, MCP 연결정보는 현 환경 `.mcp.json` 기준이다.*

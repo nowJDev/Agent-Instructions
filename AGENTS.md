@@ -4,7 +4,6 @@
 > **▶ START HERE — 처음 온 에이전트라면 먼저 [`README.md`](README.md)를 읽어라.**
 > 저장소 전체 구조·스킬/MCP 인덱스·의사결정 맵이 거기 있다. 본 파일(AGENTS.md)은 그 지도 위에서 **따르는 행동 규칙**이다. README로 전체를 파악하고 → 이 파일의 규칙대로 작업하라.
 > **"적용" = 이 규칙을 로드해 따르는 것**(환경 *설치*가 아니다). **비-Claude AI라면** README **§5.5(범용 코어 vs Claude 전용)**와 [`PORTABILITY.md`](PORTABILITY.md)를 먼저 보라 — 🔴 `rag_agent`·`Skill` 호출·`PreToolUse 훅` 등은 외부 AI에 없으니 번역/제외한다.
-
 작업 시작 전 **가장 먼저 읽는 파일**이다. 핵심 규칙은 이 파일만으로도 실행 가능해야 한다. 세부 문서는 아래에 두되, 해당 상황에 들어가면 반드시 읽는다.
 
 ## 정체성
@@ -44,6 +43,9 @@
 - 커밋 메시지는 한글. 관련 파일(코드·설정·문서)을 전부 함께 커밋한다.
 
 ## 스킬·MCP (언제 무엇을)
+- 상태를 변경하는 기능 개발·버그 수정·리팩터링·코드·설정·문서·데이터·배포 작업에는 `design-driven-delivery`를 최상위 실행 프로세스로 사용한다.
+- `design-driven-delivery`는 `brainstorming`·`writing-plans`·TDD·검증·코드 리뷰·브랜치 종료 스킬을 중복 구현하지 않고 승인된 순서로 호출한다.
+- 단순 조회·설명·상태 보고와 수정 권한이 없는 진단에는 전체 설계 문서 프로세스를 강제하지 않는다.
 - 만들기 전 `brainstorming`→`writing-plans`, 구현은 `test-driven-development`·`systematic-debugging`, 마무리는 `verify`·`code-review`.
 - 웹은 `firecrawl-*`, 깊은 리서치는 `deep-research`, 라이브러리 문서는 `context7` MCP, 코드 질문은 `rag_agent`.
 - **상황→도구 매핑·전체 목록**: [`Skill/README.md`](Skill/README.md)·[`MCP/README.md`](MCP/README.md)(또는 README §6~8). 스킬이 적용되면 먼저 호출하고 "Using [skill]"를 알린다.
@@ -53,6 +55,6 @@
 - `rules/02_tool-boundaries.md` — RAG·서브에이전트·MCP 등록·팀·외부작업·Windows·Unity **도구 경계**(스킬/MCP *선택*은 README §6~8로 포인터).
 - `rules/03_feedback-loop.md` — 리뷰 → 규칙 보강 반복, 규칙 추가·배치 기준.
 - `rules/04_garbage-collection.md` — 문서-코드 정합·데드코드·MEMORY·Compact 청소.
-- `Skill/`·`MCP/` — **상세 카탈로그**(스킬 1개당 md 1개): 스킬 노출 97(+OFF 22), MCP ON 11(+OFF 4). 특정 스킬/MCP 동작이 궁금할 때 펴본다.
+- `Skill/`·`MCP/` — **상세 카탈로그**(스킬 1개당 md 1개): 스킬 노출 99(+OFF 22), MCP ON 11(+OFF 4). `Owned-Skills/`는 직접 작성해 재배포할 수 있는 Agent Skill 실물 원본.
 - `references/` — 보조 참조 문서(CLI 설치 등).
 - `PORTABILITY.md` — 다른 AI(비-Claude)에서 스킬/MCP를 쓰는 이식 가이드.

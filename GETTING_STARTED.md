@@ -10,7 +10,7 @@
 먼저 README.md를 읽고, 그 다음 AGENTS.md와 PORTABILITY.md를 읽어.
 Claude 전용 기능은 네 환경의 동등 기능으로 번역하고, 없는 기능은 건너뛰어.
 이 저장소는 토큰이나 개인 설정 파일을 포함하지 않는 공개용 운영 지침 카탈로그야.
-https://github.com/devWJ93/Agent-Instructions
+https://github.com/nowJDev/Agent-Instructions
 ```
 
 AI가 GitHub 링크를 직접 열 수 없다면 저장소를 내려받은 뒤, 루트의 `README.md`, `AGENTS.md`, `PORTABILITY.md` 내용을 순서대로 제공한다.
@@ -28,7 +28,8 @@ AI가 GitHub 링크를 직접 열 수 없다면 저장소를 내려받은 뒤, �
 ### Claude Code
 
 - `README.md`와 `AGENTS.md`를 프로젝트 지침으로 읽게 한다.
-- 스킬과 MCP는 이 저장소에서 자동 설치되지 않는다. 필요한 항목은 각 원본 플러그인이나 MCP 서버 문서를 기준으로 별도 설치한다.
+- 타사 Skill과 MCP는 이 저장소에서 자동 설치되지 않는다. 필요한 항목은 각 원본 플러그인이나 MCP 서버 문서를 기준으로 별도 설치한다.
+- 자체 제작 Skill은 `Owned-Skills/` 패키지를 Claude Code가 사용하는 사용자 Skill 경로에 복사할 수 있다.
 - Claude 전용 규칙은 그대로 적용할 수 있지만, 사용자 환경에 없는 MCP나 플러그인은 건너뛴다.
 
 ### Codex
@@ -36,6 +37,7 @@ AI가 GitHub 링크를 직접 열 수 없다면 저장소를 내려받은 뒤, �
 - `AGENTS.md`의 행동 규칙은 그대로 적용한다.
 - Claude 전용 도구명은 Codex의 파일 읽기, 검색, 셸, MCP 도구로 번역한다.
 - `PORTABILITY.md`의 대체 표를 먼저 확인한다.
+- `design-driven-delivery`를 쓰려면 `Owned-Skills/design-driven-delivery`를 `~/.agents/skills/design-driven-delivery`에 복사하고 새 세션을 시작한다.
 
 ### Cursor, Gemini, Copilot 등
 
@@ -80,7 +82,7 @@ codex --ask-for-approval never "Summarize the current instructions and list whic
 하지 않는 것.
 
 - 토큰, `.env`, 개인 설정 파일을 제공하지 않는다.
-- MCP 서버나 Agent Skill 실물을 재배포하지 않는다.
+- MCP 서버나 타사 Agent Skill 실물을 재배포하지 않는다. 직접 작성한 Skill 원본만 `Owned-Skills/`에 둔다.
 - 모든 AI 환경에서 자동 설치를 보장하지 않는다.
 
 ## 6. 공개 저장소 체크리스트

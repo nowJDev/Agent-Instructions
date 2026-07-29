@@ -19,7 +19,7 @@ AI 코딩 에이전트에게 일관된 작업 방식, 검증 규칙, 도구 선�
 먼저 README.md를 읽고, 그 다음 AGENTS.md와 PORTABILITY.md를 읽어.
 Claude 전용 기능은 네 환경의 동등 기능으로 번역하고, 없는 기능은 건너뛰어.
 이 저장소는 토큰이나 개인 설정 파일을 포함하지 않는 공개용 운영 지침 카탈로그야.
-https://github.com/devWJ93/Agent-Instructions
+https://github.com/nowJDev/Agent-Instructions
 ```
 
 처음 쓰는 사람은 [`GETTING_STARTED.md`](GETTING_STARTED.md)를 먼저 읽는다. Codex 전역 적용 방식은 [`GETTING_STARTED.md`의 Codex 섹션](GETTING_STARTED.md#4-codex에서-헷갈리기-쉬운-부분)을 확인한다. 공개·보안 기준은 [`SECURITY.md`](SECURITY.md)를 따른다. 변경 이력은 [`CHANGELOG.md`](CHANGELOG.md)에 남긴다.
@@ -28,21 +28,22 @@ https://github.com/devWJ93/Agent-Instructions
 
 ## 0. TL;DR (먼저 이것부터)
 
-- **정체**: AI 에이전트 운영 패키지 = **행동 지침**(`AGENTS.md` + `rules/`) + **스킬·MCP 레퍼런스 카탈로그**(`Skill/` + `MCP/`).
+- **정체**: AI 에이전트 운영 패키지 = **행동 지침**(`AGENTS.md` + `rules/`) + **스킬·MCP 레퍼런스 카탈로그**(`Skill/` + `MCP/`) + **자체 제작 Skill 원본**(`Owned-Skills/`).
 - **"적용"의 정의 (중요)**: 이 저장소를 "적용"한다 = **행동 규칙을 로드해 그대로 따른다**. 이 환경을 *설치*하는 게 아니다(설치 절차는 Claude Code 전용 → `references/`·`PORTABILITY.md`). 비-Claude AI라면 **§5.5(범용 코어 vs Claude 전용)**를 먼저 보고, 🟢는 그대로 적용·🟡는 번역·🔴는 건너뛴다.
 - **AI가 할 일**: ① `AGENTS.md`로 행동 규칙 로드 → ② 작업 중 스킬/MCP가 필요하면 본 README의 §6 의사결정 가이드와 §7~8 인덱스로 찾기 → ③ 해당 개별 md를 펴서 상세 확인.
 - **핵심 원칙**: `AGENTS.md`는 **60줄 이하**(진입점), 세부는 분리해 **필요할 때만** 참조. 운영은 **4대 축**(강제·도구경계·피드백·GC).
-- **규모**: 노출 스킬 **98** (+OFF 22), 활성 MCP 서버 **10**(문서 11) (+OFF 4).
+- **규모**: 노출 스킬 **99** (+OFF 22), 활성 MCP 서버 **10**(문서 11) (+OFF 4).
 - **중요**: 이 카탈로그는 **특정 환경의 스냅샷**이다. 네 환경의 플러그인/MCP 구성이 다르면 목록이 안 맞을 수 있다(§9 참조).
 
 ---
 
 ## 1. 이 저장소는 무엇인가
 
-AI 에이전트가 일관되게 일하도록 **규칙과 경계를 코드화**하고, **사용 가능한 도구(스킬/MCP)를 사전(辭典)화**한 패키지다. 두 레이어로 나뉜다:
+AI 에이전트가 일관되게 일하도록 **규칙과 경계를 코드화**하고, **사용 가능한 도구(스킬/MCP)를 사전(辭典)화**한 패키지다. 세 레이어로 나뉜다:
 
 - **지침 레이어** (에이전트가 *따른다*): `AGENTS.md`, `rules/`
 - **레퍼런스 레이어** (에이전트가 *필요할 때 펴본다*): `Skill/`, `MCP/`, `references/`
+- **자체 제작 원본 레이어** (호환 클라이언트에 *설치한다*): `Owned-Skills/`
 
 ---
 
@@ -81,9 +82,11 @@ Agent-Instructions/
 ├─ Skill/                 ← 스킬 카탈로그 (스킬 1개당 md 1개)
 │  ├─ README.md           스킬 분류 인덱스
 │  ├─ _builtin/ (13)      Claude Code 내장 스킬
-│  ├─ _personal/ (5)      개인 글로벌 스킬
+│  ├─ _personal/ (6)      개인 글로벌 스킬
 │  ├─ _disabled/ (22)     OFF 플러그인 카탈로그(켜야 사용)
 │  └─ <플러그인>/          활성 플러그인별 폴더
+├─ Owned-Skills/          ← 직접 작성해 재배포할 수 있는 Agent Skill 실물 원본
+│  └─ design-driven-delivery/
 ├─ MCP/                   ← MCP 카탈로그
 │  ├─ README.md           MCP 인덱스
 │  ├─ _disabled/ (4)      OFF MCP
@@ -162,6 +165,7 @@ Agent-Instructions/
 | "이 도구 써도 되나 / 어디까지" | `rules/02` |
 | **어떤 스킬을 쓸지** (상황→스킬) | 본 README **§7** |
 | 특정 스킬의 트리거·예시·파라미터 | `Skill/<그룹>/<스킬>.md` |
+| 자체 제작 Skill 원본·설치 | `Owned-Skills/README.md` |
 | **어떤 MCP를 쓸지** / 도구 목록 | 본 README **§8** → `MCP/<server>.md` |
 | 규칙을 추가·수정하려면 | `rules/03` (배치 기준 포함) |
 | 정리·청소 시점 | `rules/04` |
@@ -170,17 +174,17 @@ Agent-Instructions/
 
 ---
 
-## 7. 스킬 카탈로그 전체 인덱스 (노출 98)
+## 7. 스킬 카탈로그 전체 인덱스 (노출 99)
 
 > 📋 각 스킬의 **한 줄 설명 목차**는 [`Skill/CATALOG.md`](Skill/CATALOG.md). 아래는 빠른 이름 인덱스다.
 >
-> 상황별 빠른 매핑: **만들기 전**=`brainstorming`→`writing-plans` · **구현**=`test-driven-development`·`systematic-debugging` · **마무리**=`verify`·`code-review`·`simplify` · **웹**=`firecrawl-*` · **리서치**=`deep-research` · **라이브러리 문서**=`context7`(MCP).
+> 상황별 빠른 매핑: **상태 변경 전체**=`design-driven-delivery` · **만들기 전**=`brainstorming`→`writing-plans` · **구현**=`test-driven-development`·`systematic-debugging` · **마무리**=`verify`·`code-review`·`simplify` · **웹**=`firecrawl-*` · **리서치**=`deep-research` · **라이브러리 문서**=`context7`(MCP).
 
 ### _builtin (13) — Claude Code 내장
 `code-review` · `simplify` · `verify` · `run` · `loop` · `schedule` · `update-config` · `keybindings-help` · `fewer-permission-prompts` · `claude-api` · `init` · `review` · `security-review`
 
-### _personal (5) — 개인 글로벌
-`claude-news` · `delete-session` · `handover` · `deep-research` · `hexagonal-code-review`
+### _personal (6) — 개인 글로벌
+`claude-news` · `delete-session` · `handover` · `deep-research` · `hexagonal-code-review` · `design-driven-delivery`
 
 ### superpowers (14) — 개발 워크플로우 방법론
 `brainstorming` · `writing-plans` · `test-driven-development` · `systematic-debugging` · `executing-plans` · `subagent-driven-development` · `dispatching-parallel-agents` · `requesting-code-review` · `receiving-code-review` · `finishing-a-development-branch` · `using-git-worktrees` · `verification-before-completion` · `writing-skills` · `using-superpowers`
@@ -234,7 +238,7 @@ Agent-Instructions/
 
 ## 9. 메타 · 정합성 · 알려진 한계
 
-- **숫자**: 노출 스킬 98 + OFF 22 = 카탈로그 120 md. MCP ON 11 md(서버 10) + OFF 4.
+- **숫자**: 노출 스킬 99 + OFF 22 = 카탈로그 121 md. MCP ON 11 md(서버 10) + OFF 4.
 - **비노출 ON 플러그인(의도된 제외, 누락 아님)**: `atomic-agents`, LSP 4종(`rust-analyzer`·`typescript`·`pyright`·`csharp`). ON이지만 스킬/MCP로 노출 안 됨 → 카탈로그에 없는 게 정상.
 - **동명 주의**: 빌트인 `simplify`·`code-review`는 플러그인 `code-simplifier`·`pr-review-toolkit`(agent/command 제공)과 **별개**.
 - **카탈로그 = 스냅샷**: 스킬/MCP 목록은 작성 환경 기준. 다른 환경에선 다를 수 있다 → 변경 시 `rules/04`(GC)에 따라 `Skill/`·`MCP/`와 README 숫자를 함께 갱신.
@@ -246,4 +250,4 @@ Agent-Instructions/
 
 ---
 
-*기준일 2026-07-02 · 진입점=`AGENTS.md` · 세부=`rules/` · 카탈로그=`Skill/`·`MCP/` · 사람용=`index.html`*
+*기준일 2026-07-29 · 진입점=`AGENTS.md` · 세부=`rules/` · 카탈로그=`Skill/`·`MCP/` · 자체 원본=`Owned-Skills/` · 사람용=`index.html`*
