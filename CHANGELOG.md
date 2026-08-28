@@ -1,6 +1,12 @@
 <!-- 이 문서는 Agent-Instructions 저장소의 공개 변경 이력을 기록한다. -->
 # Changelog
 
+## 2026-08-28
+
+### Changed
+
+- `handover` 파일명을 `HANDOVER_{project-name}_{YYYYMMDD}_{topic-slug}.md`로 정하고, 명시값·Git 루트·현재 작업 폴더 순의 프로젝트명 결정과 작업 슬러그 내 프로젝트명 중복 방지 규칙을 추가했다.
+
 ## 2026-07-29
 
 ### Added
