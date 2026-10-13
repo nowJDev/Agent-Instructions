@@ -42,5 +42,5 @@ hf models info org/model1 --json | jq '{safetensors, tags, cardData}'
 ## 📦 출처 / 설치 상태
 - 플러그인: huggingface-skills@claude-plugins-official
 - 활성화: ON
-- 관련 MCP: huggingface-skills MCP (authenticate 도구)
+- 관련 MCP: [Hugging Face MCP](../../MCP/huggingface-skills.md). 인증과 실제 도구 확인은 해당 문서를 따른다.
 - 캐시 경로: `~/.claude/plugins/cache/claude-plugins-official/huggingface-skills/1.0.8/skills/huggingface-best/SKILL.md`

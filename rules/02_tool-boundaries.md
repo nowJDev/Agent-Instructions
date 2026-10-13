@@ -52,7 +52,7 @@
 
 ## 8. Windows 환경 도구 주의
 
-- Bash(mintty)에서 `$VAR` 변수 확장이 안 된다 → 경로를 직접 지정한다.
+- Git Bash는 `$VAR` 변수 확장을 지원한다. PowerShell·cmd에서 Bash 명령을 전달할 때는 바깥 셸의 선확장과 따옴표 처리를 구분하고, 경로는 변수로 전달하며 Bash에서 인용한다.
 - 따옴표 이스케이프 문제가 잦다 → Glob·Grep·Read 도구를 우선 사용한다.
 - PowerShell 도구는 `-NonInteractive`라 `$PROFILE`을 읽지 않는다. 환경 의존 명령은 경로/환경변수를 명시한다.
 

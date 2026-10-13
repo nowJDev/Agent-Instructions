@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 import argparse
+import os
 import shutil
 import sys
+import tempfile
 from pathlib import Path
-from workflow_paths import resolve_document_roots
+from workflow_paths import project_path, resolve_document_roots
 
 
 DIRECTORIES = (
@@ -55,8 +57,10 @@ def main() -> int:
         directories = (
             specs_root.relative_to(project), plans_root.relative_to(project), *DIRECTORIES,
         )
+        for relative in (*directories, *FILES):
+            project_path(project, project / relative)
         for relative_dir in directories:
-            target_dir = project / relative_dir
+            target_dir = project_path(project, project / relative_dir)
             if target_dir.exists():
                 if not target_dir.is_dir():
                     raise NotADirectoryError(
@@ -69,7 +73,7 @@ def main() -> int:
                     target_dir.mkdir(parents=True, exist_ok=True)
 
         for relative_file, template_name in FILES.items():
-            target_file = project / relative_file
+            target_file = project_path(project, project / relative_file)
             if target_file.exists():
                 if not target_file.is_file():
                     raise IsADirectoryError(
@@ -81,23 +85,25 @@ def main() -> int:
             print(f"CREATE {relative_file}")
             if not args.dry_run:
                 target_file.parent.mkdir(parents=True, exist_ok=True)
+                temporary_path = None
                 with (templates / template_name).open("rb") as source:
                     try:
-                        destination = target_file.open("xb")
+                        with tempfile.NamedTemporaryFile(
+                            dir=target_file.parent, prefix=".workflow-", delete=False
+                        ) as destination:
+                            temporary_path = Path(destination.name)
+                            shutil.copyfileobj(source, destination)
+                        os.link(temporary_path, target_file)
                     except FileExistsError:
                         if not target_file.is_file():
                             raise IsADirectoryError(
                                 f"문서 파일 경로가 디렉터리입니다: {target_file}"
                             )
                         print(f"KEPT   {relative_file}")
-                        continue
-                    try:
-                        with destination:
-                            shutil.copyfileobj(source, destination)
-                    except OSError:
-                        target_file.unlink()
-                        raise
-    except (FileNotFoundError, NotADirectoryError, OSError) as error:
+                    finally:
+                        if temporary_path is not None:
+                            temporary_path.unlink(missing_ok=True)
+    except (OSError, ValueError) as error:
         print(f"ERROR  {error}", file=sys.stderr)
         return 1
 

@@ -74,6 +74,8 @@ python scripts/bootstrap_workflow.py --project <project-root>
 
 기존 파일을 덮어쓰지 않는다. `docs/specs`·`docs/plans` 구조도 보존한다. ADR·RFC 등 다른 승인 구조에서는 스크립트로 새 구조를 만들지 않고 기존 구조를 수동으로 유지한다. 생성 결과를 반드시 확인한다.
 
+실제 대상 경로가 프로젝트 밖인 junction·symlink는 거부한다. 문서는 같은 디렉터리의 임시 파일에 완성한 뒤 하드링크로 배타적으로 게시하므로 하드링크 지원 파일시스템이 필요하다. 게시·복사 실패 시 임시 파일만 정리하고 기존 사용자 문서는 보존한다.
+
 ## 프로젝트에 맞는 검증을 선택하기.
 
 검증 전에 다음을 읽는다.
@@ -88,6 +90,8 @@ python scripts/validate_workflow.py --project <project-root> --stage completion 
 ```
 
 경로는 프로젝트 상대경로이며 종류별로 여러 번 지정할 수 있다. 과거·취소된 작업이 현재 검사를 막지 않도록 현재 작업 문서를 모두 지정한다. 미지정 종류는 해당 기본 경로의 전체 Markdown 문서를 검사한다. `docs/current-state.md`와 `docs/design-progress-checklist.md`는 항상 검사한다.
+
+기본·선택 경로 모두 프로젝트 내부의 실제 파일만 검사한다. fenced 코드·inline code 예시는 제외하고 실제 `-`·`*`·`+` 목록의 미완료 항목을 확인한다.
 
 스크립트 성공만으로 완료를 선언하지 않는다. 실제 테스트 결과, 로그, 수동 검증과 Git 상태를 함께 확인한다.
 

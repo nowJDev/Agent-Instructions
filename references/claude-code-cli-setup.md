@@ -56,18 +56,32 @@ jq --version        # 상태줄에 필요 (없으면 설치)
 ### Step 3: 백업
 설치 전 **반드시** 기존 `~/.claude/`를 백업한다.
 ```bash
-if [ -d "$HOME/.claude" ]; then
-  backup_dir=$(mktemp -d "$HOME/.claude/backup_$(date +%Y%m%d_%H%M%S)_XXXXXX") || exit 1
+selected_items="" # Step 2에서 승인한 항목 번호를 공백으로 구분해 넣는다. 테마는 13이다.
+if [ -d "$HOME/.claude" ] || [[ " $selected_items " == *" 13 "* ]]; then
+  backup_parent="$HOME"
+  if [ -d "$HOME/.claude" ]; then backup_parent="$HOME/.claude"; fi
+  backup_dir=$(mktemp -d "$backup_parent/backup_$(date +%Y%m%d_%H%M%S)_XXXXXX") || exit 1
   for backup_item in CLAUDE.md settings.json keybindings.json skills agents; do
     backup_source="$HOME/.claude/$backup_item"
     if [ -e "$backup_source" ] || [ -L "$backup_source" ]; then
       cp -R "$backup_source" "$backup_dir/" || exit 1
     fi
   done
+  case " $selected_items " in
+    *" 13 "*)
+      mkdir "$backup_dir/home" || exit 1
+      for backup_item in .bashrc .minttyrc .elephant_walk.py; do
+        backup_source="$HOME/$backup_item"
+        if [ -e "$backup_source" ] || [ -L "$backup_source" ]; then
+          cp -R "$backup_source" "$backup_dir/home/" || exit 1
+        fi
+      done
+      ;;
+  esac
   printf '백업 위치: %s\n' "$backup_dir"
 fi
 ```
-`~/.claude/` 자체가 없으면 백업 불필요. 디렉토리만 생성한다: `mkdir -p ~/.claude/skills ~/.claude/agents`. 백업이 실패하면 설치를 중단하고 원인을 해결한다. 이전 백업 폴더는 복사 대상에 포함하지 않는다.
+`selected_items`에는 승인한 항목 번호만 넣는다. 테마를 선택하면 홈 파일도 `home/`에 백업하며, `~/.claude/`가 없어도 홈 백업을 수행한다. 해당 원본이 모두 없으면 설치 디렉터리만 생성한다: `mkdir -p ~/.claude/skills ~/.claude/agents`. 백업이 실패하면 설치를 중단하고 원인을 해결한다. 이전 백업 폴더는 복사 대상에 포함하지 않는다.
 
 ### Step 4: 설치 실행
 
@@ -79,9 +93,16 @@ fi
 import json
 from pathlib import Path
 
-source = json.load(open(Path("dotfiles/settings.json"), encoding="utf-8"))
+with Path("dotfiles/settings.json").open(encoding="utf-8") as source_file:
+    source = json.load(source_file)
 target_path = Path.home() / ".claude" / "settings.json"
-target = json.load(open(target_path, encoding="utf-8")) if target_path.exists() else {}
+target = {}
+if target_path.exists():
+    with target_path.open(encoding="utf-8") as target_file:
+        target = json.load(target_file)
+selected_items = {int(item) for item in input("Step 2에서 승인한 항목 번호(공백 구분): ").split()}
+if not selected_items or not selected_items <= set(range(1, 21)):
+    raise ValueError("승인한 항목 번호 1~20을 입력해야 합니다.")
 ```
 
 | 항목 | 머지 방법 |
@@ -93,9 +114,12 @@ target = json.load(open(target_path, encoding="utf-8")) if target_path.exists() 
 | 권한 (7) | `allow` 배열 합집합 (순서 유지, 중복 제거) |
 | 알림 Hooks (14) | `source.hooks.Notification` → target에 추가. 전체 설정 내용 중복만 스킵 |
 | .cs Hook (15) | `source.hooks.PostToolUse` → target에 추가. 전체 설정 내용 중복만 스킵 |
-| SessionStart | 항상 머지 (무해한 verify 훅) |
+| SessionStart | hooks 항목 2·14·15 중 하나를 선택했을 때 함께 머지 |
 
 ```python
+import os
+import tempfile
+
 def merge_hooks(target, source, hook_type):
     """동일 설정만 제외하고 같은 matcher의 다른 훅도 보존한다."""
     target.setdefault("hooks", {})
@@ -106,15 +130,40 @@ def merge_hooks(target, source, hook_type):
             tgt.append(h)
     target["hooks"][hook_type] = tgt
 
-# permissions 머지
-existing = target.get("permissions", {}).get("allow", [])
-new = source.get("permissions", {}).get("allow", [])
-target.setdefault("permissions", {})["allow"] = list(dict.fromkeys(existing + new))
+for item, event in {2: "PreToolUse", 14: "Notification", 15: "PostToolUse"}.items():
+    if item in selected_items:
+        merge_hooks(target, source, event)
+if selected_items & {2, 14, 15}:
+    merge_hooks(target, source, "SessionStart")
+if 3 in selected_items:
+    target["statusLine"] = source["statusLine"]
+if 5 in selected_items:
+    target.setdefault("enabledPlugins", {}).update(source.get("enabledPlugins", {}))
+if 6 in selected_items:
+    target["language"] = "korean"
+if 7 in selected_items:
+    existing = target.get("permissions", {}).get("allow", [])
+    new = source.get("permissions", {}).get("allow", [])
+    target.setdefault("permissions", {})["allow"] = list(dict.fromkeys(existing + new))
 
-# 저장
 target_path.parent.mkdir(parents=True, exist_ok=True)
-json.dump(target, open(target_path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+temporary_path = None
+try:
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8", dir=target_path.parent,
+        prefix=".settings-", suffix=".tmp", delete=False,
+    ) as output:
+        temporary_path = Path(output.name)
+        json.dump(target, output, indent=2, ensure_ascii=False)
+        output.flush()
+        os.fsync(output.fileno())
+    os.replace(temporary_path, target_path)
+finally:
+    if temporary_path is not None:
+        temporary_path.unlink(missing_ok=True)
 ```
+
+두 Python 블록은 같은 프로세스에서 순서대로 실행한다. 저장 후 JSON을 다시 읽어 선택한 섹션과 기존 사용자 설정의 보존을 확인한다. 오류가 발생하면 설치를 중단하고 임시 파일만 정리한다. 같은 settings 파일을 다른 프로세스가 동시에 변경하지 않는 상태에서 실행한다.
 
 **4-3. 키바인딩** — `dotfiles/keybindings.json → ~/.claude/keybindings.json` 단순 복사.
 
@@ -122,7 +171,7 @@ json.dump(target, open(target_path, "w", encoding="utf-8"), indent=2, ensure_asc
 
 **4-5. Agent** — `dotfiles/agents/code-reviewer.md → ~/.claude/agents/code-reviewer.md`.
 
-**4-6. Bash 테마** — `.bashrc`·`.minttyrc`·`.elephant_walk.py`를 `~/`에 복사. 기존 `.bashrc`가 있으면 덮어쓰기 전 **반드시 확인**. Roboto Mono 폰트는 `%LOCALAPPDATA%\Microsoft\Windows\Fonts\`에 설치.
+**4-6. Bash 테마** — `.bashrc`·`.minttyrc`·`.elephant_walk.py` 각각의 기존 내용과 Step 3의 `home/` 백업을 확인한 뒤 승인한 파일만 `~/`에 복사한다. 기존 사용자 설정을 보존하거나 병합하고, 교체가 필요하면 해당 파일의 백업·복구 경로를 확인한다. Roboto Mono 폰트는 `%LOCALAPPDATA%\Microsoft\Windows\Fonts\`에 설치.
 
 **4-7. 바탕화면 바로가기 (Windows)** — `Claude Code.bat`:
 ```bat
@@ -165,5 +214,5 @@ sudo apt install jq   # 또는 brew install jq
 - `~/.claude/` 경로는 하드코딩하지 말 것 — `Path.home() / ".claude"` 또는 `~/`를 쓴다.
 - MCP 서버는 공유 범위에 맞춰 user·project·local을 선택한다. 위 예시는 모든 프로젝트에서 사용하는 user 등록이다.
 - MCP 등록은 `claude mcp add`를 우선한다. 프로젝트 `.mcp.json`과 플러그인 `.mcp.json`도 지원된다. `settings.json`의 hooks 설정과 MCP 설정을 혼동하지 않는다. [공식 MCP 안내](https://code.claude.com/docs/en/mcp)를 따른다.
-- Windows Git Bash(mintty)에서는 `$` 변수 확장이 안 되니 경로를 직접 지정한다.
+- Git Bash는 `$VAR` 변수 확장을 지원한다. PowerShell·CMD에서 Bash 명령을 전달할 때 바깥 셸의 선확장과 인용을 구분하고, 경로 변수를 따옴표로 감싼다. 실제 경로를 하드코딩하지 않는다.
 - 기존 hook은 전체 설정 내용으로 중복을 판별한다. matcher 생략도 유효하며 같은 matcher라도 다른 명령은 보존한다. [공식 hooks 안내](https://code.claude.com/docs/en/hooks)를 따른다.

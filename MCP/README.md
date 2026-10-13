@@ -8,8 +8,8 @@
 |---|---|---|---|---|
 | **notion** | 글로벌 (`~/.claude.json` mcpServers) | stdio (`@notionhq/notion-mcp-server`) | 22 | [notion.md](notion.md) |
 | **context7** | 플러그인 `context7` | stdio (npx) | 2 | [context7.md](context7.md) |
-| **figma** | 플러그인 `figma` | http (원격 OAuth) | 2 + 스킬연동 | [figma.md](figma.md) |
-| **huggingface-skills** | 플러그인 `huggingface-skills` | http (원격 OAuth) | 2 + 스킬연동 | [huggingface-skills.md](huggingface-skills.md) |
+| **figma** | 플러그인 `figma` | http (원격 OAuth) | 런타임 목록 확인 | [figma.md](figma.md) |
+| **huggingface-skills** | 플러그인 `huggingface-skills` | http (원격 OAuth) | 런타임 목록 확인 | [huggingface-skills.md](huggingface-skills.md) |
 | **playwright** | 플러그인 `playwright` | stdio (npx) | 23 | [playwright.md](playwright.md) |
 | **claude.ai PlayMCP** | claude.ai 계정 연동 (카카오 공식) | 원격 | 5개 하위 서버 | [claude-ai-PlayMCP/](claude-ai-PlayMCP/README.md) |
 

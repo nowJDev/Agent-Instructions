@@ -5,7 +5,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
-from workflow_paths import resolve_document_roots
+from workflow_paths import project_path, resolve_document_roots
 
 
 PLACEHOLDER_PATTERN = re.compile(
@@ -13,7 +13,7 @@ PLACEHOLDER_PATTERN = re.compile(
     re.IGNORECASE,
 )
 INCOMPLETE_CHECKBOX_PATTERN = re.compile(
-    r"^\s*-\s+\[(?:\s|-|\?)\]",
+    r"^\s*[-*+]\s+\[(?:\s|-|\?)\]",
     re.MULTILINE,
 )
 
@@ -52,22 +52,41 @@ def add_required_collection(
     errors: list[str], label: str, directory: Path,
     selected: list[str] | None, project: Path,
 ) -> list[Path]:
-    if selected:
-        files = []
-        for relative in selected:
-            path = (project / relative).resolve()
-            if not path.is_relative_to(project):
-                errors.append(f"프로젝트 밖 문서는 검사할 수 없습니다: {path}")
-            elif path.suffix.lower() != ".md":
+    files = []
+    try:
+        paths = [project / relative for relative in selected] if selected else markdown_files(
+            project_path(project, directory)
+        )
+        if not paths:
+            errors.append(f"{label} 문서가 없습니다: {directory}")
+        for path in paths:
+            resolved = project_path(project, path)
+            if resolved.suffix.lower() != ".md":
                 errors.append(f"Markdown 문서가 아닙니다: {path}")
             else:
-                add_required_file(errors, path)
-                files.append(path)
-        return files
-    files = markdown_files(directory)
-    if not files:
-        errors.append(f"{label} 문서가 없습니다: {directory}")
+                add_required_file(errors, resolved)
+                files.append(resolved)
+    except (OSError, ValueError) as error:
+        errors.append(str(error))
     return files
+
+
+def prose_content(content: str) -> str:
+    lines = []
+    fence = None
+    for line in content.splitlines():
+        marker = re.match(r"^\s*(`{3,}|~{3,})(.*)$", line)
+        if fence is not None:
+            if marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
+                fence = None
+        elif marker and (marker[1][0] != "`" or "`" not in marker[2]):
+            fence = marker[1]
+        else:
+            lines.append(line)
+    return re.sub(
+        r"(?<!`)(`+)(?!`).*?(?<!`)\1(?!`)", "", "\n".join(lines),
+        flags=re.DOTALL,
+    )
 
 
 def main() -> int:
@@ -84,8 +103,12 @@ def main() -> int:
     errors: list[str] = []
     evidence_files: list[Path] = [current_state, progress]
 
-    add_required_file(errors, current_state)
-    add_required_file(errors, progress)
+    for path in (current_state, progress):
+        try:
+            project_path(project, path)
+            add_required_file(errors, path)
+        except (OSError, ValueError) as error:
+            errors.append(str(error))
 
     if args.stage in {"design", "plan", "completion"}:
         evidence_files.extend(
@@ -103,18 +126,17 @@ def main() -> int:
         )
 
         for path in evidence_files:
-            if not path.is_file():
-                continue
-            content = path.read_text(encoding="utf-8")
-            if PLACEHOLDER_PATTERN.search(content):
-                errors.append(f"필수 자리표시자가 남아 있습니다: {path}")
-
-        for path in evidence_files:
-            if not path.is_file():
-                continue
-            content = path.read_text(encoding="utf-8")
-            if INCOMPLETE_CHECKBOX_PATTERN.search(content):
-                errors.append(f"미완료 체크 항목이 남아 있습니다: {path}")
+            try:
+                resolved = project_path(project, path)
+                if not resolved.is_file():
+                    continue
+                content = prose_content(resolved.read_text(encoding="utf-8"))
+                if PLACEHOLDER_PATTERN.search(content):
+                    errors.append(f"필수 자리표시자가 남아 있습니다: {path}")
+                if INCOMPLETE_CHECKBOX_PATTERN.search(content):
+                    errors.append(f"미완료 체크 항목이 남아 있습니다: {path}")
+            except (OSError, ValueError) as error:
+                errors.append(str(error))
 
     if errors:
         for error in errors:

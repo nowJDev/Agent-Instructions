@@ -23,9 +23,11 @@ Claude Code 이벤트에 반응해 실행되는 이벤트 기반 자동화 스�
 - 플러그인 `hooks/hooks.json`: 래퍼 형식 `{"description":"...","hooks":{"PreToolUse":[...]}}`
 - 사용자 `~/.claude/settings.json`: `{"hooks":{"PreToolUse":[...]}}`. 이벤트는 최상위 `hooks` 아래에 둔다. [공식 hooks 설정](https://code.claude.com/docs/en/hooks)을 따른다.
 
-**훅 이벤트**: PreToolUse(승인/거부/수정, `permissionDecision: allow|deny|ask`), PostToolUse(피드백, exit 2시 stderr가 Claude로), Stop(완결성 검증, `decision: approve|block`), SubagentStop, UserPromptSubmit(컨텍스트 추가), SessionStart(`$CLAUDE_ENV_FILE`로 env 영속), SessionEnd, PreCompact, Notification.
+**훅 이벤트**: PreToolUse(승인/거부/수정, `permissionDecision: allow|deny|ask`), PostToolUse(피드백, exit 2시 stderr가 Claude로), Stop(완결성 검증), SubagentStop, UserPromptSubmit(컨텍스트 추가), SessionStart(`$CLAUDE_ENV_FILE`로 env 영속), SessionEnd, PreCompact, Notification.
 
-**입력**(stdin JSON): `session_id`, `cwd`, `hook_event_name` 등 공통 + 이벤트별(`tool_name`, `tool_input`, `tool_result`, `user_prompt`). 프롬프트에서 `$TOOL_INPUT`, `$TOOL_RESULT`, `$USER_PROMPT`로 접근.
+**Stop 응답**: 명령 훅은 `{"decision":"block","reason":"계속 작업할 이유"}`로 종료를 막고, 종료를 허용할 때 `decision`을 생략한다. 프롬프트 훅은 `{"ok":true}`로 허용하거나 `{"ok":false,"reason":"계속 작업할 이유"}`로 막는다. [명령 훅 계약](https://code.claude.com/docs/en/hooks#stop-decision-control)과 [프롬프트 훅 계약](https://code.claude.com/docs/en/hooks#response-schema)을 구분한다.
+
+**입력**: 명령 훅은 stdin JSON의 `session_id`, `cwd`, `hook_event_name` 등 공통 필드와 이벤트별 필드를 읽는다. 도구 이벤트는 `tool_name`·`tool_input`, PostToolUse 결과는 `tool_response`, UserPromptSubmit 텍스트는 `prompt`다. 프롬프트 훅은 `$ARGUMENTS`로 전체 입력 JSON을 받는다. [공식 입력·치환 계약](https://code.claude.com/docs/en/hooks#prompt-hook-configuration)을 따른다.
 
 **환경변수**: `$CLAUDE_PROJECT_DIR`, `$CLAUDE_PLUGIN_ROOT`(포터빌리티 필수), `$CLAUDE_ENV_FILE`(SessionStart), `$CLAUDE_CODE_REMOTE`.
 

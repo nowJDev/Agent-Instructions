@@ -3,6 +3,8 @@ import ast
 import contextlib
 import importlib.util
 import io
+import json
+import os
 import re
 import shutil
 import subprocess
@@ -159,6 +161,108 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(self.run_cli('bootstrap_workflow').returncode, 0)
         self.assertTrue((self.project / 'docs/current-state.md').read_text(encoding='utf-8'))
 
+    def link_directory(self, link, target):
+        if os.name == 'nt':
+            result = subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(target)],
+                                    capture_output=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+        else:
+            link.symlink_to(target, target_is_directory=True)
+        self.addCleanup(os.rmdir, link)
+
+    def test_junction_outside_project_rejected_before_creation(self):
+        with tempfile.TemporaryDirectory() as outside:
+            self.link_directory(self.project / 'docs', Path(outside))
+            for dry_run in ([], ['--dry-run']):
+                result = self.run_cli('bootstrap_workflow', *dry_run)
+                self.assertEqual(result.returncode, 1, result.stderr)
+                self.assertIn('프로젝트 밖', result.stderr)
+            self.assertEqual(list(Path(outside).iterdir()), [])
+
+    def test_default_validation_rejects_external_document(self):
+        self.complete_project()
+        original = self.project / 'docs/plans/current.md'
+        original.unlink()
+        (self.project / 'docs/plans').rmdir()
+        with tempfile.TemporaryDirectory() as external:
+            (Path(external) / 'current.md').write_text('완료.', encoding='utf-8')
+            self.link_directory(self.project / 'docs/plans', Path(external))
+            result = self.run_cli('validate_workflow')
+            self.assertEqual(result.returncode, 1, result.stderr)
+            self.assertIn('프로젝트 밖', result.stderr)
+
+    def test_copy_failure_preserves_concurrent_user_save(self):
+        module = load_script('bootstrap_workflow')
+        target = self.project / 'docs/current-state.md'
+
+        def failed_copy(source, destination):
+            destination.write(b'partial')
+            destination.close()
+            replacement = target.with_suffix('.new')
+            replacement.write_text('사용자가 저장한 새 문서.', encoding='utf-8')
+            os.replace(replacement, target)
+            raise OSError('copy interrupted after user save')
+
+        with patch.object(sys, 'argv', ['bootstrap', '--project', str(self.project)]), \
+                patch.object(module.shutil, 'copyfileobj', failed_copy), \
+                contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(module.main(), 1)
+        self.assertEqual(target.read_text(encoding='utf-8'), '사용자가 저장한 새 문서.')
+
+    def test_all_markdown_list_markers_block_incomplete_work(self):
+        self.complete_project()
+        for marker in ('-', '*', '+'):
+            with self.subTest(marker=marker):
+                self.write('docs/plans/current.md', f'{marker} [ ] pending\n')
+                self.assertEqual(self.run_cli('validate_workflow').returncode, 1)
+
+    def test_markdown_code_examples_do_not_block_completed_work(self):
+        self.complete_project()
+        for example in ('```markdown\n- [ ] example\nTODO\n```',
+                        '~~~~markdown\n+ [ ] example\n[REQUIRED]\n~~~~',
+                        '설명에서 `TODO`와 `[REQUIRED]`를 예시로 쓴다.'):
+            with self.subTest(example=example):
+                self.write('docs/plans/current.md', '- [x] done\n' + example)
+                result = self.run_cli('validate_workflow')
+                self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_inline_delimiters_cannot_hide_real_pending_work(self):
+        self.complete_project()
+        for text in ('```literal```\n\n- [ ] pending verification\n',
+                     '`unmatched opening\n\n- [ ] pending verification\n``'):
+            with self.subTest(text=text):
+                self.write('docs/plans/current.md', text)
+                self.assertEqual(self.run_cli('validate_workflow').returncode, 1)
+
+    def test_required_template_fields_are_not_treated_as_examples(self):
+        self.complete_project()
+        templates = SCRIPTS.parent / 'assets/templates'
+        for name, prefix in (('plan-template.md', '- 생성:'),
+                             ('review-template.md', '**기준:**'),
+                             ('handover-template.md', '**저장소:**')):
+            with self.subTest(template=name):
+                field = next(line for line in (templates / name).read_text(encoding='utf-8').splitlines()
+                             if line.startswith(prefix))
+                self.write('docs/plans/current.md', '- [x] done\n' + field)
+                result = self.run_cli('validate_workflow')
+                self.assertEqual(result.returncode, 1)
+                self.assertIn('자리표시자', result.stderr)
+
+    def test_failed_publication_preserves_existing_document_and_removes_only_temp(self):
+        module = load_script('bootstrap_workflow')
+        target = self.project / 'docs/current-state.md'
+
+        def failed_link(source, destination):
+            destination.write_text('사용자 문서.', encoding='utf-8')
+            raise OSError('hard links unavailable')
+
+        with patch.object(sys, 'argv', ['bootstrap', '--project', str(self.project)]), \
+                patch.object(module.os, 'link', failed_link), \
+                contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(module.main(), 1)
+        self.assertEqual(target.read_text(encoding='utf-8'), '사용자 문서.')
+        self.assertFalse(list(target.parent.glob('.workflow-*')))
+
 
 class HookMergeTests(unittest.TestCase):
     def setUp(self):
@@ -226,6 +330,96 @@ class BackupTests(unittest.TestCase):
         result = self.run_backup('cp() { return 7; };\n', '\nprintf installation-started\n')
         self.assertNotEqual(result.returncode, 0)
         self.assertNotIn('installation-started', result.stdout)
+
+    def test_selected_theme_home_files_are_backed_up(self):
+        for name in ('.bashrc', '.minttyrc', '.elephant_walk.py'):
+            (Path(self.temp.name) / name).write_text('original theme', encoding='utf-8')
+        code = self.code.replace('$HOME', Path(self.temp.name).as_posix()).replace(
+            'selected_items=""', 'selected_items="13"')
+        result = subprocess.run([self.bash, '--noprofile', '--norc', '-c',
+                                 'selected_items="13"\n' + code],
+                                capture_output=True, text=True, encoding='utf-8')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        backup = next(self.claude.glob('backup_*'))
+        for name in ('.bashrc', '.minttyrc', '.elephant_walk.py'):
+            self.assertEqual((backup / 'home' / name).read_text(encoding='utf-8'), 'original theme')
+
+
+class SetupExampleTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.target = Path(self.temp.name) / '.claude/settings.json'
+        self.target.parent.mkdir()
+        content = (ROOT / 'references/claude-code-cli-setup.md').read_text(encoding='utf-8')
+        self.load_code = re.findall(r'```python\n(.*?)```', content, re.S)[0]
+        self.code = next(c for c in re.findall(r'```python\n(.*?)```', content, re.S)
+                         if 'def merge_hooks' in c)
+        self.source = {'hooks': {'PreToolUse': [{'hooks': [{'type': 'command', 'command': 'guard'}]}],
+                                 'SessionStart': [{'hooks': [{'type': 'command', 'command': 'verify'}]}]},
+                       'permissions': {'allow': ['Bash(example)']}, 'language': 'korean'}
+
+    def execute(self, selected):
+        dotfiles = Path(self.temp.name) / 'dotfiles'
+        dotfiles.mkdir(exist_ok=True)
+        (dotfiles / 'settings.json').write_text(json.dumps(self.source), encoding='utf-8')
+        if not self.target.exists():
+            self.target.write_text('{"custom":"keep"}', encoding='utf-8')
+        namespace = {}
+        previous_cwd = Path.cwd()
+        try:
+            os.chdir(self.temp.name)
+            with patch.object(Path, 'home', return_value=Path(self.temp.name)), \
+                    patch('builtins.input', return_value=' '.join(map(str, selected))):
+                exec(compile(self.load_code, '<load settings>', 'exec'), namespace)
+                exec(compile(self.code, '<setup example>', 'exec'), namespace)
+        finally:
+            os.chdir(previous_cwd)
+        return json.loads(self.target.read_text(encoding='utf-8'))
+
+    def test_selected_hooks_are_saved_without_unselected_permissions(self):
+        saved = self.execute({2})
+        self.assertEqual(saved.get('hooks'), self.source['hooks'])
+        self.assertNotIn('permissions', saved)
+        self.assertEqual(saved['custom'], 'keep')
+
+    def test_selected_permissions_saved_without_unselected_hooks(self):
+        saved = self.execute({7})
+        self.assertEqual(saved['permissions'], self.source['permissions'])
+        self.assertNotIn('hooks', saved)
+
+    def test_all_selected_sections_are_saved_and_existing_plugins_preserved(self):
+        self.target.write_text('{"custom":"keep","enabledPlugins":{"existing":true}}', encoding='utf-8')
+        self.source.update({'statusLine': {'type': 'command', 'command': 'status'},
+                            'enabledPlugins': {'new': True}})
+        for event in ('Notification', 'PostToolUse'):
+            self.source['hooks'][event] = [{'hooks': [{'type': 'command', 'command': event}]}]
+        saved = self.execute({2, 3, 5, 6, 7, 14, 15})
+        self.assertEqual(saved['hooks'], self.source['hooks'])
+        self.assertEqual(saved['enabledPlugins'], {'existing': True, 'new': True})
+        self.assertEqual(saved['statusLine'], self.source['statusLine'])
+        self.assertEqual(saved['language'], 'korean')
+
+    def test_invalid_selection_does_not_write_settings(self):
+        self.target.write_text('{"custom":"keep"}', encoding='utf-8')
+        with self.assertRaises(ValueError):
+            self.execute({21})
+        self.assertEqual(self.target.read_text(encoding='utf-8'), '{"custom":"keep"}')
+
+    def test_write_failure_preserves_existing_settings(self):
+        original = '{"custom": "original"}'
+        self.target.write_text(original, encoding='utf-8')
+
+        def interrupted_dump(obj, stream, **kwargs):
+            stream.write('{')
+            stream.flush()
+            raise OSError('write interrupted')
+
+        with patch.object(json, 'dump', interrupted_dump):
+            with self.assertRaises(OSError):
+                self.execute({2})
+        self.assertEqual(self.target.read_text(encoding='utf-8'), original)
+        self.assertEqual(list(self.target.parent.iterdir()), [self.target])
 
 
 if __name__ == '__main__':

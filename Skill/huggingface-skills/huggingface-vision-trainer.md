@@ -66,5 +66,5 @@ Trackio: OD 스크립트는 자동 활성(`trackio.init/finish`), IC/SAM은 `--r
 ## 📦 출처 / 설치 상태
 - 플러그인: huggingface-skills@claude-plugins-official
 - 활성화: ON
-- 관련 MCP: huggingface-skills MCP (authenticate 도구), hf_jobs / hf_whoami MCP 도구
+- 관련 MCP: [Hugging Face MCP](../../MCP/huggingface-skills.md). 인증과 실제 도구 확인은 해당 문서를 따른다.
 - 캐시 경로: `~/.claude/plugins/cache/claude-plugins-official/huggingface-skills/1.0.8/skills/huggingface-vision-trainer/SKILL.md`

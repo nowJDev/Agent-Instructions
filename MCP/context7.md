@@ -18,22 +18,24 @@
 
 | 도구명 | 기능 | 주요 파라미터 |
 |--------|------|----------------|
-| resolve-library-id | 라이브러리 이름(예: "next.js")을 Context7 내부의 정식 라이브러리 ID로 해석. 문서 조회 전 선행 단계 | `libraryName` |
-| query-docs | 해석된 라이브러리 ID에 대해 문서를 질의해 관련 문서 스니펫 반환 | `context7CompatibleLibraryID`(resolve 결과), `topic`/`query`, `tokens`(분량) |
+| resolve-library-id | 라이브러리 이름(예: "next.js")과 질문으로 Context7 내부의 정식 라이브러리 ID를 찾는다. 문서 조회 전 선행 단계 | `libraryName`·`query` 필수 |
+| query-docs | 해석된 라이브러리 ID에 대해 문서를 질의해 관련 문서 스니펫 반환 | `libraryId`(resolve 결과)·`query` 필수, `language` 선택 |
+
+[공식 도구 계약](https://github.com/upstash/context7#available-tools)을 기준으로 하며 설치 버전의 런타임 스키마도 확인한다.
 
 ### 표준 사용 흐름
-1. `resolve-library-id`로 라이브러리 이름 → 정식 ID 변환 (여러 후보가 나오면 신뢰도/스니펫 수가 높은 것 선택)
-2. `query-docs`에 그 ID와 알고 싶은 주제를 넣어 최신 문서 조회
+1. `resolve-library-id`에 `libraryName`과 구체적인 `query`를 넣어 정식 ID를 찾는다. 여러 후보가 나오면 질문·버전에 맞는 것을 선택한다.
+2. `query-docs`에 `libraryId`와 알고 싶은 내용을 담은 `query`를 넣어 최신 문서를 조회한다.
 
 ## 💻 사용 예시
 
 **예시 1 — Next.js App Router 라우팅 최신 문법 확인**
-1. `resolve-library-id`(libraryName: "next.js") → 예: `/vercel/next.js` ID 획득
-2. `query-docs`(ID, topic: "app router route handlers") → 최신 예제 코드 수신 후 답변에 반영
+1. `resolve-library-id`(`libraryName: "next.js"`, `query: "app router route handlers"`) → 예: `/vercel/next.js` ID 획득.
+2. `query-docs`(`libraryId: "/vercel/next.js"`, `query: "app router route handlers"`) → 최신 예제 코드 수신 후 답변에 반영.
 
 **예시 2 — Prisma 마이그레이션 명령어 확인**
-1. `resolve-library-id`("prisma")
-2. `query-docs`(ID, topic: "migrate dev command options")
+1. `resolve-library-id`(`libraryName: "prisma"`, `query: "migrate dev command options"`).
+2. `query-docs`(`libraryId: "<resolve 결과 ID>"`, `query: "migrate dev command options"`).
 
 ## 📦 출처 / 설치 상태
 - 제공: **플러그인** `context7@claude-plugins-official`
