@@ -22,20 +22,20 @@
 
 2. **CLAUDE.md 파일 찾기**:
    ```bash
-   find . -name "CLAUDE.md" -o -name ".claude.local.md" 2>/dev/null | head -20
+   find . -name "CLAUDE.md" -o -name "CLAUDE.local.md" 2>/dev/null | head -20
    ```
-   추가 위치 결정: `CLAUDE.md`(팀 공유, git 체크인) vs `.claude.local.md`(개인/로컬, gitignore).
+   추가 위치 결정: `CLAUDE.md`(팀 공유, git 체크인)와 `CLAUDE.local.md`(개인/로컬, gitignore). [공식 지침 파일 안내](https://code.claude.com/docs/en/memory#choose-where-to-put-claudemd-files)를 따른다.
 
 3. **추가 내용 초안**: **간결하게** — 개념당 한 줄. CLAUDE.md는 프롬프트의 일부이므로 간결함이 중요. 형식 `<명령 또는 패턴>` - `<짧은 설명>`. 장황한 설명·자명한 정보·재발 가능성 낮은 일회성 수정은 피할 것.
 
 4. **변경 제안 표시**: 각 추가에 대해 대상 파일, 이유(한 줄), diff 형식으로 제시.
-   ```
+   ````markdown
    ### Update: ./CLAUDE.md
    **Why:** [한 줄 이유]
    ```diff
    + [간결한 추가]
    ```
-   ```
+   ````
 
 5. **승인 후 적용**: 사용자에게 적용 여부 질문, 승인한 파일만 편집.
 

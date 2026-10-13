@@ -7,7 +7,7 @@
 
 **브라우저 라이프사이클**: 첫 도구 호출 시 영속 Chrome 프로필로 브라우저가 자동 시작된다. MCP 서버 설정의 CLI 인자로 구성한다 (`npx chrome-devtools-mcp@latest --help`). 추가 기능은 플래그로 활성화: 확장 프로그램 도구는 `--categoryExtensions`, 메모리 도구는 `--memoryDebugging`.
 
-**페이지 선택**: 도구는 현재 선택된 페이지에서 동작한다. `list_pages`로 페이지 목록 확인 후 `select_page`로 컨텍스트 전환.
+**페이지 지정**: [공식 1.10.1 배포 도구 계약](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/e52c6b59b476c5e04d8dd9fd4bd017ba3b3d65df/docs/tool-reference.md)에서 페이지 도구는 `pageId`를 필수로 받는다. `list_pages`로 실제 ID를 확인해 이동·스냅샷·인터랙션 호출에 전달한다. `select_page`만으로 필수 인자가 대체되지 않으며 설치 버전의 런타임 스키마를 우선한다.
 
 **요소 인터랙션**: `take_snapshot`으로 각 요소의 고유 `uid`를 얻어 인터랙션한다. 요소를 못 찾으면 새 스냅샷을 찍는다(페이지 변경 가능성).
 
@@ -23,6 +23,8 @@
 
 ## 🛠️ 제공 도구 / 주요 파라미터
 **페이지 인터랙션 전 워크플로**:
+모든 페이지 도구에 확인한 `pageId`를 전달한다.
+
 1. `navigate_page` 또는 `new_page`로 이동
 2. `wait_for`로 콘텐츠 로딩 대기(찾을 대상을 알 때)
 3. `take_snapshot`으로 페이지 구조 파악

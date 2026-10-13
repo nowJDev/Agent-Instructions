@@ -32,10 +32,12 @@ LCP(최대 콘텐츠 렌더링 시간) 성능을 진단하고 최적화한다. L
 
 ## 🛠️ 제공 도구 / 주요 파라미터
 **디버깅 워크플로(순서대로)**:
+`list_pages`에서 실제 `pageId`를 확인하고 각 페이지 도구에 전달한다. 인자는 설치 버전의 런타임 스키마를 우선하며 [공식 도구 계약](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/e52c6b59b476c5e04d8dd9fd4bd017ba3b3d65df/docs/tool-reference.md)을 확인한다.
+
 1. **트레이스 기록**: `navigate_page` 후 `performance_start_trace`(`reload: true`, `autoStop: true`)로 전체 로딩 캡처. 출력의 insight set ID를 기록.
 2. **LCP 인사이트 분석**: `performance_analyze_insight`로 드릴다운. 인사이트 이름: `LCPBreakdown`(4개 구간 타이밍), `DocumentLatency`(TTFB), `RenderBlocking`(렌더 차단 리소스), `LCPDiscovery`(조기 발견 여부).
 3. **LCP 요소 식별**: `evaluate_script` + "Identify LCP Element" 스니펫으로 태그·리소스 URL·타이밍 확인. `url`이 비면 텍스트 기반 요소.
-4. **네트워크 워터폴 확인**: `list_network_requests`(`resourceTypes: ["Image", "Font"]`), `get_network_request`로 시작 시간·duration 점검.
+4. **네트워크 워터폴 확인**: `list_network_requests`(`resourceTypes: ["image", "font"]`), `get_network_request`로 시작 시간·duration 점검. `resourceTypes`는 소문자 enum이다.
 5. **HTML 공통 이슈 점검**: `evaluate_script` + "Audit Common Issues" 스니펫으로 lazy-load 이미지, fetchpriority 누락, 렌더 차단 스크립트 확인.
 
 **최적화 전략(우선순위)**:

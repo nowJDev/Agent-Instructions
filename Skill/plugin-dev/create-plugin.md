@@ -33,7 +33,7 @@
 4. **Plugin Structure Creation**: kebab-case 이름, 위치 선택, 디렉터리 구조 + `plugin.json` 매니페스트 + README 생성, git 초기화.
 5. **Component Implementation**: 타입별 스킬 로드 후 구현 (skill-development, agent-development, hook-development, mcp-integration, plugin-settings; legacy `commands/`만 command-development).
 6. **Validation & Quality Check**: plugin-validator 에이전트, skill-reviewer, validate-agent.sh, validate-hook-schema.sh로 검증.
-7. **Testing & Verification**: `cc --plugin-dir /path`로 로컬 테스트, 체크리스트 검증.
+7. **Testing & Verification**: `claude --plugin-dir /path`로 로컬 테스트, 체크리스트 검증. 개인 별칭 없이 [공식 CLI 명령](https://code.claude.com/docs/en/discover-plugins)을 사용한다.
 8. **Documentation & Next Steps**: README 완성, marketplace.json 엔트리, 요약.
 
 **allowed-tools**: Read, Write, Grep, Glob, Bash, TodoWrite, AskUserQuestion, Skill, Task

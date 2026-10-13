@@ -18,7 +18,7 @@
   - 즉시 1회 실행하면 되는 작업은 그냥 직접 수행
 
 ## 💻 사용 예시 / 명령어
-- "매주 월요일 오전에 의존성 업데이트 점검 routine 만들어줘"
+- `/schedule 매주 월요일 오전에 의존성 업데이트 점검` — 클라우드 routine 생성 절차를 시작한다.
 - "내 routine 목록 보여줘"
 - "X routine의 cron을 매시간으로 바꿔줘"
 - "내일 오후 3시에 한 번만 배포 상태 확인해줘" (1회성)
@@ -27,7 +27,8 @@
 - **관리 동작**: routine **생성 / 수정 / 목록(list) / 즉시 실행(run)**
 - **스케줄 형식**: cron 표현식 (반복) 또는 1회성 예약 시각
 - **실행 위치**: 클라우드 (세션과 독립)
-- 관련 내부 도구: CronCreate / CronList / CronDelete 계열
+- **클라우드 관리**: `/schedule`(별칭 `/routines`) 또는 계정의 Routines 화면을 사용한다. 저장 후 계정의 routine 목록에서 생성·일정·실행 상태를 확인한다. [공식 routines 안내](https://code.claude.com/docs/en/routines)를 따른다.
+- **세션 작업과 구분**: `CronCreate`·`CronList`·`CronDelete`는 현재 세션의 예약 작업 도구이며 클라우드 routine을 생성하지 않는다. [세션 예약 도구](https://code.claude.com/docs/en/scheduled-tasks#manage-scheduled-tasks)는 `loop`나 세션 안의 일회성 알림에 사용한다.
 
 ## 📦 출처 / 설치 상태
 - 분류: **빌트인(내장) 스킬**

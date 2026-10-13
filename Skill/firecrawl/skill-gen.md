@@ -6,7 +6,7 @@
 임의의 라이브러리/도구/서비스 공식 문서 URL을 입력받아, 그 내용을 Firecrawl로 수집한 뒤 AI 에이전트가 사용할 수 있는 프로덕션 수준의 Agent Skill(SKILL.md + scripts/references/assets)을 처음부터 끝까지 만들어 주는 명령어다. 단순 요약이 아니라 "에이전트가 작업을 더 잘 수행하게 해 줄 비자명한 절차적 지식·도메인 세부사항·재사용 자산"을 식별해 스킬로 구조화하는 것이 목표다.
 
 전체 흐름은 8단계로 구성된다.
-1. **문서 스크래핑** — `firecrawl map`으로 관련 페이지를 발견하고, `firecrawl scrape`로 핵심 페이지(API 레퍼런스, 퀵스타트, 핵심 개념, 인증, 예제)를 가져온다. 대형 사이트는 `firecrawl crawl --maxDepth 2 --limit 15`로 수집한다. 체인지로그/블로그/커뮤니티 페이지는 제외한다.
+1. **문서 스크래핑** — `firecrawl map`으로 관련 페이지를 발견하고, `firecrawl scrape`로 핵심 페이지(API 레퍼런스, 퀵스타트, 핵심 개념, 인증, 예제)를 가져온다. 대형 사이트는 `firecrawl crawl "<documentation-url>" --max-depth 2 --limit 15 --wait`로 수집한다. [공식 CLI 1.26.3 옵션](https://github.com/firecrawl/cli/blob/3136f724b3203c6a69bfb14d2f384271eb45822c/src/index.ts)은 `--max-depth`이며 설치 버전의 `firecrawl crawl --help`를 확인한다. 체인지로그/블로그/커뮤니티 페이지는 제외한다.
 2. **스킬 범위 명확화** — 스킬 이름(kebab-case 제안), 2~3개 핵심 유스케이스(트리거 발화)를 사용자에게 1~2개 질문으로 확인.
 3. **스킬 내용 설계** — 각 유스케이스를 처음부터 수행하는 방식을 분석해 재사용 리소스 유형(scripts/references/assets)을 결정.
 4. **계획 승인** (필수, 파일 작성 전) — 디렉터리 트리, 각 파일 요약, SKILL.md frontmatter(name/description)를 제시하고 승인 대기.

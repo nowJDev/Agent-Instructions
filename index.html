@@ -456,7 +456,7 @@ https://github.com/nowJDev/Agent-Instructions</pre>
       <div class="eyebrow">11 — FAQ</div>
       <h2>자주 묻는 질문</h2>
       <div class="faq">
-        <details><summary>에이전트가 AGENTS.md를 안 읽어요.</summary><p>Claude Code가 자동으로 읽는 것은 <code>CLAUDE.md</code>입니다. <code>AGENTS.md</code>는 진입점으로 명시 참조하거나 프로젝트 <code>CLAUDE.md</code>에서 링크해 두세요.</p></details>
+        <details><summary>에이전트가 AGENTS.md를 안 읽어요.</summary><p>Claude Code의 자동 로드는 버전과 설정에 따라 <code>CLAUDE.md</code>·<code>AGENTS.md</code>를 지원합니다. <a href="https://code.claude.com/docs/en/memory#when-claude-code-reads-agentsmd" class="inline">공식 로딩 기준</a>을 확인하고, 호환성을 위해 프로젝트 <code>CLAUDE.md</code>에서 <code>@Agent-Instructions/AGENTS.md</code>를 import한 뒤 새 세션에서 실제 로드를 확인하세요.</p></details>
         <details><summary>카탈로그의 스킬이 제 환경엔 없어요.</summary><p>카탈로그는 작성 환경의 플러그인 설치 상태 스냅샷입니다. 해당 플러그인을 설치/활성(ON)하거나, 유지보수 절차로 카탈로그를 당신 구성에 맞게 갱신하세요.</p></details>
         <details><summary>스킬과 MCP의 차이가 뭔가요?</summary><p>스킬은 Claude가 따르는 절차/방법론 패키지이고, MCP는 외부 도구·서비스를 연결하는 서버입니다. 카탈로그는 둘을 각각 <code>Skill/</code>·<code>MCP/</code>로 분리해 둡니다.</p></details>
         <details><summary>왜 README.md가 아니라 AGENTS.md가 진입점인가요?</summary><p>README는 사람용 소개·사용법(이 문서), AGENTS.md는 AI가 따르는 행동 지침으로 역할이 분리됩니다. AI 도구 생태계의 공통 관례(AGENTS.md)를 따릅니다.</p></details>

@@ -26,8 +26,8 @@ firecrawl interact --prompt "Fill in the email field with test@example.com"
 firecrawl interact --prompt "Extract the pricing table"
 
 # 3) 코드로 정밀 제어
-firecrawl interact --code "agent-browser click @e5" --language bash
-firecrawl interact --code "agent-browser snapshot -i" --language bash
+firecrawl interact --code "agent-browser click @e5" --bash
+firecrawl interact --code "agent-browser snapshot -i" --bash
 
 # 4) 작업 종료 시 세션 정리
 firecrawl interact stop
@@ -54,12 +54,14 @@ firecrawl scrape "https://app.example.com" --profile my-app --no-save-changes
 | --- | --- |
 | `--prompt <text>` | 자연어 지시(이것 OR `--code`) |
 | `--code <code>` | 브라우저 세션에서 실행할 코드 |
-| `--language <lang>` | 코드 언어: bash, python, node |
+| `--bash` / `--python` / `--node` | 코드 언어 선택(서로 배타적, 기본 Node.js/Playwright) |
 | `--timeout <seconds>` | 실행 타임아웃(기본 30, 최대 300) |
 | `--scrape-id <id>` | 특정 스크래프 대상 지정(기본: 마지막 스크래프) |
 | `-o, --output <path>` | 출력 파일 경로 |
 
 **팁**: 반드시 먼저 `scrape` — interact는 이전 스크래프의 scrape ID가 필요. scrape ID는 자동 저장되어 이후 interact에는 `--scrape-id` 불필요. 작업 끝나면 `firecrawl interact stop`으로 리소스 해제. 병렬 작업 시 여러 페이지를 스크래프 후 각 `--scrape-id`로 상호작용.
+
+옵션은 [공식 CLI 1.26.3 계약](https://github.com/firecrawl/cli/blob/3136f724b3203c6a69bfb14d2f384271eb45822c/src/index.ts)을 기준으로 하며, 실행 전 설치 버전의 `firecrawl interact --help`를 확인한다. `--language`는 이 배포 버전의 옵션이 아니다.
 
 ## 📦 출처 / 설치 상태
 - 플러그인: firecrawl@claude-plugins-official

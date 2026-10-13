@@ -73,7 +73,7 @@ You're adding an API key to a .env file. Ensure this file is in .gitignore!
 - `operator`: `regex_match`, `contains`, `equals`, `not_contains`, `starts_with`, `ends_with`.
 - `pattern`: 매치할 패턴/문자열.
 
-정규식 메타문자: `\s`(공백), `\d`(숫자), `\w`(단어문자), `.`(임의문자), `+`(1+), `*`(0+), `?`(0/1), `|`(OR). YAML에서는 따옴표 없는(unquoted) 패턴 사용 권장 (따옴표 시 `\\s`처럼 이중 백슬래시 필요).
+정규식 메타문자: `\s`(공백), `\d`(숫자), `\w`(단어문자), `.`(임의문자), `+`(1+), `*`(0+), `?`(0/1), `|`(OR). YAML의 작은따옴표는 백슬래시를 그대로 보존하므로 `pattern: '\s'`를 사용한다. 큰따옴표는 escape를 해석하므로 `pattern: "\\s"`로 쓴다. 두 값 모두 Python에는 `\s` 하나로 전달되어 공백에 매치된다. 작은따옴표 안에서 백슬래시를 두 번 쓰면 의미가 달라진다. 따옴표 없는 값은 YAML 예약 문자·주석 구문과 충돌하는지 확인한다. [YAML scalar 규칙](https://yaml.org/spec/1.2.2/#73-flow-scalar-styles)을 따른다.
 
 패턴 테스트: `python3 -c "import re; print(re.search(r'your_pattern', 'test text'))"`
 

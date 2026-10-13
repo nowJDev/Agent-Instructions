@@ -10,7 +10,7 @@
 | **context7** | 플러그인 `context7` | stdio (npx) | 2 | [context7.md](context7.md) |
 | **figma** | 플러그인 `figma` | http (원격 OAuth) | 런타임 목록 확인 | [figma.md](figma.md) |
 | **huggingface-skills** | 플러그인 `huggingface-skills` | http (원격 OAuth) | 런타임 목록 확인 | [huggingface-skills.md](huggingface-skills.md) |
-| **playwright** | 플러그인 `playwright` | stdio (npx) | 23 | [playwright.md](playwright.md) |
+| **playwright** | 플러그인 `playwright` | stdio (npx) | 버전·capability별 런타임 확인 | [playwright.md](playwright.md) |
 | **claude.ai PlayMCP** | claude.ai 계정 연동 (카카오 공식) | 원격 | 5개 하위 서버 | [claude-ai-PlayMCP/](claude-ai-PlayMCP/README.md) |
 
 ## claude.ai PlayMCP 하위 서버
@@ -29,7 +29,7 @@
 
 | MCP 서버 | 제공 플러그인 | 연결 방식 | 문서 |
 |---|---|---|---|
-| **vercel** | vercel (OFF) | http 원격 (`mcp.vercel.com`, OAuth, 읽기전용) | [_disabled/vercel.md](_disabled/vercel.md) |
+| **vercel** | vercel (OFF) | http 원격 (`mcp.vercel.com`, OAuth, 조회·변경 도구 포함) | [_disabled/vercel.md](_disabled/vercel.md) |
 | **railway** | railway (OFF) | stdio (`railway mcp`) + 원격 옵션 | [_disabled/railway.md](_disabled/railway.md) |
 | **neon** | neon (OFF) | http 원격 (`mcp.neon.tech/mcp`) | [_disabled/neon.md](_disabled/neon.md) |
 | **semgrep** | semgrep (OFF) | stdio (`semgrep mcp`) | [_disabled/semgrep.md](_disabled/semgrep.md) |

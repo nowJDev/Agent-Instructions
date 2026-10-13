@@ -30,10 +30,10 @@
 
 **동적 인자**:
 - `$ARGUMENTS`: 모든 인자를 단일 문자열로
-- `$1`, `$2`, `$3`: 위치 인자
-- 혼합: `Deploy $1 to $2 with options: $3`
+- `$0`, `$1`, `$2`: 0부터 시작하는 위치 인자(`$ARGUMENTS[0]`, `$ARGUMENTS[1]`, `$ARGUMENTS[2]`와 동일).
+- 혼합: `Deploy $0 to $1 with options: $2`. `/deploy app staging --dry-run`이면 각각 `app`, `staging`, `--dry-run`으로 치환된다. [공식 인자 계약](https://code.claude.com/docs/en/skills#pass-arguments-to-skills)을 따른다.
 
-**파일 참조 (@ 구문)**: `@$1`, `@src/old.js`, `@package.json` — Claude가 명령 처리 전 파일을 읽음.
+**파일 참조 (@ 구문)**: `@$0`(첫 인자), `@src/old.js`, `@package.json` — Claude가 명령 처리 전 파일을 읽음.
 
 **Bash 실행**: 인라인 백틱 `` !`git diff --name-only` ``으로 동적 컨텍스트 수집(상세 구문은 `references/plugin-features-reference.md`).
 

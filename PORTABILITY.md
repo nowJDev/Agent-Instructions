@@ -124,7 +124,7 @@ github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마�
 ```
 
 - **받는 AI가 Claude Code면**: `/plugin marketplace add anthropics/claude-plugins-official` → 원하는 플러그인 설치. (이 저장소를 거치지 않고 원본에서 직접)
-- **받는 AI가 Agent Skills를 지원하면**: 위 저장소에서 해당 스킬의 **`SKILL.md` 디렉토리만** 가져와 그 AI의 skills 폴더에 배치. (플러그인의 커맨드·훅 등 Claude 전용 부분은 제외하고 **순수 SKILL.md만**)
+- **받는 AI가 Agent Skills를 지원하면**: 해당 원본에서 **스킬 루트 디렉터리 전체**를 그 AI의 skills 폴더에 배치한다. `SKILL.md`가 참조하는 `scripts/`·`references/`·`assets/`·예제와 상대경로 의존 리소스를 함께 보존한다. 별도 플러그인의 커맨드·훅 등 Claude 전용 구성은 제외하고, 스킬의 도구·환경 요구는 대상 클라이언트에 맞게 확인한다. [Agent Skills 패키지 구조](https://agentskills.io/specification#directory-structure)를 따른다.
 - **스킬별 정확한 공개 원본·License**는 [`Skill/README.md`](Skill/README.md)의 **"📦 출처·설치 매핑"** 표 참조. 주의: 전부 마켓플레이스 번들이 아니다 — 일부는 **외부 repo가 원본**이다:
   - `superpowers` → `github.com/obra/superpowers` (MIT) · `huggingface-skills` → `github.com/huggingface/skills` (Apache-2.0) · `qodo-skills` → `github.com/qodo-ai/qodo-skills` (MIT) · `vercel`/`railway`/`neon`도 각사 repo
   - 나머지(Anthropic 제작 + Figma·Microsoft·Upstash·Semgrep·Firecrawl 번들)는 `github.com/anthropics/claude-plugins-official`에서 배포되며, **plugin.json에 license 미기재 항목은 재배포 전 제작사 약관 확인**.
@@ -141,7 +141,7 @@ github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마�
 - 직접 작성한 Skill은 `Owned-Skills/`에만 두고 이 저장소의 License와 출처를 명시한다.
 
 ### 3.6 사전 점검 — 받는 AI가 Agent Skills를 지원하는가?
-- **지원** → 경로 A(출처 설치)로 SKILL.md 배치.
+- **지원** → 경로 A(출처 설치)로 스킬 루트 패키지와 참조 리소스를 함께 배치한다.
 - **지원 + 자체 제작 Skill** → `Owned-Skills/<name>` 패키지를 사용자 Skill 디렉터리에 복사.
 - **미지원** → 경로 B(참조) 또는 경로 C(MCP 래핑).
 
@@ -153,6 +153,7 @@ github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마�
 - [ ] **MCP 인증**: figma·hf는 OAuth 로그인, notion은 자기 토큰 주입(커밋 금지)
 - [ ] **PlayMCP 제외**: claude.ai 종속이므로 대체 MCP/API로 교체 (§2.4)
 - [ ] **Skill 출처 확인**: 쓰려는 스킬의 공개 원본(`anthropics/claude-plugins-official` 등) 확보
+- [ ] **Skill 리소스 보존**: `SKILL.md`의 상대경로 참조·실행 스크립트·템플릿이 설치 위치에서도 존재하는지 확인한다.
 - [ ] **자체 제작 Skill**: `Owned-Skills/` 원본과 `agents/openai.yaml`을 함께 배치
 - [ ] **Agent Skills 지원 여부** 확인 → 경로 A / B / C 결정
 - [ ] **LICENSE 확인**: 원본 라이선스 조건 준수, 실물 재배포 금지

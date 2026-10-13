@@ -40,10 +40,11 @@ const clf = await pipeline('sentiment-analysis', null, { progress_callback: onPr
 
 ```javascript
 // env 전역 설정
-import { env, LogLevel } from '@huggingface/transformers';
+import { env } from '@huggingface/transformers';
 env.allowRemoteModels = true; env.useFSCache = true; env.cacheDir = './.cache';
-env.fetch = (url, opt) => fetch(url, { ...opt, headers: { ...opt?.headers, Authorization: `Bearer ${HF_TOKEN}` }});
 ```
+
+**비공개·gated 모델 인증**: 서버(Node.js)의 실행 환경에 `HF_TOKEN`을 주입하면 라이브러리가 Hugging Face Hub 요청에 인증 헤더를 붙인다. 전역 `env.fetch`로 모든 URL에 토큰을 붙이지 않는다. 브라우저 코드·번들에 비밀 토큰을 넣지 않으며, 공개 모델은 토큰 없이 사용한다. [공식 서버 인증 안내](https://huggingface.co/docs/transformers.js/guides/private)를 따른다.
 
 ## 🛠️ 제공 도구 / 주요 파라미터
 핵심 개념: ① pipeline API(가장 쉬움), ② 모델 선택(2번째 인자), ③ device(`webgpu` 또는 기본 WASM/CPU), ④ 양자화 dtype(`fp32`/`fp16`/`q8`/`q4`).

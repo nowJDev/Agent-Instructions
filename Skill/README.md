@@ -107,7 +107,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 
 ### 설치 방법
 - **받는 AI가 Claude Code**: `/plugin marketplace add anthropics/claude-plugins-official` → 플러그인 설치(이 저장소 불필요, 원본에서 직접).
-- **받는 AI가 Agent Skills 지원**: 위 원본 repo에서 해당 스킬의 **`SKILL.md` 디렉토리만** 추출해 배치(플러그인의 커맨드·훅 등 Claude 전용 부분 제외).
+- **받는 AI가 Agent Skills 지원**: 해당 원본 repo에서 **스킬 루트 디렉터리 전체**를 배치하고, `SKILL.md`의 `scripts/`·`references/`·`assets/`·예제 및 상대경로 의존 리소스를 보존한다. 별도 플러그인의 커맨드·훅 등 Claude 전용 구성만 제외하며, 설치 후 참조 파일과 실행 환경을 확인한다. [패키지 구조](https://agentskills.io/specification#directory-structure)를 따른다.
 - **미지원 AI**: [`../PORTABILITY.md`](../PORTABILITY.md) 경로 B(참조 활용)·C(MCP 래핑).
 
 ## 각 문서 구성
