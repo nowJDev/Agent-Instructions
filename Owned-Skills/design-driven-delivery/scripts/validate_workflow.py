@@ -72,21 +72,90 @@ def add_required_collection(
 
 
 def prose_content(content: str) -> str:
-    lines = []
+    blocks = []
+    paragraph = []
     fence = None
-    for line in content.splitlines():
-        marker = re.match(r"^\s*(`{3,}|~{3,})(.*)$", line)
+    quote_depth = 0
+    list_indents = []
+
+    def flush() -> None:
+        if paragraph:
+            blocks.append(re.sub(
+                r"(?<![\\`])((?:\\\\)*)(`+)(?!`).*?(?<!`)\2(?!`)",
+                lambda match: match[1], "\n".join(paragraph),
+                flags=re.DOTALL,
+            ))
+            paragraph.clear()
+
+    # shortcut: 일반 문단·목록·인용의 경계만 추적하며 HTML 등 복합 Markdown은 수동 검증한다.
+    for original in content.splitlines():
+        quote_parts = [original.expandtabs(4)]
+        while prefix := re.match(r"^ {0,3}> ?", quote_parts[-1]):
+            quote_parts.append(quote_parts[-1][prefix.end():])
+        depth = len(quote_parts) - 1
+
         if fence is not None:
-            if marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
+            delimiter, fence_depth, fence_indent, inner_depth = fence
+            body = quote_parts[fence_depth] if depth >= fence_depth else ""
+            indentation = len(body) - len(body.lstrip(" "))
+            outside = depth < fence_depth or (body.strip() and indentation < fence_indent)
+            if not outside:
+                body = body[fence_indent:]
+                for _ in range(inner_depth):
+                    prefix = re.match(r"^ {0,3}> ?", body)
+                    if prefix is None:
+                        outside = True
+                        break
+                    body = body[prefix.end():]
+            if outside:
                 fence = None
-        elif marker and (marker[1][0] != "`" or "`" not in marker[2]):
-            fence = marker[1]
+                flush()
+            else:
+                marker = re.match(r"^ {0,3}(`{3,}|~{3,})([ \t]*)$", body)
+                if marker and marker[1][0] == delimiter[0] and len(marker[1]) >= len(delimiter):
+                    fence = None
+                continue
+
+        line = quote_parts[-1]
+        if depth != quote_depth:
+            flush()
+            list_indents.clear()
+            quote_depth = depth
+        if not line.strip():
+            flush()
+            continue
+
+        indentation = len(line) - len(line.lstrip(" "))
+        while list_indents and indentation < list_indents[-1]:
+            list_indents.pop()
+        container_indent = list_indents[-1] if list_indents else 0
+        item = re.match(r"^( *)([-*+]|\d{1,9}[.)])( {1,4})(\S.*)$", line)
+        if item and indentation <= container_indent + 3:
+            flush()
+            container_indent = item.start(4)
+            list_indents.append(container_indent)
+            body = item[4]
         else:
-            lines.append(line)
-    return re.sub(
-        r"(?<!`)(`+)(?!`).*?(?<!`)\1(?!`)", "", "\n".join(lines),
-        flags=re.DOTALL,
-    )
+            body = line[container_indent:]
+
+        inner_depth = 0
+        while prefix := re.match(r"^ {0,3}> ?", body):
+            body = body[prefix.end():]
+            inner_depth += 1
+        marker = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", body)
+        if marker and (marker[1][0] != "`" or "`" not in marker[2]):
+            flush()
+            fence = (marker[1], depth, container_indent, inner_depth)
+            continue
+
+        heading = re.match(r"^ {0,3}(?:#{1,6}(?: |$)|(?:=+|-+|(?:\* *){3,}|(?:_ *){3,}) *$)", body)
+        if heading:
+            flush()
+        paragraph.append(line)
+        if heading:
+            flush()
+    flush()
+    return "\n".join(blocks)
 
 
 def main() -> int:

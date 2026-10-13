@@ -62,6 +62,8 @@ docs/
 
 검증 스크립트는 `-`·`*`·`+` Markdown 목록을 확인한다. backtick·tilde fenced 코드와 inline code 안의 예시는 상태·자리표시자 검사에서 제외한다. 코드 예시 밖에 실제 상태를 기록하고 테스트·수동 검증의 증거를 별도로 확인한다.
 
+코드 예시 검사는 일반 문단, heading, 목록 항목과 명시적 `>` 인용 경계를 추적한다. 같은 문단의 여러 줄 inline code는 인정하되 다른 문단·heading·목록 항목·fence를 가로지르지 않는다. fence는 컨테이너를 제외한 0~3칸 들여쓰기를 인정하며, 목록의 들여쓴 continuation과 중첩 인용에서도 검사한다. 미닫힘 fence는 해당 목록·인용 컨테이너를 벗어나면 끝난다. 완전한 CommonMark 파서는 아니므로 HTML, 들여쓴 코드 블록과 인용·목록의 들여쓰기 없는 lazy continuation 등 복합 문법은 수동 검증한다.
+
 ## 리뷰 문서.
 
 기준선부터 전체 대상 파일을 검토하고 정확성, 단순화, 효율성, 주석, 검증과 발견 사항을 기록한다. 기본 템플릿은 `assets/templates/review-template.md`다.
