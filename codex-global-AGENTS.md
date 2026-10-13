@@ -4,6 +4,7 @@
 > **▶ START HERE — 처음 온 에이전트라면 먼저 [`Agent-Instructions/README.md`](Agent-Instructions/README.md)를 읽어라.**
 > 전역 운영 문서·스킬/MCP 인덱스·의사결정 맵이 거기 있다. 본 파일(AGENTS.md)은 그 지도 위에서 **따르는 행동 규칙**이다. README로 전체를 파악하고 → 이 파일의 규칙대로 작업하라.
 > **"적용" = 이 규칙을 로드해 따르는 것**(환경 *설치*가 아니다). Claude 전용 지시(`rag_agent`·`PreToolUse 훅`·Team 등)는 Codex 동등 기능을 확인하고, 없으면 번역/제외한다. 세부는 [`Agent-Instructions/PORTABILITY.md`](Agent-Instructions/PORTABILITY.md)를 보라.
+> Windows에서 "이 저장소대로 Codex 세팅해줘"는 전역 지침 배치와 공식 아이콘 `Codex.lnk` 생성·검증까지 포함한다. [`Agent-Instructions/GETTING_STARTED.md`](Agent-Instructions/GETTING_STARTED.md)와 [`Agent-Instructions/references/codex-windows-shortcut.md`](Agent-Instructions/references/codex-windows-shortcut.md)를 따른다.
 
 작업 시작 전 **가장 먼저 읽는 파일**이다. 핵심 규칙은 이 파일만으로도 실행 가능해야 한다. 세부 문서는 `Agent-Instructions/` 아래에 두되, 해당 상황에 들어가면 반드시 읽는다.
 

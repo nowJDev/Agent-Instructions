@@ -15,6 +15,17 @@ https://github.com/nowJDev/Agent-Instructions
 
 AI가 GitHub 링크를 직접 열 수 없다면 저장소를 내려받은 뒤, 루트의 `README.md`, `AGENTS.md`, `PORTABILITY.md` 내용을 순서대로 제공한다.
 
+Windows Codex 환경을 실제로 세팅하려면 다음처럼 요청한다.
+
+```text
+이 저장소대로 Windows Codex 환경을 세팅해줘.
+전역 지침 배치와 공식 아이콘 Codex.lnk 생성·검증까지 진행해줘.
+GETTING_STARTED.md와 references/codex-windows-shortcut.md를 따라줘.
+https://github.com/nowJDev/Agent-Instructions
+```
+
+단순 "지침 적용"은 규칙을 읽고 따르는 의미다. Windows에서 "이 저장소대로 Codex 세팅해줘"는 §4.1의 전역 지침 배치와 바탕화면 바로가기 생성·검증을 모두 요청하는 의미다.
+
 ## 2. 적용 순서
 
 1. `README.md`를 읽어 저장소 구조와 의사결정 지도를 파악한다.
@@ -70,6 +81,13 @@ Codex CLI 명령으로는 다음 식의 확인도 가능하다.
 ```powershell
 codex --ask-for-approval never "Summarize the current instructions and list which instruction files are active."
 ```
+
+### 4.1 Windows Codex 환경 세팅
+
+1. 기존 `~/.codex/AGENTS.md`, `AGENTS.override.md`와 복제본 내용을 먼저 확인하고 사용자 고유 지침을 보존한다. 저장소 전체를 `~/.codex/Agent-Instructions`에 배치·동기화하고, `codex-global-AGENTS.md`를 전역 `AGENTS.md`에 반영한다. 경로를 변경했다면 전역 지침의 참조 경로도 맞춘다.
+2. [references/codex-windows-shortcut.md](references/codex-windows-shortcut.md)를 따라 공식 아이콘을 준비하고 실제 바탕화면의 `Codex.lnk`를 생성하거나 갱신한다. 배치 파일이 없어도 진행하며 기존 `.bat`는 삭제하지 않는다. 사용자 지정 작업 폴더를 우선하고, 미지정이면 실제 바탕화면 아래 `Agent`를 사용한다.
+3. 바로가기 속성·실행 파일·작업 폴더·아이콘을 검증하고, 새 Codex 세션에서 활성 instruction sources를 확인한다. `AGENTS.override.md`가 새 전역 지침을 가리면 임의로 삭제하지 않고 미완료 사유로 보고한다.
+4. 전역 지침 위치, `Codex.lnk` 위치, 작업 폴더, 아이콘 출처와 검증 결과를 보고한다. Codex CLI·Windows Terminal·공식 아이콘 등 전제가 없거나 검증이 실패하면 해당 항목을 미완료로 보고한다. CLI·Terminal 자동 설치와 개인 설정·아이콘 바이너리의 저장소 배포는 이 요청에 포함하지 않는다.
 
 ## 5. 이 저장소가 하는 것과 하지 않는 것
 
