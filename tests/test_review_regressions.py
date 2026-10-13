@@ -314,6 +314,7 @@ class BackupTests(unittest.TestCase):
 
     def run_backup(self, prefix='', suffix=''):
         return subprocess.run([self.bash, '--noprofile', '--norc', '-c', prefix + self.code + suffix],
+                              env=dict(os.environ, CLAUDE_CONFIG_DIR=self.claude.as_posix()),
                               capture_output=True, text=True, encoding='utf-8')
 
     def test_repeated_backup_copies_only_originals(self):
@@ -338,6 +339,7 @@ class BackupTests(unittest.TestCase):
             'selected_items=""', 'selected_items="13"')
         result = subprocess.run([self.bash, '--noprofile', '--norc', '-c',
                                  'selected_items="13"\n' + code],
+                                env=dict(os.environ, CLAUDE_CONFIG_DIR=self.claude.as_posix()),
                                 capture_output=True, text=True, encoding='utf-8')
         self.assertEqual(result.returncode, 0, result.stderr)
         backup = next(self.claude.glob('backup_*'))
@@ -370,6 +372,7 @@ class SetupExampleTests(unittest.TestCase):
         try:
             os.chdir(self.temp.name)
             with patch.object(Path, 'home', return_value=Path(self.temp.name)), \
+                    patch.dict(os.environ, {'CLAUDE_CONFIG_DIR': str(self.target.parent)}), \
                     patch('builtins.input', return_value=' '.join(map(str, selected))):
                 exec(compile(self.load_code, '<load settings>', 'exec'), namespace)
                 exec(compile(self.code, '<setup example>', 'exec'), namespace)

@@ -35,6 +35,8 @@ https://github.com/nowJDev/Agent-Instructions
 | Codex | Codex CLI, 기존 지침을 보존한 `~/.codex/AGENTS.md`, 공식 아이콘 `Codex.lnk` |
 | Claude Code | Claude Code CLI, 기존 `~/.claude/CLAUDE.md`의 기본 지침 import, 공식 아이콘 `Claude Code.lnk` |
 
+표의 설정 경로는 기본값이다. `CODEX_HOME`이나 `CLAUDE_CONFIG_DIR`을 지정한 환경에서는 해당 폴더를 기준으로 기존 지침·설정과 아이콘을 보존한다.
+
 Windows Terminal은 있으면 재사용하고 없으면 CMD를 쓴다. 인증 대기·아이콘 준비 실패·실행 실패·지침 로드 미확인은 미완료로 보고한다.
 
 | 사용 환경 | 다음 단계 |

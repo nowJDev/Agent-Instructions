@@ -56,7 +56,7 @@ https://github.com/nowJDev/Agent-Instructions
 
 ## 4. Codex에서 헷갈리기 쉬운 부분
 
-Codex CLI는 `AGENTS.md`를 자동으로 찾지만, 모든 링크 문서를 자동으로 펼쳐 읽는 방식은 아니다.
+Codex CLI는 `AGENTS.md`를 자동으로 찾지만, 모든 링크 문서를 자동으로 펼쳐 읽는 방식은 아니다. 이 절의 `~/.codex`는 기본 위치이며 `CODEX_HOME`이 지정됐으면 그 설정 홈에서 전역 지침·override·복제본을 읽고 백업·병합한다.
 
 - Codex는 실행 또는 TUI 세션 시작 시점에 `~/.codex/AGENTS.override.md`가 있으면 그것을, 없으면 `~/.codex/AGENTS.md`를 전역 지침으로 읽는다.
 - 프로젝트에서는 Git 루트부터 현재 작업 디렉터리까지 `AGENTS.override.md`, `AGENTS.md`, 설정된 fallback 파일을 순서대로 찾고, 디렉터리마다 최대 1개만 포함한다.
@@ -86,7 +86,7 @@ codex "Summarize the current instructions and list which instruction files are a
 
 #### CLI 준비.
 
-1. 선택한 CLI의 실행 파일을 확인한다. Codex는 `Get-Command codex.cmd, codex.exe -CommandType Application`, Claude Code는 `Get-Command claude.cmd, claude.exe -CommandType Application`으로 확인하고 `Source` 전체 경로를 기록한다. 해당 전체 경로로 `--version`을 실행해 성공하면 재사용한다. 설치된 다른 CLI는 변경하지 않는다.
+1. 선택한 CLI의 실행 파일을 확인한다. Codex는 `Get-Command codex.cmd, codex.exe -CommandType Application`, Claude Code는 `Get-Command claude.cmd, claude.exe -CommandType Application`으로 확인하고 `Source` 전체 경로를 기록한다. 전체 경로에 `%`가 있으면 CMD 재확장을 막기 위해 실행 전에 중단하고 `%`가 없는 설치 경로로 옮기는 방법을 안내한다. 아래 버전 예제로 확인해 성공하면 재사용한다. 설치된 다른 CLI는 변경하지 않는다.
 2. 없으면 선택한 CLI만 현재 공식 설치 절차로 설치한다. 아래는 Windows 공식 PowerShell 명령이다. 설치 명령의 성공만으로 완료하지 않으며 다음 단계의 전체 경로·버전 검사를 수행한다.
 
 Codex는 [공식 CLI 설치 안내](https://learn.chatgpt.com/docs/codex/cli)의 새 PowerShell 설치 절차를 따른다.
@@ -119,20 +119,38 @@ $cliCommand = Get-Command $commandNames -CommandType Application -ErrorAction Si
 if (-not $cliCommand -or -not (Test-Path -LiteralPath $cliCommand.Source -PathType Leaf)) {
     throw '선택한 CLI가 없습니다. 새 터미널과 PATH를 확인하세요.'
 }
+if ($cliCommand.Source.Contains('%')) {
+    throw 'CLI 경로의 %는 CMD에서 재확장됩니다. %가 없는 설치 경로로 옮긴 뒤 다시 실행하세요.'
+}
 $cliCommand.Source
-& $env:ComSpec /d /c ('chcp 65001 > nul & "{0}" --version' -f $cliCommand.Source)
+& $env:ComSpec /d /v:off /c ('chcp 65001 > nul & "{0}" --version' -f $cliCommand.Source)
 if ($LASTEXITCODE -ne 0) { throw 'CLI 전체 경로의 버전 실행이 실패했습니다.' }
 ```
 
 #### 전역 기본 지침과 바로가기.
 
+선택한 클라이언트의 실제 설정 홈을 먼저 결정한다. 아래 `$client`는 선택한 값으로 입력하며 설정 홈은 백업·지침·복제본·아이콘·확장 설정에 공통으로 사용한다. 환경변수는 세팅과 새 CLI 실행에서 동일해야 한다. 기본 홈으로 임의 대체하거나 환경변수를 지우지 않는다.
+
+```powershell
+$client = 'codex' # Claude Code를 선택했으면 'claude-code'로 바꾼다.
+$clientHome = switch ($client) {
+    'codex' { if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USERPROFILE '.codex' } }
+    'claude-code' { if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $env:USERPROFILE '.claude' } }
+    default { throw 'client는 codex 또는 claude-code여야 합니다.' }
+}
+$clientHome = [IO.Path]::GetFullPath($clientHome)
+$clientHome
+```
+
+`CODEX_HOME`은 [공식 Codex 지침 로딩 안내](https://learn.chatgpt.com/docs/agent-configuration/agents-md), `CLAUDE_CONFIG_DIR`은 [공식 Claude 설정 디렉터리 안내](https://code.claude.com/docs/en/claude-directory)를 따른다.
+
 | 선택한 클라이언트 | 전역 기본 지침 | Windows 결과 |
 |---|---|---|
-| Codex | 기존 `~/.codex/AGENTS.md`에 `codex-global-AGENTS.md` 병합, 복제본 `~/.codex/Agent-Instructions` | `Codex.lnk`, `~/.codex/assets/icons/codex-official.ico` |
-| Claude Code | 기존 `~/.claude/CLAUDE.md`에 `@Agent-Instructions/AGENTS.md` import 추가, 복제본 `~/.claude/Agent-Instructions` | `Claude Code.lnk`, `~/.claude/assets/icons/claude-code-official.ico` |
+| Codex | 기존 `$clientHome/AGENTS.md`에 `codex-global-AGENTS.md` 병합, 복제본 `$clientHome/Agent-Instructions` | `Codex.lnk`, `$clientHome/assets/icons/codex-official.ico` |
+| Claude Code | 기존 `$clientHome/CLAUDE.md`에 `@Agent-Instructions/AGENTS.md` import 추가, 복제본 `$clientHome/Agent-Instructions` | `Claude Code.lnk`, `$clientHome/assets/icons/claude-code-official.ico` |
 
 1. 기존 전역 지침과 복제본을 전체 읽고 변경 전에 백업한다. 사용자 고유 지침을 보존하고 충돌·중복을 확인한다. Codex는 §4의 보존 병합과 override 확인을 따른다.
-2. Claude Code는 이 저장소를 `~/.claude/Agent-Instructions`에 배치·동기화하고 기존 `~/.claude/CLAUDE.md`의 내용을 유지하며 별도 줄에 `@Agent-Instructions/AGENTS.md`를 추가한다. 이미 같은 import가 있으면 중복 추가하지 않는다. 외부 dotfiles의 `CLAUDE.md`로 덮어쓰지 않는다. 상대 import는 작업 디렉터리가 아니라 **import를 선언한 파일의 위치** 기준이므로 여기서는 `~/.claude/CLAUDE.md`를 기준으로 해석된다. [공식 memory 문서](https://code.claude.com/docs/en/memory)를 따른다.
+2. Claude Code는 이 저장소를 `$clientHome/Agent-Instructions`에 배치·동기화하고 기존 `$clientHome/CLAUDE.md`의 내용을 유지하며 별도 줄에 `@Agent-Instructions/AGENTS.md`를 추가한다. 이미 같은 import가 있으면 중복 추가하지 않는다. 외부 dotfiles의 `CLAUDE.md`로 덮어쓰지 않는다. 상대 import는 작업 디렉터리가 아니라 **import를 선언한 파일의 위치** 기준이므로 여기서는 실제 설정 홈의 `CLAUDE.md`를 기준으로 해석된다. [공식 memory 문서](https://code.claude.com/docs/en/memory)를 따른다.
 3. [공통 Windows 바로가기 절차](references/windows-cli-shortcut.md)에서 선택한 `$client`만 지정해 공식 아이콘과 실제 바탕화면의 `.lnk`를 준비한다. 기존 바로가기 속성을 먼저 확인하고 `.bat`는 보존한다. 사용자 지정 작업 폴더를 우선하고, 미지정이면 실제 바탕화면 아래 `Agent`를 만든다. Windows Terminal이 있으면 재사용하고 없으면 기본 CMD를 쓴다. Terminal 설치를 추가하지 않는다.
 4. 독립 속성 검증 후 바로가기를 실제로 열어 선택한 CLI, UTF-8과 작업 폴더를 확인한다. 새 Codex 세션은 활성 instruction sources를 확인하고, 새 Claude Code 세션은 `/context`의 **Memory files**에서 전역 `CLAUDE.md`와 imported `Agent-Instructions/AGENTS.md`가 실제 로드됐는지 확인한다. 누락되면 지침 적용은 미완료다.
 5. CLI가 인증을 요구하면 사용자가 직접 로그인하도록 공식 [Codex 인증 안내](https://developers.openai.com/codex/auth/) 또는 [Claude Code 로그인 안내](https://code.claude.com/docs/en/setup)를 안내한다. 인증 자료를 대신 수집하거나 저장소에 넣지 않는다. 로그인 대기, 공식 아이콘 준비 실패, 바로가기·CLI 실행 실패 또는 지침 로드 미확인은 각각 미완료로 보고한다.

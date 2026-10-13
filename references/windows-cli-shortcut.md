@@ -10,6 +10,9 @@
 
 ## 실행 전제와 공식 아이콘.
 
+표의 `~/.codex`·`~/.claude`는 기본 위치다. `CODEX_HOME`·`CLAUDE_CONFIG_DIR`이 지정됐으면 해당 설정 홈의 `assets/icons/`를 사용하고 지침·복제본·CLI 실행도 같은 환경변수를 유지한다.
+
+- CLI 전체 경로에 `%`가 있으면 CMD 재확장을 막기 위해 실행·생성·검증 전에 중단한다. `%`가 없는 설치 경로로 옮긴 뒤 다시 실행한다. CMD에는 `/v:off`를 명시해 `!`가 있는 경로도 지연 확장하지 않는다.
 - CLI는 공식 설치 절차로 준비한 뒤 확인된 `Source` 전체 경로로 버전을 실행한다. `Get-Command codex`나 `claude`가 반환할 수 있는 `.ps1` 대신 CMD에서 실행할 `.cmd`·`.exe`를 확인한다. 버전 검사와 바로가기 모두 전체 경로를 사용해 작업 폴더의 동명 CLI가 대신 실행되지 않게 한다.
 - 바탕화면은 `[Environment]::GetFolderPath('DesktopDirectory')`로 조회해 OneDrive 리디렉션을 지원한다. 사용자 지정 작업 폴더를 우선하고 미지정이면 실제 바탕화면 아래 `Agent`를 만든다. 지정 폴더가 없으면 임의 대체하지 않는다.
 - Windows Terminal이 있으면 `wt.exe`를 재사용하고 없으면 `$env:ComSpec`의 CMD를 쓴다. Terminal은 자동 설치하지 않는다. 두 분기 모두 UTF-8 코드페이지를 적용한다.
@@ -22,12 +25,18 @@
 $ErrorActionPreference = 'Stop'
 $client = 'codex' # Claude Code를 선택했으면 'claude-code'로 바꾼다.
 $iconRelativePath = switch ($client) {
-    'codex' { '.codex\assets\icons\codex-official' }
-    'claude-code' { '.claude\assets\icons\claude-code-official' }
+    'codex' {
+        $clientHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USERPROFILE '.codex' }
+        'assets\icons\codex-official'
+    }
+    'claude-code' {
+        $clientHome = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $env:USERPROFILE '.claude' }
+        'assets\icons\claude-code-official'
+    }
     default { throw 'client는 codex 또는 claude-code여야 합니다.' }
 }
-$pngPath = Join-Path $env:USERPROFILE ($iconRelativePath + '.png')
-$icoPath = Join-Path $env:USERPROFILE ($iconRelativePath + '.ico')
+$pngPath = Join-Path $clientHome ($iconRelativePath + '.png')
+$icoPath = Join-Path $clientHome ($iconRelativePath + '.ico')
 if (-not (Test-Path -LiteralPath $pngPath -PathType Leaf)) {
     throw "공식 출처에서 준비한 PNG가 없습니다: $pngPath"
 }
@@ -50,13 +59,15 @@ switch ($client) {
     'codex' {
         $shortcutName = 'Codex.lnk'
         $cliNames = @('codex.cmd', 'codex.exe')
-        $iconRelativePath = '.codex\assets\icons\codex-official.ico'
+        $clientHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USERPROFILE '.codex' }
+        $iconRelativePath = 'assets\icons\codex-official.ico'
         $title = 'Codex CLI'
     }
     'claude-code' {
         $shortcutName = 'Claude Code.lnk'
         $cliNames = @('claude.cmd', 'claude.exe')
-        $iconRelativePath = '.claude\assets\icons\claude-code-official.ico'
+        $clientHome = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $env:USERPROFILE '.claude' }
+        $iconRelativePath = 'assets\icons\claude-code-official.ico'
         $title = 'Claude Code CLI'
     }
     default { throw 'client는 codex 또는 claude-code여야 합니다.' }
@@ -67,15 +78,18 @@ if (-not $desktopDir -or -not (Test-Path -LiteralPath $desktopDir -PathType Cont
     throw '실제 바탕화면 폴더를 확인할 수 없습니다.'
 }
 $shortcutPath = Join-Path $desktopDir $shortcutName
-$iconTarget = Join-Path $env:USERPROFILE $iconRelativePath
+$iconTarget = Join-Path $clientHome $iconRelativePath
 $wtCommand = Get-Command wt.exe -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
 $cliCommand = Get-Command $cliNames -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
 if (-not $cliCommand -or -not (Test-Path -LiteralPath $cliCommand.Source -PathType Leaf)) {
     throw 'cmd에서 실행할 선택한 CLI(.cmd 또는 .exe)가 없습니다.'
 }
+if ($cliCommand.Source.Contains('%')) {
+    throw 'CLI 경로의 %는 CMD에서 재확장됩니다. %가 없는 설치 경로로 옮긴 뒤 다시 실행하세요.'
+}
 if (-not (Test-Path -LiteralPath $env:ComSpec -PathType Leaf)) { throw '기본 CMD 실행 파일이 없습니다.' }
 $cliCommand.Source
-& $env:ComSpec /d /c ('chcp 65001 > nul & "{0}" --version' -f $cliCommand.Source)
+& $env:ComSpec /d /v:off /c ('chcp 65001 > nul & "{0}" --version' -f $cliCommand.Source)
 if ($LASTEXITCODE -ne 0) { throw '선택한 CLI 전체 경로의 --version 실행이 실패했습니다.' }
 if (-not (Test-Path -LiteralPath $iconTarget -PathType Leaf)) {
     throw "선택한 CLI 공식 아이콘 ICO가 없습니다: $iconTarget"
@@ -107,9 +121,9 @@ if (-not (Test-Path -LiteralPath $workingDir -PathType Container)) {
 $workingDir = (Resolve-Path -LiteralPath $workingDir).Path
 # WT의 argv 해석을 거쳐 cmd까지 CLI 경로 따옴표를 보존한다.
 if ($wtCommand) {
-    $arguments = '-w 0 nt --title "{0}" -d "{1}" cmd /d /k "chcp 65001 > nul & \"{2}\""' -f $title, ($workingDir.TrimEnd('\') + '\.').Replace(';', '\;'), $cliCommand.Source.Replace(';', '\;')
+    $arguments = '-w 0 nt --title "{0}" -d "{1}" cmd /d /v:off /k "chcp 65001 > nul & \"{2}\""' -f $title, ($workingDir.TrimEnd('\') + '\.').Replace(';', '\;'), $cliCommand.Source.Replace(';', '\;')
 } else {
-    $arguments = '/d /k "chcp 65001 > nul & "{0}""' -f $cliCommand.Source
+    $arguments = '/d /v:off /k "chcp 65001 > nul & "{0}""' -f $cliCommand.Source
 }
 $shortcut = $shell.CreateShortcut($shortcutPath)
 $shortcut.TargetPath = $targetPath
@@ -132,13 +146,15 @@ switch ($client) {
     'codex' {
         $shortcutName = 'Codex.lnk'
         $cliNames = @('codex.cmd', 'codex.exe')
-        $iconRelativePath = '.codex\assets\icons\codex-official.ico'
+        $clientHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USERPROFILE '.codex' }
+        $iconRelativePath = 'assets\icons\codex-official.ico'
         $title = 'Codex CLI'
     }
     'claude-code' {
         $shortcutName = 'Claude Code.lnk'
         $cliNames = @('claude.cmd', 'claude.exe')
-        $iconRelativePath = '.claude\assets\icons\claude-code-official.ico'
+        $clientHome = if ($env:CLAUDE_CONFIG_DIR) { $env:CLAUDE_CONFIG_DIR } else { Join-Path $env:USERPROFILE '.claude' }
+        $iconRelativePath = 'assets\icons\claude-code-official.ico'
         $title = 'Claude Code CLI'
     }
     default { throw 'client는 codex 또는 claude-code여야 합니다.' }
@@ -149,15 +165,18 @@ if (-not $desktopDir -or -not (Test-Path -LiteralPath $desktopDir -PathType Cont
     throw '실제 바탕화면 폴더를 확인할 수 없습니다.'
 }
 $shortcutPath = Join-Path $desktopDir $shortcutName
-$iconTarget = Join-Path $env:USERPROFILE $iconRelativePath
+$iconTarget = Join-Path $clientHome $iconRelativePath
 $wtCommand = Get-Command wt.exe -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
 $cliCommand = Get-Command $cliNames -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
 if (-not $cliCommand -or -not (Test-Path -LiteralPath $cliCommand.Source -PathType Leaf)) {
     throw 'cmd에서 실행할 선택한 CLI를 확인할 수 없습니다.'
 }
+if ($cliCommand.Source.Contains('%')) {
+    throw 'CLI 경로의 %는 CMD에서 재확장됩니다. %가 없는 설치 경로로 옮긴 뒤 다시 실행하세요.'
+}
 if (-not (Test-Path -LiteralPath $env:ComSpec -PathType Leaf)) { throw '기본 CMD 실행 파일이 없습니다.' }
 $cliCommand.Source
-& $env:ComSpec /d /c ('chcp 65001 > nul & "{0}" --version' -f $cliCommand.Source)
+& $env:ComSpec /d /v:off /c ('chcp 65001 > nul & "{0}" --version' -f $cliCommand.Source)
 if ($LASTEXITCODE -ne 0) { throw '선택한 CLI 전체 경로의 --version 실행이 실패했습니다.' }
 if ($wtCommand) {
     if (-not (Test-Path -LiteralPath $wtCommand.Source -PathType Leaf)) { throw '확인된 Windows Terminal 실행 파일이 없습니다.' }
@@ -174,9 +193,9 @@ if (-not (Test-Path -LiteralPath $workingDir -PathType Container)) {
 }
 $workingDir = (Resolve-Path -LiteralPath $workingDir).Path
 if ($wtCommand) {
-    $expectedArguments = '-w 0 nt --title "{0}" -d "{1}" cmd /d /k "chcp 65001 > nul & \"{2}\""' -f $title, ($workingDir.TrimEnd('\') + '\.').Replace(';', '\;'), $cliCommand.Source.Replace(';', '\;')
+    $expectedArguments = '-w 0 nt --title "{0}" -d "{1}" cmd /d /v:off /k "chcp 65001 > nul & \"{2}\""' -f $title, ($workingDir.TrimEnd('\') + '\.').Replace(';', '\;'), $cliCommand.Source.Replace(';', '\;')
 } else {
-    $expectedArguments = '/d /k "chcp 65001 > nul & "{0}""' -f $cliCommand.Source
+    $expectedArguments = '/d /v:off /k "chcp 65001 > nul & "{0}""' -f $cliCommand.Source
 }
 $shell = New-Object -ComObject WScript.Shell
 $check = $shell.CreateShortcut($shortcutPath)
