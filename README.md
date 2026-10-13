@@ -240,6 +240,7 @@ Claude Code의 훅이나 특정 MCP가 다른 환경에도 있다고 가정하�
 | 자체 제작 스킬 설치 | [Owned-Skills/README.md](Owned-Skills/README.md) |
 | 어떤 MCP를 쓸지 | §8, [MCP/README.md](MCP/README.md) |
 | 규칙 추가·피드백 기록 | [rules/03](rules/03_feedback-loop.md) |
+| 기존 지침 보완·추가 도구 검토 | [공개 저장소 선별 반영](references/starred-repo-adoption.md)에서 채택 근거·기존 중복·필요 상황을 확인한다. |
 | 정리·문서 정합성 확인 | [rules/04](rules/04_garbage-collection.md) |
 | CLI 설치·Windows 바로가기 | [references/](references/) |
 | 다른 AI 환경에서 적용 | [PORTABILITY.md](PORTABILITY.md) |
