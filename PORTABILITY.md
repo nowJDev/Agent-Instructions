@@ -59,9 +59,9 @@
 
 ### 2.2 클라이언트별 등록법
 
-대부분의 AI 클라이언트는 **Claude와 동일한 `mcpServers` 스키마**를 쓴다. 그대로 복사하면 된다.
+MCP 프로토콜은 공통이지만 설정 파일의 최상위 키와 서버 필드는 클라이언트마다 다르다. 대상 클라이언트의 형식을 확인한다.
 
-**범용 `mcp.json` (Cursor `.cursor/mcp.json`, VS Code `.vscode/mcp.json`, 기타 다수)**
+**Cursor `.cursor/mcp.json`**
 ```jsonc
 {
   "mcpServers": {
@@ -72,6 +72,18 @@
 }
 ```
 
+**VS Code `.vscode/mcp.json`** — 최상위 키는 `servers`다.
+```jsonc
+{
+  "servers": {
+    "context7": { "type": "stdio", "command": "npx", "args": ["-y", "@upstash/context7-mcp"] },
+    "figma": { "type": "http", "url": "https://mcp.figma.com/mcp" }
+  }
+}
+```
+
+VS Code가 지원하는 공유용 루트 `.mcp.json`은 `mcpServers` 형식이다. `.vscode/mcp.json`과 혼동하지 않는다. [공식 VS Code MCP 안내](https://code.visualstudio.com/docs/agent-customization/mcp-servers)를 따른다.
+
 **OpenAI Agents SDK (Python)**
 ```python
 from agents.mcp import MCPServerStdio, MCPServerStreamableHttp
@@ -81,7 +93,7 @@ figma    = MCPServerStreamableHttp(params={"url": "https://mcp.figma.com/mcp"})
 # agent = Agent(..., mcp_servers=[context7, figma])
 ```
 
-**Gemini CLI** — `~/.gemini/settings.json` 의 `mcpServers`에 위 범용 스키마와 동일하게 추가.
+**Gemini CLI** — `~/.gemini/settings.json` 의 `mcpServers`에 서버 정보를 추가한다.
 
 **Claude Code(참고)** — `claude mcp add <name> --scope user -- npx -y @upstash/context7-mcp`
 
@@ -137,7 +149,7 @@ github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마�
 
 ## 4. 이식 체크리스트
 
-- [ ] **MCP**: 필요한 서버를 대상 AI의 `mcpServers` 설정에 등록 (§2.2)
+- [ ] **MCP**: 필요한 서버를 대상 AI의 설정 형식에 맞춰 등록한다 (§2.2).
 - [ ] **MCP 인증**: figma·hf는 OAuth 로그인, notion은 자기 토큰 주입(커밋 금지)
 - [ ] **PlayMCP 제외**: claude.ai 종속이므로 대체 MCP/API로 교체 (§2.4)
 - [ ] **Skill 출처 확인**: 쓰려는 스킬의 공개 원본(`anthropics/claude-plugins-official` 등) 확보

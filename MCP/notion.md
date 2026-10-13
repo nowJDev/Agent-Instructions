@@ -12,7 +12,7 @@ Notion의 공식 `@notionhq/notion-mcp-server`를 stdio로 띄워, Claude가 Not
 - 워크스페이스 검색
 - 사용자(봇 자신 포함) 정보 조회
 
-> ⚠️ 본 워크스페이스 규칙(전역 CLAUDE.md): Notion 페이지 수정 시 **부분 블록 수정(partial update) 금지** — API 에러가 반복됨. 전체 블록 삭제 후 처음부터 재생성 방식으로 작업할 것.
+> 수정 범위는 [외부 작업 경계](../rules/02_tool-boundaries.md#7-외부로-나가는-작업의-경계)를 따른다. 대상 블록의 지원되는 업데이트 API를 우선하며, 요청에 지정한 필드는 그 필드 전체가 교체되므로 유지할 내용도 포함한다. 관련 없는 블록을 먼저 삭제하지 않는다. [공식 블록 수정 API](https://developers.notion.com/reference/update-a-block)를 확인한다.
 
 ## 🎯 트리거 조건 / 사용 맥락
 - "노션에 정리해줘 / 노션 페이지 만들어줘 / 노션에서 찾아줘" 같은 요청
@@ -59,7 +59,7 @@ Notion의 공식 `@notionhq/notion-mcp-server`를 stdio로 띄워, Claude가 Not
 ### 검색 / 사용자(Search / User)
 | 도구명 | 기능 | 주요 파라미터 |
 |--------|------|----------------|
-| API-post-search | 워크스페이스 전체 검색(페이지/DB) | `query`, `filter`, `sort` |
+| API-post-search | 워크스페이스 전체 검색(페이지/데이터 소스) | `query`, `filter`, `sort` |
 | API-get-self | 연결된 봇(통합) 자신 정보 조회 | (없음) |
 | API-get-user | 특정 사용자 조회 | `user_id` |
 | API-get-users | 사용자 목록 조회 | `start_cursor`, `page_size` |
@@ -71,8 +71,10 @@ Notion의 공식 `@notionhq/notion-mcp-server`를 stdio로 띄워, Claude가 Not
 2. `API-patch-block-children`로 해당 페이지에 새 불릿/문단 블록 append
 
 **예시 2 — 데이터베이스 쿼리**
-1. `API-post-search`(filter: database)로 DB의 `data_source_id` 확보
+1. 데이터 소스 API를 지원하는 `Notion-Version`과 MCP 도구 스키마를 확인한다. API `2025-09-03` 이후 검색 예시는 `API-post-search`의 `filter: {"property":"object","value":"data_source"}`를 사용한다. 검색 결과의 `object: "data_source"` 항목 `id`가 `data_source_id`다.
 2. `API-query-data-source`로 `filter`(예: 상태=진행중), `sorts`(마감일 오름차순) 적용해 행 조회
+
+이전 API의 `database` 검색 필터나 `database_id`를 데이터 소스 쿼리에 섞지 않는다. [공식 검색 API](https://developers.notion.com/reference/post-search)와 [데이터 소스 전환 안내](https://developers.notion.com/docs/upgrade-guide-2025-09-03)를 따른다.
 
 ## 📦 출처 / 설치 상태
 - 제공: **글로벌 mcpServers** (`~/.claude.json` 최상위 `mcpServers`에 등록)

@@ -21,7 +21,7 @@ Claude Code 이벤트에 반응해 실행되는 이벤트 기반 자동화 스�
 ## 🛠️ 제공 도구 / 주요 파라미터
 **설정 형식**:
 - 플러그인 `hooks/hooks.json`: 래퍼 형식 `{"description":"...","hooks":{"PreToolUse":[...]}}`
-- 사용자 `.claude/settings.json`: 직접 형식(래퍼 없이 이벤트가 최상위)
+- 사용자 `~/.claude/settings.json`: `{"hooks":{"PreToolUse":[...]}}`. 이벤트는 최상위 `hooks` 아래에 둔다. [공식 hooks 설정](https://code.claude.com/docs/en/hooks)을 따른다.
 
 **훅 이벤트**: PreToolUse(승인/거부/수정, `permissionDecision: allow|deny|ask`), PostToolUse(피드백, exit 2시 stderr가 Claude로), Stop(완결성 검증, `decision: approve|block`), SubagentStop, UserPromptSubmit(컨텍스트 추가), SessionStart(`$CLAUDE_ENV_FILE`로 env 영속), SessionEnd, PreCompact, Notification.
 

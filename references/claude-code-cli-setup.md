@@ -56,11 +56,18 @@ jq --version        # 상태줄에 필요 (없으면 설치)
 ### Step 3: 백업
 설치 전 **반드시** 기존 `~/.claude/`를 백업한다.
 ```bash
-mkdir -p ~/.claude/backup_$(date +%Y%m%d_%H%M%S)
-cp ~/.claude/CLAUDE.md ~/.claude/settings.json ~/.claude/keybindings.json ~/.claude/backup_*/ 2>/dev/null
-cp -r ~/.claude/skills ~/.claude/agents ~/.claude/backup_*/ 2>/dev/null
+if [ -d "$HOME/.claude" ]; then
+  backup_dir=$(mktemp -d "$HOME/.claude/backup_$(date +%Y%m%d_%H%M%S)_XXXXXX") || exit 1
+  for backup_item in CLAUDE.md settings.json keybindings.json skills agents; do
+    backup_source="$HOME/.claude/$backup_item"
+    if [ -e "$backup_source" ] || [ -L "$backup_source" ]; then
+      cp -R "$backup_source" "$backup_dir/" || exit 1
+    fi
+  done
+  printf '백업 위치: %s\n' "$backup_dir"
+fi
 ```
-`~/.claude/` 자체가 없으면 백업 불필요. 디렉토리만 생성한다: `mkdir -p ~/.claude/skills ~/.claude/agents`
+`~/.claude/` 자체가 없으면 백업 불필요. 디렉토리만 생성한다: `mkdir -p ~/.claude/skills ~/.claude/agents`. 백업이 실패하면 설치를 중단하고 원인을 해결한다. 이전 백업 폴더는 복사 대상에 포함하지 않는다.
 
 ### Step 4: 설치 실행
 
@@ -79,24 +86,23 @@ target = json.load(open(target_path, encoding="utf-8")) if target_path.exists() 
 
 | 항목 | 머지 방법 |
 |------|-----------|
-| 안전 Hooks (2) | `source.hooks.PreToolUse` → target에 추가. 같은 `matcher` 있으면 스킵 |
+| 안전 Hooks (2) | `source.hooks.PreToolUse` → target에 추가. 전체 설정 내용이 동일할 때만 스킵 |
 | 상태줄 (3) | `target["statusLine"] = source["statusLine"]` (교체) |
 | 플러그인 (5) | `target["enabledPlugins"].update(...)` (기존 + 신규) |
 | 한국어 (6) | `target["language"] = "korean"` |
 | 권한 (7) | `allow` 배열 합집합 (순서 유지, 중복 제거) |
-| 알림 Hooks (14) | `source.hooks.Notification` → target에 추가. matcher 중복 스킵 |
-| .cs Hook (15) | `source.hooks.PostToolUse` → target에 추가. matcher 중복 스킵 |
+| 알림 Hooks (14) | `source.hooks.Notification` → target에 추가. 전체 설정 내용 중복만 스킵 |
+| .cs Hook (15) | `source.hooks.PostToolUse` → target에 추가. 전체 설정 내용 중복만 스킵 |
 | SessionStart | 항상 머지 (무해한 verify 훅) |
 
 ```python
 def merge_hooks(target, source, hook_type):
-    """matcher 기준 중복 체크 후 추가"""
+    """동일 설정만 제외하고 같은 matcher의 다른 훅도 보존한다."""
     target.setdefault("hooks", {})
     src = source.get("hooks", {}).get(hook_type, [])
     tgt = target["hooks"].get(hook_type, [])
-    existing = {h["matcher"] for h in tgt}
     for h in src:
-        if h["matcher"] not in existing:
+        if h not in tgt:
             tgt.append(h)
     target["hooks"][hook_type] = tgt
 
@@ -157,7 +163,7 @@ sudo apt install jq   # 또는 brew install jq
 
 - settings.json은 절대 전체 복사하지 말 것 — 반드시 머지한다.
 - `~/.claude/` 경로는 하드코딩하지 말 것 — `Path.home() / ".claude"` 또는 `~/`를 쓴다.
-- MCP 서버 등록 시 `--scope user` — project scope면 다른 프로젝트에서 안 된다.
-- MCP 등록은 `claude mcp add` 명령어만 — settings.json·.mcp.json 직접 쓰면 인식 안 된다.
+- MCP 서버는 공유 범위에 맞춰 user·project·local을 선택한다. 위 예시는 모든 프로젝트에서 사용하는 user 등록이다.
+- MCP 등록은 `claude mcp add`를 우선한다. 프로젝트 `.mcp.json`과 플러그인 `.mcp.json`도 지원된다. `settings.json`의 hooks 설정과 MCP 설정을 혼동하지 않는다. [공식 MCP 안내](https://code.claude.com/docs/en/mcp)를 따른다.
 - Windows Git Bash(mintty)에서는 `$` 변수 확장이 안 되니 경로를 직접 지정한다.
-- 이미 존재하는 hook은 matcher로 판별 — 같은 matcher면 추가하지 않는다.
+- 기존 hook은 전체 설정 내용으로 중복을 판별한다. matcher 생략도 유효하며 같은 matcher라도 다른 명령은 보존한다. [공식 hooks 안내](https://code.claude.com/docs/en/hooks)를 따른다.

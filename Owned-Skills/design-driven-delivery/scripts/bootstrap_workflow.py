@@ -5,11 +5,10 @@ import argparse
 import shutil
 import sys
 from pathlib import Path
+from workflow_paths import resolve_document_roots
 
 
 DIRECTORIES = (
-    Path("docs/superpowers/specs"),
-    Path("docs/superpowers/plans"),
     Path("docs/reviews"),
     Path("docs/handovers"),
 )
@@ -52,7 +51,11 @@ def main() -> int:
             if not template.is_file():
                 raise FileNotFoundError(f"템플릿 파일이 없습니다: {template}")
 
-        for relative_dir in DIRECTORIES:
+        specs_root, plans_root = resolve_document_roots(project)
+        directories = (
+            specs_root.relative_to(project), plans_root.relative_to(project), *DIRECTORIES,
+        )
+        for relative_dir in directories:
             target_dir = project / relative_dir
             if target_dir.exists():
                 if not target_dir.is_dir():
@@ -78,7 +81,22 @@ def main() -> int:
             print(f"CREATE {relative_file}")
             if not args.dry_run:
                 target_file.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(templates / template_name, target_file)
+                with (templates / template_name).open("rb") as source:
+                    try:
+                        destination = target_file.open("xb")
+                    except FileExistsError:
+                        if not target_file.is_file():
+                            raise IsADirectoryError(
+                                f"문서 파일 경로가 디렉터리입니다: {target_file}"
+                            )
+                        print(f"KEPT   {relative_file}")
+                        continue
+                    try:
+                        with destination:
+                            shutil.copyfileobj(source, destination)
+                    except OSError:
+                        target_file.unlink()
+                        raise
     except (FileNotFoundError, NotADirectoryError, OSError) as error:
         print(f"ERROR  {error}", file=sys.stderr)
         return 1

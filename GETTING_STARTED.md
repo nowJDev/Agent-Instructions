@@ -51,7 +51,7 @@ https://github.com/nowJDev/Agent-Instructions
 ### Cursor, Gemini, Copilot 등
 
 - Agent Skills를 직접 지원하지 않으면 `Skill/` 문서는 자동 트리거가 아니라 참조 문서로 사용한다.
-- MCP를 지원하는 클라이언트는 `PORTABILITY.md`의 `mcpServers` 예시를 자기 설정 파일에 맞게 옮긴다.
+- MCP를 지원하는 클라이언트는 `PORTABILITY.md`의 클라이언트별 예시를 따른다. VS Code `.vscode/mcp.json`은 `servers`, Cursor `.cursor/mcp.json`은 `mcpServers`를 사용한다.
 - OAuth나 토큰이 필요한 MCP는 각 사용자 계정으로 직접 인증한다.
 
 ## 4. Codex에서 헷갈리기 쉬운 부분

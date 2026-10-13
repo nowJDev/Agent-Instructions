@@ -39,16 +39,16 @@
 
 ## 6. MCP 서버 등록 권한
 
-- MCP 등록은 `claude mcp add` 명령어만 사용한다. settings.json·.mcp.json에 직접 쓰면 인식되지 않는다.
-- 항상 `--scope user`로 등록한다. project scope로 하면 다른 프로젝트에서 동작하지 않는다.
+- MCP 등록은 `claude mcp add`를 우선한다. 프로젝트 `.mcp.json` 직접 설정과 플러그인 `.mcp.json`도 지원된다. `settings.json`의 hooks 설정과 MCP 서버 설정을 혼동하지 않는다.
+- 모든 프로젝트에서 쓸 서버는 `--scope user`, 팀과 공유할 프로젝트 서버는 `--scope project`, 해당 프로젝트의 개인 설정은 `--scope local`을 선택한다. user·local 설정은 `~/.claude.json`, 공유 프로젝트 설정은 `.mcp.json`에 저장된다. [공식 MCP 안내](https://code.claude.com/docs/en/mcp)를 따른다.
 - 경로는 실제 저장소 위치로 지정한다(하드코딩한 임의 경로 금지).
 - 등록 전 `claude mcp list`로 중복을 확인하고, 이미 있으면 스킵한다.
-- ⚠️ 이 §6 전체는 **Claude Code 한정**이다. 비-Claude AI는 반대로 `mcp.json`/SDK **직접 편집이 정상**이다(→ `PORTABILITY.md` §2.2, README §5.5).
+- 이 §6의 CLI·설정 경로는 **Claude Code 한정**이다. 다른 AI는 해당 클라이언트의 스키마와 범위를 따른다(→ `PORTABILITY.md` §2.2, README §5.5).
 
 ## 7. 외부로 나가는 작업의 경계
 
 - 외부 서비스로 콘텐츠를 보내는 행위(게시·전송)는 캐시·색인될 수 있으니, 되돌리기 어려운 작업은 먼저 확인받는다.
-- Notion 페이지 수정은 **부분 블록 수정 금지**. 전체 블록을 삭제하고 처음부터 재생성한다(부분 업데이트는 API 에러 반복).
+- Notion 페이지 수정은 대상 페이지·블록의 지원되는 업데이트 API를 우선하고 관련 없는 내용과 블록 ID를 보존한다. 오류가 나면 요청 스키마·블록 타입·API 버전·권한을 확인한다. 전체 재생성은 필요성과 삭제 범위가 명시적으로 승인된 경우에만 원본 백업·복구 방법을 확보한 뒤 수행한다. [블록 수정 API](https://developers.notion.com/reference/update-a-block)를 따른다.
 
 ## 8. Windows 환경 도구 주의
 

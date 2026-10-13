@@ -72,7 +72,7 @@ DISCOVERED.
 python scripts/bootstrap_workflow.py --project <project-root>
 ```
 
-기존 파일을 덮어쓰지 않는다. 생성 결과를 반드시 확인한다.
+기존 파일을 덮어쓰지 않는다. `docs/specs`·`docs/plans` 구조도 보존한다. ADR·RFC 등 다른 승인 구조에서는 스크립트로 새 구조를 만들지 않고 기존 구조를 수동으로 유지한다. 생성 결과를 반드시 확인한다.
 
 ## 프로젝트에 맞는 검증을 선택하기.
 
@@ -84,8 +84,10 @@ python scripts/bootstrap_workflow.py --project <project-root>
 완료 단계의 문서 누락을 검사하려면 다음을 실행한다.
 
 ```text
-python scripts/validate_workflow.py --project <project-root> --stage completion
+python scripts/validate_workflow.py --project <project-root> --stage completion --spec <current-spec.md> --plan <current-plan.md> --review <current-review.md>
 ```
+
+경로는 프로젝트 상대경로이며 종류별로 여러 번 지정할 수 있다. 과거·취소된 작업이 현재 검사를 막지 않도록 현재 작업 문서를 모두 지정한다. 미지정 종류는 해당 기본 경로의 전체 Markdown 문서를 검사한다. `docs/current-state.md`와 `docs/design-progress-checklist.md`는 항상 검사한다.
 
 스크립트 성공만으로 완료를 선언하지 않는다. 실제 테스트 결과, 로그, 수동 검증과 Git 상태를 함께 확인한다.
 

@@ -5,6 +5,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from workflow_paths import resolve_document_roots
 
 
 PLACEHOLDER_PATTERN = re.compile(
@@ -28,15 +29,12 @@ def parse_args() -> argparse.Namespace:
         default="completion",
         help="검사할 작업 단계.",
     )
+    for kind in ("spec", "plan", "review"):
+        parser.add_argument(
+            f"--{kind}", action="append",
+            help="현재 작업 문서의 프로젝트 상대경로. 여러 번 지정 가능.",
+        )
     return parser.parse_args()
-
-
-def resolve_document_roots(project: Path) -> tuple[Path, Path]:
-    superpower_specs = project / "docs/superpowers/specs"
-    superpower_plans = project / "docs/superpowers/plans"
-    if superpower_specs.exists() or superpower_plans.exists():
-        return superpower_specs, superpower_plans
-    return project / "docs/specs", project / "docs/plans"
 
 
 def markdown_files(directory: Path) -> list[Path]:
@@ -51,8 +49,21 @@ def add_required_file(errors: list[str], path: Path) -> None:
 
 
 def add_required_collection(
-    errors: list[str], label: str, directory: Path
+    errors: list[str], label: str, directory: Path,
+    selected: list[str] | None, project: Path,
 ) -> list[Path]:
+    if selected:
+        files = []
+        for relative in selected:
+            path = (project / relative).resolve()
+            if not path.is_relative_to(project):
+                errors.append(f"프로젝트 밖 문서는 검사할 수 없습니다: {path}")
+            elif path.suffix.lower() != ".md":
+                errors.append(f"Markdown 문서가 아닙니다: {path}")
+            else:
+                add_required_file(errors, path)
+                files.append(path)
+        return files
     files = markdown_files(directory)
     if not files:
         errors.append(f"{label} 문서가 없습니다: {directory}")
@@ -78,17 +89,17 @@ def main() -> int:
 
     if args.stage in {"design", "plan", "completion"}:
         evidence_files.extend(
-            add_required_collection(errors, "설계 명세", specs_root)
+            add_required_collection(errors, "설계 명세", specs_root, args.spec, project)
         )
 
     plan_files: list[Path] = []
     if args.stage in {"plan", "completion"}:
-        plan_files = add_required_collection(errors, "구현 계획", plans_root)
+        plan_files = add_required_collection(errors, "구현 계획", plans_root, args.plan, project)
         evidence_files.extend(plan_files)
 
     if args.stage == "completion":
         evidence_files.extend(
-            add_required_collection(errors, "코드 리뷰", review_root)
+            add_required_collection(errors, "코드 리뷰", review_root, args.review, project)
         )
 
         for path in evidence_files:

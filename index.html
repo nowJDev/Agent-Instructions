@@ -142,15 +142,14 @@ table.bordered{border:1px solid var(--border);border-radius:10px;overflow:hidden
 
 /* checklist */
 .check{list-style:none;margin:18px 0;display:flex;flex-direction:column;gap:2px}
-.check li{display:flex;gap:13px;align-items:flex-start;padding:13px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:.16s;font-size:14px;color:var(--dim)}
+.check li{background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:.16s;font-size:14px;color:var(--dim)}
+.check label{display:flex;gap:13px;align-items:flex-start;padding:13px 16px;cursor:pointer}
 .check li:hover{border-color:var(--border-bright)}
-.check li .box{flex:0 0 18px;width:18px;height:18px;border:1.5px solid var(--faint);border-radius:5px;margin-top:2px;position:relative;transition:.16s}
-.check li.done .box{background:var(--accent);border-color:var(--accent)}
-.check li.done .box::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#06201d;font-size:12px;font-weight:700}
-.check li.done{color:var(--faint)}
-.check li.done .tx{text-decoration:line-through}
+.check input{flex:0 0 18px;width:18px;height:18px;margin-top:2px;accent-color:var(--accent)}
+.check input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.check input:checked + .tx{color:var(--faint);text-decoration:line-through}
 .check li .tx b{color:var(--text)}
-.check li.done .tx b{color:var(--faint)}
+.check input:checked + .tx b{color:var(--faint)}
 
 /* faq */
 .faq{border-top:1px solid var(--border)}
@@ -326,7 +325,7 @@ https://github.com/nowJDev/Agent-Instructions</pre>
         <tr><th>항목</th><th>요구</th></tr>
         <tr><td>Claude Code</td><td>최신 버전 권장 (스킬·MCP·서브에이전트 지원)</td></tr>
         <tr><td>플러그인</td><td>카탈로그에 적힌 플러그인이 설치/활성(ON)이어야 해당 스킬이 실제로 동작</td></tr>
-        <tr><td>MCP 서버</td><td><code>claude mcp add --scope user</code>로 등록 (settings.json 직접 편집 금지)</td></tr>
+        <tr><td>MCP 서버</td><td><code>claude mcp add</code>를 우선하고 공유 범위에 맞춰 user·project·local을 선택합니다. 프로젝트·플러그인 <code>.mcp.json</code>도 지원합니다. <a href="rules/02_tool-boundaries.md" class="inline">등록 경계</a>를 따릅니다.</td></tr>
         <tr><td>Windows</td><td>Bash <code>$VAR</code> 확장 안 됨, 따옴표 이슈 → 경로 직접 지정·Glob/Grep/Read 우선</td></tr>
       </table>
       <h3>자체 제작 Skill 설치</h3>
@@ -379,7 +378,7 @@ https://github.com/nowJDev/Agent-Instructions</pre>
       </table>
       <h3>MCP 서버 (ON 10, 문서 11)</h3>
       <ul class="bul">
-        <li><strong>notion</strong> — 페이지/DB 읽기·검색 (수정은 전체 삭제→재생성)</li>
+        <li><strong>notion</strong> — 페이지/DB 읽기·검색·대상 블록 수정. <a href="rules/02_tool-boundaries.md" class="inline">외부 작업 경계</a>를 따릅니다.</li>
         <li><strong>context7</strong> — 라이브러리 공식 문서 조회</li>
         <li><strong>playwright</strong> — 브라우저 자동화·E2E</li>
         <li><strong>figma · huggingface-skills</strong> — 디자인/HF 연동</li>
@@ -428,14 +427,14 @@ https://github.com/nowJDev/Agent-Instructions</pre>
     <section id="predeploy">
       <div class="eyebrow">09 — Pre-deploy</div>
       <h2>공개 전 점검</h2>
-      <p>공개 GitHub로 배포하기 전 <strong>반드시</strong> 확인합니다. 클릭해서 체크하세요.</p>
+      <p>공개 GitHub로 배포하기 전 <strong>반드시</strong> 확인합니다. 클릭하거나 Tab으로 이동한 뒤 Space로 체크하세요.</p>
       <ul class="check" id="checklist">
-        <li><span class="box"></span><span class="tx"><b>개인 절대경로 치환</b> — 스킬 md의 캐시 경로 <code>C:\Users\&lt;name&gt;\…</code> → <code>~/.claude/…</code> 등 제네릭으로</span></li>
-        <li><span class="box"></span><span class="tx"><b>사용자명 노출 제거</b> — 경로·예시에 박힌 계정명/이메일</span></li>
-        <li><span class="box"></span><span class="tx"><b>references 공개 적절성</b> — 비공개 프로젝트 도메인 지식이 들어있지 않은지</span></li>
-        <li><span class="box"></span><span class="tx"><b>내부 repo·링크 확인</b> — rules에 박힌 사내 저장소 URL의 공개 의도</span></li>
-        <li><span class="box"></span><span class="tx"><b>토큰·시크릿 부재 재확인</b> — 저장소 어디에도 토큰이 없는지</span></li>
-        <li><span class="box"></span><span class="tx"><b>LICENSE · CONTRIBUTING 추가</b> — 공개 저장소 표준 파일</span></li>
+        <li><label><input type="checkbox"><span class="tx"><b>개인 절대경로 치환</b> — 스킬 md의 캐시 경로 <code>C:\Users\&lt;name&gt;\…</code> → <code>~/.claude/…</code> 등 제네릭으로</span></label></li>
+        <li><label><input type="checkbox"><span class="tx"><b>사용자명 노출 제거</b> — 경로·예시에 박힌 계정명/이메일</span></label></li>
+        <li><label><input type="checkbox"><span class="tx"><b>references 공개 적절성</b> — 비공개 프로젝트 도메인 지식이 들어있지 않은지</span></label></li>
+        <li><label><input type="checkbox"><span class="tx"><b>내부 repo·링크 확인</b> — rules에 박힌 사내 저장소 URL의 공개 의도</span></label></li>
+        <li><label><input type="checkbox"><span class="tx"><b>토큰·시크릿 부재 재확인</b> — 저장소 어디에도 토큰이 없는지</span></label></li>
+        <li><label><input type="checkbox"><span class="tx"><b>LICENSE · CONTRIBUTING 추가</b> — 공개 저장소 표준 파일</span></label></li>
       </ul>
       <div class="callout danger"><div class="ct">왜 중요한가</div><p>"그대로 패키징"하면 <strong>특정 환경의 개인 경로·계정명·내부 정보</strong>가 공개 저장소에 그대로 노출됩니다. 카탈로그가 당신의 설치 상태 스냅샷이라는 점도 받는 사람에게 명시해야 혼란이 없습니다.</p></div>
     </section>
@@ -504,10 +503,6 @@ const sb=document.getElementById('sidebar'),btn=document.getElementById('menuBtn
 btn.addEventListener('click',()=>sb.classList.toggle('open'));
 document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>sb.classList.remove('open')));
 
-// interactive checklist (+persist in this session)
-document.querySelectorAll('#checklist li').forEach(li=>{
-  li.addEventListener('click',()=>li.classList.toggle('done'));
-});
 </script>
 </body>
 </html>

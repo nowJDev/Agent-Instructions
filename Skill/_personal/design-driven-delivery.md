@@ -31,6 +31,7 @@
 - 새 기능은 `brainstorming`, 승인 설계는 `writing-plans`, 구현은 Worktree·TDD·체계적 디버깅을 조율한다.
 - 완료 전 `verification-before-completion`, 전체 변경에 `code-review`, 브랜치 통합에 `finishing-a-development-branch`를 호출한다.
 - 기본 문서 구조를 비덮어쓰기 방식으로 초기화하는 `bootstrap_workflow.py`와 완료 증거를 검사하는 `validate_workflow.py`를 제공한다.
+- 초기화는 기존 `docs/specs`·`docs/plans`도 유지한다. 검증의 `--spec`, `--plan`, `--review`로 현재 작업의 Markdown 문서를 지정한다. 경로는 프로젝트 상대경로이며 반복 가능하다. 미지정 종류는 전체 기본 경로를 검사한다. 상세 계약은 [문서 계약](../../Owned-Skills/design-driven-delivery/references/document-contracts.md)을 따른다.
 - 프로젝트별 검증은 Unity, Web, Backend, Python·CLI, Data, Mobile·Desktop, Infrastructure Adapter에서 선택한다.
 
 ## 📦 출처와 설치 상태.
