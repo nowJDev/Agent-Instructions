@@ -14,6 +14,8 @@
 
 > 전제: 이 저장소의 `Skill/`·`MCP/`는 **설명 문서(카탈로그)**다. 실행 실물이 아니다. 단, 직접 작성한 Agent Skill은 `Owned-Skills/`에 공개 원본을 함께 둔다.
 
+"이거대로 세팅해줘"의 Codex·Claude Code 최소 CLI 세팅은 [GETTING_STARTED.md](GETTING_STARTED.md#41-windows-codex-환경-세팅)와 [공통 Windows 바로가기](references/windows-cli-shortcut.md)를 따른다. 사용자 지정 대상·신뢰할 수 있는 현재 클라이언트 정보 순으로 선택하고 판별 불가면 한 번 질문한다. 아래 스킬·MCP 이식은 기본 세팅에 자동 포함하지 않으며 별도 확장 요청에서만 수행한다.
+
 ---
 
 ## 1. 무엇이 왜 이식되는가

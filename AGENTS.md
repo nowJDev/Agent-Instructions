@@ -4,7 +4,7 @@
 > **▶ START HERE — 처음 온 에이전트라면 먼저 [`README.md`](README.md)를 읽어라.**
 > 저장소 전체 구조·스킬/MCP 인덱스·의사결정 맵이 거기 있다. 본 파일(AGENTS.md)은 그 지도 위에서 **따르는 행동 규칙**이다. README로 전체를 파악하고 → 이 파일의 규칙대로 작업하라.
 > **"적용" = 이 규칙을 로드해 따르는 것**(환경 *설치*가 아니다). **비-Claude AI라면** README **§5.5(범용 코어 vs Claude 전용)**와 [`PORTABILITY.md`](PORTABILITY.md)를 먼저 보라 — 🔴 `rag_agent`·`Skill` 호출·`PreToolUse 훅` 등은 외부 AI에 없으니 번역/제외한다.
-> Windows에서 "이 저장소대로 Codex 세팅해줘"는 전역 지침 배치와 공식 아이콘 `Codex.lnk` 생성·검증까지 포함한다. [`GETTING_STARTED.md`](GETTING_STARTED.md)와 [`references/codex-windows-shortcut.md`](references/codex-windows-shortcut.md)를 따른다.
+> Windows에서 "이거대로 세팅해줘"는 사용자 지정 대상 우선 → 신뢰할 수 있는 현재 클라이언트 정보 → 판별 불가 시 한 번 질문 순으로 Codex·Claude Code 중 하나만 선택한다. 모델명·설치 목록으로 추정하지 않는다. 선택한 CLI 재사용·공식 설치, 기존 전역 기본 지침 보존, 공식 아이콘 `.lnk`와 실행·인증 확인은 [`GETTING_STARTED.md`](GETTING_STARTED.md)와 [`references/windows-cli-shortcut.md`](references/windows-cli-shortcut.md)를 따른다. 스킬·MCP·플러그인·hooks·테마·상태줄·권한 변경·bypass 옵션은 별도 확장 요청에서만 다룬다.
 작업 시작 전 **가장 먼저 읽는 파일**이다. 핵심 규칙은 이 파일만으로도 실행 가능해야 한다. 세부 문서는 아래에 두되, 해당 상황에 들어가면 반드시 읽는다.
 
 ## 정체성

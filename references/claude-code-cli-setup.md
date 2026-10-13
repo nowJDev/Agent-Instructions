@@ -1,6 +1,10 @@
 # 참조: Claude Code CLI 설정 설치 가이드
 
-> 이 문서는 **필요할 때만 참조**하는 설치 절차다. 범용 규칙은 `../AGENTS.md`와 `../rules/`를 따른다. 사용자가 "세팅해줘"·"설정해줘"·"설치해줘"를 요청하면 이 절차를 **정확히** 따른다.
+> "이거대로 세팅해줘"·"세팅해줘"·"설정해줘"·"설치해줘"만으로 아래 확장 설정을 적용하지 않는다. 기본 요청은 [GETTING_STARTED.md](../GETTING_STARTED.md#41-windows-codex-환경-세팅)의 선택한 CLI 준비·전역 기본 지침·공식 아이콘 바로가기·실행 확인을 따른다. Claude Code 기본 지침은 이 저장소의 `AGENTS.md`를 기존 `~/.claude/CLAUDE.md`에 import하며 외부 dotfiles로 덮어쓰지 않는다.
+
+## 명시적 확장 요청의 범위.
+
+아래 기존 절차는 사용자가 스킬·MCP·플러그인·hooks·테마·상태줄·권한 설정 등 **추가 환경 설정을 명시적으로 요청한 경우에만** 해당 선택 항목에 적용한다. 기본 설치에는 권한 변경과 bypass 바로가기를 자동 포함하지 않는다. 범용 규칙은 `../AGENTS.md`와 `../rules/`를 따른다. 외부 `claude-code-cli-settings` 저장소의 `dotfiles/`·`mcp-servers/`가 필요하며 이 Agent-Instructions 저장소에는 그 실물이 없다. 외부 저장소의 위치·원본·요청 항목을 확인한 뒤 진행한다.
 
 ## 저장소 구조
 
