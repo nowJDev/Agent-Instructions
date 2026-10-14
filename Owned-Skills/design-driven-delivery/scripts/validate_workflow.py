@@ -13,7 +13,8 @@ PLACEHOLDER_PATTERN = re.compile(
     re.IGNORECASE,
 )
 INCOMPLETE_CHECKBOX_PATTERN = re.compile(
-    r"^\s*[-*+]\s+\[(?:\s|-|\?)\]",
+    r"^[ \t]*(?:(?:[-*+]|\d{1,9}[.)])[ \t]+|>[ \t]*)*"
+    r"[-*+][ \t]+\[(?:[ \t]|-|\?)\]",
     re.MULTILINE,
 )
 
@@ -95,18 +96,24 @@ def prose_content(content: str) -> str:
         depth = len(quote_parts) - 1
 
         if fence is not None:
-            delimiter, fence_depth, fence_indent, inner_depth = fence
+            delimiter, fence_depth, fence_indent, inner_containers = fence
             body = quote_parts[fence_depth] if depth >= fence_depth else ""
             indentation = len(body) - len(body.lstrip(" "))
             outside = depth < fence_depth or (body.strip() and indentation < fence_indent)
             if not outside:
                 body = body[fence_indent:]
-                for _ in range(inner_depth):
-                    prefix = re.match(r"^ {0,3}> ?", body)
-                    if prefix is None:
-                        outside = True
-                        break
-                    body = body[prefix.end():]
+                for kind, width in inner_containers:
+                    if kind == "quote":
+                        prefix = re.match(r"^ {0,3}> ?", body)
+                        if prefix is None:
+                            outside = True
+                            break
+                        body = body[prefix.end():]
+                    else:
+                        if body.strip() and len(body) - len(body.lstrip(" ")) < width:
+                            outside = True
+                            break
+                        body = body[width:]
             if outside:
                 fence = None
                 flush()
@@ -138,14 +145,22 @@ def prose_content(content: str) -> str:
         else:
             body = line[container_indent:]
 
-        inner_depth = 0
-        while prefix := re.match(r"^ {0,3}> ?", body):
-            body = body[prefix.end():]
-            inner_depth += 1
+        inner_containers = []
+        while True:
+            prefix = re.match(r"^ {0,3}> ?", body)
+            nested_item = re.match(r"^ {0,3}([-*+]|\d{1,9}[.)])( {1,4})(\S.*)$", body)
+            if prefix:
+                body = body[prefix.end():]
+                inner_containers.append(("quote", 0))
+            elif nested_item:
+                body = nested_item[3]
+                inner_containers.append(("list", nested_item.start(3)))
+            else:
+                break
         marker = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", body)
         if marker and (marker[1][0] != "`" or "`" not in marker[2]):
             flush()
-            fence = (marker[1], depth, container_indent, inner_depth)
+            fence = (marker[1], depth, container_indent, inner_containers)
             continue
 
         heading = re.match(r"^ {0,3}(?:#{1,6}(?: |$)|(?:=+|-+|(?:\* *){3,}|(?:_ *){3,}) *$)", body)

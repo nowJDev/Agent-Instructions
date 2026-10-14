@@ -122,6 +122,29 @@ class MarkdownBoundaryTests(unittest.TestCase):
             with self.subTest(content=content):
                 self.check_document(content, 1)
 
+    def test_incomplete_work_in_explicit_list_quote_containers_is_rejected(self):
+        for state in (' ', '-', '?'):
+            for prefix in ('- > ', '* > > ', '1. > ', '> - > ', '- > 1. > ', '- - '):
+                with self.subTest(state=state, prefix=prefix):
+                    self.check_document(f'{prefix}- [{state}] pending\n', 1)
+
+    def test_list_quote_checkbox_examples_do_not_block_completion(self):
+        for content in ('- > - [x] done\n',
+                        '- > `- [ ] example`\n',
+                        '- > ~~~markdown\n  > - [ ] example\n  > ~~~\n',
+                        '- Example > - [ ] is prose.\n',
+                        '- \\> - [ ] is escaped prose.\n'):
+            with self.subTest(content=content):
+                self.check_document(content, 0)
+
+    def test_recursive_list_quote_fences_ignore_examples(self):
+        for content in ('- - > ~~~markdown\n    > - [ ] example\n    > ~~~\n',
+                        '- > - > ~~~markdown\n  >   > - [ ] example\n  >   > ~~~\n',
+                        '> 1. > - > ```markdown\n>    >   > - [?] example\n>    >   > ```\n'):
+            with self.subTest(content=content):
+                self.check_document(content, 0)
+                self.check_document(content + '- [ ] pending\n', 1)
+
 
 if __name__ == '__main__':
     unittest.main()

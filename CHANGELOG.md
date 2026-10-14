@@ -5,6 +5,7 @@
 
 ### Fixed
 
+- 완료 검사에서 명시적 중첩 목록·인용 안의 미완료 체크 항목을 검출하며, 같은 구조의 fenced·inline 코드 예시는 제외하도록 보완했다.
 - Markdown 완료 검사의 문단·목록·인용과 코드 구분자 경계를 수정해 실제 미완료 항목 누락과 인용 코드 예시 오탐을 막았다.
 - 사용자 지정 설정 홈, Windows CMD의 경로 재확장과 delayed expansion, jq 다운로드 실패의 원본 보존을 보완하고 임시 환경 회귀를 추가했다.
 - Playwright·Chrome DevTools의 배포된 도구 계약, Vercel 변경 권한, 명령 위치 인자와 클라우드·세션 예약을 구분했다. 스킬 이식은 패키지 리소스를 보존하며 Transformers.js 예제는 임의 주소로 토큰을 전송하는 custom fetch를 제거했다.
