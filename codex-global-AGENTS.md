@@ -52,7 +52,7 @@
 - 단순 조회·설명·상태 보고와 수정 권한이 없는 진단에는 전체 설계 문서 프로세스를 강제하지 않는다.
 - 만들기 전 `brainstorming`→`writing-plans`, 구현은 `test-driven-development`·`systematic-debugging`, 마무리는 `verify`·`code-review`.
 - 웹은 `firecrawl-*`, 깊은 리서치는 `deep-research`, 라이브러리 문서는 `context7` MCP, 코드 질문은 사용 가능한 RAG/MCP를 먼저 확인한다.
-- **상황→도구 매핑·전체 목록**: [`Agent-Instructions/Skill/README.md`](Agent-Instructions/Skill/README.md)·[`Agent-Instructions/MCP/README.md`](Agent-Instructions/MCP/README.md)(또는 README §6~8). 스킬이 적용되면 먼저 호출하고 "Using [skill]"를 알린다.
+- **상황→도구 매핑·전체 목록**: [`Agent-Instructions/Skill/README.md`](Agent-Instructions/Skill/README.md)·[`Agent-Instructions/MCP/README.md`](Agent-Instructions/MCP/README.md)(또는 [README 문서 안내](Agent-Instructions/README.md#더-알고-싶을-때-찾는-문서)). 스킬이 적용되면 먼저 호출하고 "Using [skill]"를 알린다.
 
 ## 세부 문서
 - `Agent-Instructions/rules/01_enforcement-system.md` — 검증·테스트·커밋 강제. 성공은 조용히, 실패만 시끄럽게.

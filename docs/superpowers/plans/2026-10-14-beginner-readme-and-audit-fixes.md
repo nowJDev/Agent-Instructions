@@ -28,10 +28,10 @@ Files: `Skill/huggingface-skills/huggingface-datasets.md`, `Skill/huggingface-sk
 
 Files: `README.md`, `GUIDE.md`, 삭제할 `index.html`과 제목 변경의 직접 참조가 있는 `AGENTS.md`, `codex-global-AGENTS.md`, `PORTABILITY.md`, `rules/02_tool-boundaries.md`.
 
-- [ ] 시작 프롬프트 두 종류와 쉬운 설명, 작업 흐름·구조도, 용어 설명, 문서 안내로 전체를 재작성한다. 긴 전체 도구 목록은 기존 목차로 연결한다.
-- [ ] 지침 적용과 설치의 차이, 사용자 지정 대상·설정 홈·기존 설정 보존·인증·별도 확장 계약을 유지한다. 제목의 직접 참조를 갱신한다.
-- [ ] 입문자 관점으로 전체 문장을 다시 읽고 로컬 링크·앵커·Mermaid 문법을 검사한 뒤 커밋한다.
-- [ ] 추가 승인에 따라 `index.html` 상세 안내를 `GUIDE.md`로 변환하고 README에서 연결한다. 사람이 읽는 설명과 AI 지침 문서의 역할을 분리하며 HTML은 변환 검증 후 개별 삭제한다.
+- [x] 시작 프롬프트 두 종류와 쉬운 설명, 그림 두 개, 용어·문서 안내로 README 전체를 재작성했다. 긴 전체 목록과 설치 상세는 해당 문서로 연결한다.
+- [x] 적용과 설치를 구분하고 설정 홈·기존 보존·인증·별도 확장 계약을 GUIDE와 GETTING_STARTED에서 유지한다. README의 설치 AI는 구체 절차를 반드시 읽도록 안내하며 직접 참조 4문서를 갱신했다.
+- [x] 입문자 관점의 전체 읽기, 링크·앵커·그림의 소스 문법과 독립 리뷰를 확인했다. 실제 뷰어 렌더링은 검증 범위에서 제외하고 명시한다.
+- [x] `index.html`의 상세 설명을 `GUIDE.md`로 변환해 README에서 연결했다. 정적 체크리스트와 AI 지침의 역할을 설명하며 원래 HTML은 개별 삭제했다. 과거 작업의 역사 참조는 보존한다.
 
 ## Task 4. 종료 검증과 기록.
 
