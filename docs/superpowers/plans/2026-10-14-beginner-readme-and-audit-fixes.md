@@ -37,6 +37,6 @@ Files: `README.md`, `GUIDE.md`, 삭제할 `index.html`과 제목 변경의 직�
 
 Files: `CHANGELOG.md`, `docs/reviews/2026-10-14-beginner-readme-and-audit-fixes.md`, 이 계획.
 
-- [ ] 전체 `python -X utf8 -B -m unittest discover -s tests -v`, 예제 문법·UTF-8·BOM·LF·링크·앵커·fence와 `git diff --check`를 확인한다.
-- [ ] 기준선부터 전체 diff를 독립 검토하고 중요한 발견을 해결한 뒤 관련 검증을 반복한다.
-- [ ] 결과와 실제 외부 서비스·전역 설치·렌더링의 확인 범위를 기록한다. 검증한 변경을 한글 커밋으로 저장하고 푸시 없이 브랜치·작업 트리를 보존한다.
+- [x] 전체 64개 테스트 통과, 실패·스킵 0개를 확인했다. 예제 문법·UTF-8·BOM·LF·링크·앵커·fence와 git diff --check도 통과했다.
+- [x] 코드·카탈로그·README·GUIDE와 연관 문서의 전체 변경을 독립 검토했다. 중첩 코드 예시 오탐 발견은 수정 후 대상 회귀와 추가 조건으로 재검증했다.
+- [x] 논리 변경을 한글 커밋으로 저장했다. [검증 기록](../../reviews/2026-10-14-beginner-readme-and-audit-fixes.md)에 결과와 외부 서비스·전역 설치·뷰어 미검증 범위를 명시했다. 푸시는 실행하지 않고 로컬 작업을 보존한다.
