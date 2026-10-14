@@ -51,7 +51,8 @@
 - `design-driven-delivery`는 `brainstorming`·`writing-plans`·TDD·검증·코드 리뷰·브랜치 종료 스킬을 중복 구현하지 않고 승인된 순서로 호출한다.
 - 단순 조회·설명·상태 보고와 수정 권한이 없는 진단에는 전체 설계 문서 프로세스를 강제하지 않는다.
 - 만들기 전 `brainstorming`→`writing-plans`, 구현은 `test-driven-development`·`systematic-debugging`, 마무리는 `verify`·`code-review`.
-- 웹은 `firecrawl-*`, 깊은 리서치는 `deep-research`, 라이브러리 문서는 `context7` MCP, 코드 질문은 사용 가능한 RAG/MCP를 먼저 확인한다.
+- 웹 검색·자료 수집은 `firecrawl-*`, 깊은 리서치는 `deep-research`, 라이브러리 문서는 `context7` MCP, 코드 질문은 사용 가능한 RAG/MCP를 먼저 확인한다.
+- 웹 UI 테스트·브라우저 디버깅은 사용자 지정 도구를 우선하고, 지정이 없으면 사용 가능한 `chrome-devtools` MCP를 우선한다. 별도 Chrome의 자동 실행과 검증 절차는 [Chrome DevTools MCP 안내](Agent-Instructions/MCP/chrome-devtools.md)를 따른다.
 - **상황→도구 매핑·전체 목록**: [`Agent-Instructions/Skill/README.md`](Agent-Instructions/Skill/README.md)·[`Agent-Instructions/MCP/README.md`](Agent-Instructions/MCP/README.md)(또는 [README 문서 안내](Agent-Instructions/README.md#더-알고-싶을-때-찾는-문서)). 스킬이 적용되면 먼저 호출하고 "Using [skill]"를 알린다.
 
 ## 세부 문서

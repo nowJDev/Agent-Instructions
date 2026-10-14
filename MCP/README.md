@@ -1,6 +1,6 @@
 # MCP 서버 인덱스
 
-현재 세션(`~/Desktop/Agent` 프로젝트)에서 연결/활성된 MCP(Model Context Protocol) 서버 목록입니다.
+작성 시 확인한 클라이언트별 MCP(Model Context Protocol) 서버 목록이다. Claude Code 기준 목록에 Codex 글로벌 `chrome-devtools`를 추가했으며, 실제 연결·활성 상태와 도구 수는 현재 클라이언트에서 확인한다.
 
 ## 출처별 분류
 
@@ -10,8 +10,15 @@
 | **context7** | 플러그인 `context7` | stdio (npx) | 2 | [context7.md](context7.md) |
 | **figma** | 플러그인 `figma` | http (원격 OAuth) | 런타임 목록 확인 | [figma.md](figma.md) |
 | **huggingface-skills** | 플러그인 `huggingface-skills` | http (원격 OAuth) | 런타임 목록 확인 | [huggingface-skills.md](huggingface-skills.md) |
+| **chrome-devtools** | Codex 글로벌 (`~/.codex/config.toml`) | stdio (`chrome-devtools-mcp`, 별도 Chrome 자동 실행) | 버전·옵션별 런타임 확인 | [chrome-devtools.md](chrome-devtools.md) |
 | **playwright** | 플러그인 `playwright` | stdio (npx) | 버전·capability별 런타임 확인 | [playwright.md](playwright.md) |
 | **claude.ai PlayMCP** | claude.ai 계정 연동 (카카오 공식) | 원격 | 5개 하위 서버 | [claude-ai-PlayMCP/](claude-ai-PlayMCP/README.md) |
+
+## 웹 작업 선택 기준.
+
+- 웹 UI 테스트·브라우저 디버깅은 사용자 지정 도구를 우선하고, 지정이 없으면 사용 가능한 [Chrome DevTools MCP](chrome-devtools.md)를 우선한다.
+- 웹 검색·자료 수집은 `firecrawl-*`를 사용한다. 기존 로그인·탭을 사용해야 하면 Chrome 플러그인을 선택한다.
+- 연결 실패 시 설치·도구 노출·실행 오류를 확인하고 미검증 범위를 보고한다. 문서에 있다는 이유로 다른 클라이언트에도 설치됐다고 가정하지 않는다.
 
 ## claude.ai PlayMCP 하위 서버
 

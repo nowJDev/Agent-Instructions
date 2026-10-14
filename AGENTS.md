@@ -49,7 +49,8 @@
 - `design-driven-delivery`는 `brainstorming`·`writing-plans`·TDD·검증·코드 리뷰·브랜치 종료 스킬을 중복 구현하지 않고 승인된 순서로 호출한다.
 - 단순 조회·설명·상태 보고와 수정 권한이 없는 진단에는 전체 설계 문서 프로세스를 강제하지 않는다.
 - 만들기 전 `brainstorming`→`writing-plans`, 구현은 `test-driven-development`·`systematic-debugging`, 마무리는 `verify`·`code-review`.
-- 웹은 `firecrawl-*`, 깊은 리서치는 `deep-research`, 라이브러리 문서는 `context7` MCP, 코드 질문은 `rag_agent`.
+- 웹 검색·자료 수집은 `firecrawl-*`, 깊은 리서치는 `deep-research`, 라이브러리 문서는 `context7` MCP, 코드 질문은 `rag_agent`.
+- 웹 UI 테스트·브라우저 디버깅은 사용자 지정 도구를 우선하고, 지정이 없으면 사용 가능한 `chrome-devtools` MCP를 우선한다. 별도 Chrome의 자동 실행과 검증 절차는 [Chrome DevTools MCP 안내](MCP/chrome-devtools.md)를 따른다.
 - **상황→도구 매핑·전체 목록**: [`Skill/README.md`](Skill/README.md)·[`MCP/README.md`](MCP/README.md)(또는 [README 문서 안내](README.md#더-알고-싶을-때-찾는-문서)). 스킬이 적용되면 먼저 호출하고 "Using [skill]"를 알린다.
 
 ## 세부 문서 (필요할 때만)
@@ -57,6 +58,6 @@
 - `rules/02_tool-boundaries.md` — RAG·서브에이전트·MCP 등록·팀·외부작업·Windows·Unity **도구 경계**(스킬/MCP *선택*은 [README 문서 안내](README.md#더-알고-싶을-때-찾는-문서)로 포인터).
 - `rules/03_feedback-loop.md` — 리뷰 → 규칙 보강 반복, 규칙 추가·배치 기준.
 - `rules/04_garbage-collection.md` — 문서-코드 정합·데드코드·MEMORY·Compact 청소.
-- `Skill/`·`MCP/` — **상세 카탈로그**(스킬 1개당 md 1개): 스킬 노출 99(+OFF 22), MCP ON 11(+OFF 4). `Owned-Skills/`는 직접 작성해 재배포할 수 있는 Agent Skill 실물 원본.
+- `Skill/`·`MCP/` — **상세 카탈로그**(스킬 1개당 md 1개): 스킬 노출 99(+OFF 22), Claude 기준 MCP ON 11(+OFF 4), Codex 글로벌 `chrome-devtools` 추가. 설치 상태는 클라이언트별로 확인한다. `Owned-Skills/`는 직접 작성해 재배포할 수 있는 Agent Skill 실물 원본.
 - `references/` — 보조 참조 문서(CLI 설치 등).
 - `PORTABILITY.md` — 다른 AI(비-Claude)에서 스킬/MCP를 쓰는 이식 가이드.

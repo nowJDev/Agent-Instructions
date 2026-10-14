@@ -51,6 +51,7 @@
 | 서버 | 타입 | 등록값 | 타 AI 사용 |
 |---|---|---|---|
 | `context7` | stdio | `npx -y @upstash/context7-mcp` | ✅ |
+| `chrome-devtools` | stdio | `npx -y chrome-devtools-mcp@1.10.1 --headless --no-usage-statistics --no-performance-crux` | ✅ (Chrome·Node.js 필요, [상세 안내](MCP/chrome-devtools.md)) |
 | `playwright` | stdio | `npx @playwright/mcp@latest` | ✅ |
 | `figma` | http | `https://mcp.figma.com/mcp` (OAuth) | ✅ (http MCP 지원 시) |
 | `huggingface-skills` | http | `https://huggingface.co/mcp?login` (OAuth) | ✅ |

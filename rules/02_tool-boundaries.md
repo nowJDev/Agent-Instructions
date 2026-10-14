@@ -35,6 +35,7 @@
 ## 5. MCP 선택 (도구 *선택*, 포인터)
 
 어떤 MCP를 **언제** 쓸지 → [README 문서 안내](../README.md#더-알고-싶을-때-찾는-문서) → `MCP/<server>.md`, 전체 도구 표는 [`MCP/README.md`](../MCP/README.md).
+- 웹 UI 테스트·브라우저 디버깅의 우선 도구와 자동 실행·기존 Chrome 연결·검증 경계는 [Chrome DevTools MCP 안내](../MCP/chrome-devtools.md)를 따른다. 웹 검색·자료 수집은 `firecrawl-*`를 유지한다.
 - 주의: `claude.ai PlayMCP`는 계정 종속(타 AI 사용 불가). **등록 권한·금지사항은 아래 §6**.
 
 ## 6. MCP 서버 등록 권한
