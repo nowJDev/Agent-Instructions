@@ -29,10 +29,14 @@ api = HfApi(token=hf_token)
 repo_id = f"{api.whoami()['name']}/{space_name}"
 api.create_repo(repo_id=repo_id, repo_type="space", space_sdk="gradio",
     space_hardware=SpaceHardware.ZERO_A10G, private=True, exist_ok=True)
+if api.repo_info(repo_id=repo_id, repo_type="space").private is not True:
+    raise RuntimeError("비공개 Space가 확인되지 않아 파일과 secret 전송을 중단합니다.")
 for path in ["app.py", "requirements.txt", "README.md"]:
     api.upload_file(path_or_fileobj=path, path_in_repo=path, repo_id=repo_id, repo_type="space")
 api.add_space_secret(repo_id=repo_id, key="HF_TOKEN", value=HF_TOKEN)  # private LoRA 런타임용
 ```
+
+`private=True`는 기존 공개 Space의 가시성을 바꾸지 않는다. 파일 업로드와 런타임 secret 전송 전에 실제 비공개 여부를 조회하며, 공개·불명확한 결과나 조회 실패 시 중단한다. 기존 공개 Space를 자동으로 비공개로 바꾸지 않고 사용자가 배포 대상을 다시 선택하도록 한다. [공식 API 계약](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.HfApi.create_repo)을 참고한다.
 
 ```bash
 # Phase 6: 스모크 테스트 (gradio CLI)

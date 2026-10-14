@@ -17,7 +17,7 @@
 ## 🛠️ 제공 도구 / 주요 파라미터
 **5단계 워크플로**:
 
-1. **Discovery**: `find . -name "CLAUDE.md" -o -name ".claude.md" -o -name ".claude.local.md"`로 모든 파일 탐색. 파일 유형: 프로젝트 루트(`./CLAUDE.md`), 로컬 오버라이드(`.claude.local.md`), 글로벌 기본(`~/.claude/CLAUDE.md`), 패키지별(monorepo), 서브디렉터리.
+1. **Discovery**: `find . -type f \( -name "CLAUDE.md" -o -name "CLAUDE.local.md" \)`로 프로젝트 파일 탐색. 파일 유형: 프로젝트 지침(`./CLAUDE.md` 또는 `./.claude/CLAUDE.md`), 개인 로컬 지침(`CLAUDE.local.md`), 패키지별(monorepo), 서브디렉터리. 전역 기본(`~/.claude/CLAUDE.md`)은 프로젝트 밖에 있으므로 별도로 읽는다. [공식 파일명과 로딩 규칙](https://code.claude.com/docs/en/memory)을 따른다.
 
 2. **Quality Assessment**: 각 파일을 품질 기준으로 평가 — 명령/워크플로 문서화(High), 아키텍처 명확성(High), 비자명 패턴(Medium), 간결성(Medium), 최신성(High), 실행 가능성(High). 점수: A(90~100) ~ F(0~29). 상세 루브릭은 `references/quality-criteria.md`.
 
@@ -29,7 +29,7 @@
 
 **흔히 지적할 이슈**: stale 명령, 누락 의존성, 구식 아키텍처, 환경 설정 누락, 깨진 테스트 명령, 미문서화 gotcha.
 
-**사용자 팁**: `#` 키 단축키(세션 중 학습 자동 반영), 간결 유지, 실행 가능한 명령, `.claude.local.md`(개인 설정), `~/.claude/CLAUDE.md`(전역 기본).
+**사용자 팁**: `#` 키 단축키(세션 중 학습 자동 반영), 간결 유지, 실행 가능한 명령, `CLAUDE.local.md`(개인 로컬 지침), `~/.claude/CLAUDE.md`(전역 기본).
 
 **참조 파일**: `references/quality-criteria.md`, `references/templates.md`
 **tools**: Read, Glob, Grep, Bash, Edit

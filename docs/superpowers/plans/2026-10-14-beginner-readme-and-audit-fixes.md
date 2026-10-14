@@ -19,10 +19,10 @@ Files: `tests/test_workflow_markdown.py`, `Owned-Skills/design-driven-delivery/s
 
 Files: `Skill/huggingface-skills/huggingface-datasets.md`, `Skill/huggingface-skills/huggingface-lora-space-builder.md`, `Skill/claude-md-management/claude-md-improver.md`, 필요하면 문서 예제 회귀 테스트.
 
-- [ ] 공식 `repo_info(...).private` 계약을 확인하고 비공개 조회 없이 진행하는 기존 예시를 인증 없는 fixture로 재현한다.
-- [ ] 두 업로드 예시에 `if api.repo_info(repo_id=repo_id, repo_type=...).private is not True: raise RuntimeError(...)`를 업로드 앞에 배치한다. 조회 오류는 전파하고 기존 공개 저장소를 변경하지 않는다.
-- [ ] 세션 업로드 원본은 승인·민감정보 제거를 마친 별도 폴더로 제한하고 전역 폴더 직접 업로드를 제거한다. 파일명은 `CLAUDE.local.md`로 수정한다.
-- [ ] 가짜 API로 비공개 통과·공개 중단·조회 실패 중단·전송 범위를 확인하고 예제 문법과 파일명 검색을 검사한 뒤 커밋한다.
+- [x] 공식 계약을 확인하고 기존 Space 예시의 비공개 확인 누락을 인증 없는 fixture의 실패 12건으로 재현했다.
+- [x] 두 업로드 예시는 `repo_info(...).private is True` 확인 후 진행한다. 조회 오류는 전파하며 기존 공개 저장소를 변경하지 않는다.
+- [x] 전역 세션 폴더 업로드 대신 승인·민감정보 제거를 마친 별도 폴더를 사용한다. `CLAUDE.local.md` 검색·설명과 전역 지침의 별도 조회를 수정했다.
+- [x] 실제 문서 예제를 실행하는 회귀 4개와 전체 64개 테스트가 통과했다. 독립 검토의 비공개 guard·전송 폴더 변이 검사도 결함을 검출했다. 예제 문법·파일명 검색과 diff를 확인한 뒤 커밋한다.
 
 ## Task 3. README 전체 재작성.
 
