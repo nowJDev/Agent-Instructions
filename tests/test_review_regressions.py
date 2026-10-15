@@ -58,7 +58,7 @@ class WorkflowTests(unittest.TestCase):
 
     def test_bootstrap_does_not_overwrite_concurrent_creation(self):
         module = load_script('bootstrap_workflow')
-        destination = self.project / 'docs/current-state.md'
+        destination = (self.project / 'docs/current-state.md').resolve()
         original_exists = Path.exists
 
         def concurrent_exists(path):
@@ -166,9 +166,10 @@ class WorkflowTests(unittest.TestCase):
             result = subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(target)],
                                     capture_output=True)
             self.assertEqual(result.returncode, 0, result.stderr)
+            self.addCleanup(os.rmdir, link)
         else:
             link.symlink_to(target, target_is_directory=True)
-        self.addCleanup(os.rmdir, link)
+            self.addCleanup(link.unlink)
 
     def test_junction_outside_project_rejected_before_creation(self):
         with tempfile.TemporaryDirectory() as outside:
