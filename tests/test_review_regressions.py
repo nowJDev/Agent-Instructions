@@ -58,7 +58,7 @@ class WorkflowTests(unittest.TestCase):
 
     def test_bootstrap_does_not_overwrite_concurrent_creation(self):
         module = load_script('bootstrap_workflow')
-        destination = self.project / 'docs/current-state.md'
+        destination = (self.project / 'docs/current-state.md').resolve()
         original_exists = Path.exists
 
         def concurrent_exists(path):

@@ -3,8 +3,8 @@
 
 2026-10-15 기준선 `981744c`에서 자동 회귀 테스트 CI 1단계를 구현했다. [운영 안내](ci.md), [승인 설계](superpowers/specs/2026-10-15-regression-ci.md), [구현 계획](superpowers/plans/2026-10-15-regression-ci.md), [검증 기록](reviews/2026-10-15-regression-ci.md)을 따른다.
 
-로컬 Linux Python 3.12의 전체 64개 중 60개가 통과했고 Windows 전용 4개는 의도적 skip이다. Bash 사전 검사·실패 종료 코드·actionlint·문서 검사를 통과했다. 실제 GitHub Ubuntu·Windows 실행은 PR에서 확인할 단계다. main 병합과 필수 병합 규칙은 별도로 수행한다.
+패치 작성 환경의 Linux Python 3.12에서는 전체 64개 중 60개 통과·Windows 전용 4개 skip을 확인했다. 사용자 Windows Python 3.12.10에서는 적용 전·후 각각 64개가 모두 통과했다. 실제 GitHub 첫 실행은 Ubuntu 성공·Windows의 경쟁 생성 테스트 1개 실패였으며, 경로 정규화 차이를 재현하고 fixture를 최소 수정했다. 두 OS 재실행 결과를 확인할 단계다.
 
 내부 문서 링크 자동 검사·외부 링크 정기 점검은 이번 단계에 포함하지 않았다. 과거 기능·설치 안내의 상세 이력은 CHANGELOG와 기존 리뷰 문서를 보존한다.
 
-원격 전달은 GitHub 앱의 쓰기 권한 오류 403으로 차단됐다. 로컬 작업 브랜치는 `codex/ci-regression-tests`이며 구현은 커밋했다. 적용용 패치를 사용자 환경에서 git am으로 반영하고 push한 뒤 PR의 두 OS 결과를 확인한다.
+패치 작성 환경의 GitHub 403 제한은 사용자 환경에서 재현되지 않았다. 원격 main에서 분기한 `codex/ci-regression-tests`에 두 커밋을 git am으로 적용하고 push하여 [PR #1](https://github.com/nowJDev/Agent-Instructions/pull/1)을 생성했다. 원본 작업 폴더와 로컬 main의 미전송 커밋 `b77f3ed`는 보존했다. main 병합과 필수 병합 규칙 변경은 수행하지 않는다.

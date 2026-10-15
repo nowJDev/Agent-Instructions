@@ -9,7 +9,7 @@
 
 Linux Python 3.12.14에서 전체 64개 실행 중 오류 2개, Windows 전용 skip 4개를 확인했다. 두 오류는 외부 디렉터리 접근 거부 assertion 이후 cleanup에서 발생했다. POSIX 디렉터리 symlink에 os.rmdir를 호출한 것이 원인이다. Windows junction의 os.rmdir는 유지하고 POSIX는 unlink로 분기했다. 테스트를 삭제하거나 skip하지 않았고 제품 스크립트는 변경하지 않았다.
 
-## 실제 로컬 검증.
+## 패치 작성 환경의 로컬 검증.
 
 - `python -X utf8 -B -m unittest discover -s tests -v`: 64개 실행, 60개 통과, 실패·오류 0개, Windows 전용 4개 skip, 5.260초다.
 - CI YAML의 Bash 사전 검사 run 내용을 추출해 실제 Bash로 실행했다. Python과 Bash·필수 도구 조회를 통과했다.
@@ -24,6 +24,10 @@ Linux Python 3.12.14에서 전체 64개 실행 중 오류 2개, Windows 전용 s
 
 ## 원격 실행 상태.
 
-PR에서 실제 Ubuntu·Windows runner 실행을 확인하기 전까지 원격 검증은 대기 상태다. 로컬 Linux 결과만으로 Windows 통과를 주장하지 않는다. 별도 필수 병합 검사 설정이나 main 병합은 수행하지 않는다.
+패치 작성 환경에서는 HTTPS 인증 정보 부재와 GitHub 앱의 `403 Resource not accessible by integration`으로 전달이 차단됐다. 사용자 Windows 환경에서는 원격 main 기준의 별도 worktree·브랜치에 두 커밋을 git am으로 적용하고 push하여 [PR #1](https://github.com/nowJDev/Agent-Instructions/pull/1)을 생성했다. 원본 main의 미전송 커밋 `b77f3ed`는 PR에서 제외하고 보존했다. 별도 필수 병합 검사 설정이나 main 병합은 수행하지 않는다.
 
-일반 git push는 사용 가능한 HTTPS 인증 정보가 없어 실패했다. 연결된 GitHub 앱의 git tree 생성도 `403 Resource not accessible by integration`으로 거부됐다. 원격 브랜치·PR·Actions 실행은 생성하지 못했고 main은 변경하지 않았다. 구현 커밋과 적용 가능한 git format-patch를 전달한다. 사용자 환경에서 패치를 적용·push한 뒤 실제 두 OS 결과를 확인해야 한다.
+## 사용자 Windows 검증과 runner 회귀 수정.
+
+Windows Python 3.12.10 전체 unittest는 적용 전 64개·22.279초, 적용 후 64개·21.081초로 모두 통과했고 실패·오류·skip은 없었다. Bash·COM·CMD 사전 검사와 변경 파일 10개의 UTF-8·BOM 없음·LF·상대 문서 링크를 확인했다. 전체 패치와 네 테스트 파일의 독립 리뷰에서 차단·중요 발견은 없었다.
+
+[첫 Actions 실행](https://github.com/nowJDev/Agent-Instructions/actions/runs/38677825016)에서 Ubuntu는 성공했으나 Windows는 `test_bootstrap_does_not_overwrite_concurrent_creation`이 실패했다. 제품 스크립트는 경로를 resolve하지만 fixture의 비교 대상은 원래 임시 경로여서 정규화 전후 표기가 다르면 경쟁 생성 mock이 실행되지 않았다. 로컬에서 `..`를 포함한 동일 디렉터리 경로로 같은 assertion 실패를 재현했다. 비교 대상에 resolve를 적용하는 한 줄 수정 후 재현 조건을 통과했다. 사용자 문서 보존 assertion과 제품 스크립트는 유지했으며 독립 재검토에서도 수정이 타당함을 확인했다. 실제 두 OS 재실행 결과는 추가 확인한다.
