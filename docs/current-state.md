@@ -6,3 +6,5 @@
 로컬 Linux Python 3.12의 전체 64개 중 60개가 통과했고 Windows 전용 4개는 의도적 skip이다. Bash 사전 검사·실패 종료 코드·actionlint·문서 검사를 통과했다. 실제 GitHub Ubuntu·Windows 실행은 PR에서 확인할 단계다. main 병합과 필수 병합 규칙은 별도로 수행한다.
 
 내부 문서 링크 자동 검사·외부 링크 정기 점검은 이번 단계에 포함하지 않았다. 과거 기능·설치 안내의 상세 이력은 CHANGELOG와 기존 리뷰 문서를 보존한다.
+
+원격 전달은 GitHub 앱의 쓰기 권한 오류 403으로 차단됐다. 로컬 작업 브랜치는 `codex/ci-regression-tests`이며 구현은 커밋했다. 적용용 패치를 사용자 환경에서 git am으로 반영하고 push한 뒤 PR의 두 OS 결과를 확인한다.

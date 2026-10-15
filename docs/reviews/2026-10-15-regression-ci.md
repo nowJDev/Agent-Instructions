@@ -25,3 +25,5 @@ Linux Python 3.12.14에서 전체 64개 실행 중 오류 2개, Windows 전용 s
 ## 원격 실행 상태.
 
 PR에서 실제 Ubuntu·Windows runner 실행을 확인하기 전까지 원격 검증은 대기 상태다. 로컬 Linux 결과만으로 Windows 통과를 주장하지 않는다. 별도 필수 병합 검사 설정이나 main 병합은 수행하지 않는다.
+
+일반 git push는 사용 가능한 HTTPS 인증 정보가 없어 실패했다. 연결된 GitHub 앱의 git tree 생성도 `403 Resource not accessible by integration`으로 거부됐다. 원격 브랜치·PR·Actions 실행은 생성하지 못했고 main은 변경하지 않았다. 구현 커밋과 적용 가능한 git format-patch를 전달한다. 사용자 환경에서 패치를 적용·push한 뒤 실제 두 OS 결과를 확인해야 한다.

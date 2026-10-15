@@ -40,7 +40,8 @@ Files: 이 계획, `docs/reviews/2026-10-15-regression-ci.md`, `docs/current-sta
 
 - [x] 전체 회귀와 임시 실패 테스트를 통한 exit 1 검출을 확인한다.
 - [x] actionlint·인코딩·문서 링크·git diff --check와 독립 리뷰를 확인한다.
-- [ ] 한글 커밋으로 저장하고 작업 브랜치를 PR로 전달하여 GitHub의 OS별 결과를 확인한다. 실제 실행 전에는 원격 검증을 완료로 기록하지 않는다.
+- [x] 한글 커밋으로 저장하고 적용용 패치를 준비한다.
+- [?] GitHub 앱 쓰기 권한 오류 403으로 원격 브랜치·PR 전달과 두 OS 실행 확인은 차단됐다. 원격 검증을 완료로 기록하지 않는다.
 
 ```bash
 git diff --check
