@@ -1,5 +1,11 @@
-<!-- 저장소의 최신 CI 작업 상태와 검증 경계를 요약한다. -->
+<!-- 저장소의 최신 스킬·CI 작업 상태와 검증 경계를 요약한다. -->
 # 현재 상태.
+
+2026-10-15에 [범용 보강 설계](superpowers/specs/2026-10-15-portable-skill-workflows.md)에 따라 자체 제작 23개 스킬을 추가했다. 기존 전달 스킬과 함께 Owned-Skills 원본은 24개이며, 카탈로그 99개 이름과 중복되므로 합산하지 않는다. [설치 안내](../Owned-Skills/README.md), [구현 계획](superpowers/plans/2026-10-15-portable-skill-workflows.md), [검증 기록](reviews/2026-10-15-portable-skill-workflows.md)을 따른다.
+
+사용자 Windows 전체 회귀 71개와 패키지 계약 검사 7개가 통과했다. Codex·Claude 사용자 전역 파일 배치·개인 예외·비대상 파일·보호 설정 보존을 확인했다. Claude의 새 항목은 portable- 이름을 사용해 기존 내장 명령을 보존한다. 실제 새 세션 호출과 외부 기능 실행은 미검증이다. 아래 CI 도입 이력의 64개는 당시 테스트 수다.
+
+## 이전 CI 도입과 통합 기록.
 
 2026-10-15 기준선 `981744c`에서 자동 회귀 테스트 CI 1단계를 구현했다. [운영 안내](ci.md), [승인 설계](superpowers/specs/2026-10-15-regression-ci.md), [구현 계획](superpowers/plans/2026-10-15-regression-ci.md), [검증 기록](reviews/2026-10-15-regression-ci.md)을 따른다.
 

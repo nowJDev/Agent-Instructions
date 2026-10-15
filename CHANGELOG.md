@@ -5,6 +5,9 @@
 
 ### Added
 
+- 카탈로그 설명 수준이던 23개 절차의 자체 작성 범용 원본을 Owned-Skills에 추가했다. 입력·호스트 확인·수행·실패·증거 보고와 도구 부재 대안을 포함하며 타사 원문·개인 참조는 재배포하지 않는다.
+- Codex·Claude Code 전역 설치·백업·업데이트·이름 충돌 안내, 공개 출처와 패키지 계약 검사를 추가했다.
+
 - PR·main push·수동 실행에서 기존 Python 회귀 테스트를 Ubuntu·Windows에서 실행하는 GitHub Actions CI와 운영 안내를 추가했다. Python 3.12와 읽기 권한을 사용하며 필요한 Bash·Windows 도구를 사전 검사한다.
 - README에 기본 브랜치 CI 상태 배지와 자동 테스트 안내 링크를 추가했다.
 

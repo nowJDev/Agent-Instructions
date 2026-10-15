@@ -1,6 +1,6 @@
 # 스킬 인덱스
 
-현재 세션에서 호출 가능한(노출된) 최상위 스킬 **99개**를 출처별로 정리했습니다.
+카탈로그 작성 당시 호출 가능한 최상위 스킬 **99개**를 출처별로 정리했습니다. 실제 PC의 설치·노출·인증 상태와는 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
 ※ 플러그인 내부 reference 하위 스킬(chrome-devtools 65개, huggingface 68개 등 SKILL.md)은 세션에서 직접 참고하는 단위가 아니므로 제외했습니다.
 
 > 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(노출 99 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
@@ -83,6 +83,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 | Skill | 공개 원본 | License |
 |---|---|---|
 | `design-driven-delivery` | [`Owned-Skills/design-driven-delivery`](../Owned-Skills/design-driven-delivery/SKILL.md) | 이 저장소의 MIT License |
+| 범용 보강 23개. | [이름별 패키지·설치 안내](../Owned-Skills/README.md), [공개 출처·채택 경계](../references/skill-strengthening.md). | 자체 작성 본문에 이 저장소의 MIT License 적용. |
 
 ### 외부 서드파티 repo (라이선스 명시 — 이식 가장 안전)
 | 플러그인 | 공개 원본 | License |

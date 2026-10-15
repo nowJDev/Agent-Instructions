@@ -113,9 +113,12 @@ figma    = MCPServerStreamableHttp(params={"url": "https://mcp.figma.com/mcp"})
 ### 3.1 원칙
 **타사 Skill 실물을 이 패키지에 복사·재배포하지 않는다.** 대신 공개 원본을 가리키고 받는 팀이 직접 설치한다. 이 저장소에서 직접 작성한 Skill은 `Owned-Skills/`에 원본을 보관하며 저장소 License에 따라 설치·재사용할 수 있다.
 
-현재 자체 제작 원본은 다음과 같다.
+현재 자체 제작 원본은 24개다. 전체 이름과 Codex·Claude Code 사용자 전역 설치·업데이트 방법은 [Owned-Skills 안내](Owned-Skills/README.md)를 따른다. 기존 전역 패키지는 먼저 비공개 백업하고 개인 참조·알 수 없는 파일을 보존하며 요청한 파일만 병합한다.
+
+주요 구성은 다음과 같다.
 
 - [`design-driven-delivery`](Owned-Skills/design-driven-delivery/SKILL.md) — 상태 변경 작업의 설계·계획·구현·검증·리뷰·통합을 조율한다.
+- [범용 보강 23개](Owned-Skills/README.md) — 코드 리뷰·실행·검증·조사·설정·인수인계·유한 반복·Claude 개발·FigJam 계획의 자체 작성 절차다. 같은 이름의 내장 명령·타사 플러그인과 구분하고 호스트 지원·필수 가이드·실제 도구를 확인한다.
 
 ### 3.2 경로 A — 출처에서 각자 설치 (주력)
 
@@ -155,7 +158,7 @@ github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마�
 - [ ] **PlayMCP 제외**: claude.ai 종속이므로 대체 MCP/API로 교체 (§2.4)
 - [ ] **Skill 출처 확인**: 쓰려는 스킬의 공개 원본(`anthropics/claude-plugins-official` 등) 확보
 - [ ] **Skill 리소스 보존**: `SKILL.md`의 상대경로 참조·실행 스크립트·템플릿이 설치 위치에서도 존재하는지 확인한다.
-- [ ] **자체 제작 Skill**: `Owned-Skills/` 원본과 `agents/openai.yaml`을 함께 배치
+- [ ] **자체 제작 Skill**: `Owned-Skills/`의 선택 패키지 전체를 배치하고, 포함된 경우 `agents/openai.yaml`과 리소스를 보존한다.
 - [ ] **Agent Skills 지원 여부** 확인 → 경로 A / B / C 결정
 - [ ] **LICENSE 확인**: 원본 라이선스 조건 준수, 실물 재배포 금지
 - [ ] (선택) 자주 쓰는 스킬을 **경로 C(MCP 래핑)**로 만들어 크로스-AI 표준화
