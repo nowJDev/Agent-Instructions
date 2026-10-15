@@ -3,6 +3,8 @@
 
 # Agent-Instructions
 
+[![CI](https://github.com/nowJDev/Agent-Instructions/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/nowJDev/Agent-Instructions/actions/workflows/ci.yml)
+
 **AI에게 일을 맡길 때, 먼저 읽게 하는 작업 안내서입니다.**
 
 예를 들어 AI에게 “이 오류를 고쳐 줘”라고 부탁하면, 파일을 바꾸기 전에 문제를 확인하고, 고친 뒤에는 실제로 작동하는지 검사하도록 안내합니다. 사용자가 요청한 범위를 지키고, 비밀번호 같은 중요한 정보를 공개하지 않도록 하는 규칙도 담고 있습니다.
@@ -146,6 +148,7 @@ Claude Code에만 있는 특정 도구나 자동 차단 기능이 다른 AI에�
 | 사용 방법과 도구의 역할을 더 자세히 이해하기. | [사람용 상세 사용 안내](GUIDE.md). |
 | 처음 적용하는 방법과 설치 과정. | [시작 안내](GETTING_STARTED.md). |
 | AI가 따라야 할 정확한 규칙. | [핵심 작업 규칙](AGENTS.md). |
+| 이 저장소의 자동 테스트 실행과 실패 확인. | [자동 회귀 테스트 안내](docs/ci.md). |
 | 결과 검사와 변경 기록 저장 기준. | [검증·커밋 규칙](rules/01_enforcement-system.md). |
 | 도구로 무엇을 어디까지 할 수 있는지. | [도구 사용 범위](rules/02_tool-boundaries.md). |
 | 반복되는 실수를 줄이는 방법. | [실수와 리뷰를 규칙에 반영하기](rules/03_feedback-loop.md). |
