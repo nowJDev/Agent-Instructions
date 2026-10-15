@@ -1,6 +1,17 @@
 <!-- 이 문서는 Agent-Instructions 저장소의 공개 변경 이력을 기록한다. -->
 # Changelog
 
+## 2026-10-15
+
+### Added
+
+- PR·main push·수동 실행에서 기존 Python 회귀 테스트를 Ubuntu·Windows에서 실행하는 GitHub Actions CI와 운영 안내를 추가했다. Python 3.12와 읽기 권한을 사용하며 필요한 Bash·Windows 도구를 사전 검사한다.
+- README에 기본 브랜치 CI 상태 배지와 자동 테스트 안내 링크를 추가했다.
+
+### Fixed
+
+- 디렉터리 경계 테스트의 임시 자원 정리를 Windows junction과 POSIX 심볼릭 링크에 맞게 분리해 Linux 정리 오류를 수정했다.
+
 ## 2026-10-14
 
 ### Fixed
