@@ -49,3 +49,11 @@ git diff --check
 git add .github/workflows/ci.yml README.md CHANGELOG.md tests/test_review_regressions.py docs
 git commit -m "Windows와 Linux 자동 회귀 테스트 CI 추가"
 ```
+
+## Task 4. 후속 승인된 통합과 정리.
+
+Files: 현재 상태·진행 체크리스트·이 계획과 CI 및 Chrome DevTools 검증 기록.
+
+- [x] 전체 push·병합·정리 추가 승인을 확인하고 PR #1을 커밋 이력을 보존해 병합했다.
+- [x] 기존 로컬 커밋 `b77f3ed`의 공개 범위와 통합 diff를 검토하고 일반 merge했다. 통합 main의 전체 64개 회귀를 통과했다.
+- [x] 실제 경로·미커밋 파일·로컬과 원격 병합을 확인하고 이번 임시 worktree와 로컬·원격 작업 브랜치를 정리했다. 개인 파일·원본 패치·Git 이력은 보존했다.

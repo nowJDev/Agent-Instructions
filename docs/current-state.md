@@ -7,4 +7,4 @@
 
 내부 문서 링크 자동 검사·외부 링크 정기 점검은 이번 단계에 포함하지 않았다. 과거 기능·설치 안내의 상세 이력은 CHANGELOG와 기존 리뷰 문서를 보존한다.
 
-패치 작성 환경의 GitHub 403 제한은 사용자 환경에서 재현되지 않았다. 원격 main에서 분기한 `codex/ci-regression-tests`에 두 커밋을 git am으로 적용하고 push하여 [PR #1](https://github.com/nowJDev/Agent-Instructions/pull/1)을 생성했다. 원본 작업 폴더와 로컬 main의 미전송 커밋 `b77f3ed`는 보존했다. main 병합과 필수 병합 규칙 변경은 수행하지 않는다.
+패치 작성 환경의 GitHub 403 제한은 사용자 환경에서 재현되지 않았다. 원격 main에서 분기한 `codex/ci-regression-tests`에 두 커밋을 git am으로 적용하고 push하여 [PR #1](https://github.com/nowJDev/Agent-Instructions/pull/1)을 생성했다. 이후 사용자의 전체 push·병합·정리 승인에 따라 PR을 `eaeb985`로 병합하고 기존 Chrome DevTools 지침 커밋 `b77f3ed`도 이력을 보존해 main에 통합했다. 통합 main의 로컬 전체 64개가 통과했으며 임시 CI worktree와 병합된 로컬·원격 작업 브랜치를 정리했다. 개인 파일과 원본 패치는 보존했고 필수 병합 규칙은 변경하지 않았다.

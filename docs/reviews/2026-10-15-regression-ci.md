@@ -24,7 +24,7 @@ Linux Python 3.12.14에서 전체 64개 실행 중 오류 2개, Windows 전용 s
 
 ## 원격 실행 상태.
 
-패치 작성 환경에서는 HTTPS 인증 정보 부재와 GitHub 앱의 `403 Resource not accessible by integration`으로 전달이 차단됐다. 사용자 Windows 환경에서는 원격 main 기준의 별도 worktree·브랜치에 두 커밋을 git am으로 적용하고 push하여 [PR #1](https://github.com/nowJDev/Agent-Instructions/pull/1)을 생성했다. 원본 main의 미전송 커밋 `b77f3ed`는 PR에서 제외하고 보존했다. 별도 필수 병합 검사 설정이나 main 병합은 수행하지 않는다.
+패치 작성 환경에서는 HTTPS 인증 정보 부재와 GitHub 앱의 `403 Resource not accessible by integration`으로 전달이 차단됐다. 사용자 Windows 환경에서는 원격 main 기준의 별도 worktree·브랜치에 두 커밋을 git am으로 적용하고 push하여 [PR #1](https://github.com/nowJDev/Agent-Instructions/pull/1)을 생성했다. 원본 main의 미전송 커밋 `b77f3ed`는 PR에서 제외하고 보존했다. 최초 전달에는 main 병합을 포함하지 않았으며 이후 승인된 통합은 아래에 기록한다.
 
 ## 사용자 Windows 검증과 runner 회귀 수정.
 
@@ -42,3 +42,9 @@ Windows Python 3.12.10 전체 unittest는 적용 전 64개·22.279초, 적용 �
 | Windows, Python 3.12.10. | 64개. | 64개. | 0개. | 0개. | 19.082초. |
 
 runner에는 고정된 checkout v4·setup-python v5의 Node.js 20 지원 종료에 따른 Node.js 24 강제 실행 경고가 남는다. 이번 두 OS 실행은 성공했으며 Actions 주요 버전 갱신은 별도 범위다. ubuntu-latest의 Ubuntu 26 전환 예정 안내도 있으므로 향후 runner 이미지 변경 시 같은 회귀 결과를 확인한다.
+
+## 후속 승인에 따른 main 통합과 정리.
+
+사용자가 전체 커밋·push·병합·안전한 임시 파일 정리를 승인했다. 최종 PR 커밋 `64560ec`의 [두 OS 실행](https://github.com/nowJDev/Agent-Instructions/actions/runs/38678337763) 성공을 확인한 뒤 PR #1을 merge commit `eaeb985`로 병합했다. 기존 Chrome DevTools 지침 커밋 `b77f3ed`는 독립 검토에서 공개를 막을 시크릿·내부 자료나 중요한 결함이 없음을 확인하고 일반 merge `0804445`로 통합했다. CHANGELOG의 두 작업 항목과 모든 기존 커밋 이력을 보존했다.
+
+통합 main의 Windows Python 3.12.10 전체 64개 테스트가 23.216초에 통과했고 실패·오류·skip은 없었다. 실제 경로와 reparse point 여부, 미커밋·untracked·ignored 파일 부재 및 로컬·원격 main에서의 병합 여부를 확인한 뒤 이번 임시 CI worktree와 로컬·원격 작업 브랜치를 삭제했다. 원본 다운로드 패치·개인 파일·복구용 Git 이력은 보존했다. 필수 병합 규칙과 Actions 주요 버전은 변경하지 않았다.
