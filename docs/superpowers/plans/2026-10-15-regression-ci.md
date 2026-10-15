@@ -42,7 +42,7 @@ Files: 이 계획, `docs/reviews/2026-10-15-regression-ci.md`, `docs/current-sta
 - [x] actionlint·인코딩·문서 링크·git diff --check와 독립 리뷰를 확인한다.
 - [x] 한글 커밋으로 저장하고 적용용 패치를 준비한다.
 - [x] 사용자 환경의 별도 worktree에서 두 커밋을 git am으로 적용하고 push하여 PR #1을 생성했다. 기존 main의 미전송 커밋은 보존했다.
-- [-] 첫 Actions 실행의 Windows 경쟁 생성 fixture 오류를 경로 정규화 한 줄 수정으로 보완했다. 로컬 별칭 경로 RED·GREEN과 전체 회귀 후 두 OS 실행을 다시 확인한다.
+- [x] 첫 Actions 실행의 Windows 경쟁 생성 fixture 오류를 경로 정규화 한 줄 수정으로 보완했다. 로컬 별칭 경로 RED·GREEN과 전체 64개 회귀, 독립 재검토 및 GitHub 두 OS 재실행 성공을 확인했다.
 
 ```bash
 git diff --check

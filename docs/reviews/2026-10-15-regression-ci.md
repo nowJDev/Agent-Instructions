@@ -30,4 +30,15 @@ Linux Python 3.12.14에서 전체 64개 실행 중 오류 2개, Windows 전용 s
 
 Windows Python 3.12.10 전체 unittest는 적용 전 64개·22.279초, 적용 후 64개·21.081초로 모두 통과했고 실패·오류·skip은 없었다. Bash·COM·CMD 사전 검사와 변경 파일 10개의 UTF-8·BOM 없음·LF·상대 문서 링크를 확인했다. 전체 패치와 네 테스트 파일의 독립 리뷰에서 차단·중요 발견은 없었다.
 
-[첫 Actions 실행](https://github.com/nowJDev/Agent-Instructions/actions/runs/38677825016)에서 Ubuntu는 성공했으나 Windows는 `test_bootstrap_does_not_overwrite_concurrent_creation`이 실패했다. 제품 스크립트는 경로를 resolve하지만 fixture의 비교 대상은 원래 임시 경로여서 정규화 전후 표기가 다르면 경쟁 생성 mock이 실행되지 않았다. 로컬에서 `..`를 포함한 동일 디렉터리 경로로 같은 assertion 실패를 재현했다. 비교 대상에 resolve를 적용하는 한 줄 수정 후 재현 조건을 통과했다. 사용자 문서 보존 assertion과 제품 스크립트는 유지했으며 독립 재검토에서도 수정이 타당함을 확인했다. 실제 두 OS 재실행 결과는 추가 확인한다.
+[첫 Actions 실행](https://github.com/nowJDev/Agent-Instructions/actions/runs/38677825016)에서 Ubuntu는 성공했으나 Windows는 `test_bootstrap_does_not_overwrite_concurrent_creation`이 실패했다. 제품 스크립트는 경로를 resolve하지만 fixture의 비교 대상은 원래 임시 경로여서 정규화 전후 표기가 다르면 경쟁 생성 mock이 실행되지 않았다. 로컬에서 `..`를 포함한 동일 디렉터리 경로로 같은 assertion 실패를 재현했다. 비교 대상에 resolve를 적용하는 한 줄 수정 후 재현 조건을 통과했다. 사용자 문서 보존 assertion과 제품 스크립트는 유지했으며 독립 재검토에서도 수정이 타당함을 확인했다. 수정 후 로컬 전체 64개도 22.126초에 실패·오류·skip 없이 통과했다.
+
+## 실제 GitHub 재실행 결과.
+
+2026-10-15 수정 커밋 `0558c94`의 [실행 38678117512](https://github.com/nowJDev/Agent-Instructions/actions/runs/38678117512)이 성공했다. 두 OS의 필수 도구 사전 검사와 테스트 단계 모두 성공했다.
+
+| 환경 | 전체 탐색 | 통과 | 실패·오류 | skip | 테스트 시간 |
+|---|---|---|---|---|---|
+| Ubuntu, Python 3.12.15. | 64개. | 60개. | 0개. | Windows 전용 4개. | 6.627초. |
+| Windows, Python 3.12.10. | 64개. | 64개. | 0개. | 0개. | 19.082초. |
+
+runner에는 고정된 checkout v4·setup-python v5의 Node.js 20 지원 종료에 따른 Node.js 24 강제 실행 경고가 남는다. 이번 두 OS 실행은 성공했으며 Actions 주요 버전 갱신은 별도 범위다. ubuntu-latest의 Ubuntu 26 전환 예정 안내도 있으므로 향후 runner 이미지 변경 시 같은 회귀 결과를 확인한다.

@@ -8,7 +8,7 @@
 - [x] POSIX 임시 심볼릭 링크 정리 오류를 재현하고 최소 수정했다.
 - [x] Windows·Ubuntu workflow와 운영 안내·README 연결을 구현했다.
 - [x] 로컬 전체 회귀·Bash 사전 검사·실패 종료 코드·정적 검사·독립 리뷰를 확인했다.
-- [-] 실제 GitHub 첫 실행의 Windows fixture 경로 오류를 수정했으며 두 OS 재실행 결과를 확인한다.
+- [x] 실제 GitHub 첫 실행의 Windows fixture 경로 오류를 재현·수정하고 두 OS 재실행 성공을 확인했다. Ubuntu는 60개 통과·4개 의도적 skip, Windows는 64개 전부 통과했다.
 - [x] 검증 기록과 한글 커밋을 로컬에 저장했다.
 - [x] 사용자 환경에서 패치를 git am으로 적용하고 원격 브랜치와 PR #1을 생성했다. 기존 사용자 main과 미전송 커밋을 보존했다.
 
