@@ -1,0 +1,6 @@
+합성 테스트 자료. 실제 업무 기록 아님.
+VTS_Unity VR 요구사항 검토 및 Unity XR 적용 가능성 분석 완료.
+AISafetyVR의 PlayMode 130건 통과 기록을 참고 자료로 검토.
+VTS 제품 구현 미착수. VTS에서 실제 HMD 테스트 미실행.
+.vsys 저장·게시 revision 및 자산·서버 계약 상세설계 작성.
+VTS 빌드 미실행. 현장 수락 미완료.

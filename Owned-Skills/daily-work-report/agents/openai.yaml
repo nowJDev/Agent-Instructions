@@ -1,0 +1,4 @@
+interface:
+  display_name: "일일 업무보고"
+  short_description: "지정한 로컬 자료에서 정확한 한국어 일일 업무보고 작성"
+  default_prompt: "Use $daily-work-report to read the exact local files I specify, wait for my work title and report instructions when needed, and write a concise factual Korean daily work report."

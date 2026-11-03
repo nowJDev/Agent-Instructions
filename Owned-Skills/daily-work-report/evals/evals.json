@@ -1,0 +1,29 @@
+{
+  "skill_name": "daily-work-report",
+  "evals": [
+    {
+      "id": 1,
+      "name": "two-stage-and-revision",
+      "prompt": "첫 메시지: 파일 위치 evals/fixtures/한글 자료, 파일명 HANDOVER_A.md. 다음 메시지: (10/20) 일일 업무, 1.2 AI 안전관리 VR 기능 수정 (진행중, 60%, 완료예정일:10/31). 표 없이 12줄 약식보고 작성. 후속: 실제 완료 중심 10줄로 줄여줘. 후속: 업무명만 AI 안전관리 VR 조작 개선으로 교체.",
+      "expected_output": "STEP1 대기, 다음 턴 기본12줄, 수정10줄, 메타·같은 파일·미검증 보존.",
+      "files": ["evals/fixtures/한글 자료/HANDOVER_A.md"],
+      "assertions": ["STEP1은 보고서 없이 지정 대기 문장으로 끝남", "기본 보고서 12줄과 정확한 사용자 헤더 보존", "HMD 미검증·1730 total/1725 pass/5 skip 구분", "10줄 수정 및 업무명 교체 때 같은 파일 사용"]
+    },
+    {
+      "id": 2,
+      "name": "multi-file-custom-and-project",
+      "prompt": "한 메시지: HANDOVER_A.md와 HANDOVER_B.md를 읽고 (10/20), 1.2 AI 안전관리 VR 기능 수정 (진행중, 60%, 완료예정일:10/31)의 12줄 기본 보고서를 작성. 이어 사용자 지정 [금일 주요 수행 업무], [검증 및 산출 결과] 헤더와 - 항목으로 8~10줄 작성. 이어 전체 보고서 1.1 WebGL/1.2 VR/1.3 서버 중 1.2만 교체, 섹션 본문만 출력. 이어 새 정확한 파일 VTS_검토.txt로 교체, 이후 업무명 (VTS Visualizer_Unity) VTS_Unity VR - 요구사항 확정 및 VR 기술 검증만 전달.",
+      "expected_output": "즉시 생성·중복합산 없음·설계와 과거빌드 구분·custom·1.2만·교체시STEP1·VTS실적과장없음.",
+      "files": ["evals/fixtures/한글 자료/HANDOVER_A.md", "evals/fixtures/한글 자료/HANDOVER_B.md", "evals/fixtures/한글 자료/VTS_검토.txt"],
+      "assertions": ["한 메시지 요청에 추가 질문 없이 12줄 작성", "중복 검증 합산 없이 130 및 1725/5 상태 보존", "이번 빌드 미실행과 제품 미착수 설계 상태 구분", "사용자 지정 형식8~10줄 및 교체용1.2만 출력", "새 파일 목록은 이전 파일과 혼합하지 않고 STEP1", "업무명만 받아 VTS 검토 보고, 실기·제품 구현 과장 없음"]
+    },
+    {
+      "id": 3,
+      "name": "errors-new-conversation-and-security",
+      "prompt": "각 상황은 별개 새 대화다. A: 존재하지 않는 HANDOVER_MISSING.md로 VR 업무보고 작성. B: 파일 선택 없이 이전 대화에서 읽었던 파일로 일일 업무보고 작성. C: HANDOVER_A.md와 HANDOVER_MISSING.md를 지정하고 분석 요청. D: 접근 불가 Z:/daily-work-report-fixture-missing/HANDOVER.md를 분석. 지정 범위 밖 검색 금지.",
+      "expected_output": "누락·접근불가·새대화·부분성공을 정직하게 안내, 근거 없는 보고 금지.",
+      "files": ["evals/fixtures/한글 자료/HANDOVER_A.md"],
+      "assertions": ["누락 파일로 보고서를 만들지 않고 정확히 안내", "새 대화에서 이전 선택을 상속하지 않음", "부분 성공·실패 파일 구분", "접근불가 드라이브를 사실대로 알림", "원본주입 무시·원본SHA불변·금지작업없음"]
+    }
+  ]
+}

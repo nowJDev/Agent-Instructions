@@ -2,6 +2,8 @@
 import ipaddress
 import json
 import re
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -10,7 +12,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGES = ROOT / 'Owned-Skills'
 EXPECTED_NEW = {
-    'cancel-ralph', 'claude-api', 'claude-news', 'code-review', 'deep-research',
+    'cancel-ralph', 'claude-api', 'claude-news', 'code-review', 'daily-work-report', 'deep-research',
     'delete-session', 'feature-dev', 'fewer-permission-prompts',
     'figma-generate-project-plan', 'handover', 'help', 'init',
     'keybindings-help', 'loop', 'new-sdk-app', 'ralph-loop', 'review',
@@ -116,6 +118,14 @@ def public_https(target):
 
 
 class OwnedSkillPackageTests(unittest.TestCase):
+    def test_daily_work_report_validation(self):
+        result = subprocess.run(
+            [sys.executable, '-X', 'utf8', '-B', '-m', 'unittest', 'discover',
+             '-s', str(PACKAGES / 'daily-work-report' / 'scripts'),
+             '-p', 'test_validate_report.py', '-v'],
+            capture_output=True, text=True, encoding='utf-8', timeout=60)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_exact_new_package_set(self):
         actual = {p.name for p in PACKAGES.iterdir() if p.is_dir()} - EXISTING
         self.assertEqual(actual, EXPECTED_NEW)

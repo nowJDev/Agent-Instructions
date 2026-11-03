@@ -1,7 +1,9 @@
 <!-- 저장소의 최신 스킬·CI 작업 상태와 검증 경계를 요약한다. -->
 # 현재 상태.
 
-2026-10-15에 [범용 보강 설계](superpowers/specs/2026-10-15-portable-skill-workflows.md)에 따라 자체 제작 23개 스킬을 추가했다. 기존 전달 스킬과 함께 Owned-Skills 원본은 24개이며, 카탈로그 99개 이름과 중복되므로 합산하지 않는다. [설치 안내](../Owned-Skills/README.md), [구현 계획](superpowers/plans/2026-10-15-portable-skill-workflows.md), [검증 기록](reviews/2026-10-15-portable-skill-workflows.md)을 따른다.
+2026-11-03에 [daily-work-report](../Owned-Skills/daily-work-report/SKILL.md)를 추가했다. 로컬 지정 자료를 읽고 다음 메시지의 업무명·형식으로 작성하며 검사기와 합성 fixture를 포함한다. 실제 사용자 계정의 app-server skills/list에서 사용자 홈 밖을 포함한 세 작업 경로의 전역 발견·활성을 확인했다. Codex CLI의 읽기 전용 새 세션과 resume으로 STEP 1 대기·STEP 2의 12줄 보고서 및 원본 SHA 불변을 확인했다. 저장소 전체 회귀 72개와 패키지 회귀 16개가 통과했다. 별도 합성 비교는 스킬 사용 15/15, 미사용 13/15 assertion을 통과했으며 일부 후속·새 대화·오류 조건은 배치 시뮬레이션이다. 초기 샌드박스 계정의 로그인·탐색 결과는 실제 사용자 계정 검증 결과와 구분한다. 구현 당시 보류했던 커밋·푸시는 사용자의 후속 승인으로 진행한다.
+
+2026-10-15에 [범용 보강 설계](superpowers/specs/2026-10-15-portable-skill-workflows.md)에 따라 자체 제작 23개 스킬을 추가했다. 기존 전달 스킬과 daily-work-report를 포함해 Owned-Skills 원본은 현재 25개다. 당시 카탈로그 99개 이름과 중복되는 범용 스킬은 합산하지 않는다. [설치 안내](../Owned-Skills/README.md), [구현 계획](superpowers/plans/2026-10-15-portable-skill-workflows.md), [검증 기록](reviews/2026-10-15-portable-skill-workflows.md)을 따른다.
 
 사용자 Windows 전체 회귀 71개와 패키지 계약 검사 7개가 통과했다. Codex·Claude 사용자 전역 파일 배치·개인 예외·비대상 파일·보호 설정 보존을 확인했다. Claude의 새 항목은 portable- 이름을 사용해 기존 내장 명령을 보존한다. 실제 새 세션 호출과 외부 기능 실행은 미검증이다. 아래 CI 도입 이력의 64개는 당시 테스트 수다.
 

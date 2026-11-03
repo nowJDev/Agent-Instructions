@@ -113,7 +113,7 @@ figma    = MCPServerStreamableHttp(params={"url": "https://mcp.figma.com/mcp"})
 ### 3.1 원칙
 **타사 Skill 실물을 이 패키지에 복사·재배포하지 않는다.** 대신 공개 원본을 가리키고 받는 팀이 직접 설치한다. 이 저장소에서 직접 작성한 Skill은 `Owned-Skills/`에 원본을 보관하며 저장소 License에 따라 설치·재사용할 수 있다.
 
-현재 자체 제작 원본은 24개다. 전체 이름과 Codex·Claude Code 사용자 전역 설치·업데이트 방법은 [Owned-Skills 안내](Owned-Skills/README.md)를 따른다. 기존 전역 패키지는 먼저 비공개 백업하고 개인 참조·알 수 없는 파일을 보존하며 요청한 파일만 병합한다.
+현재 자체 제작 원본은 25개다. 전체 이름과 Codex·Claude Code 사용자 전역 설치·업데이트 방법은 [Owned-Skills 안내](Owned-Skills/README.md)를 따른다. 기존 전역 패키지는 먼저 비공개 백업하고 개인 참조·알 수 없는 파일을 보존하며 요청한 파일만 병합한다.
 
 주요 구성은 다음과 같다.
 

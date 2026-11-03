@@ -83,6 +83,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 | Skill | 공개 원본 | License |
 |---|---|---|
 | `design-driven-delivery` | [`Owned-Skills/design-driven-delivery`](../Owned-Skills/design-driven-delivery/SKILL.md) | 이 저장소의 MIT License |
+| `daily-work-report` | [`Owned-Skills/daily-work-report`](../Owned-Skills/daily-work-report/SKILL.md) | 이 저장소의 MIT License |
 | 범용 보강 23개. | [이름별 패키지·설치 안내](../Owned-Skills/README.md), [공개 출처·채택 경계](../references/skill-strengthening.md). | 자체 작성 본문에 이 저장소의 MIT License 적용. |
 
 ### 외부 서드파티 repo (라이선스 명시 — 이식 가장 안전)

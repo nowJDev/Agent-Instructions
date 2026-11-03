@@ -1,6 +1,6 @@
 # 자체 제작 Agent Skills 원본.
 
-이 디렉터리는 이 저장소에서 직접 작성한 Agent Skill 24개를 보관한다. 기존 design-driven-delivery와 범용 보강 23개다. 동명의 내장 기능·공식 플러그인과는 별도의 지침이며 해당 기능·도구·권한이 자동으로 생기지 않는다.
+이 디렉터리는 이 저장소에서 직접 작성한 Agent Skill 25개를 보관한다. 기존 design-driven-delivery와 범용 보강 23개, daily-work-report다. 동명의 내장 기능·공식 플러그인과는 별도의 지침이며 해당 기능·도구·권한이 자동으로 생기지 않는다.
 
 ## 포함 항목.
 
@@ -12,6 +12,7 @@
 | 지침·설정·세션. | [init](init/SKILL.md), [update-config](update-config/SKILL.md), [keybindings-help](keybindings-help/SKILL.md), [fewer-permission-prompts](fewer-permission-prompts/SKILL.md), [handover](handover/SKILL.md), [delete-session](delete-session/SKILL.md). |
 | 유한 반복. | [loop](loop/SKILL.md), [ralph-loop](ralph-loop/SKILL.md), [cancel-ralph](cancel-ralph/SKILL.md), [help](help/SKILL.md). |
 | 프로젝트 계획. | [figma-generate-project-plan](figma-generate-project-plan/SKILL.md). |
+| 일일 업무보고. | [daily-work-report](daily-work-report/SKILL.md). 지정한 로컬 자료 분석 후 다음 메시지의 업무명·형식으로 작성한다. |
 
 ## 타사 Skill과의 경계.
 
