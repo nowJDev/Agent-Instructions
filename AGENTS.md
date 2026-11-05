@@ -58,6 +58,6 @@
 - `rules/02_tool-boundaries.md` — RAG·서브에이전트·MCP 등록·팀·외부작업·Windows·Unity **도구 경계**(스킬/MCP *선택*은 [README 문서 안내](README.md#더-알고-싶을-때-찾는-문서)로 포인터).
 - `rules/03_feedback-loop.md` — 리뷰 → 규칙 보강 반복, 규칙 추가·배치 기준.
 - `rules/04_garbage-collection.md` — 문서-코드 정합·데드코드·MEMORY·Compact 청소.
-- `Skill/`·`MCP/` — **상세 카탈로그**(스킬 1개당 md 1개): 스킬 노출 99(+OFF 22), Claude 기준 MCP ON 11(+OFF 4), Codex 글로벌 `chrome-devtools` 추가. 설치 상태는 클라이언트별로 확인한다. `Owned-Skills/`는 직접 작성해 재배포할 수 있는 Agent Skill 실물 원본.
+- `Skill/`·`MCP/` — **상세 카탈로그**(스킬 1개당 md 1개): 스킬 노출 100(+OFF 22), Claude 기준 MCP ON 11(+OFF 4), Codex 글로벌 `chrome-devtools` 추가. 설치 상태는 클라이언트별로 확인한다. `Owned-Skills/`는 직접 작성해 재배포할 수 있는 Agent Skill 실물 원본.
 - `references/` — 보조 참조 문서(CLI 설치 등).
 - `PORTABILITY.md` — 다른 AI(비-Claude)에서 스킬/MCP를 쓰는 이식 가이드.

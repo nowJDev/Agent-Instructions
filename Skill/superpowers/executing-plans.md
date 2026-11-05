@@ -1,28 +1,30 @@
 # executing-plans
 
-> 작성된 구현 계획을, 별도 세션에서 리뷰 체크포인트를 두며 태스크 단위로 실행하는 스킬.
+> 현재 세션에서 계획을 직접 구현하고 진행 원장과 태스크별 검증·최종 브랜치 리뷰를 유지하는 스킬.
 
 ## 📌 용도
-이미 작성된 구현 계획(plan)을 로드하고, 비판적으로 검토한 뒤, 모든 태스크를 순서대로 실행하고 완료를 보고한다. 시작 시 "executing-plans 스킬을 사용해 이 계획을 구현합니다"라고 알린다. 서브에이전트를 쓸 수 없는 환경에서의 인라인(같은 세션 배치) 실행 방식이며, 서브에이전트가 가능하다면 품질이 훨씬 높은 `subagent-driven-development`를 대신 쓰도록 안내한다. 계획의 각 태스크는 잘게 쪼개진 단계로 구성되어 있어 그대로 따라가면 된다.
+
+사용자가 인라인 실행을 선택했거나 서브에이전트 도구가 없을 때 계획을 직접 수행한다. 태스크마다 구현자·리뷰어를 새로 띄우지 않고 진행 원장으로 재개 지점을 남기며 마지막에 전체 변경을 검토한다.
 
 ## 🎯 트리거 조건
-- **언제 호출되는가**: 작성된 구현 계획이 있고, 이를 리뷰 체크포인트를 두며 (별도/인라인) 세션에서 실행할 때. `writing-plans`가 만든 계획의 실행 단계.
-- **언제 쓰지 않는가**: 서브에이전트 지원 플랫폼(Claude Code/Codex)이라면 `subagent-driven-development`를 우선. 아직 계획이 없으면 먼저 brainstorming/writing-plans.
-- **스킬 유형**: Rigid에 가까움 — 계획 단계를 정확히 따르고 검증을 건너뛰지 않으며, 막히면 추측하지 말고 멈춘다.
+
+승인된 구현 계획을 같은 세션에서 직접 실행할 때 사용한다. 태스크마다 독립 리뷰를 원하면 `subagent-driven-development`를 선택한다.
 
 ## 💻 사용 예시 / 호출 방법
-프로세스:
-1. **계획 로드·검토** — 계획 파일 읽기 → 비판적 검토(질문/우려 식별) → 우려 있으면 시작 전 사용자에게 제기, 없으면 TodoWrite 생성 후 진행.
-2. **태스크 실행** — 각 태스크: in_progress 표시 → 단계를 정확히 따름 → 명시된 검증 실행 → completed 표시.
-3. **개발 완료** — 모든 태스크 완료·검증 후 "finishing-a-development-branch 스킬을 사용합니다" 알리고 **필수 서브스킬** `finishing-a-development-branch` 실행(테스트 검증, 옵션 제시, 선택 실행).
+
+1. `using-git-worktrees`로 격리를 확인하고 계획·스펙·공통 제약을 읽는다. `test-driven-development`를 로드한다.
+2. `subagent-driven-development/scripts/sdd-workspace`로 계획별 `.superpowers/sdd/<plan-basename>/`을 만들고 `progress.md`를 확인한다.
+3. `scripts/task-start`가 만든 brief를 읽고 단계별 기대 출력과 실제 결과를 대조한다. `scripts/task-done`은 테스트가 통과했을 때만 완료를 기록한다.
+4. 전체 브랜치 리뷰를 새 리뷰어에게 맡긴다. 도구가 없으면 별도 셀프리뷰를 수행하고 한계를 명시한다.
+5. 중요 발견은 한 차례 수정 과정에서 RED→GREEN과 전체 테스트로 검증한다. 판단·보류 항목을 보고한 뒤 `finishing-a-development-branch`로 넘긴다.
 
 ## 🛠️ 제공 내용 / 핵심 절차
-- **즉시 멈추고 도움을 요청해야 할 때**: 블로커(의존성 누락, 테스트 실패, 지시 불명확), 계획에 시작을 막는 치명적 공백, 지시 이해 불가, 검증 반복 실패. → 추측하지 말고 명확화 요청.
-- **이전 단계로 돌아갈 때**: 파트너가 피드백 기반으로 계획 수정 시, 근본 접근을 재고할 때 → 검토(Step 1)로 복귀.
-- **기억할 것**: 계획 비판적 검토 우선 / 단계 정확히 따름 / 검증 건너뛰지 않기 / 계획이 지시하면 스킬 참조 / 막히면 멈추고 추측 금지 / **명시적 동의 없이 main·master 브랜치에서 구현 시작 금지**.
-- **연계 필수 스킬**: `using-git-worktrees`(격리 워크스페이스), `writing-plans`(이 계획 생성), `finishing-a-development-branch`(완료 처리).
+
+- 계획 충돌과 판단은 근거·잘못됐을 때의 비용을 포함한 `Ruling:`으로 원장에 기록한다. 파괴적 작업·보안·외부 영향 등은 사용자 권한을 따른다.
+- Bash 스크립트는 설치된 실제 경로에서 실행하며 다른 계획의 작업 자료를 읽거나 정리하지 않는다.
+- 새 세션이나 압축 후에는 기억 대신 원장과 Git 이력으로 이어간다.
 
 ## 📦 출처 / 설치 상태
-- 플러그인: superpowers@claude-plugins-official
-- 활성화: ON (글로벌 settings.json enabledPlugins)
-- 캐시 경로: `~/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/executing-plans/SKILL.md`
+
+- 원본 기준은 [Superpowers v7.0.2의 executing-plans](https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/executing-plans/SKILL.md)이며 MIT License를 따른다.
+- 이 문서는 요약 카탈로그다. 실제 설치·활성화·새 세션 로드 여부는 [버전·설치 채널 안내](../README.md#superpowers-버전과-설치-채널)에 따라 확인한다.

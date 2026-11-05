@@ -1,9 +1,9 @@
 # 스킬 인덱스
 
-카탈로그 작성 당시 호출 가능한 최상위 스킬 **99개**를 출처별로 정리했습니다. 실제 PC의 설치·노출·인증 상태와는 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
+카탈로그 작성 당시 호출 가능한 최상위 스킬 **100개**를 출처별로 정리했습니다. 실제 PC의 설치·노출·인증 상태와는 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
 ※ 플러그인 내부 reference 하위 스킬(chrome-devtools 65개, huggingface 68개 등 SKILL.md)은 세션에서 직접 참고하는 단위가 아니므로 제외했습니다.
 
-> 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(노출 99 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
+> 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(노출 100 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
 
 ## 분류
 
@@ -36,7 +36,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 
 | 플러그인 | 스킬 수 | 폴더 | 주제 |
 |---|---|---|---|
-| [superpowers](superpowers/) | 14 | `superpowers/` | 개발 워크플로우(브레인스토밍·TDD·디버깅·플랜) |
+| [superpowers](superpowers/) | 15 | `superpowers/` | 개발 워크플로우(브레인스토밍·TDD·디버깅·플랜) |
 | [huggingface-skills](huggingface-skills/) | 18 | `huggingface-skills/` | HF Hub·모델학습·Spaces·데이터셋 |
 | [firecrawl](firecrawl/) | 11 | `firecrawl/` | 웹 스크래핑·검색·크롤·모니터 |
 | [figma](figma/) | 9 | `figma/` | Figma 디자인·다이어그램·코드커넥트·프로젝트플랜 |
@@ -107,16 +107,37 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 
 > ⚠️ **License 미기재 주의**: 위 번들 항목은 plugin.json에 license 필드가 없다. 외부사 제작분(Figma·Microsoft·Upstash·Semgrep·Firecrawl)을 다른 곳에 재배포·이식할 때는 **각 제작사 약관을 별도 확인**할 것. 안전한 길은 "재배포하지 말고 마켓플레이스에서 각자 설치"다.
 
+### Superpowers 버전과 설치 채널
+
+이 카탈로그의 기준은 [v7.0.2](https://github.com/obra/superpowers/tree/v7.0.2), 커밋 `22f0b463e7a5e579904dd6211a520321035526f7`의 15개 스킬이다. 이 저장소에는 요약만 두고 타사 실행 원본·설정·세션 자료는 넣지 않는다. 아래는 배포 경로 안내이며 특정 PC의 설치 완료나 새 세션 로드 성공을 뜻하지 않는다.
+
+| 대상 | 설치·확인 방법 |
+|---|---|
+| Claude Code | 제작자 [superpowers-marketplace](https://github.com/obra/superpowers-marketplace)를 등록하고 `superpowers@superpowers-marketplace`를 사용한다. 실제 `plugin.json`의 버전과 설치 등록·활성 상태를 확인한다. |
+| Codex 패키지 설치 | 확인한 원본의 `skills/<name>` 15개 패키지를 각각 `~/.agents/skills/<name>`에 리소스까지 보존해 배치한다. 기존 동명 항목·개인 추가 파일을 먼저 확인·백업하고 새로 복제한 파일을 원본과 비교한다. |
+| 다른 배포 채널 | Anthropic 공식 마켓플레이스와 OpenAI 플러그인 마켓플레이스는 제작자 원본과 배포 시점이 다를 수 있다. 채널명만으로 최신 버전이라고 판단하지 않는다. |
+
+Claude Code에서 제작자 채널을 선택할 때의 명령은 다음과 같다. 기존 설치가 있으면 같은 이름의 활성 출처를 먼저 확인해 중복을 피한다.
+
+```text
+/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
+```
+
+2026-11-05 확인 당시 [Anthropic 공식 채널](https://github.com/anthropics/claude-plugins-official/blob/main/.claude-plugin/marketplace.json)은 7.0.0 원본을, [OpenAI 채널](https://github.com/openai/plugins/blob/main/plugins/superpowers/.codex-plugin/plugin.json)은 6.3.0을 배포했다. 재설치·업데이트 때에는 각 채널이 지정한 원본 커밋과 실제 매니페스트를 다시 확인한다. 이 날짜의 수치를 앞으로도 고정된 상태로 취급하지 않는다.
+
+설치 후에는 새 세션에서 15개 스킬의 발견 여부, 실제 읽은 `SKILL.md`와 버전 근거, `diagnosing-superpowers`와 새 리뷰 템플릿·스크립트 참조를 확인한다. Claude 플러그인과 Codex 패키지 복사본은 별도로 갱신한다. 같은 클라이언트에 동명 스킬을 두 방식으로 중복 설치하지 않는다. 기존 사용자 지침·커스텀 스킬·MCP·권한·모델 설정은 보존한다.
+
 ### 설치 방법
-- **받는 AI가 Claude Code**: `/plugin marketplace add anthropics/claude-plugins-official` → 플러그인 설치(이 저장소 불필요, 원본에서 직접).
+- **받는 AI가 Claude Code**: 일반 번들은 `/plugin marketplace add anthropics/claude-plugins-official` 후 필요한 플러그인을 설치한다. Superpowers는 위 버전·채널 안내에 따라 제작자 마켓플레이스를 사용한다.
 - **받는 AI가 Agent Skills 지원**: 해당 원본 repo에서 **스킬 루트 디렉터리 전체**를 배치하고, `SKILL.md`의 `scripts/`·`references/`·`assets/`·예제 및 상대경로 의존 리소스를 보존한다. 별도 플러그인의 커맨드·훅 등 Claude 전용 구성만 제외하며, 설치 후 참조 파일과 실행 환경을 확인한다. [패키지 구조](https://agentskills.io/specification#directory-structure)를 따른다.
 - **미지원 AI**: [`../PORTABILITY.md`](../PORTABILITY.md) 경로 B(참조 활용)·C(MCP 래핑).
 
 ## 각 문서 구성
 
-모든 스킬 md는 다음 5개 항목을 포함합니다:
+모든 스킬 md는 다음 5개 항목을 포함합니다.
 1. **📌 용도** — 무엇을 하는 스킬인지
 2. **🎯 트리거 조건** — 언제 호출되는가 / 언제 안 쓰는가 / (해당 시) Rigid·Flexible
 3. **💻 사용 예시 / 명령어** — 실제 호출·슬래시 명령·인자
 4. **🛠️ 제공 도구 / 주요 파라미터** — 도구·절차·참조파일
-5. **📦 출처 / 설치 상태** — 플러그인·활성화·캐시 경로
+5. **📦 출처 / 설치 상태** — 원본·기준 버전·설치 확인 방법. 카탈로그 기록과 실제 활성 상태를 구분한다.

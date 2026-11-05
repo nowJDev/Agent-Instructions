@@ -122,16 +122,18 @@ figma    = MCPServerStreamableHttp(params={"url": "https://mcp.figma.com/mcp"})
 
 ### 3.2 경로 A — 출처에서 각자 설치 (주력)
 
-**공식 플러그인 스킬**(`superpowers`·`firecrawl`·`huggingface-skills`·`plugin-dev` 등 카탈로그의 ON 플러그인)의 공개 원본:
+**공식 플러그인 스킬**(`firecrawl`·`huggingface-skills`·`plugin-dev` 등 카탈로그의 ON 플러그인)의 공개 원본:
 ```
 github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마켓플레이스)
 ```
 
-- **받는 AI가 Claude Code면**: `/plugin marketplace add anthropics/claude-plugins-official` → 원하는 플러그인 설치. (이 저장소를 거치지 않고 원본에서 직접)
+- **받는 AI가 Claude Code면**: 일반 번들은 `/plugin marketplace add anthropics/claude-plugins-official` 후 원하는 플러그인을 설치한다. Superpowers v7.0.2 기준의 제작자 채널 `superpowers@superpowers-marketplace`와 버전 확인은 [전용 안내](Skill/README.md#superpowers-버전과-설치-채널)를 따른다.
 - **받는 AI가 Agent Skills를 지원하면**: 해당 원본에서 **스킬 루트 디렉터리 전체**를 그 AI의 skills 폴더에 배치한다. `SKILL.md`가 참조하는 `scripts/`·`references/`·`assets/`·예제와 상대경로 의존 리소스를 함께 보존한다. 별도 플러그인의 커맨드·훅 등 Claude 전용 구성은 제외하고, 스킬의 도구·환경 요구는 대상 클라이언트에 맞게 확인한다. [Agent Skills 패키지 구조](https://agentskills.io/specification#directory-structure)를 따른다.
 - **스킬별 정확한 공개 원본·License**는 [`Skill/README.md`](Skill/README.md)의 **"📦 출처·설치 매핑"** 표 참조. 주의: 전부 마켓플레이스 번들이 아니다 — 일부는 **외부 repo가 원본**이다:
   - `superpowers` → `github.com/obra/superpowers` (MIT) · `huggingface-skills` → `github.com/huggingface/skills` (Apache-2.0) · `qodo-skills` → `github.com/qodo-ai/qodo-skills` (MIT) · `vercel`/`railway`/`neon`도 각사 repo
   - 나머지(Anthropic 제작 + Figma·Microsoft·Upstash·Semgrep·Firecrawl 번들)는 `github.com/anthropics/claude-plugins-official`에서 배포되며, **plugin.json에 license 미기재 항목은 재배포 전 제작사 약관 확인**.
+
+Codex에서 Superpowers를 패키지로 관리할 때는 확인한 원본의 15개 `skills/<name>`을 각각 `~/.agents/skills/<name>`에 배치하고 `scripts/`·`references/`·템플릿 등 상대경로 의존성을 보존한다. 플러그인 방식과 중복 설치하지 않으며, 기존 개인 파일·전역 지침·커스텀 스킬은 보존한다. 채널 버전과 파일 비교 후 새 세션에서 실제 발견·로드를 확인해야 설치 검증이 끝난다.
 
 ### 3.3 경로 B — 참조 활용 (자동 트리거 없이)
 받는 AI가 Agent Skills를 **미지원**하면, 카탈로그 문서(설명) 자체를 **컨텍스트에 넣어 지침으로** 쓴다. 자동 트리거·progressive disclosure는 없지만, "이 스킬이 무엇을 어떻게 하는지"를 AI가 읽고 같은 작업을 수행할 수 있다. (설명 문서 활용은 라이선스 자유)

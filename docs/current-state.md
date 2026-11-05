@@ -1,6 +1,10 @@
 <!-- 저장소의 최신 스킬·CI 작업 상태와 검증 경계를 요약한다. -->
 # 현재 상태.
 
+2026-11-05에 [Superpowers 업데이트 설계](superpowers/specs/2026-11-05-superpowers-update.md)에 따라 글로벌 설치와 카탈로그를 v7.0.2 기준으로 갱신했다. Claude는 제작자 마켓플레이스 한 출처만 활성화했고 Codex는 기존 패키지 구조로 15개 스킬·80개 파일을 고정 원본과 일치시켰다. 카탈로그·배포 채널·설치 안내를 함께 갱신하며 사용자 제작 스킬과 전역 행동 지침은 보존한다. [실행 계획](superpowers/plans/2026-11-05-superpowers-update.md)과 [검증 기록](reviews/2026-11-05-superpowers-update.md)에 결과와 남은 확인을 구분한다.
+
+새 Codex 앱 서버에서 두 작업 경로의 15개 스킬 활성·중복 부재를 확인했고 읽기 전용 새 Codex 세션에서 신규 진단 스킬을 실제로 읽었다. Claude도 새 세션 초기화에서 15개 스킬을 발견했으나 모델 호출은 `Not logged in · Please run /login`으로 막혔다. 사용자 로그인 후 Claude 실제 스킬 호출을 추가 확인해야 하며 이 부분은 통과로 보고하지 않는다. 설치 파일과 보조 스크립트의 로컬 검증은 계정 인증과 구분한다.
+
 2026-11-03에 [daily-work-report](../Owned-Skills/daily-work-report/SKILL.md)를 추가했다. 로컬 지정 자료를 읽고 다음 메시지의 업무명·형식으로 작성하며 검사기와 합성 fixture를 포함한다. 실제 사용자 계정의 app-server skills/list에서 사용자 홈 밖을 포함한 세 작업 경로의 전역 발견·활성을 확인했다. Codex CLI의 읽기 전용 새 세션과 resume으로 STEP 1 대기·STEP 2의 12줄 보고서 및 원본 SHA 불변을 확인했다. 저장소 전체 회귀 72개와 패키지 회귀 16개가 통과했다. 별도 합성 비교는 스킬 사용 15/15, 미사용 13/15 assertion을 통과했으며 일부 후속·새 대화·오류 조건은 배치 시뮬레이션이다. 초기 샌드박스 계정의 로그인·탐색 결과는 실제 사용자 계정 검증 결과와 구분한다. 구현 당시 보류했던 커밋·푸시는 사용자의 후속 승인으로 진행한다.
 
 2026-10-15에 [범용 보강 설계](superpowers/specs/2026-10-15-portable-skill-workflows.md)에 따라 자체 제작 23개 스킬을 추가했다. 기존 전달 스킬과 daily-work-report를 포함해 Owned-Skills 원본은 현재 25개다. 당시 카탈로그 99개 이름과 중복되는 범용 스킬은 합산하지 않는다. [설치 안내](../Owned-Skills/README.md), [구현 계획](superpowers/plans/2026-10-15-portable-skill-workflows.md), [검증 기록](reviews/2026-10-15-portable-skill-workflows.md)을 따른다.

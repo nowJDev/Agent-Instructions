@@ -5,7 +5,7 @@
 
 ---
 
-## 노출 스킬 (99)
+## 노출 스킬 (100)
 
 ### _builtin (13)
 - **claude-api** — Claude API / Anthropic SDK 레퍼런스 빌트인 스킬. model id·가격·파라미터·스트리밍·tool use·MCP·캐싱·토큰 카운팅·모델 마이그레이션을 다룬다. **Claude/Anthropic 관련 작업 시 파일을 열기 전에 먼저 읽는 트리거 스킬**.
@@ -30,21 +30,22 @@
 - **handover** — 현재 세션 전체 내용을 **다음 세션 인수인계용 md 파일**로 정리·저장하는 개인 글로벌 스킬.
 - **hexagonal-code-review** — 헥사고날 아키텍처 / Ports and Adapters 기준으로 코드·diff·모듈·저장소를 리뷰하고, 요청 시 레이어 책임에 맞게 작성 또는 리팩토링하는 개인 글로벌 스킬.
 
-### superpowers (14)
-- **brainstorming** — 모든 창작 작업(기능/컴포넌트/동작 추가·변경) 전에 반드시 거쳐야 하는, 아이디어를 검증된 설계·스펙으로 발전시키는 대화형 디스커션 스킬.
-- **dispatching-parallel-agents** — 서로 의존하지 않는 2개 이상의 독립 작업을, 격리된 컨텍스트를 가진 전용 에이전트에게 병렬로 위임하는 스킬.
-- **executing-plans** — 작성된 구현 계획을, 별도 세션에서 리뷰 체크포인트를 두며 태스크 단위로 실행하는 스킬.
-- **finishing-a-development-branch** — 구현이 끝나고 테스트가 통과한 뒤, 작업을 어떻게 통합할지(머지/PR/유지/폐기) 구조화된 선택지로 안내하고 워크스페이스를 정리하는 스킬.
-- **receiving-code-review** — 코드 리뷰 피드백을 받을 때, 형식적 동의나 맹목적 구현 대신 기술적 검증과 엄밀함으로 평가·대응하는 스킬.
-- **requesting-code-review** — 코드 리뷰어 서브에이전트를 디스패치해, 문제가 연쇄되기 전에 작업 산출물을 검토받는 스킬.
-- **subagent-driven-development** — 구현 계획을 같은 세션에서 실행하되, 태스크마다 새 서브에이전트를 디스패치하고 2단계 리뷰(스펙 준수 → 코드 품질)를 거치는 스킬.
-- **systematic-debugging** — 어떤 버그·테스트 실패·예상 밖 동작이든, 수정안을 내기 전에 반드시 근본 원인을 먼저 찾는 4단계 체계적 디버깅 스킬.
-- **test-driven-development** — 어떤 기능·버그픽스든 구현 코드 작성 전에 실패하는 테스트를 먼저 쓰고, 실패를 직접 확인한 뒤 최소 코드로 통과시키는 TDD 스킬.
-- **using-git-worktrees** — 작업을 격리된 워크스페이스에서 진행하도록, 기존 격리를 먼저 감지하고 네이티브 도구를 우선하며 git worktree는 폴백으로만 쓰는 스킬.
-- **using-superpowers** — 모든 대화 시작 시, 어떤 응답(명확화 질문 포함)보다 먼저 관련 스킬을 찾아 Skill 도구로 호출하도록 규율을 세우는 메타 스킬.
-- **verification-before-completion** — 작업이 완료·수정·통과됐다고 주장하기 전에, 반드시 검증 명령을 실행하고 그 출력을 확인하라는 스킬 — 주장보다 증거가 항상 먼저.
-- **writing-plans** — 스펙·요구사항을 받아, 코드를 건드리기 전에 잘게 쪼갠 태스크 단위의 완전한 구현 계획을 작성하는 스킬.
-- **writing-skills** — 새 스킬을 만들거나 기존 스킬을 수정·검증할 때, 프로세스 문서화에 TDD(RED-GREEN-REFACTOR)를 적용하는 스킬.
+### superpowers (15)
+- **brainstorming** — 새 작업의 목적·범위와 접근법을 확인하고, 규모에 맞는 승인 설계로 정리하는 대화형 스킬.
+- **diagnosing-superpowers** — Superpowers 세션의 반복 작업·계획 이탈·비용·실패를 대화 기록의 파일·줄 근거로 보고하는 스킬.
+- **dispatching-parallel-agents** — 공유 상태와 순차 의존성이 없는 독립 작업을 각각의 에이전트에게 병렬 위임하는 스킬.
+- **executing-plans** — 현재 세션에서 계획을 직접 구현하고 진행 원장과 태스크별 검증·최종 브랜치 리뷰를 유지하는 스킬.
+- **finishing-a-development-branch** — 전체 테스트를 확인한 뒤 병합·PR·유지 중 승인된 통합을 수행하고 소유한 작업 공간을 정리하는 스킬.
+- **receiving-code-review** — 리뷰 피드백을 코드·요구사항·검증 근거와 대조한 뒤 항목별로 반영하거나 기술적으로 반박하는 스킬.
+- **requesting-code-review** — 정확한 변경 범위와 요구사항을 전달해 작업 산출물의 독립 코드 리뷰를 요청하는 스킬.
+- **subagent-driven-development** — 태스크마다 새 구현자와 스펙·품질을 함께 보는 리뷰어를 배치하고 최종 전체 브랜치 리뷰를 수행하는 스킬.
+- **systematic-debugging** — 수정안을 내기 전에 재현·증거·패턴 비교로 근본 원인을 찾는 네 단계 디버깅 스킬.
+- **test-driven-development** — 실패 테스트를 먼저 확인하고 최소 구현과 전체 회귀를 거쳐 동작을 보장하는 TDD 스킬.
+- **using-git-worktrees** — 기존 격리를 확인하고 네이티브 도구를 우선해 작업 공간을 준비하는 스킬.
+- **using-superpowers** — 응답과 탐색 전에 관련 스킬을 확인하고 현재 플랫폼의 도구로 적용하게 하는 진입 스킬.
+- **verification-before-completion** — 완료·수정·통과를 주장하기 전에 실제 검증 명령과 전체 결과를 확인하는 스킬.
+- **writing-plans** — 승인 스펙을 정확한 인터페이스·테스트·검증 결과가 있는 실행 가능한 태스크로 나누는 스킬.
+- **writing-skills** — 재사용 스킬의 설명·형태·실제 준수를 기준선과 비교해 검증하는 스킬 작성 절차.
 
 ### huggingface-skills (18)
 - **hf-cli** — Hugging Face Hub의 공식 CLI 도구 `hf`로 모델·데이터셋·스페이스·버킷·repo·논문·잡(Jobs) 등을 다운로드/업로드/관리하는 스킬.

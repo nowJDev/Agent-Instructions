@@ -1,7 +1,11 @@
 <!-- 스킬 보강과 이전 CI 작업의 구현·검증 상태를 구분한다. -->
 # 설계 진행 체크리스트.
 
-현재 작업은 [범용 스킬 원본과 전역 적용](superpowers/specs/2026-10-15-portable-skill-workflows.md)이다.
+현재 작업은 [Superpowers v7.0.2 업데이트](superpowers/specs/2026-11-05-superpowers-update.md)다. 설치·문서 변경과 계정 인증이 필요한 실제 호출을 구분한다. 상세 상태는 [실행 계획](superpowers/plans/2026-11-05-superpowers-update.md)과 [검증 기록](reviews/2026-11-05-superpowers-update.md)을 따른다. Claude 실제 모델 호출은 사용자 로그인 후 확인해야 하며 검증 통과로 표시하지 않는다.
+
+## 이전 범용 스킬 작업 기록.
+
+대상은 [범용 스킬 원본과 전역 적용](superpowers/specs/2026-10-15-portable-skill-workflows.md)이다.
 
 - [x] 자체 작성 범용 원본 23개와 공개 출처·설치·이식 안내를 작성했다.
 - [x] Windows 전체 회귀 71개, 패키지 계약 검사 7개와 독립 교차 검토를 확인했다.
