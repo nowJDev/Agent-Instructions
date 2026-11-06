@@ -1,7 +1,15 @@
 <!-- 스킬 보강과 이전 CI 작업의 구현·검증 상태를 구분한다. -->
 # 설계 진행 체크리스트.
 
-현재 작업은 [Superpowers v7.0.2 업데이트](superpowers/specs/2026-11-05-superpowers-update.md)다. 설치·문서 변경과 계정 인증이 필요한 실제 호출을 구분한다. 상세 상태는 [실행 계획](superpowers/plans/2026-11-05-superpowers-update.md)과 [검증 기록](reviews/2026-11-05-superpowers-update.md)을 따른다. Claude 실제 모델 호출은 사용자 로그인 후 확인해야 하며 검증 통과로 표시하지 않는다.
+현재 작업은 [스킬 출처 기록과 개인 스킬 정리](superpowers/specs/2026-11-06-skill-provenance.md)다. 상세 상태는 [실행 계획](superpowers/plans/2026-11-06-skill-provenance.md)과 [검증 기록](reviews/2026-11-06-skill-provenance.md)을 따른다.
+
+- [x] 스킬별 고정 공개 원본과 일치·변환·미확인 경계를 기록했다.
+- [x] 요청한 세 개인 스킬의 양쪽 설치본을 제거하고 비대상 해시·현재 카탈로그 정합을 확인했다.
+- [x] 변경 전·후 전체 회귀 72개와 공개정보·링크·집계 검사, 전체 변경 독립 리뷰를 확인했다.
+
+## 이전 Superpowers 작업 기록.
+
+이전 작업은 [Superpowers v7.0.2 업데이트](superpowers/specs/2026-11-05-superpowers-update.md)다. 설치·문서 변경과 계정 인증이 필요한 실제 호출을 구분한다. 상세 상태는 [실행 계획](superpowers/plans/2026-11-05-superpowers-update.md)과 [검증 기록](reviews/2026-11-05-superpowers-update.md)을 따른다. Claude 실제 모델 호출은 사용자 로그인 후 확인해야 하며 검증 통과로 표시하지 않는다.
 
 ## 이전 범용 스킬 작업 기록.
 

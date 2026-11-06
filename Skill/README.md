@@ -1,9 +1,9 @@
 # 스킬 인덱스
 
-카탈로그 작성 당시 호출 가능한 최상위 스킬 **100개**를 출처별로 정리했습니다. 실제 PC의 설치·노출·인증 상태와는 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
+카탈로그 작성 당시 호출 가능한 최상위 스킬 **99개**를 출처별로 정리했습니다. 실제 PC의 설치·노출·인증 상태와는 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
 ※ 플러그인 내부 reference 하위 스킬(chrome-devtools 65개, huggingface 68개 등 SKILL.md)은 세션에서 직접 참고하는 단위가 아니므로 제외했습니다.
 
-> 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(노출 100 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
+> 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(노출 99 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
 
 ## 분류
 
@@ -20,7 +20,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 | [init](_builtin/init.md) | CLAUDE.md 초기화 | [review](_builtin/review.md) | PR 리뷰 |
 | [security-review](_builtin/security-review.md) | 보안 취약점 리뷰 | | |
 
-### 👤 개인 글로벌 스킬 (`_personal/`, 6개)
+### 👤 개인 글로벌 스킬 (`_personal/`, 5개)
 `~/.claude/skills/` 또는 하네스 등록형 개인 스킬.
 
 | 스킬 | 한 줄 |
@@ -29,7 +29,6 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 | [delete-session](_personal/delete-session.md) | 세션 jsonl 삭제 |
 | [handover](_personal/handover.md) | 세션 인수인계 md 작성 |
 | [deep-research](_personal/deep-research.md) | 멀티소스 교차검증 리서치 리포트 |
-| [hexagonal-code-review](_personal/hexagonal-code-review.md) | 헥사고날 구조 리뷰와 리팩토링 |
 | [design-driven-delivery](_personal/design-driven-delivery.md) | 설계부터 검증·통합까지 상태 변경 작업 통제 |
 
 ### 🧩 플러그인 스킬
@@ -78,6 +77,8 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 
 이 저장소는 **타사 Skill 실물을 담지 않는다**(재배포 회피). 직접 작성한 Skill만 [`../Owned-Skills/`](../Owned-Skills/)에 원본을 보관한다. 타사 Skill은 아래 **공개 원본에서 각자 설치**한다. 자세한 절차는 [`../PORTABILITY.md`](../PORTABILITY.md) §3 참조.
 
+2026-11-06의 [설치 실물 출처 전수조사](../references/skill-provenance-2026-11-06.md)에는 스킬별 고정 원본 링크, 본문 일치·변환·미확인 판정과 삭제 이후 집계를 기록했다. 공개 설명 카탈로그와 실제 설치본의 출처는 구분한다.
+
 ### 자체 제작 원본.
 
 | Skill | 공개 원본 | License |
@@ -99,11 +100,22 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 
 \* atomic-agents는 세션 비노출(카탈로그 외)이나 출처 참고용 기재.
 
-### 마켓플레이스 번들 (plugin.json에 repo·license 미기재 ⚠️)
-아래는 공개 repo URL이 매니페스트에 없어, 마켓플레이스 **`github.com/anthropics/claude-plugins-official`** 에서 함께 배포되는 구조다.
+### 마켓플레이스 배포와 실제 원본.
+마켓플레이스는 배포 경로이며 제작자 원본과 구분한다. 개별 플러그인 매니페스트에 repo·license가 없더라도 공개 원본 파일은 별도로 확인할 수 있다. 아래 제작자 원본과 스킬별 고정 커밋은 [전수조사 기록](../references/skill-provenance-2026-11-06.md)을 따른다.
+
+| 계열 | 확인한 공개 원본 |
+|---|---|
+| Firecrawl. | [firecrawl/firecrawl-claude-plugin](https://github.com/firecrawl/firecrawl-claude-plugin). |
+| Figma. | [figma/mcp-server-guide](https://github.com/figma/mcp-server-guide). |
+| Chrome DevTools. | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp). |
+| Unity. | [Unity-Technologies/skills](https://github.com/Unity-Technologies/skills). |
+| Codex 내장. | [openai/codex](https://github.com/openai/codex/tree/main/codex-rs/skills/src/assets/samples). |
+| OpenAI curated. | [openai/skills](https://github.com/openai/skills). |
+| Ponytail. | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail). |
+
 - **Anthropic 제작(12)**: `plugin-dev`·`ralph-loop`·`claude-md-management`·`agent-sdk-dev`·`pr-review-toolkit`·`feature-dev`·`claude-code-setup`·`skill-creator`·`frontend-design`·`playground`·`code-simplifier`·`hookify`
 - **외부사 번들(5)**: `firecrawl`(Firecrawl)·`figma`(Figma)·`context7`(Upstash)·`playwright`(Microsoft)·`semgrep`(Semgrep)
-- `chrome-devtools-mcp`: npm 패키지 `chrome-devtools-mcp`(Google Chrome팀)를 npx로 실행하는 래퍼
+- `chrome-devtools-mcp`: MCP 실행 설정뿐 아니라 위 공개 저장소의 실제 스킬 원본 6개도 확인했다.
 
 > ⚠️ **License 미기재 주의**: 위 번들 항목은 plugin.json에 license 필드가 없다. 외부사 제작분(Figma·Microsoft·Upstash·Semgrep·Firecrawl)을 다른 곳에 재배포·이식할 때는 **각 제작사 약관을 별도 확인**할 것. 안전한 길은 "재배포하지 말고 마켓플레이스에서 각자 설치"다.
 

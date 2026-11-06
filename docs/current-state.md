@@ -1,6 +1,8 @@
 <!-- 저장소의 최신 스킬·CI 작업 상태와 검증 경계를 요약한다. -->
 # 현재 상태.
 
+2026-11-06에 사용자 요청으로 [스킬 출처 조사 기록](../references/skill-provenance-2026-11-06.md)을 추가하고 개인 스킬 3개의 Codex·Claude 사용자 설치본을 제거했다. 세부 범위는 [설계](superpowers/specs/2026-11-06-skill-provenance.md), 진행 상태와 증거는 [실행 계획](superpowers/plans/2026-11-06-skill-provenance.md)·[검증 기록](reviews/2026-11-06-skill-provenance.md)을 따른다. 공개 기록은 설치 경로·설정·복구 파일을 포함하지 않는다. 변경 전·후 Python 3.12 전체 회귀 72개와 공개정보·링크·집계 검사를 통과했고 독립 리뷰에서 확정 결함을 발견하지 못했다. 사용자 요청에 따른 Git 반영 결과는 실제 커밋·원격 main과 최종 보고로 확인한다.
+
 2026-11-05에 [Superpowers 업데이트 설계](superpowers/specs/2026-11-05-superpowers-update.md)에 따라 글로벌 설치와 카탈로그를 v7.0.2 기준으로 갱신했다. Claude는 제작자 마켓플레이스 한 출처만 활성화했고 Codex는 기존 패키지 구조로 15개 스킬·80개 파일을 고정 원본과 일치시켰다. 카탈로그·배포 채널·설치 안내를 함께 갱신하며 사용자 제작 스킬과 전역 행동 지침은 보존한다. [실행 계획](superpowers/plans/2026-11-05-superpowers-update.md)과 [검증 기록](reviews/2026-11-05-superpowers-update.md)에 결과와 남은 확인을 구분한다.
 
 새 Codex 앱 서버에서 두 작업 경로의 15개 스킬 활성·중복 부재를 확인했고 읽기 전용 새 Codex 세션에서 신규 진단 스킬을 실제로 읽었다. Claude도 새 세션 초기화에서 15개 스킬을 발견했으나 모델 호출은 `Not logged in · Please run /login`으로 막혔다. 사용자 로그인 후 Claude 실제 스킬 호출을 추가 확인해야 하며 이 부분은 통과로 보고하지 않는다. 설치 파일과 보조 스크립트의 로컬 검증은 계정 인증과 구분한다.

@@ -1,6 +1,20 @@
 <!-- 이 문서는 Agent-Instructions 저장소의 공개 변경 이력을 기록한다. -->
 # Changelog
 
+## 2026-11-06
+
+### Added
+
+- 설치 스킬의 공개 실행 원본과 고정 커밋을 전수조사한 출처 기록을 추가했다. 본문 일치·변환·미확인과 OpenAI 공식 배포를 구분하고 개인 경로·설정·타사 원문은 포함하지 않았다.
+
+### Changed
+
+- Figma·Firecrawl·Chrome DevTools 등 제작자 원본과 마켓플레이스 배포 경로를 구분하도록 출처·이식 안내를 보강했다.
+
+### Removed
+
+- 요청에 따라 digital-twin-jobs-watch, hexagonal-code-review, us-stock-holding-report의 Codex·Claude 사용자 설치본을 제거했다. 현재 카탈로그의 hexagonal 항목을 정리해 99개·개인 5개로 맞추고 과거 변경 이력은 보존했다.
+
 ## 2026-11-05
 
 ### Changed
