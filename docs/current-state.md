@@ -1,6 +1,10 @@
 <!-- 저장소의 최신 스킬·CI 작업 상태와 검증 경계를 요약한다. -->
 # 현재 상태.
 
+2026-11-06에 [Codex 전용 업데이트 설계](superpowers/specs/2026-11-06-codex-skills-update.md)에 따라 후보 57개 중 48개 패키지를 갱신하고 동일한 9개는 유지했다. `firecrawl-cli`를 `firecrawl`로 전환하고 Codex의 `skill-gen`을 퇴역시켜 전역 102개가 됐다. [업데이트 기록](../references/codex-skill-update-2026-11-06.md)·[132개 출처 관리 목록](../references/codex-skill-versions-2026-11-06.json)·[검증 기록](reviews/2026-11-06-codex-skills-update.md)을 따른다. Qodo 2개와 네이티브 관리 항목은 보류했고 Claude·설정·CLI는 보존했다.
+
+실제 사용자 계정의 새 CLI app-server에서 두 작업 경로 각각 122개가 모두 활성·오류 0으로 발견됐다. 출처 관리 132개와 차이 나는 원격 관리 5개 번들의 10개 스킬은 등록·활성 상태여도 새 CLI에 노출되지 않으며 현재 앱 세션과 구분한다. 배치 271개 작업과 보호 해시, Python AST 42개·배치 도구 자체 검증 14개를 확인했다. 외부 로그인·모델 호출·실제 CLI/GPU/Bash 실행은 미검증이며 저장소 전체 회귀와 최종 문서 리뷰 결과는 이번 검증 기록에서 확인한다.
+
 2026-11-06에 사용자 요청으로 [스킬 출처 조사 기록](../references/skill-provenance-2026-11-06.md)을 추가하고 개인 스킬 3개의 Codex·Claude 사용자 설치본을 제거했다. 세부 범위는 [설계](superpowers/specs/2026-11-06-skill-provenance.md), 진행 상태와 증거는 [실행 계획](superpowers/plans/2026-11-06-skill-provenance.md)·[검증 기록](reviews/2026-11-06-skill-provenance.md)을 따른다. 공개 기록은 설치 경로·설정·복구 파일을 포함하지 않는다. 변경 전·후 Python 3.12 전체 회귀 72개와 공개정보·링크·집계 검사를 통과했고 독립 리뷰에서 확정 결함을 발견하지 못했다. 사용자 요청에 따른 Git 반영 결과는 실제 커밋·원격 main과 최종 보고로 확인한다.
 
 2026-11-05에 [Superpowers 업데이트 설계](superpowers/specs/2026-11-05-superpowers-update.md)에 따라 글로벌 설치와 카탈로그를 v7.0.2 기준으로 갱신했다. Claude는 제작자 마켓플레이스 한 출처만 활성화했고 Codex는 기존 패키지 구조로 15개 스킬·80개 파일을 고정 원본과 일치시켰다. 카탈로그·배포 채널·설치 안내를 함께 갱신하며 사용자 제작 스킬과 전역 행동 지침은 보존한다. [실행 계획](superpowers/plans/2026-11-05-superpowers-update.md)과 [검증 기록](reviews/2026-11-05-superpowers-update.md)에 결과와 남은 확인을 구분한다.

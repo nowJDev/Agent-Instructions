@@ -1,5 +1,7 @@
 # 스킬 인덱스
 
+2026-11-06의 [Codex 전용 업데이트](../references/codex-skill-update-2026-11-06.md)는 기존 후보 57개 중 48개 패키지를 갱신하고 9개를 동일 유지했다. Codex에서는 `firecrawl-cli`가 `firecrawl`로 바뀌고 `skill-gen`이 퇴역해 전역 설치는 102개다. 아래 설명 카탈로그 99개와 Claude 설치 상태는 별개로 보존한다. [출처 관리 132개 목록](../references/codex-skill-versions-2026-11-06.json)은 새 CLI 발견 122개와 구분하며 원본 번들 버전을 실제 CLI·서버 버전으로 대신하지 않는다. Qodo 2개와 공식 경로에서 버전을 선택할 수 없는 네이티브 항목은 보류했다.
+
 카탈로그 작성 당시 호출 가능한 최상위 스킬 **99개**를 출처별로 정리했습니다. 실제 PC의 설치·노출·인증 상태와는 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
 ※ 플러그인 내부 reference 하위 스킬(chrome-devtools 65개, huggingface 68개 등 SKILL.md)은 세션에서 직접 참고하는 단위가 아니므로 제외했습니다.
 

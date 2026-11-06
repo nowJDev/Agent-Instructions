@@ -1,7 +1,18 @@
 <!-- 스킬 보강과 이전 CI 작업의 구현·검증 상태를 구분한다. -->
 # 설계 진행 체크리스트.
 
-현재 작업은 [스킬 출처 기록과 개인 스킬 정리](superpowers/specs/2026-11-06-skill-provenance.md)다. 상세 상태는 [실행 계획](superpowers/plans/2026-11-06-skill-provenance.md)과 [검증 기록](reviews/2026-11-06-skill-provenance.md)을 따른다.
+현재 작업은 [Codex 전용 스킬 업데이트](superpowers/specs/2026-11-06-codex-skills-update.md)다. 상세 상태는 [실행 계획](superpowers/plans/2026-11-06-codex-skills-update.md)과 [검증 기록](reviews/2026-11-06-codex-skills-update.md)을 따른다.
+
+- [x] 승인 원본 후보 57개를 검토하고 48개 패키지를 갱신하며 동일한 9개를 유지했다. 이름 전환·퇴역 후 전역 102개를 확인했다.
+- [x] 백업·비대상·Claude·설정 해시, 271개 배치 작업, AST 42개와 배치 도구 자체 검증 14개를 확인했다.
+- [x] 실제 사용자 계정의 새 CLI 두 작업 경로에서 각각 122개 활성·오류 0을 확인하고 출처 관리 132개와 구분했다.
+- [x] 적용 후 전체 회귀 72개와 공개 목록·본문 지문·인코딩·개인경로·로컬 링크 검사를 통과했다.
+
+최종 문서 리뷰·Git 반영은 검증 기록과 실제 Git 결과로 확인한다. 외부 로그인·모델 호출·실제 CLI/GPU/Bash 실행은 이번 배치 검증에 포함하지 않는다.
+
+## 이전 출처 조사와 개인 스킬 정리.
+
+이전 작업은 [스킬 출처 기록과 개인 스킬 정리](superpowers/specs/2026-11-06-skill-provenance.md)다. 상세 상태는 [실행 계획](superpowers/plans/2026-11-06-skill-provenance.md)과 [검증 기록](reviews/2026-11-06-skill-provenance.md)을 따른다.
 
 - [x] 스킬별 고정 공개 원본과 일치·변환·미확인 경계를 기록했다.
 - [x] 요청한 세 개인 스킬의 양쪽 설치본을 제거하고 비대상 해시·현재 카탈로그 정합을 확인했다.
