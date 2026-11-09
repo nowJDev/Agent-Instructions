@@ -1,12 +1,15 @@
-<!-- 현재 문서 통합 작업의 구현·검증·배포 상태만 추적한다. -->
+<!-- 현재 문서 통합 작업의 구현·검증·배포 결과를 추적한다. -->
 # 설계 진행 체크리스트.
 
-대상은 [문서 통합과 글로벌 적용](superpowers/specs/2026-11-09-document-consolidation-design.md)이다. [실행 계획](superpowers/plans/2026-11-09-document-consolidation.md)과 [검증 기록](reviews/2026-11-09-document-consolidation.md)에 증거를 남긴다. 이전 작업은 [보관 목차](history/README.md)에서 확인한다.
+대상은 [문서 통합과 글로벌 적용](superpowers/specs/2026-11-09-document-consolidation-design.md)이다. [실행 계획](superpowers/plans/2026-11-09-document-consolidation.md)과 [검증 기록](reviews/2026-11-09-document-consolidation.md)에 실제 증거를 남겼다. 이전 작업은 [보관 목차](history/README.md)에서 확인한다.
 
 - [x] 사용자 설계 실행·글로벌 적용·저장소 커밋·push 승인을 확인했다.
 - [x] 카탈로그121개와 과거37개 원문을 보존 통합하고 원래 코드 예제를 대조했다.
-- [x] 문서 구조의 RED와 통합 후 GREEN, HF 예제 로더 수정 전 실패·수정 후4개 통과를 확인했다.
-- [x] 전체80개 회귀·내부 링크·인코딩·보호 해시·수동 화면과 독립 리뷰의 수정 검증을 확인했다.
-- [ ] 로컬 main 통합과 글로벌 문서·개인 규칙 보존 배포를 검증한다.
-- [ ] 실제 새 세션의 글로벌 지침·새 카탈로그 로드를 확인한다.
-- [ ] GitHub push·원격 SHA·CI와 임시 작업 정리를 확인한다.
+- [x] 구조 검사 RED→GREEN, HF 안전 회귀와 리뷰 반례3개를 검증했다.
+- [x] 전체80개 회귀·내부 링크·인코딩·보호 해시·수동 표시·독립 리뷰 수정 검증을 마쳤다.
+- [x] 로컬 main 통합과 글로벌 문서·개인 규칙 보존 배포를 검증했다.
+- [x] 실제 새 세션의 글로벌 지침과 새 카탈로그 로드를 확인했다.
+- [x] 구현 커밋의 GitHub push·원격 SHA와 두 OS CI 성공을 확인했다.
+- [x] 병합된 임시 브랜치·worktree 등록·내용 파일을 정리하고 복구 백업을 보존했다.
+
+비어 있는 임시 폴더 하나는 운영체제 프로세스 잠금으로 남았다. 데이터·브랜치·Git 등록은 남아 있지 않으며 사용자 앱을 강제 종료하지 않았다. 최종 기록 커밋의 원격 SHA·CI는 실제 GitHub 결과와 최종 보고로 확인한다.
