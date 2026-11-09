@@ -55,16 +55,7 @@ https://github.com/nowJDev/Agent-Instructions
 
 Codex 또는 Claude Code 중 원하는 것이 있으면 “Codex로 세팅해 줘”처럼 함께 말하세요. 선택한 하나만 준비하며, 이미 설치돼 있으면 재사용합니다.
 
-| 선택한 도구 | 준비하는 것 |
-|---|---|
-| Codex | Codex CLI, 기존 내용을 보존한 기본 작업 지침, 공식 아이콘의 `Codex.lnk` 바로가기. |
-| Claude Code | Claude Code CLI, 기존 내용을 보존한 기본 작업 지침 연결, 공식 아이콘의 `Claude Code.lnk` 바로가기. |
-
-로그인이 필요하면 사용자가 직접 진행합니다. 준비가 끝났다는 보고에는 **실행·로그인·지침 읽기 확인 결과**가 있어야 합니다. 아직 확인하지 못한 항목은 미완료로 표시합니다.
-
-기존 지침과 설정은 먼저 확인하고 보존합니다. 원하는 도구를 판단할 수 없으면 AI가 질문해야 합니다. 추가 스킬이나 외부 서비스 연결 등 확장 기능은 별도로 요청할 때 준비합니다.
-
-설정 위치와 확인 방법은 [상세 사용 안내](GUIDE.md#규칙을-적용하고-실행-환경을-준비하는-방법)에 있습니다. **설치를 진행하는 AI는 [구체적인 설치 절차](GETTING_STARTED.md#41-windows-codex-환경-세팅)와 [바로가기 절차](references/windows-cli-shortcut.md)를 읽고 따라야 합니다.**
+기본 준비 범위와 실행·로그인·지침 읽기 확인 방법은 [시작 안내](GETTING_STARTED.md#41-windows-codex-환경-세팅)에 있습니다. 기존 지침을 보존하고 추가 도구는 별도 요청에 따라 준비합니다.
 
 ## AI가 일하는 순서
 
@@ -158,6 +149,7 @@ Claude Code에만 있는 특정 도구나 자동 차단 기능이 다른 AI에�
 | 이 저장소에서 직접 만든 스킬. | [자체 제작 스킬 안내](Owned-Skills/README.md). |
 | 다른 AI 환경에서 사용하는 방법. | [환경별 적용 안내](PORTABILITY.md). |
 | 비밀번호 등 중요한 정보의 관리 기준. | [공개·보안 기준](SECURITY.md). |
+| 과거 작업의 설계·계획·검증 기록. | [작업 기록 목차](docs/history/README.md). |
 | 저장소에서 바뀐 내용과 이용 조건. | [변경 이력](CHANGELOG.md), [라이선스](LICENSE). |
 
 입력·실행·실패·검증 절차를 갖춘 범용 보강 스킬 23개와 기존 전달 스킬, 일일 업무보고용 [daily-work-report](Owned-Skills/daily-work-report/SKILL.md)는 [자체 제작 원본·전역 설치 안내](Owned-Skills/README.md)에 있습니다. 타사 원본과 개인 참조를 공개하지 않고 필요한 사용자 스킬 경로에 별도로 적용합니다.

@@ -2,7 +2,7 @@
 
 2026-11-06의 [Codex 전용 업데이트](../references/codex-skill-update-2026-11-06.md)는 기존 후보 57개 중 48개 패키지를 갱신하고 9개를 동일 유지했다. Codex에서는 `firecrawl-cli`가 `firecrawl`로 바뀌고 `skill-gen`이 퇴역해 전역 설치는 102개다. 아래 설명 카탈로그 99개와 Claude 설치 상태는 별개로 보존한다. [출처 관리 132개 목록](../references/codex-skill-versions-2026-11-06.json)은 새 CLI 발견 122개와 구분하며 원본 번들 버전을 실제 CLI·서버 버전으로 대신하지 않는다. Qodo 2개와 공식 경로에서 버전을 선택할 수 없는 네이티브 항목은 보류했다.
 
-카탈로그 작성 당시 호출 가능한 최상위 스킬 **99개**를 출처별로 정리했습니다. 실제 PC의 설치·노출·인증 상태와는 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
+카탈로그 작성 당시 최상위 항목 **99개**를 출처별로 정리했습니다. OFF 22개를 포함한 121개 항목에는 스킬·명령·메타 문서가 함께 있으므로 실제 호출 가능한 스킬 수와 구분합니다. 실제 PC의 설치·노출·인증 상태와는 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
 ※ 플러그인 내부 reference 하위 스킬(chrome-devtools 65개, huggingface 68개 등 SKILL.md)은 세션에서 직접 참고하는 단위가 아니므로 제외했습니다.
 
 > 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(노출 99 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
@@ -14,24 +14,24 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 
 | 스킬 | 한 줄 | 스킬 | 한 줄 |
 |---|---|---|---|
-| [code-review](_builtin/code-review.md) | diff 버그/품질 리뷰 | [simplify](_builtin/simplify.md) | 변경 코드 정리 |
-| [verify](_builtin/verify.md) | 앱 실행해 동작 검증 | [run](_builtin/run.md) | 프로젝트 앱 실행 |
-| [loop](_builtin/loop.md) | 주기적 반복 실행 | [schedule](_builtin/schedule.md) | cron 클라우드 에이전트 |
-| [update-config](_builtin/update-config.md) | settings.json 설정 | [keybindings-help](_builtin/keybindings-help.md) | 단축키 커스터마이즈 |
-| [fewer-permission-prompts](_builtin/fewer-permission-prompts.md) | allowlist 자동 추가 | [claude-api](_builtin/claude-api.md) | Claude API 레퍼런스 |
-| [init](_builtin/init.md) | CLAUDE.md 초기화 | [review](_builtin/review.md) | PR 리뷰 |
-| [security-review](_builtin/security-review.md) | 보안 취약점 리뷰 | | |
+| [code-review](_builtin/README.md#code-review) | diff 버그/품질 리뷰 | [simplify](_builtin/README.md#simplify) | 변경 코드 정리 |
+| [verify](_builtin/README.md#verify) | 앱 실행해 동작 검증 | [run](_builtin/README.md#run) | 프로젝트 앱 실행 |
+| [loop](_builtin/README.md#loop) | 주기적 반복 실행 | [schedule](_builtin/README.md#schedule) | cron 클라우드 에이전트 |
+| [update-config](_builtin/README.md#update-config) | settings.json 설정 | [keybindings-help](_builtin/README.md#keybindings-help) | 단축키 커스터마이즈 |
+| [fewer-permission-prompts](_builtin/README.md#fewer-permission-prompts) | allowlist 자동 추가 | [claude-api](_builtin/README.md#claude-api) | Claude API 레퍼런스 |
+| [init](_builtin/README.md#init) | CLAUDE.md 초기화 | [review](_builtin/README.md#review) | PR 리뷰 |
+| [security-review](_builtin/README.md#security-review) | 보안 취약점 리뷰 | | |
 
 ### 👤 개인 글로벌 스킬 (`_personal/`, 5개)
 `~/.claude/skills/` 또는 하네스 등록형 개인 스킬.
 
 | 스킬 | 한 줄 |
 |---|---|
-| [claude-news](_personal/claude-news.md) | Claude Code/Anthropic 소식 한국어 요약 |
-| [delete-session](_personal/delete-session.md) | 세션 jsonl 삭제 |
-| [handover](_personal/handover.md) | 세션 인수인계 md 작성 |
-| [deep-research](_personal/deep-research.md) | 멀티소스 교차검증 리서치 리포트 |
-| [design-driven-delivery](_personal/design-driven-delivery.md) | 설계부터 검증·통합까지 상태 변경 작업 통제 |
+| [claude-news](_personal/README.md#claude-news) | Claude Code/Anthropic 소식 한국어 요약 |
+| [delete-session](_personal/README.md#delete-session) | 세션 jsonl 삭제 |
+| [handover](_personal/README.md#handover) | 세션 인수인계 md 작성 |
+| [deep-research](_personal/README.md#deep-research) | 멀티소스 교차검증 리서치 리포트 |
+| [design-driven-delivery](_personal/README.md#design-driven-delivery) | 설계부터 검증·통합까지 상태 변경 작업 통제 |
 
 ### 🧩 플러그인 스킬
 
@@ -73,7 +73,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 다음은 `enabledPlugins`에서 **ON이지만** 세션에 스킬/MCP로 노출되지 않아 이 카탈로그에서 제외됩니다. **누락이 아니라 의도된 제외**입니다.
 - **LSP 4종** (`rust-analyzer`·`typescript`·`pyright`·`csharp`-lsp): 에디터 LSP 기능만 제공, 스킬/MCP 비노출.
 - **atomic-agents**: 세션에 노출되는 스킬/MCP 컴포넌트 없음.
-- **code-simplifier**·**pr-review-toolkit**: 에이전트/커맨드를 제공(스킬 비노출). 동명 빌트인 `simplify`·`code-review`와는 별개 → 각 `_builtin/` 문서 참고.
+- **code-simplifier**: 전용 에이전트를 제공하며 동명 빌트인 simplify와 구분한다. pr-review-toolkit의 review-pr 명령은 위 카탈로그에 포함한다.
 
 ## 📦 출처·설치 매핑 (다른 AI로 이식 시 — 경로 A)
 
@@ -147,11 +147,8 @@ Claude Code에서 제작자 채널을 선택할 때의 명령은 다음과 같�
 - **받는 AI가 Agent Skills 지원**: 해당 원본 repo에서 **스킬 루트 디렉터리 전체**를 배치하고, `SKILL.md`의 `scripts/`·`references/`·`assets/`·예제 및 상대경로 의존 리소스를 보존한다. 별도 플러그인의 커맨드·훅 등 Claude 전용 구성만 제외하며, 설치 후 참조 파일과 실행 환경을 확인한다. [패키지 구조](https://agentskills.io/specification#directory-structure)를 따른다.
 - **미지원 AI**: [`../PORTABILITY.md`](../PORTABILITY.md) 경로 B(참조 활용)·C(MCP 래핑).
 
-## 각 문서 구성
+## 분류별 문서 구성.
 
-모든 스킬 md는 다음 5개 항목을 포함합니다.
-1. **📌 용도** — 무엇을 하는 스킬인지
-2. **🎯 트리거 조건** — 언제 호출되는가 / 언제 안 쓰는가 / (해당 시) Rigid·Flexible
-3. **💻 사용 예시 / 명령어** — 실제 호출·슬래시 명령·인자
-4. **🛠️ 제공 도구 / 주요 파라미터** — 도구·절차·참조파일
-5. **📦 출처 / 설치 상태** — 원본·기준 버전·설치 확인 방법. 카탈로그 기록과 실제 활성 상태를 구분한다.
+121개 설명은 기존 23개 그룹 폴더의 README.md에 모았다. [CATALOG](CATALOG.md)의 항목을 누르면 해당 분류의 절로 이동한다. 각 항목의 용도·사용 조건·예제·실패 처리·출처·설치 확인 경계는 유지한다.
+
+기존 개별 Markdown 주소는 같은 폴더 README.md의 파일명 앵커로 바뀌었다. 예를 들어 _personal/claude-news.md는 [개인 스킬의 claude-news 절](_personal/README.md#claude-news)에서 찾는다. [고정된 이전 버전](https://github.com/nowJDev/Agent-Instructions/tree/a559c66d71aee886e717ff91bffce6270accdb17/Skill)에서 옛 배치를 확인할 수 있다. 기존 그룹에 항목을 추가할 때는 새 파일 대신 해당 README의 절과 CATALOG 링크를 갱신한다.

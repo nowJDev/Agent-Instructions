@@ -8,6 +8,7 @@ import unittest
 from pathlib import Path
 from types import ModuleType, SimpleNamespace
 from unittest.mock import patch
+from test_documentation import catalog_sections
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +17,8 @@ CATALOG = ROOT / 'Skill/huggingface-skills'
 
 class UploadExampleTests(unittest.TestCase):
     def upload_example(self, filename):
-        text = (CATALOG / filename).read_text(encoding='utf-8')
+        document = (CATALOG / 'README.md').read_text(encoding='utf-8')
+        text = catalog_sections(document)[Path(filename).stem]
         blocks = re.findall(r'```python\n(.*?)\n```', text, re.DOTALL)
         blocks = [block for block in blocks if 'api.upload_' in block]
         self.assertEqual(len(blocks), 1, '실행 가능한 업로드 예시가 하나 있어야 합니다.')

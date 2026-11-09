@@ -89,7 +89,7 @@ fi
 
 ### Step 4: 설치 실행
 
-**4-1. CLAUDE.md** — `dotfiles/CLAUDE.md → $claude_config_dir/CLAUDE.md` 단순 복사. 설치 후 사용자에게 자기 환경에 안 맞는 섹션 삭제를 안내한다(RAG 없으면 "RAG MCP" 삭제, graph-RAG-study 없으면 "글로벌 설정" 삭제, Unity 안 쓰면 "Unity" 삭제, Notion 안 쓰면 "Notion" 삭제, team-monitor 없으면 "팀 작업" 삭제).
+**4-1. CLAUDE.md** — 기존 파일 전체와 백업을 확인하고 승인한 규칙만 보존 병합한다. 기본 지침은 [시작 안내](../GETTING_STARTED.md#41-windows-codex-환경-세팅)의 import를 유지하며 외부 dotfiles로 전체 교체하지 않는다. 지원하지 않는 개인 환경 규칙은 가져오지 않는다.
 
 **4-2. settings.json 머지 (항목 2~7, 14~15)** — **절대 전체 덮어쓰기 금지.** Python으로 선택된 섹션만 머지한다.
 
@@ -171,20 +171,15 @@ finally:
 
 두 Python 블록은 같은 프로세스에서 순서대로 실행한다. 저장 후 JSON을 다시 읽어 선택한 섹션과 기존 사용자 설정의 보존을 확인한다. 오류가 발생하면 설치를 중단하고 임시 파일만 정리한다. 같은 settings 파일을 다른 프로세스가 동시에 변경하지 않는 상태에서 실행한다.
 
-**4-3. 키바인딩** — `dotfiles/keybindings.json → $claude_config_dir/keybindings.json` 단순 복사.
+**4-3. 키바인딩** — 기존 파일·백업과 충돌을 확인하고 선택한 바인딩만 병합한다. 전체 교체가 필요하면 대상·복구 경로를 설명하고 그 교체 범위를 확인한다.
 
-**4-4. Skills** — 선택된 skill 폴더를 `$claude_config_dir/skills/`에 통째로 복사. 이미 있으면 덮어쓰기(최신 교체).
+**4-4. Skills** — 선택한 패키지의 상대경로 리소스를 함께 배치한다. 동명 패키지는 원본·사용자 추가 파일을 구분하고 백업한 뒤 요청한 소유 파일만 갱신한다. 개인 참조를 통째로 덮어쓰지 않는다.
 
 **4-5. Agent** — `dotfiles/agents/code-reviewer.md → $claude_config_dir/agents/code-reviewer.md`.
 
 **4-6. Bash 테마** — `.bashrc`·`.minttyrc`·`.elephant_walk.py` 각각의 기존 내용과 Step 3의 `home/` 백업을 확인한 뒤 승인한 파일만 `~/`에 복사한다. 기존 사용자 설정을 보존하거나 병합하고, 교체가 필요하면 해당 파일의 백업·복구 경로를 확인한다. Roboto Mono 폰트는 `%LOCALAPPDATA%\Microsoft\Windows\Fonts\`에 설치.
 
-**4-7. 바탕화면 바로가기 (Windows)** — `Claude Code.bat`:
-```bat
-@echo off
-start "" "C:\Program Files\Git\git-bash.exe" -c "claude"
-```
-bypass 버전은 `claude --dangerously-skip-permissions`. Git Bash 경로는 `%PROGRAMFILES%\Git\git-bash.exe` 확인.
+**4-7. 바탕화면 바로가기 (Windows)** — [공통 Windows 절차](windows-cli-shortcut.md)에서 Claude Code를 선택한다. 실행 파일 전체 경로·공식 아이콘·작업 폴더를 검증하고 기존 배치 파일은 보존한다. bypass 바로가기는 명시적인 해당 요청이 있을 때만 별도 범위로 다룬다.
 
 **4-8. snap-path (Windows)** — 부모 디렉토리에 클론 후 시작 프로그램 등록.
 ```bash

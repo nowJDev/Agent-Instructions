@@ -4,7 +4,7 @@
 > **▶ START HERE — 처음 온 에이전트라면 먼저 [`Agent-Instructions/README.md`](Agent-Instructions/README.md)를 읽어라.**
 > 전역 운영 문서·스킬/MCP 인덱스·의사결정 맵이 거기 있다. 본 파일(AGENTS.md)은 그 지도 위에서 **따르는 행동 규칙**이다. README로 전체를 파악하고 → 이 파일의 규칙대로 작업하라.
 > **"적용" = 이 규칙을 로드해 따르는 것**(환경 *설치*가 아니다). Claude 전용 지시(`rag_agent`·`PreToolUse 훅`·Team 등)는 Codex 동등 기능을 확인하고, 없으면 번역/제외한다. 세부는 [`Agent-Instructions/PORTABILITY.md`](Agent-Instructions/PORTABILITY.md)를 보라.
-> Windows에서 "이거대로 세팅해줘"는 사용자 지정 대상 우선 → 신뢰할 수 있는 현재 클라이언트 정보 → 판별 불가 시 한 번 질문 순으로 Codex·Claude Code 중 하나만 선택한다. 모델명·설치 목록으로 추정하지 않는다. 선택한 CLI 재사용·공식 설치, 기존 전역 기본 지침 보존, 공식 아이콘 `.lnk`와 실행·인증 확인은 [`Agent-Instructions/GETTING_STARTED.md`](Agent-Instructions/GETTING_STARTED.md)와 [`Agent-Instructions/references/windows-cli-shortcut.md`](Agent-Instructions/references/windows-cli-shortcut.md)를 따른다. 스킬·MCP·플러그인·hooks·테마·상태줄·권한 변경·bypass 옵션은 별도 확장 요청에서만 다룬다.
+> Windows 최소 세팅의 대상 선택·보존·완료 기준은 [시작 안내](Agent-Instructions/GETTING_STARTED.md#41-windows-codex-환경-세팅)를 따른다. 추가 도구·권한·bypass는 별도 요청 범위다.
 
 작업 시작 전 **가장 먼저 읽는 파일**이다. 핵심 규칙은 이 파일만으로도 실행 가능해야 한다. 세부 문서는 `Agent-Instructions/` 아래에 두되, 해당 상황에 들어가면 반드시 읽는다.
 
@@ -60,6 +60,6 @@
 - `Agent-Instructions/rules/02_tool-boundaries.md` — RAG·서브에이전트·MCP 등록·팀·외부작업·Windows·Unity **도구 경계**.
 - `Agent-Instructions/rules/03_feedback-loop.md` — 리뷰 → 규칙 보강 반복, 규칙 추가·배치 기준.
 - `Agent-Instructions/rules/04_garbage-collection.md` — 문서-코드 정합·데드코드·MEMORY·Compact 청소.
-- `Agent-Instructions/Skill/`·`Agent-Instructions/MCP/` — 상세 카탈로그. 특정 스킬/MCP 동작이 궁금할 때 펴본다.
+- `Agent-Instructions/Skill/`·`Agent-Instructions/MCP/` — 상세 카탈로그. 스킬은 분류별 README의 항목 절, MCP는 서버별 문서에서 확인한다.
 - `Agent-Instructions/references/` — 보조 참조 문서(CLI 설치 등).
 - `Agent-Instructions/PORTABILITY.md` — 다른 AI/비-Claude 환경에서 스킬·MCP를 쓰는 이식 가이드.

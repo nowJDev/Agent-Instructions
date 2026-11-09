@@ -5,24 +5,7 @@
 
 ## 1. AI에게 바로 줄 프롬프트
 
-```text
-이 저장소를 읽고 내 작업 지침으로 적용해줘.
-먼저 README.md를 읽고, 그 다음 AGENTS.md와 PORTABILITY.md를 읽어.
-Claude 전용 기능은 네 환경의 동등 기능으로 번역하고, 없는 기능은 건너뛰어.
-이 저장소는 토큰이나 개인 설정 파일을 포함하지 않는 공개용 운영 지침 카탈로그야.
-https://github.com/nowJDev/Agent-Instructions
-```
-
-AI가 GitHub 링크를 직접 열 수 없다면 저장소를 내려받은 뒤, 루트의 `README.md`, `AGENTS.md`, `PORTABILITY.md` 내용을 순서대로 제공한다.
-
-Windows에서 현재 클라이언트의 최소 CLI 환경을 세팅하려면 다음 공통 프롬프트를 전달한다.
-
-```text
-이거대로 세팅해줘.
-https://github.com/nowJDev/Agent-Instructions
-```
-
-단순 "지침 적용"은 규칙을 읽고 따르는 의미다. "이거대로 세팅해줘"는 §4.1의 CLI 준비·전역 기본 지침·공식 아이콘 바로가기·실행 확인을 요청한다. 사용자가 Codex 또는 Claude Code를 명시하면 그 대상을 우선한다. 미지정이면 신뢰할 수 있는 현재 세션의 실제 클라이언트 정보를 사용한다. 모델 이름이나 설치된 CLI 목록으로 추정하지 않는다. 판별할 수 없으면 대상만 한 번 질문하고 결정 전에는 설치·설정을 변경하지 않는다. 두 CLI가 함께 설치돼 있어도 선택한 하나만 처리한다.
+[README의 두 시작 문장](README.md#시작하기)에서 지침을 읽고 따르는 적용 요청과 CLI·기본 지침을 준비하는 세팅 요청을 선택한다. 대상 선택·보존·완료 조건은 아래 4.1절에서 관리한다.
 
 ## 2. 적용 순서
 
@@ -83,6 +66,8 @@ codex "Summarize the current instructions and list which instruction files are a
 ### 4.1 Windows Codex 환경 세팅
 
 이 앵커는 기존 링크를 유지한다. 공통 요청의 Codex·Claude Code 최소 세팅 모두 아래 순서를 따른다.
+
+사용자가 Codex 또는 Claude Code를 명시하면 그 대상을 우선한다. 미지정이면 신뢰할 수 있는 현재 세션의 실제 클라이언트 정보를 사용한다. 모델 이름이나 설치된 CLI 목록으로 추정하지 않는다. 판별할 수 없으면 대상만 한 번 질문하고 결정 전에는 설치·설정을 변경하지 않는다. 두 CLI가 함께 설치돼 있어도 선택한 하나만 처리한다.
 
 #### CLI 준비.
 
