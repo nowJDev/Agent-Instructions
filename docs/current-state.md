@@ -3,7 +3,7 @@
 
 ## 2026-11-11 README 개편.
 
-사용자가 승인한 [설계](superpowers/specs/2026-11-11-readme-bilingual-design.md)와 [계획](superpowers/plans/2026-11-11-readme-bilingual.md)에 따라 한국어 README를 정리하고 영어 전환·대표 이미지2개를 추가했다. 기존 fragment9개와 운영 규칙·GUIDE를 보존했다. Windows Python3.12 전체84개가 통과했고 독립 리뷰에서 확정 결함을 발견하지 못했다. 실제 GitHub 화면·원격 SHA·CI는 배포 후 [검증 기록](reviews/2026-11-11-readme-bilingual.md)에 갱신한다. 전역 복제본 동기화는 이번 요청 범위에 포함하지 않는다.
+사용자가 승인한 [설계](superpowers/specs/2026-11-11-readme-bilingual-design.md)와 [계획](superpowers/plans/2026-11-11-readme-bilingual.md)에 따라 한국어 README를 정리하고 영어 전환·대표 이미지2개를 추가했다. 기존 fragment9개와 운영 규칙·GUIDE를 보존했다. Windows Python3.12 전체84개가 통과했고 독립 리뷰에서 확정 결함을 발견하지 못했다. 구현 커밋 `5278e2a`를 main에 병합·push하고 원격 SHA 일치, 실제 GitHub의 한·영 전환·데스크톱·모바일·테마 및 두 OS CI 성공을 확인했다. 임시 브랜치·worktree·탭·캡처도 정리했다. 상세 증거는 [검증 기록](reviews/2026-11-11-readme-bilingual.md)에 있다. 전역 복제본 동기화는 이번 요청 범위에 포함하지 않는다.
 
 ## 이전 문서 통합 작업의 기록.
 

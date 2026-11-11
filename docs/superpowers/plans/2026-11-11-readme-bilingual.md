@@ -42,10 +42,10 @@
 
 **Interfaces:** Task 1의 README와 검사 결과를 받아 실제 GitHub 화면·배포 결과를 검증한다.
 
-- [x] 전체 변경의 독립 리뷰와 로컬 SVG·테마 확인을 마쳤다. 작은 화면은 푸시 후 실제 GitHub에서 확인한다.
+- [x] 전체 변경의 독립 리뷰와 로컬 SVG·테마 및 실제 GitHub 작은 화면 확인을 마쳤다.
 - [x] 결과와 한계를 기록하고 `git diff --check` 및 전체84개 회귀·skip0을 확인했다.
-- [ ] 한글 메시지로 커밋하고 main에 일반 병합·푸시한다.
-- [ ] 원격 SHA·실제 GitHub 한·영 화면·두 OS CI를 확인하고 소유한 임시 worktree를 정리한다.
+- [x] 한글 메시지로 커밋하고 main에 fast-forward 병합·일반 푸시했다.
+- [x] 원격 SHA·실제 GitHub 한·영 화면·두 OS CI를 확인하고 소유한 임시 worktree를 정리했다.
 
 ## 실행 원장.
 
@@ -53,3 +53,4 @@
 - Task 1의 문서·이미지가 Task 2의 화면 검증 입력이며 인터페이스 충돌은 없다.
 - Task 1: complete. 새 문서·이미지 부재 RED와 기존 앵커 오타 재현 후 GREEN, Windows Python 3.12 전체84개 통과·skip0을 확인했다.
 - GUIDE의 기존 상세 작업 흐름·파일 역할·용어 설명으로 축약 내용을 설명할 수 있어 GUIDE는 보존했다.
+- Task 2: complete. 구현5278e2a의 원격 SHA·실제 GitHub 전환·390px 모바일·light/dark 표시와 두 OS CI 성공을 확인했다. 임시 작업 공간을 정리했으며 후속 기록 커밋의 원격 확인은 최종 보고로 남긴다.

@@ -17,11 +17,16 @@
 
 별도 리뷰어가 기준선부터 전체 변경과 신규 파일을 읽고 확정 결함을 발견하지 못했다. 한·영 의미, 적용과 설치의 구분, 한국어 문서·응답 정책 안내, 기존 fragment, HTML 누락 반례와 변경 경계를 확인했다. 리뷰어가 직접 실행한 README4개·문서8개 검사와 `git diff --check`도 통과했다.
 
-Chrome에서 로컬 light/dark SVG를 각각 렌더·캡처해 문서·연결선·체크 표시와 글자 잘림이 없는지 확인했다. README 전체의 실제 GitHub 표현과 모바일·언어 전환·접이식 안내·두 OS CI는 푸시 후 확인한다.
+Chrome에서 로컬 light/dark SVG를 각각 렌더·캡처해 문서·연결선·체크 표시와 글자 잘림이 없는지 확인했다. 실제 GitHub에서도 밝은·어두운 테마에 맞는 이미지가 로드되며, 1440px 데스크톱과390px 모바일에서 제목·소개·언어 전환·시작 안내를 확인했다.
 
 ## 배포 확인.
 
-현재 원격 배포 전이다. 배포 후 실제 커밋 SHA, GitHub 화면과 CI 결과를 이 절에 기록한다. 이미지 캡처는 검증용이며 저장소 실행 리소스에 포함하지 않는다.
+- 구현 커밋 `5278e2a979fc680bbfde9ea3765d87768b0d5029`를 main에 fast-forward 병합·일반 push했다. 로컬 HEAD와 `git ls-remote origin refs/heads/main`이 일치했다.
+- [구현 커밋 CI](https://github.com/nowJDev/Agent-Instructions/actions/runs/42934511908)의 `Regression (ubuntu-latest)`와 `Regression (windows-latest)`가 모두 success다.
+- 실제 GitHub의 English 링크와 한국어 링크를 차례로 클릭해 두 README의 시작 프롬프트가 표시되는지 확인했다. 각 언어의 Windows 세팅 summary도 클릭해 해당 프롬프트가 펼쳐지는지 확인했다.
+- 기존 fragment9개가 GitHub DOM에도 존재한다. 1440px 데스크톱의 문서 폭은838px이며390px 모바일의 문서 폭은324px, 전체 페이지 폭은390px로 가로 넘침이 없다. 코드블록은 GitHub 기본 내부 가로 스크롤을 사용한다.
+- 대표 이미지를 임시로 숨겨도 적용 프롬프트와 언어 전환을 사용할 수 있음을 확인했다. 밝은 데스크톱과 어두운 모바일 캡처를 직접 읽었다.
+- 생성한 브라우저 탭3개·캡처3개·작업 브랜치·worktree를 정리했다. 기존 사용자 탭과 파일은 보존했다. 배포 확인 기록의 후속 커밋 SHA와 CI는 최종 보고에서 확인한다.
 
 ## 검증 경계.
 
