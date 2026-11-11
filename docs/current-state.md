@@ -1,6 +1,10 @@
 <!-- 최신 문서 구조와 검증·배포 결과 및 남은 검증 경계만 요약한다. -->
 # 현재 상태.
 
+## 2026-11-11 Unity MCP 추가.
+
+사용자 요청에 따라 CoplayDev/unity-mcp와 FunplayAI/funplay-unity-mcp의 설치·전역 등록 안내를 [Unity MCP 문서](../MCP/coplay-funplay-unity-mcp.md)에 추가하고 MCP 목차·이식 표에서 연결했다. 프로젝트 설치는 나중으로 미룬다는 후속 지시에 따라 [coplay-funplay-unity-mcp-setup](../Owned-Skills/coplay-funplay-unity-mcp-setup/SKILL.md)을 자체 제작 원본에 추가했다. 자체 제작 원본은 26개다. CoplayDev/unity-mcp 전역 서버 `10.3.0`과 Codex stdio 등록, SDK의 MCP 응답·도구 48개를 확인했으며 기존 설정을 보존했다. 전역 스킬·문서의 원본 해시와 중복 정리를 확인했고 새 Codex 프로세스에서 새 스킬의 enabled·사용자 범위·실제 경로를 발견했다. Windows Python 3.12 전체 84개 회귀·내부 링크·diff 검사와 스킬 유효성 검사를 통과했다. FunplayAI/funplay-unity-mcp 주소 등록·두 Unity 패키지 설치·실제 Editor 연결은 연기했으며 실제 모델 호출·Codex 세션의 MCP 도구 발견은 미검증이다. [설계](superpowers/specs/2026-11-11-coplay-funplay-unity-mcp-design.md), [계획](superpowers/plans/2026-11-11-coplay-funplay-unity-mcp.md), [검증 기록](reviews/2026-11-11-coplay-funplay-unity-mcp.md)에 범위와 증거를 남긴다. 저장소 커밋·로컬 통합은 설치 담당의 최종 확인 대상이며 원격 push는 범위 밖이다.
+
 ## 2026-11-11 README 개편.
 
 사용자가 승인한 [설계](superpowers/specs/2026-11-11-readme-bilingual-design.md)와 [계획](superpowers/plans/2026-11-11-readme-bilingual.md)에 따라 한국어 README를 정리하고 영어 전환·대표 이미지2개를 추가했다. 기존 fragment9개와 운영 규칙·GUIDE를 보존했다. Windows Python3.12 전체84개가 통과했고 독립 리뷰에서 확정 결함을 발견하지 못했다. 구현 커밋 `5278e2a`를 main에 병합·push하고 원격 SHA 일치, 실제 GitHub의 한·영 전환·데스크톱·모바일·테마 및 두 OS CI 성공을 확인했다. 임시 브랜치·worktree·탭·캡처도 정리했다. 상세 증거는 [검증 기록](reviews/2026-11-11-readme-bilingual.md)에 있다. 전역 복제본 동기화는 이번 요청 범위에 포함하지 않는다.

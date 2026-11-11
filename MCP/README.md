@@ -11,6 +11,8 @@
 | **figma** | 플러그인 `figma` | http (원격 OAuth) | 런타임 목록 확인 | [figma.md](figma.md) |
 | **huggingface-skills** | 플러그인 `huggingface-skills` | http (원격 OAuth) | 런타임 목록 확인 | [huggingface-skills.md](huggingface-skills.md) |
 | **chrome-devtools** | Codex 글로벌 (`~/.codex/config.toml`) | stdio (`chrome-devtools-mcp`, 별도 Chrome 자동 실행) | 버전·옵션별 런타임 확인 | [chrome-devtools.md](chrome-devtools.md) |
+| **CoplayDev/unity-mcp** | Codex 글로벌 `coplaydev-unity-mcp` + Unity 프로젝트별 패키지 | stdio (Python MCP 서버와 Unity 브리지) | 버전·옵션별 런타임 확인 | [coplay-funplay-unity-mcp.md](coplay-funplay-unity-mcp.md#coplaydevunity-mcp) |
+| **FunplayAI/funplay-unity-mcp** | Codex 글로벌 `funplayai-unity-mcp-project` + Unity 프로젝트별 패키지 | http (Unity 내장 서버, 프로젝트별 주소) | 프로필별 런타임 확인 | [coplay-funplay-unity-mcp.md](coplay-funplay-unity-mcp.md#funplayaifunplay-unity-mcp) |
 | **playwright** | 플러그인 `playwright` | stdio (npx) | 버전·capability별 런타임 확인 | [playwright.md](playwright.md) |
 | **claude.ai PlayMCP** | claude.ai 계정 연동 (카카오 공식) | 원격 | 5개 하위 서버 | [claude-ai-PlayMCP/](claude-ai-PlayMCP/README.md) |
 

@@ -16,7 +16,7 @@ EXPECTED_NEW = {
     'delete-session', 'feature-dev', 'fewer-permission-prompts',
     'figma-generate-project-plan', 'handover', 'help', 'init',
     'keybindings-help', 'loop', 'new-sdk-app', 'ralph-loop', 'review',
-    'review-pr', 'run', 'security-review', 'simplify', 'update-config', 'verify',
+    'review-pr', 'run', 'security-review', 'simplify', 'coplay-funplay-unity-mcp-setup', 'update-config', 'verify',
 }
 EXISTING = {'design-driven-delivery'}
 PRIVATE_PATTERNS = (

@@ -52,6 +52,8 @@
 |---|---|---|---|
 | `context7` | stdio | `npx -y @upstash/context7-mcp` | ✅ |
 | `chrome-devtools` | stdio | `npx -y chrome-devtools-mcp@1.10.1 --headless --no-usage-statistics --no-performance-crux` | ✅ (Chrome·Node.js 필요, [상세 안내](MCP/chrome-devtools.md)) |
+| `CoplayDev/unity-mcp` | stdio | `coplaydev-unity-mcp` 이름의 Python MCP 서버 + 프로젝트별 Unity 브리지 | ✅ (Python·uv·Unity 필요, [설치 안내](MCP/coplay-funplay-unity-mcp.md#coplaydevunity-mcp)) |
+| `FunplayAI/funplay-unity-mcp` | http | `funplayai-unity-mcp-project` 이름과 Unity 창에서 확인한 프로젝트별 전체 URL | ✅ (Unity 2022.3+·프로젝트별 패키지 필요, [설치 안내](MCP/coplay-funplay-unity-mcp.md#funplayaifunplay-unity-mcp)) |
 | `playwright` | stdio | `npx @playwright/mcp@latest` | ✅ |
 | `figma` | http | `https://mcp.figma.com/mcp` (OAuth) | ✅ (http MCP 지원 시) |
 | `huggingface-skills` | http | `https://huggingface.co/mcp?login` (OAuth) | ✅ |
@@ -113,7 +115,7 @@ figma    = MCPServerStreamableHttp(params={"url": "https://mcp.figma.com/mcp"})
 ### 3.1 원칙
 **타사 Skill 실물을 이 패키지에 복사·재배포하지 않는다.** 대신 공개 원본을 가리키고 받는 팀이 직접 설치한다. 이 저장소에서 직접 작성한 Skill은 `Owned-Skills/`에 원본을 보관하며 저장소 License에 따라 설치·재사용할 수 있다.
 
-현재 자체 제작 원본은 25개다. 전체 이름과 Codex·Claude Code 사용자 전역 설치·업데이트 방법은 [Owned-Skills 안내](Owned-Skills/README.md)를 따른다. 기존 전역 패키지는 먼저 비공개 백업하고 개인 참조·알 수 없는 파일을 보존하며 요청한 파일만 병합한다.
+현재 자체 제작 원본은 26개다. 전체 이름과 Codex·Claude Code 사용자 전역 설치·업데이트 방법은 [Owned-Skills 안내](Owned-Skills/README.md)를 따른다. 기존 전역 패키지는 먼저 비공개 백업하고 개인 참조·알 수 없는 파일을 보존하며 요청한 파일만 병합한다.
 
 주요 구성은 다음과 같다.
 

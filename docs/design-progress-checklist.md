@@ -1,6 +1,21 @@
 <!-- 최신 작업과 이전 문서 통합의 구현·검증·배포 결과를 추적한다. -->
 # 설계 진행 체크리스트.
 
+## 2026-11-11 Unity MCP 추가.
+
+[설계](superpowers/specs/2026-11-11-coplay-funplay-unity-mcp-design.md), [계획](superpowers/plans/2026-11-11-coplay-funplay-unity-mcp.md), [검증 기록](reviews/2026-11-11-coplay-funplay-unity-mcp.md)에 실제 진행 상태를 기록한다.
+
+- [x] 두 Unity MCP의 전역 설치와 저장소 추가 요청·기존 설정 보존 범위를 확인했다.
+- [x] MCP 목차·이식 표·통합 설치 안내를 작성했다.
+- [x] 프로젝트 설치 연기와 스킬 지침 요청을 반영해 자기완결 `coplay-funplay-unity-mcp-setup`을 추가했다.
+- [x] CoplayDev/unity-mcp 전역 서버 10.3.0·Codex 등록·MCP 도구 48개와 기존 설정 보존을 확인했다.
+- [x] 문서 전체 84개 회귀·내부 링크·자체 리뷰·스킬 유효성 검사를 마쳤다.
+- [x] 제작자 식별자 적용 후 전역 설정 동일성·SDK 도구 48개를 재검증하고 스킬·문서 해시와 중복 정리를 확인했다.
+- [x] 새 Codex 프로세스에서 새 스킬 이름·enabled·사용자 범위·실제 경로·본문을 확인했다.
+- [x] 독립 리뷰의 자동 Configure 키 중복 조건을 반영해 요청한 서버만 재사용·정리하도록 보강했다.
+
+FunplayAI/funplay-unity-mcp 주소 등록·프로젝트별 패키지·실제 Unity 연결은 사용자가 나중으로 미뤘다. 실제 모델 호출·Codex 세션의 MCP 도구 발견은 미검증이며 SDK 프로토콜 검사·새 프로세스 스킬 발견과 구분한다. 저장소 커밋·로컬 통합은 최종 확인 대상이고 원격 push는 범위 밖이다.
+
 ## 2026-11-11 README 개편.
 
 [승인 설계](superpowers/specs/2026-11-11-readme-bilingual-design.md), [실행 계획](superpowers/plans/2026-11-11-readme-bilingual.md), [검증 기록](reviews/2026-11-11-readme-bilingual.md)에 현재 작업의 범위와 증거를 기록한다.
