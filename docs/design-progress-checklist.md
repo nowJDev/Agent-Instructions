@@ -1,6 +1,19 @@
 <!-- 현재 문서 통합 작업의 구현·검증·배포 결과를 추적한다. -->
 # 설계 진행 체크리스트.
 
+## 2026-11-11 README 개편.
+
+[승인 설계](superpowers/specs/2026-11-11-readme-bilingual-design.md), [실행 계획](superpowers/plans/2026-11-11-readme-bilingual.md), [검증 기록](reviews/2026-11-11-readme-bilingual.md)에 현재 작업의 범위와 증거를 기록한다.
+
+- [x] 한국어 기본·영어 전환·시각 개편과 커밋·푸시 승인을 확인했다.
+- [x] 한·영 README·light/dark SVG를 작성하고 기존 fragment9개·설정·GUIDE를 보존했다.
+- [x] 새 검사 RED→GREEN과 전체84개 회귀·독립 리뷰·로컬 SVG 확인을 마쳤다.
+- [ ] 커밋·main 병합·푸시와 원격 SHA 일치를 확인한다.
+- [ ] 실제 GitHub의 한·영 전환·모바일·테마·접이식 안내와 두 OS CI를 확인한다.
+- [ ] 검증·배포 기록을 갱신하고 소유한 임시 worktree를 정리한다.
+
+## 이전 문서 통합 작업의 결과.
+
 대상은 [문서 통합과 글로벌 적용](superpowers/specs/2026-11-09-document-consolidation-design.md)이다. [실행 계획](superpowers/plans/2026-11-09-document-consolidation.md)과 [검증 기록](reviews/2026-11-09-document-consolidation.md)에 실제 증거를 남겼다. 이전 작업은 [보관 목차](history/README.md)에서 확인한다.
 
 - [x] 사용자 설계 실행·글로벌 적용·저장소 커밋·push 승인을 확인했다.

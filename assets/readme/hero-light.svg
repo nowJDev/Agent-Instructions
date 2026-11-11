@@ -1,0 +1,42 @@
+<!-- 요청·범위 확인·검증의 문서 흐름을 밝은 배경으로 보여준다. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-labelledby="title desc">
+  <title id="title">Agent-Instructions workflow</title>
+  <desc id="desc">A request document, a scope checklist, and a verified result connected from left to right.</desc>
+  <rect width="1200" height="300" rx="24" fill="#F6F8FA"/>
+  <g fill="none" stroke="#D8E1EB" stroke-width="1">
+    <path d="M40 64H1160M40 236H1160"/>
+    <path d="M60 40V260M440 40V260M820 40V260M1140 40V260" stroke-dasharray="3 8"/>
+  </g>
+  <g fill="none" stroke="#8B9CB0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M367 150H432M420 140L432 150L420 160M747 150H812M800 140L812 150L800 160"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="14" fill="#53657B">
+    <text x="82" y="44">01</text><text x="462" y="44">02</text><text x="842" y="44">03</text>
+  </g>
+  <g stroke-linejoin="round">
+    <path d="M102 72H312L336 96V244H102Z" fill="#E5EDF9"/>
+    <path d="M82 56H290L318 84V228H82Z" fill="#FFFFFF" stroke="#B7C9E8" stroke-width="2"/>
+    <path d="M290 56V84H318" fill="#EAF1FF" stroke="#B7C9E8" stroke-width="2"/>
+    <path d="M482 72H692L716 96V244H482Z" fill="#F3EADB"/>
+    <path d="M462 56H670L698 84V228H462Z" fill="#FFFFFF" stroke="#DCC6A7" stroke-width="2"/>
+    <path d="M670 56V84H698" fill="#FBF3E8" stroke="#DCC6A7" stroke-width="2"/>
+    <path d="M862 72H1072L1096 96V244H862Z" fill="#DCEEE9"/>
+    <path d="M842 56H1050L1078 84V228H842Z" fill="#FFFFFF" stroke="#A7CEC3" stroke-width="2"/>
+    <path d="M1050 56V84H1078" fill="#E7F4EF" stroke="#A7CEC3" stroke-width="2"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="19" fill="#243247">
+    <text x="106" y="111">request.md</text><text x="486" y="111">AGENTS.md</text><text x="866" y="111">verified.md</text>
+  </g>
+  <g stroke="#2563EB" stroke-width="7" stroke-linecap="round">
+    <path d="M110 143H264"/><path d="M110 165H239" opacity=".55"/><path d="M110 187H195" opacity=".25"/>
+  </g>
+  <g fill="none" stroke="#B45309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="488" y="132" width="18" height="18" rx="4"/><path d="M493 141L497 145L503 137M520 141H650"/>
+    <rect x="488" y="163" width="18" height="18" rx="4"/><path d="M493 172L497 176L503 168M520 172H625M488 204H590"/>
+  </g>
+  <g stroke="#0F766E" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M870 143H994M870 165H970M870 187H934" stroke-width="6" opacity=".35"/>
+    <circle cx="1034" cy="196" r="28" fill="#0F766E" stroke="none"/>
+    <path d="M1022 196L1030 204L1047 187" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+  </g>
+</svg>

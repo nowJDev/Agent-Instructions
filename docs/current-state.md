@@ -1,9 +1,15 @@
 <!-- 최신 문서 구조와 검증·배포 결과 및 남은 검증 경계만 요약한다. -->
 # 현재 상태.
 
+## 2026-11-11 README 개편.
+
+사용자가 승인한 [설계](superpowers/specs/2026-11-11-readme-bilingual-design.md)와 [계획](superpowers/plans/2026-11-11-readme-bilingual.md)에 따라 한국어 README를 정리하고 영어 전환·대표 이미지2개를 추가했다. 기존 fragment9개와 운영 규칙·GUIDE를 보존했다. Windows Python3.12 전체84개가 통과했고 독립 리뷰에서 확정 결함을 발견하지 못했다. 실제 GitHub 화면·원격 SHA·CI는 배포 후 [검증 기록](reviews/2026-11-11-readme-bilingual.md)에 갱신한다. 전역 복제본 동기화는 이번 요청 범위에 포함하지 않는다.
+
+## 이전 문서 통합 작업의 기록.
+
 2026-11-09 [승인 설계](superpowers/specs/2026-11-09-document-consolidation-design.md)에 따라 문서 통합과 글로벌 적용을 완료했다. [실행 계획](superpowers/plans/2026-11-09-document-consolidation.md)과 [검증·배포 기록](reviews/2026-11-09-document-consolidation.md)에 증거를 남겼다.
 
-## 현재 구성.
+## 문서 통합 당시 구성.
 
 - 전체 추적 파일은270개에서154개로116개 줄었다.
 - 카탈로그121개 설명은23개 그룹 README에 있다. [전체 항목 목차](../Skill/CATALOG.md)에서 해당 절로 이동한다.
