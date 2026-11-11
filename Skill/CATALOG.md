@@ -5,7 +5,7 @@
 
 ---
 
-## 노출 스킬 (99)
+## 노출 스킬 (100)
 
 ### _builtin (13)
 - [**claude-api**](_builtin/README.md#claude-api) — Claude API / Anthropic SDK 레퍼런스 빌트인 스킬. model id·가격·파라미터·스트리밍·tool use·MCP·캐싱·토큰 카운팅·모델 마이그레이션을 다룬다. **Claude/Anthropic 관련 작업 시 파일을 열기 전에 먼저 읽는 트리거 스킬**.
@@ -141,6 +141,9 @@
 
 ### playground (1)
 - [**playground**](playground/README.md#playground) — 컨트롤·라이브 프리뷰·프롬프트 출력을 갖춘 자기완결형 단일 HTML 인터랙티브 탐색기를 만드는 스킬
+
+### kordoc (1)
+- [**kordoc**](kordoc/README.md#kordoc) — HWP·HWPX·HWPML과 한국 공문서를 읽고, 생성·채움·편집·비교·검증·미리보기하는 스킬.
 
 ## ⛔ OFF 플러그인 (`_disabled/`, 22) — 켜야 사용
 
