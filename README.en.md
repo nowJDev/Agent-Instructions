@@ -96,7 +96,8 @@ The linked guides and catalogs below are in Korean.
 | How to use the instructions and understand files and terms. | [Detailed guide](GUIDE.md). |
 | Rules the agent should follow. | [Core rules](AGENTS.md), [verification](rules/01_enforcement-system.md), [tool boundaries](rules/02_tool-boundaries.md). |
 | Adaptation for another agent. | [Portability](PORTABILITY.md). |
-| Skills and external tools. | [Skill catalog](Skill/CATALOG.md), [sources and setup](Skill/README.md), [MCP guide](MCP/README.md). |
+| Choose skills for spreadsheets, slides, and other tasks. | [Task-based selection guide](Skill/BY-TASK.md). |
+| All skills, external tools, sources, and setup requirements. | [Skill catalog](Skill/CATALOG.md), [sources and setup](Skill/README.md), [MCP guide](MCP/README.md). |
 | Tools and execution requirements for documents, design, and Unity. | [Anthropic skills](Skill/anthropic-skills/README.md), [Office and design tools](Skill/office-design-tools/README.md), [Unity connection](MCP/coplay-funplay-unity-mcp.md). |
 | Installable skills authored in this repository. | [Owned skills](Owned-Skills/README.md). |
 
@@ -115,6 +116,8 @@ The skills and MCP catalogs provide descriptions and sources. They are separate 
 <summary><strong>How do I know the agent read the instructions?</strong></summary>
 
 Ask it to list the instruction files it actually read, summarize their core rules, and distinguish linked documents it has not read. After changing global instructions or a local copy, verify them in a new agent session. Updating GitHub does not update personal copies automatically.
+
+To keep using the instructions after deleting the original working folder, copy the required documents and resources as **independent physical files** into the global copy, and point the global entry file there. Before updating, back up existing global documents and personal material outside that copy; then verify file lists, hashes, and internal links. Installed skills and runtime tools are managed separately.
 
 </details>
 

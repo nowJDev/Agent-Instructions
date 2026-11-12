@@ -95,7 +95,8 @@ https://github.com/nowJDev/Agent-Instructions
 | 사용 방법과 파일·용어의 역할 이해하기. | [상세 사용 안내](GUIDE.md). |
 | AI가 따라야 할 작업 규칙 확인하기. | [핵심 규칙](AGENTS.md), [검증](rules/01_enforcement-system.md), [도구 경계](rules/02_tool-boundaries.md). |
 | 다른 AI 환경에 맞게 적용하기. | [환경별 적용](PORTABILITY.md). |
-| 필요한 스킬과 외부 도구 찾기. | [스킬 목록](Skill/CATALOG.md), [출처·설치 안내](Skill/README.md), [MCP 안내](MCP/README.md). |
+| 엑셀·PPT 등 작업에 맞는 스킬 고르기. | [분야별 선택 안내](Skill/BY-TASK.md). |
+| 전체 스킬과 외부 도구의 출처·설치 조건 찾기. | [스킬 목록](Skill/CATALOG.md), [출처·설치 안내](Skill/README.md), [MCP 안내](MCP/README.md). |
 | 문서·디자인·Unity 작업의 도구와 실행 조건 확인하기. | [Anthropic 스킬](Skill/anthropic-skills/README.md), [Office·디자인 도구](Skill/office-design-tools/README.md), [Unity 연결](MCP/coplay-funplay-unity-mcp.md). |
 | 이 저장소에서 직접 만든 스킬 사용하기. | [자체 제작 스킬](Owned-Skills/README.md). |
 
@@ -115,6 +116,8 @@ https://github.com/nowJDev/Agent-Instructions
 <summary><strong>AI가 지침을 읽었는지 어떻게 확인하나요.</strong></summary>
 
 “실제로 읽은 지침 파일을 나열하고 핵심 규칙을 요약해 줘. 링크된 문서도 읽었는지 구분해 줘”라고 요청하세요. 전역 지침이나 로컬 복제본을 변경했다면 새 AI 세션에서 확인합니다. GitHub 업데이트만으로 개인 환경의 복제본이 갱신되지는 않습니다.
+
+원본 작업 폴더를 삭제해도 사용하려면 전역 복제본에 필요한 문서·리소스를 **독립된 실제 파일로 복사**하고, 전역 진입점은 그 복제본을 가리키게 합니다. 갱신 전 기존 전역 문서와 개인 자료를 복제본 밖에 백업하고, 복사 후 파일 목록·해시·내부 링크를 확인합니다. 설치된 스킬과 실행 도구는 별도로 관리합니다.
 
 </details>
 

@@ -1,6 +1,17 @@
 <!-- 이번 정리의 진행과 이전 작업의 증거 위치만 추적한다. -->
 # 설계 진행 체크리스트.
 
+## 2026-11-12 분야별 안내와 전역 복제.
+
+[설계](superpowers/specs/2026-11-12-task-navigation-design.md)·[계획](superpowers/plans/2026-11-12-task-navigation.md)·[검증 기록](reviews/2026-11-12-task-navigation.md)을 기준으로 한다.
+
+- [x] 기준선·전역 차이·개인 자료와 설치 경로의 독립성을 조사했다.
+- [x] 12개 분야·고정 앵커·선택 조건·상세 링크와 한영 README 진입점을 구현했다.
+- [x] 신규 안내·진입점 부재의 RED와 문서 대상 11개 GREEN을 확인했다.
+- [x] 저장소 전체 106개 회귀·독립 리뷰·공개 정보 검사를 마쳤다.
+- [x] 전역 백업·독립 복제·177개 파일 SHA·148개 Markdown 링크·개인 지침 보존과 원본 접근 차단 전역 106개 회귀를 확인했다.
+- [ ] 한글 커밋·main 통합·일반 push·원격 SHA·CI와 소유 임시 작업 공간 정리를 마친다.
+
 ## 2026-11-12 문서 전체 정리.
 
 [설계](superpowers/specs/2026-11-12-docs-refresh-design.md)·[계획](superpowers/plans/2026-11-12-docs-refresh.md)·[검증 기록](reviews/2026-11-12-docs-refresh.md)을 기준으로 한다.

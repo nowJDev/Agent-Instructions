@@ -5,6 +5,8 @@
 
 2026-11-12 기준이다. README는 시작 안내, GUIDE는 사용법, AGENTS와 rules는 행동 규칙이다. [스킬 카탈로그](../Skill/CATALOG.md)는 설명 144개를 26그룹으로 정리하며 [자체 제작 원본](../Owned-Skills/README.md)은 26패키지다. 설명 수는 설치·인증·현재 클라이언트 노출 수와 다르다. [MCP 안내](../MCP/README.md)도 도구별 조건과 작성 당시 상태를 구분한다.
 
+[분야별 스킬 선택 안내](../Skill/BY-TASK.md)는 엑셀·PPT·문서·개발 등 12개 분야의 대표 도구와 선택 조건을 기존 상세 설명으로 연결한다. 한·영 README·스킬 인덱스·전체 카탈로그에서 진입하며, 전체 항목이나 설치·현재 노출 목록을 대체하지 않는다.
+
 | 필요한 안내. | 기준 문서. |
 |---|---|
 | Anthropic 19개 이름·이전·명시 호출 10개. | [전역 설치 안내](../Skill/anthropic-skills/README.md), [고정 명세](../references/anthropic-skills.lock.json). |
@@ -22,6 +24,12 @@
 - Unity의 [설치 기록](history/2026-11-11-coplay-funplay-unity-mcp.md#review)은 SDK 연결·도구와 새 스킬 발견을 확인했다. 두 프로젝트 패키지·실제 Editor 연결과 Funplay 주소 등록은 연기됐다.
 - 과거 글로벌 문서 복제·개인 자료 보존과 고정 출처 조사는 [보관 목차](history/README.md)에 있다. 이번 문서 정리는 지정 저장소를 대상으로 하며 전역 실행본·개인 설정·권한을 변경하지 않는다.
 
-## 이번 문서 정리.
+## 이전 문서 정리.
 
 [설계](superpowers/specs/2026-11-12-docs-refresh-design.md)·[계획](superpowers/plans/2026-11-12-docs-refresh.md)·[검증 기록](reviews/2026-11-12-docs-refresh.md)에 전수조사·보관·링크·보호·배포 결과를 기록한다. 이전 설치 작업의 최종 기록은 `3c4dd83`이다. 이번 정리 커밋 `1b380db`를 main에 통합·push하고 전체 103개 회귀·독립 리뷰·원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43142480610)을 확인했다. 소유 임시 worktree·브랜치는 정리했으며 전역 복제본·설치 환경은 이번 변경 대상에 포함하지 않았다.
+
+## 분야별 안내와 전역 복제.
+
+[설계](superpowers/specs/2026-11-12-task-navigation-design.md)·[계획](superpowers/plans/2026-11-12-task-navigation.md)·[검증 기록](reviews/2026-11-12-task-navigation.md)을 기준으로 한다. 사용자는 저장소를 기준으로 전역 문서를 동일하게 독립 복제하도록 승인했다. 기존 전역 문서·개인 자료·진입점은 비공개 백업에 보존하며, 설치 스킬·인증·권한은 변경하지 않는다.
+
+저장소 전체 106개 회귀와 독립 리뷰를 통과했다. 전역 177개 파일의 동일성과 148개 Markdown 링크를 확인하고, 원본 저장소·임시 worktree 접근을 차단한 전역 전체 106개 회귀도 통과했다. 현재 커밋·main 통합·원격 배포를 진행한다.

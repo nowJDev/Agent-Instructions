@@ -119,6 +119,66 @@ def link_errors(root, relative, text):
 
 
 class DocumentationTests(unittest.TestCase):
+    def test_task_navigation_routes_existing_entries(self):
+        document = ROOT / 'Skill/BY-TASK.md'
+        self.assertTrue(document.is_file(), '분야별 안내가 필요하다.')
+        text = document.read_text(encoding='utf-8')
+        routes = {
+            'task-excel': 'anthropic-skills/README.md#anthropic-xlsx',
+            'task-ppt': 'office-design-tools/README.md#ppt-master',
+            'task-documents': 'kordoc/README.md#kordoc',
+            'task-visual-design': 'anthropic-skills/README.md#anthropic-canvas-design',
+            'task-web-ui': 'figma/README.md#figma-generate-design',
+            'task-research': '_personal/README.md#deep-research',
+            'task-development': 'superpowers/README.md#writing-plans',
+            'task-debug-review': 'superpowers/README.md#systematic-debugging',
+            'task-ai-training': 'huggingface-skills/README.md#huggingface-llm-trainer',
+            'task-agent-integration': '../Owned-Skills/coplay-funplay-unity-mcp-setup/SKILL.md',
+            'task-environment': '_personal/README.md#handover',
+            'task-deployment': '_disabled/railway/README.md#use-railway',
+        }
+        self.assertEqual({a for a in anchor_ids(text) if a.startswith('task-')}, set(routes))
+        catalog = markdown_links((ROOT / 'Skill/CATALOG.md').read_text(encoding='utf-8'))
+        allowed = set(catalog) | {'README.md', 'CATALOG.md', '../Owned-Skills/README.md'}
+        allowed.update('../' + p.relative_to(ROOT).as_posix()
+                       for p in (ROOT / 'Owned-Skills').glob('*/SKILL.md'))
+        allowed.update('#' + anchor for anchor in routes)
+        self.assertEqual(set(markdown_links(text)) - allowed, set())
+        self.assertEqual(link_errors(ROOT, Path('Skill/BY-TASK.md'), text), [])
+        for anchor, target in routes.items():
+            with self.subTest(anchor=anchor):
+                self.assertIn('#' + anchor, markdown_links(text))
+                section = text.split('<a id="' + anchor + '"></a>', 1)[1].split('<a id="task-', 1)[0]
+                self.assertIn(target, markdown_links(section))
+
+    def test_task_navigation_entry_points(self):
+        for source, target in {
+            'README.md': 'Skill/BY-TASK.md',
+            'README.en.md': 'Skill/BY-TASK.md',
+            'Skill/README.md': 'BY-TASK.md',
+            'Skill/CATALOG.md': 'BY-TASK.md',
+        }.items():
+            with self.subTest(source=source):
+                text = (ROOT / source).read_text(encoding='utf-8')
+                self.assertIn(target, markdown_links(text))
+
+    def test_task_navigation_preserves_shared_tools_and_call_boundaries(self):
+        document = ROOT / 'Skill/BY-TASK.md'
+        self.assertTrue(document.is_file(), '분야별 안내가 필요하다.')
+        text = document.read_text(encoding='utf-8')
+        for anchor in ('task-excel', 'task-ppt', 'task-documents'):
+            section = text.split('<a id="' + anchor + '"></a>', 1)[1].split('<a id="task-', 1)[0]
+            self.assertIn('office-design-tools/README.md#officecli', markdown_links(section))
+        explicit = ('anthropic-xlsx', 'anthropic-pptx', 'anthropic-docx', 'anthropic-pdf',
+                    'ppt-master', 'officecli', 'huashu-design')
+        for name in explicit:
+            rows = [line for line in text.splitlines()
+                    if line.startswith('|') and '#' + name + ')' in line]
+            self.assertTrue(rows, name)
+            self.assertTrue(all('명시 호출' in row for row in rows), name)
+        deployment = text.split('<a id="task-deployment"></a>', 1)[1]
+        self.assertIn('작성 당시 비활성', deployment)
+
     def test_catalog_layout(self):
         actual = {p.parent.relative_to(ROOT / 'Skill').as_posix()
                   for p in (ROOT / 'Skill').rglob('README.md') if p.parent != ROOT / 'Skill'}
