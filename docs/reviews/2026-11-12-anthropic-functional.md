@@ -54,4 +54,6 @@
 
 독립 리뷰에서 19개 명세와 표의 누락·중복 0개, 13·5·1 집계와 원문 증거의 일치를 확인했다. PNG와 PDF의 시각 검사 범위를 구분하도록 경미한 표현 1개를 보완했다. Windows Python 3.12의 전체 회귀 103개와 공개 문서 링크·diff 검사를 통과했다.
 
-사용자는 이번 후속 요청에서 GitHub push를 승인했다. 원격보다 앞선 기존 main의 미푸시 4개 커밋에는 이전 Unity MCP 작업 2개와 Anthropic 설치 작업 2개가 포함돼 있다. 기존 이력을 보존해 후속 검증 기록과 함께 일반 push하며 force push를 사용하지 않는다. 공개 대상 21개 기존 변경 파일의 시크릿·개인 절대 경로 검사를 통과했고 `git push --dry-run origin main`으로 인증과 fast-forward 가능성을 확인했다. 실제 push·원격 SHA·CI 결과는 후속 증거로 확정한다.
+사용자는 이번 후속 요청에서 GitHub push를 승인했다. 원격보다 앞선 기존 main의 미푸시 4개 커밋에는 이전 Unity MCP 작업 2개와 Anthropic 설치 작업 2개가 포함돼 있었다. 기존 이력을 보존해 후속 검증 기록과 함께 일반 push했고 force push를 사용하지 않았다. 공개 대상 기존 변경 파일 21개와 이번 공개 문서의 시크릿·개인 절대 경로 검사를 통과했다.
+
+검증 기록 커밋 `0905a062540d514c4f90a076cd5cd777809f0b08`을 main에 fast-forward 통합하고 Windows Python 3.12 전체 103개 회귀를 다시 통과했다. GitHub push 뒤 원격 main의 SHA 일치와 [GitHub Actions](https://github.com/nowJDev/Agent-Instructions/actions/runs/43134239347)의 Ubuntu·Windows 성공을 확인했다. 병합된 임시 worktree·브랜치와 이번 서버는 정리했다. 원문 로그·샘플·격리 종속성은 비공개 로컬 증거로 보존하며 공개하지 않았다. 이전 기록의 원격 미푸시 표기는 해당 작업 당시 상태이며 이 후속 배포에서 해소됐다. 최종 기록 커밋의 원격 SHA·CI는 실제 결과와 최종 보고에서 확인한다.

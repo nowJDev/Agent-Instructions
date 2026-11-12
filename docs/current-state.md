@@ -3,7 +3,7 @@
 
 ## 2026-11-12 Anthropic 실제 작업 검증과 GitHub 반영.
 
-사용자가 후속 요청으로 19개 개별 스킬의 실제 작업 검증과 GitHub push를 승인했다. [실행 계획](superpowers/plans/2026-11-12-anthropic-functional.md)과 [실제 작업 기록](reviews/2026-11-12-anthropic-functional.md)에 산출물·도구·실패·미검증을 구분한다. 대표 샘플 통과 13개, 조건부 5개, 환경 제한으로 React 번들 실패 1개다. API는 로컬 SDK 정상·오류 처리만, Office는 파일 생성과 구조·색·폰트 검증만 완료한 항목이 있으며 DOCX/PPTX 렌더·XLSX 재계산은 미완료다. 웹 UI는 실제 조작을 통과했지만 원본 helper의 Windows 자식 서버 자동 정리는 실패해 이번 프로세스를 별도 확인·정리했다. 전역 원본·권한·개인 설정은 변경하지 않았다. 합성 문서는 독립 독자 검사와 수정·재검사를 수행했고 새 합산 스킬은 별도 실행자가 3개 입력을 통과했다. 원격 push와 CI는 검증 기록 취합 뒤 확인한다.
+사용자가 후속 요청으로 19개 개별 스킬의 실제 작업 검증과 GitHub push를 승인했다. [실행 계획](superpowers/plans/2026-11-12-anthropic-functional.md)과 [실제 작업 기록](reviews/2026-11-12-anthropic-functional.md)에 산출물·도구·실패·미검증을 구분한다. 대표 샘플 통과 13개, 조건부 5개, 환경 제한으로 React 번들 실패 1개다. API는 로컬 SDK 정상·오류 처리만, Office는 파일 생성과 구조·색·폰트 검증만 완료한 항목이 있으며 DOCX/PPTX 렌더·XLSX 재계산은 미완료다. 웹 UI는 실제 조작을 통과했지만 원본 helper의 Windows 자식 서버 자동 정리는 실패해 이번 프로세스를 별도 확인·정리했다. 전역 원본·권한·개인 설정은 변경하지 않았다. 합성 문서는 독립 독자 검사와 수정·재검사를 수행했고 새 합산 스킬은 별도 실행자가 3개 입력을 통과했다. 커밋 `0905a06`을 main에 통합하고 병합 후 103개 회귀를 통과했다. 기존 미푸시 4개 커밋 이력을 보존해 push했으며 원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43134239347)을 확인했다. 임시 worktree·브랜치는 정리하고 비공개 증거는 보존했다. 아래 이전 작업의 미푸시 표기는 당시 상태다.
 
 ## 2026-11-12 Anthropic 스킬 설치.
 

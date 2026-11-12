@@ -37,5 +37,5 @@
 
 - [x] `docs/reviews/2026-11-12-anthropic-functional.md`에 19개별 입력·작업·판정·한계를 기록하고 현재 상태·체크리스트를 갱신했다.
 - [x] 실제 결과를 독립 검토하고 문서 링크·전체 회귀·공개 정보 경계를 확인했다.
-- [ ] 한글 커밋과 로컬 통합 후 GitHub main에 일반 push하고 원격 SHA·CI 결과를 확인한다.
-- [ ] 소유 worktree·브랜치·서버를 정리하고 증거·복구 자료는 보존한다.
+- [x] 한글 커밋 `0905a06`과 로컬 통합 후 GitHub main에 일반 push하고 원격 SHA·Ubuntu 및 Windows CI 성공을 확인했다.
+- [x] 소유 worktree·브랜치·서버를 정리하고 증거·복구 자료는 보존했다.
