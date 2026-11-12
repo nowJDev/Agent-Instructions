@@ -95,7 +95,7 @@ https://github.com/nowJDev/Agent-Instructions
 | 사용 방법과 파일·용어의 역할 이해하기. | [상세 사용 안내](GUIDE.md). |
 | AI가 따라야 할 작업 규칙 확인하기. | [핵심 규칙](AGENTS.md), [검증](rules/01_enforcement-system.md), [도구 경계](rules/02_tool-boundaries.md). |
 | 다른 AI 환경에 맞게 적용하기. | [환경별 적용](PORTABILITY.md). |
-| 엑셀·PPT 등 작업에 맞는 스킬 고르기. | [분야별 선택 안내](Skill/BY-TASK.md). |
+| 엑셀·PPT 등 분야에서 전체 스킬 찾고 고르기. | [분야별 전체 목록·빠른 선택](Skill/BY-TASK.md). |
 | 전체 스킬과 외부 도구의 출처·설치 조건 찾기. | [스킬 목록](Skill/CATALOG.md), [출처·설치 안내](Skill/README.md), [MCP 안내](MCP/README.md). |
 | 문서·디자인·Unity 작업의 도구와 실행 조건 확인하기. | [Anthropic 스킬](Skill/anthropic-skills/README.md), [Office·디자인 도구](Skill/office-design-tools/README.md), [Unity 연결](MCP/coplay-funplay-unity-mcp.md). |
 | 이 저장소에서 직접 만든 스킬 사용하기. | [자체 제작 스킬](Owned-Skills/README.md). |
@@ -109,6 +109,8 @@ https://github.com/nowJDev/Agent-Instructions
 <summary><strong>목록에 있는 도구가 모두 설치되나요.</strong></summary>
 
 스킬·MCP 카탈로그는 설명과 출처입니다. 현재 환경의 설치·노출·인증 상태와 구분하며, 필요한 도구만 각 원본에서 별도로 준비합니다. 직접 만든 스킬의 설치 가능한 원본은 `Owned-Skills/`에 있습니다.
+
+[분야별 목록](Skill/BY-TASK.md)은 대표 도구뿐 아니라 등록된 설명·원본 주소 전체를 연결합니다. [날짜별 전수조사](references/skill-inventory-2026-11-12.json)는 직접 설치·시스템·현재 제공 플러그인의 항목과 등록·제외 사유를 대조합니다. 같은 이름의 다른 구현과 직접 비노출 전문 가이드를 구분하므로 목록의 행 수가 현재 호출 가능한 스킬 수는 아닙니다.
 
 </details>
 

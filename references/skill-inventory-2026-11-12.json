@@ -1,0 +1,5188 @@
+{
+  "date": "2026-11-12",
+  "basis": "기존 설명·자체 제작 원본·전역 직접 패키지·현재 세션 제공 플러그인 루트의 대조",
+  "scope_notes": [
+    "날짜가 있는 조사 증거이며 다른 PC나 이후 세션의 상태를 보장하지 않는다.",
+    "모든 플러그인 캐시 버전과 node_modules·references 내부 파일은 합산하지 않는다.",
+    "파일 존재·세션 노출·명시 정책·라우터 하위 가이드와 실행 성공은 별도다."
+  ],
+  "counts": {
+    "legacy_descriptions": 144,
+    "owned_sources": 26,
+    "new_local": 16,
+    "plugin_packages": 108,
+    "registered_targets": 294,
+    "valid_discoveries": 244,
+    "session_exposed": 181,
+    "excluded_candidates": 2
+  },
+  "entries": [
+    {
+      "target": "../Owned-Skills/cancel-ralph/SKILL.md",
+      "name": "cancel-ralph",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/claude-api/SKILL.md",
+      "name": "claude-api",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/claude-news/SKILL.md",
+      "name": "claude-news",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/code-review/SKILL.md",
+      "name": "code-review",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/coplay-funplay-unity-mcp-setup/SKILL.md",
+      "name": "coplay-funplay-unity-mcp-setup",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/daily-work-report/SKILL.md",
+      "name": "daily-work-report",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-documents"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/deep-research/SKILL.md",
+      "name": "deep-research",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/delete-session/SKILL.md",
+      "name": "delete-session",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/design-driven-delivery/SKILL.md",
+      "name": "design-driven-delivery",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/feature-dev/SKILL.md",
+      "name": "feature-dev",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/fewer-permission-prompts/SKILL.md",
+      "name": "fewer-permission-prompts",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/figma-generate-project-plan/SKILL.md",
+      "name": "figma-generate-project-plan",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-development",
+        "task-web-ui"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/handover/SKILL.md",
+      "name": "handover",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/help/SKILL.md",
+      "name": "help",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/init/SKILL.md",
+      "name": "init",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/keybindings-help/SKILL.md",
+      "name": "keybindings-help",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/loop/SKILL.md",
+      "name": "loop",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/new-sdk-app/SKILL.md",
+      "name": "new-sdk-app",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/ralph-loop/SKILL.md",
+      "name": "ralph-loop",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/review-pr/SKILL.md",
+      "name": "review-pr",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/review/SKILL.md",
+      "name": "review",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/run/SKILL.md",
+      "name": "run",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/security-review/SKILL.md",
+      "name": "security-review",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/simplify/SKILL.md",
+      "name": "simplify",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/update-config/SKILL.md",
+      "name": "update-config",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "../Owned-Skills/verify/SKILL.md",
+      "name": "verify",
+      "source": "자체 제작 공개 패키지",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "owned-source"
+    },
+    {
+      "target": "_builtin/README.md#claude-api",
+      "name": "claude-api",
+      "source": "_builtin",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#code-review",
+      "name": "code-review",
+      "source": "_builtin",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#fewer-permission-prompts",
+      "name": "fewer-permission-prompts",
+      "source": "_builtin",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#init",
+      "name": "init",
+      "source": "_builtin",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#keybindings-help",
+      "name": "keybindings-help",
+      "source": "_builtin",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#loop",
+      "name": "loop",
+      "source": "_builtin",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#review",
+      "name": "review",
+      "source": "_builtin",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#run",
+      "name": "run",
+      "source": "_builtin",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#schedule",
+      "name": "schedule",
+      "source": "_builtin",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#security-review",
+      "name": "security-review",
+      "source": "_builtin",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#simplify",
+      "name": "simplify",
+      "source": "_builtin",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#update-config",
+      "name": "update-config",
+      "source": "_builtin",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_builtin/README.md#verify",
+      "name": "verify",
+      "source": "_builtin",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/hookify/README.md#configure",
+      "name": "configure",
+      "source": "_disabled/hookify",
+      "categories": [
+        "task-agent-integration",
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/hookify/README.md#help",
+      "name": "help",
+      "source": "_disabled/hookify",
+      "categories": [
+        "task-agent-integration",
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/hookify/README.md#hookify",
+      "name": "hookify",
+      "source": "_disabled/hookify",
+      "categories": [
+        "task-agent-integration",
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/hookify/README.md#list",
+      "name": "list",
+      "source": "_disabled/hookify",
+      "categories": [
+        "task-agent-integration",
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/hookify/README.md#writing-rules",
+      "name": "writing-rules",
+      "source": "_disabled/hookify",
+      "categories": [
+        "task-agent-integration",
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/neon/README.md#neon-postgres",
+      "name": "neon-postgres",
+      "source": "_disabled/neon",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/neon/README.md#neon-postgres-egress-optimizer",
+      "name": "neon-postgres-egress-optimizer",
+      "source": "_disabled/neon",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/railway/README.md#use-railway",
+      "name": "use-railway",
+      "source": "_disabled/railway",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/semgrep/README.md#setup-semgrep-plugin",
+      "name": "setup-semgrep-plugin",
+      "source": "_disabled/semgrep",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#_conventions",
+      "name": "_conventions",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#benchmark-agents",
+      "name": "benchmark-agents",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-debug-review",
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#benchmark-e2e",
+      "name": "benchmark-e2e",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-debug-review",
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#benchmark-sandbox",
+      "name": "benchmark-sandbox",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-debug-review",
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#benchmark-testing",
+      "name": "benchmark-testing",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-debug-review",
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#bootstrap",
+      "name": "bootstrap",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#deploy",
+      "name": "deploy",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#env",
+      "name": "env",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#marketplace",
+      "name": "marketplace",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#plugin-audit",
+      "name": "plugin-audit",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-debug-review",
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#release",
+      "name": "release",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#status",
+      "name": "status",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_disabled/vercel/README.md#vercel-plugin-eval",
+      "name": "vercel-plugin-eval",
+      "source": "_disabled/vercel",
+      "categories": [
+        "task-debug-review",
+        "task-deployment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_personal/README.md#claude-news",
+      "name": "claude-news",
+      "source": "_personal",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_personal/README.md#deep-research",
+      "name": "deep-research",
+      "source": "_personal",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_personal/README.md#delete-session",
+      "name": "delete-session",
+      "source": "_personal",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_personal/README.md#design-driven-delivery",
+      "name": "design-driven-delivery",
+      "source": "_personal",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "_personal/README.md#handover",
+      "name": "handover",
+      "source": "_personal",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "agent-sdk-dev/README.md#new-sdk-app",
+      "name": "new-sdk-app",
+      "source": "agent-sdk-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-academy-guide",
+      "name": "anthropic-academy-guide",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-research",
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-algorithmic-art",
+      "name": "anthropic-algorithmic-art",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-brand-guidelines",
+      "name": "anthropic-brand-guidelines",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-canvas-design",
+      "name": "anthropic-canvas-design",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-claude-api",
+      "name": "anthropic-claude-api",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-discernment-nudge",
+      "name": "anthropic-discernment-nudge",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-doc-coauthoring",
+      "name": "anthropic-doc-coauthoring",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-documents"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-docx",
+      "name": "anthropic-docx",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-documents"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-frontend-design",
+      "name": "anthropic-frontend-design",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-internal-comms",
+      "name": "anthropic-internal-comms",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-documents",
+        "task-knowledge-management"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-mcp-builder",
+      "name": "anthropic-mcp-builder",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-pdf",
+      "name": "anthropic-pdf",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-documents"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-pptx",
+      "name": "anthropic-pptx",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-ppt"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-skill-creator",
+      "name": "anthropic-skill-creator",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-slack-gif-creator",
+      "name": "anthropic-slack-gif-creator",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-theme-factory",
+      "name": "anthropic-theme-factory",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-visual-design",
+        "task-ppt",
+        "task-documents"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-web-artifacts-builder",
+      "name": "anthropic-web-artifacts-builder",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-webapp-testing",
+      "name": "anthropic-webapp-testing",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-debug-review",
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "anthropic-skills/README.md#anthropic-xlsx",
+      "name": "anthropic-xlsx",
+      "source": "anthropic-skills",
+      "categories": [
+        "task-excel"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "chrome-devtools-mcp/README.md#a11y-debugging",
+      "name": "a11y-debugging",
+      "source": "chrome-devtools-mcp",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "chrome-devtools-mcp/README.md#chrome-devtools",
+      "name": "chrome-devtools",
+      "source": "chrome-devtools-mcp",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "chrome-devtools-mcp/README.md#chrome-devtools-cli",
+      "name": "chrome-devtools-cli",
+      "source": "chrome-devtools-mcp",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "chrome-devtools-mcp/README.md#debug-optimize-lcp",
+      "name": "debug-optimize-lcp",
+      "source": "chrome-devtools-mcp",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "chrome-devtools-mcp/README.md#memory-leak-debugging",
+      "name": "memory-leak-debugging",
+      "source": "chrome-devtools-mcp",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "chrome-devtools-mcp/README.md#troubleshooting",
+      "name": "troubleshooting",
+      "source": "chrome-devtools-mcp",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "claude-code-setup/README.md#claude-automation-recommender",
+      "name": "claude-automation-recommender",
+      "source": "claude-code-setup",
+      "categories": [
+        "task-agent-integration",
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "claude-md-management/README.md#claude-md-improver",
+      "name": "claude-md-improver",
+      "source": "claude-md-management",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "claude-md-management/README.md#revise-claude-md",
+      "name": "revise-claude-md",
+      "source": "claude-md-management",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "codex-local/README.md#codex-system-imagegen",
+      "name": "imagegen",
+      "source": "Codex 시스템 스킬",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#codex-system-openai-docs",
+      "name": "openai-docs",
+      "source": "Codex 시스템 스킬",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#codex-system-review-agent",
+      "name": "review-agent",
+      "source": "Codex 시스템 스킬",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#codex-system-skill-creator",
+      "name": "skill-creator",
+      "source": "Codex 시스템 스킬",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#codex-system-skill-installer",
+      "name": "skill-installer",
+      "source": "Codex 시스템 스킬",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#codex-user-migrate-to-codex",
+      "name": "migrate-to-codex",
+      "source": "Codex 이전 도구",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-firecrawl",
+      "name": "firecrawl",
+      "source": "Firecrawl 전역 패키지",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-paseo",
+      "name": "paseo",
+      "source": "Paseo 스킬",
+      "categories": [
+        "task-agent-integration",
+        "task-environment"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-paseo-advisor",
+      "name": "paseo-advisor",
+      "source": "Paseo 스킬",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-paseo-committee",
+      "name": "paseo-committee",
+      "source": "Paseo 스킬",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-paseo-handoff",
+      "name": "paseo-handoff",
+      "source": "Paseo 스킬",
+      "categories": [
+        "task-agent-integration",
+        "task-environment"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-paseo-help",
+      "name": "paseo-help",
+      "source": "Paseo 스킬",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-paseo-plugin",
+      "name": "paseo-plugin",
+      "source": "Paseo 스킬",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-source-command-delete-session",
+      "name": "source-command-delete-session",
+      "source": "원본 명령의 전역 변환본",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-source-command-handover",
+      "name": "source-command-handover",
+      "source": "원본 명령의 전역 변환본",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-local/README.md#user-unity-cli",
+      "name": "unity-cli",
+      "source": "Unity 스킬",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "local-package"
+    },
+    {
+      "target": "codex-plugins/README.md#computer-use-computer-use",
+      "name": "computer-use:computer-use",
+      "source": "OpenAI Computer Use",
+      "categories": [
+        "task-environment",
+        "task-web-ui"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-analyze-data-quality",
+      "name": "data-analytics:analyze-data-quality",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-answers-follow-up",
+      "name": "data-analytics:answers-follow-up",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-build-dashboard",
+      "name": "data-analytics:build-dashboard",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-web-ui"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-build-report",
+      "name": "data-analytics:build-report",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-documents"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-convert-to-doc",
+      "name": "data-analytics:convert-to-doc",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-documents"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-convert-to-slides",
+      "name": "data-analytics:convert-to-slides",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-ppt"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-customize-data-plugin",
+      "name": "data-analytics:customize-data-plugin",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-agent-integration"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-design-kpis",
+      "name": "data-analytics:design-kpis",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-index",
+      "name": "data-analytics:index",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-jupyter-notebooks",
+      "name": "data-analytics:jupyter-notebooks",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-kpi-reporting",
+      "name": "data-analytics:kpi-reporting",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-market-sizing",
+      "name": "data-analytics:market-sizing",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-metric-diagnostics",
+      "name": "data-analytics:metric-diagnostics",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-onboarding",
+      "name": "data-analytics:onboarding",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-product-business-analysis",
+      "name": "data-analytics:product-business-analysis",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-publish-artifact-to-sites",
+      "name": "data-analytics:publish-artifact-to-sites",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-web-ui"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-report-to-pdf",
+      "name": "data-analytics:report-to-pdf",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-documents"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-schedule-refresh-jobs",
+      "name": "data-analytics:schedule-refresh-jobs",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-environment"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-share-artifact-summary",
+      "name": "data-analytics:share-artifact-summary",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-validate-data",
+      "name": "data-analytics:validate-data",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#data-analytics-visualize-data",
+      "name": "data-analytics:visualize-data",
+      "source": "Data Analytics",
+      "categories": [
+        "task-data-analysis",
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#documents-documents",
+      "name": "documents:documents",
+      "source": "OpenAI Documents",
+      "categories": [
+        "task-documents"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-buyer-investor-list",
+      "name": "investment-banking:buyer-investor-list",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-capital-markets-issuance",
+      "name": "investment-banking:capital-markets-issuance",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-cim-builder",
+      "name": "investment-banking:cim-builder",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-documents"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-cim-teardown",
+      "name": "investment-banking:cim-teardown",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-documents"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-company-tearsheet",
+      "name": "investment-banking:company-tearsheet",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-comps-valuation",
+      "name": "investment-banking:comps-valuation",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-covenant-package-analyzer",
+      "name": "investment-banking:covenant-package-analyzer",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-dcf-model-builder",
+      "name": "investment-banking:dcf-model-builder",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-deal-process-tracker",
+      "name": "investment-banking:deal-process-tracker",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-distressed-recovery-waterfall",
+      "name": "investment-banking:distressed-recovery-waterfall",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-financials-normalizer",
+      "name": "investment-banking:financials-normalizer",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-ib-deck-qc",
+      "name": "investment-banking:ib-deck-qc",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-ppt"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-investment-banking",
+      "name": "investment-banking:investment-banking",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-router"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-lbo-model-build",
+      "name": "investment-banking:lbo-model-build",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-meeting-prep",
+      "name": "investment-banking:meeting-prep",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-documents"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-memo-builder",
+      "name": "investment-banking:memo-builder",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-documents"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-merger-model-builder",
+      "name": "investment-banking:merger-model-builder",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-model-audit-tieout",
+      "name": "investment-banking:model-audit-tieout",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-pitch-deck-builder",
+      "name": "investment-banking:pitch-deck-builder",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-ppt"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-private-credit-underwriting",
+      "name": "investment-banking:private-credit-underwriting",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-scenario-sensitivity-generator",
+      "name": "investment-banking:scenario-sensitivity-generator",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-three-statement-model-builder",
+      "name": "investment-banking:three-statement-model-builder",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#investment-banking-user-context",
+      "name": "investment-banking:user-context",
+      "source": "Investment Banking",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-build-my-engineering-wiki",
+      "name": "notion:notion-build-my-engineering-wiki",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-create-my-team-handbook",
+      "name": "notion:notion-create-my-team-handbook",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-database-designer",
+      "name": "notion:notion-database-designer",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-knowledge-capture",
+      "name": "notion:notion-knowledge-capture",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-meeting-prep",
+      "name": "notion:notion-meeting-prep",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-organize-my-semester",
+      "name": "notion:notion-organize-my-semester",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-plan-marketing-campaigns",
+      "name": "notion:notion-plan-marketing-campaigns",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-research-documentation",
+      "name": "notion:notion-research-documentation",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-set-up-my-project",
+      "name": "notion:notion-set-up-my-project",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management",
+        "task-development"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-setup",
+      "name": "notion:notion-setup",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-spec-to-implementation",
+      "name": "notion:notion-spec-to-implementation",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management",
+        "task-development"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#notion-notion-weekly-project-digest",
+      "name": "notion:notion-weekly-project-digest",
+      "source": "Notion",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#pages-maintain-space",
+      "name": "pages:maintain-space",
+      "source": "ChatGPT Pages",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#pages-manage-schedules",
+      "name": "pages:manage-schedules",
+      "source": "ChatGPT Pages",
+      "categories": [
+        "task-knowledge-management",
+        "task-environment"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#pages-organize-space",
+      "name": "pages:organize-space",
+      "source": "ChatGPT Pages",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#pages-write-page",
+      "name": "pages:write-page",
+      "source": "ChatGPT Pages",
+      "categories": [
+        "task-knowledge-management"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#pdf-pdf",
+      "name": "pdf:pdf",
+      "source": "OpenAI PDF",
+      "categories": [
+        "task-documents"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#plugin-management-plugin-management",
+      "name": "plugin-management:plugin-management",
+      "source": "Plugin Management",
+      "categories": [
+        "task-environment"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#ponytail-ponytail",
+      "name": "ponytail:ponytail",
+      "source": "Ponytail",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#ponytail-ponytail-audit",
+      "name": "ponytail:ponytail-audit",
+      "source": "Ponytail",
+      "categories": [
+        "task-development",
+        "task-debug-review"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#ponytail-ponytail-debt",
+      "name": "ponytail:ponytail-debt",
+      "source": "Ponytail",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#ponytail-ponytail-gain",
+      "name": "ponytail:ponytail-gain",
+      "source": "Ponytail",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#ponytail-ponytail-help",
+      "name": "ponytail:ponytail-help",
+      "source": "Ponytail",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#ponytail-ponytail-review",
+      "name": "ponytail:ponytail-review",
+      "source": "Ponytail",
+      "categories": [
+        "task-development",
+        "task-debug-review"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#presentations-presentations",
+      "name": "presentations:Presentations",
+      "source": "OpenAI Presentations",
+      "categories": [
+        "task-ppt"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-catalyst-calendar",
+      "name": "public-equity-investing:catalyst-calendar",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-company-tearsheet",
+      "name": "public-equity-investing:company-tearsheet",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-comps-valuation",
+      "name": "public-equity-investing:comps-valuation",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-dcf-model-builder",
+      "name": "public-equity-investing:dcf-model-builder",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-deck-report-qc",
+      "name": "public-equity-investing:deck-report-qc",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-ppt"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-earnings-deep-dive",
+      "name": "public-equity-investing:earnings-deep-dive",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-earnings-preview",
+      "name": "public-equity-investing:earnings-preview",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-economic-impact-report",
+      "name": "public-equity-investing:economic-impact-report",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-equity-model-update",
+      "name": "public-equity-investing:equity-model-update",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-event-driven-analyzer",
+      "name": "public-equity-investing:event-driven-analyzer",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-financials-normalizer",
+      "name": "public-equity-investing:financials-normalizer",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-idea-generation",
+      "name": "public-equity-investing:idea-generation",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-initiating-coverage",
+      "name": "public-equity-investing:initiating-coverage",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-long-short-pitch",
+      "name": "public-equity-investing:long-short-pitch",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-ppt"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-meeting-prep",
+      "name": "public-equity-investing:meeting-prep",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-documents"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-memo-builder",
+      "name": "public-equity-investing:memo-builder",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-documents"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-model-audit-tieout",
+      "name": "public-equity-investing:model-audit-tieout",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-portfolio-risk-management",
+      "name": "public-equity-investing:portfolio-risk-management",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-public-equity-investing",
+      "name": "public-equity-investing:public-equity-investing",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-router"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-scenario-sensitivity-generator",
+      "name": "public-equity-investing:scenario-sensitivity-generator",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-thesis-tracker",
+      "name": "public-equity-investing:thesis-tracker",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-three-statement-model-builder",
+      "name": "public-equity-investing:three-statement-model-builder",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance",
+        "task-excel"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#public-equity-investing-user-context",
+      "name": "public-equity-investing:user-context",
+      "source": "Public Equity Investing",
+      "categories": [
+        "task-finance"
+      ],
+      "kind": "plugin-specialist"
+    },
+    {
+      "target": "codex-plugins/README.md#sites-sites",
+      "name": "sites:sites",
+      "source": "Sites",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#sites-sites-remix",
+      "name": "sites:sites-remix",
+      "source": "Sites",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#spotify-browse-collections",
+      "name": "app-68de829bf7648191acd70a907364c67c:browse-collections",
+      "source": "Spotify",
+      "categories": [
+        "task-music"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#spotify-build-playlists",
+      "name": "app-68de829bf7648191acd70a907364c67c:build-playlists",
+      "source": "Spotify",
+      "categories": [
+        "task-music"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#spotify-manage-library",
+      "name": "app-68de829bf7648191acd70a907364c67c:manage-library",
+      "source": "Spotify",
+      "categories": [
+        "task-music"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#spotify-now-playing",
+      "name": "app-68de829bf7648191acd70a907364c67c:now-playing",
+      "source": "Spotify",
+      "categories": [
+        "task-music"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#spotify-search-spotify",
+      "name": "app-68de829bf7648191acd70a907364c67c:search-spotify",
+      "source": "Spotify",
+      "categories": [
+        "task-music"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#spreadsheets-excel-live-control",
+      "name": "spreadsheets:excel-live-control",
+      "source": "OpenAI Spreadsheets",
+      "categories": [
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#spreadsheets-spreadsheets",
+      "name": "spreadsheets:Spreadsheets",
+      "source": "OpenAI Spreadsheets",
+      "categories": [
+        "task-excel"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#template-creator-template-creator",
+      "name": "template-creator:template-creator",
+      "source": "OpenAI Template Creator",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#visualize-visualize",
+      "name": "visualize:visualize",
+      "source": "OpenAI Visualize",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#work-pets-create-pet",
+      "name": "work-pets:create-pet",
+      "source": "ChatGPT Work Pets",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#work-pets-pets",
+      "name": "work-pets:pets",
+      "source": "ChatGPT Work Pets",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "codex-plugins/README.md#work-pets-update-pet",
+      "name": "work-pets:update-pet",
+      "source": "ChatGPT Work Pets",
+      "categories": [
+        "task-visual-design"
+      ],
+      "kind": "plugin-package"
+    },
+    {
+      "target": "feature-dev/README.md#feature-dev",
+      "name": "feature-dev",
+      "source": "feature-dev",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-code-connect",
+      "name": "figma-code-connect",
+      "source": "figma",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-create-new-file",
+      "name": "figma-create-new-file",
+      "source": "figma",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-generate-design",
+      "name": "figma-generate-design",
+      "source": "figma",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-generate-diagram",
+      "name": "figma-generate-diagram",
+      "source": "figma",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-generate-library",
+      "name": "figma-generate-library",
+      "source": "figma",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-generate-project-plan",
+      "name": "figma-generate-project-plan",
+      "source": "figma",
+      "categories": [
+        "task-web-ui",
+        "task-knowledge-management"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-use",
+      "name": "figma-use",
+      "source": "figma",
+      "categories": [
+        "task-web-ui",
+        "task-ppt"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-use-figjam",
+      "name": "figma-use-figjam",
+      "source": "figma",
+      "categories": [
+        "task-web-ui",
+        "task-knowledge-management"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "figma/README.md#figma-use-slides",
+      "name": "figma-use-slides",
+      "source": "figma",
+      "categories": [
+        "task-web-ui",
+        "task-ppt"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-agent",
+      "name": "firecrawl-agent",
+      "source": "firecrawl",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-cli",
+      "name": "firecrawl-cli",
+      "source": "firecrawl",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-crawl",
+      "name": "firecrawl-crawl",
+      "source": "firecrawl",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-download",
+      "name": "firecrawl-download",
+      "source": "firecrawl",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-interact",
+      "name": "firecrawl-interact",
+      "source": "firecrawl",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-map",
+      "name": "firecrawl-map",
+      "source": "firecrawl",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-monitor",
+      "name": "firecrawl-monitor",
+      "source": "firecrawl",
+      "categories": [
+        "task-research",
+        "task-environment"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-parse",
+      "name": "firecrawl-parse",
+      "source": "firecrawl",
+      "categories": [
+        "task-research",
+        "task-documents",
+        "task-excel"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-scrape",
+      "name": "firecrawl-scrape",
+      "source": "firecrawl",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#firecrawl-search",
+      "name": "firecrawl-search",
+      "source": "firecrawl",
+      "categories": [
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "firecrawl/README.md#skill-gen",
+      "name": "skill-gen",
+      "source": "firecrawl",
+      "categories": [
+        "task-research",
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "frontend-design/README.md#frontend-design",
+      "name": "frontend-design",
+      "source": "frontend-design",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#hf-cli",
+      "name": "hf-cli",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-best",
+      "name": "huggingface-best",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-community-evals",
+      "name": "huggingface-community-evals",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-datasets",
+      "name": "huggingface-datasets",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training",
+        "task-data-analysis"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-gradio",
+      "name": "huggingface-gradio",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training",
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-llm-trainer",
+      "name": "huggingface-llm-trainer",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-local-models",
+      "name": "huggingface-local-models",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-lora-space-builder",
+      "name": "huggingface-lora-space-builder",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-paper-publisher",
+      "name": "huggingface-paper-publisher",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training",
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-papers",
+      "name": "huggingface-papers",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training",
+        "task-research"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-spaces",
+      "name": "huggingface-spaces",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-tool-builder",
+      "name": "huggingface-tool-builder",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-trackio",
+      "name": "huggingface-trackio",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-vision-trainer",
+      "name": "huggingface-vision-trainer",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#huggingface-zerogpu",
+      "name": "huggingface-zerogpu",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#train-sentence-transformers",
+      "name": "train-sentence-transformers",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#transformers-js",
+      "name": "transformers-js",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training",
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "huggingface-skills/README.md#trl-training",
+      "name": "trl-training",
+      "source": "huggingface-skills",
+      "categories": [
+        "task-ai-training"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "kordoc/README.md#kordoc",
+      "name": "kordoc",
+      "source": "kordoc",
+      "categories": [
+        "task-documents",
+        "task-excel"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "office-design-tools/README.md#huashu-design",
+      "name": "huashu-design",
+      "source": "office-design-tools",
+      "categories": [
+        "task-ppt",
+        "task-web-ui",
+        "task-visual-design"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "office-design-tools/README.md#officecli",
+      "name": "officecli",
+      "source": "office-design-tools",
+      "categories": [
+        "task-excel",
+        "task-ppt",
+        "task-documents"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "office-design-tools/README.md#ppt-master",
+      "name": "ppt-master",
+      "source": "office-design-tools",
+      "categories": [
+        "task-ppt"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "playground/README.md#playground",
+      "name": "playground",
+      "source": "playground",
+      "categories": [
+        "task-web-ui"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "plugin-dev/README.md#agent-development",
+      "name": "agent-development",
+      "source": "plugin-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "plugin-dev/README.md#command-development",
+      "name": "command-development",
+      "source": "plugin-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "plugin-dev/README.md#create-plugin",
+      "name": "create-plugin",
+      "source": "plugin-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "plugin-dev/README.md#hook-development",
+      "name": "hook-development",
+      "source": "plugin-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "plugin-dev/README.md#mcp-integration",
+      "name": "mcp-integration",
+      "source": "plugin-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "plugin-dev/README.md#plugin-settings",
+      "name": "plugin-settings",
+      "source": "plugin-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "plugin-dev/README.md#plugin-structure",
+      "name": "plugin-structure",
+      "source": "plugin-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "plugin-dev/README.md#skill-development",
+      "name": "skill-development",
+      "source": "plugin-dev",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "pr-review-toolkit/README.md#review-pr",
+      "name": "review-pr",
+      "source": "pr-review-toolkit",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "qodo-skills/README.md#qodo-get-rules",
+      "name": "qodo-get-rules",
+      "source": "qodo-skills",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "qodo-skills/README.md#qodo-pr-resolver",
+      "name": "qodo-pr-resolver",
+      "source": "qodo-skills",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "ralph-loop/README.md#cancel-ralph",
+      "name": "cancel-ralph",
+      "source": "ralph-loop",
+      "categories": [
+        "task-environment",
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "ralph-loop/README.md#help",
+      "name": "help",
+      "source": "ralph-loop",
+      "categories": [
+        "task-environment",
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "ralph-loop/README.md#ralph-loop",
+      "name": "ralph-loop",
+      "source": "ralph-loop",
+      "categories": [
+        "task-environment",
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "skill-creator/README.md#skill-creator",
+      "name": "skill-creator",
+      "source": "skill-creator",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#brainstorming",
+      "name": "brainstorming",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#diagnosing-superpowers",
+      "name": "diagnosing-superpowers",
+      "source": "superpowers",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#dispatching-parallel-agents",
+      "name": "dispatching-parallel-agents",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#executing-plans",
+      "name": "executing-plans",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#finishing-a-development-branch",
+      "name": "finishing-a-development-branch",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#receiving-code-review",
+      "name": "receiving-code-review",
+      "source": "superpowers",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#requesting-code-review",
+      "name": "requesting-code-review",
+      "source": "superpowers",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#subagent-driven-development",
+      "name": "subagent-driven-development",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#systematic-debugging",
+      "name": "systematic-debugging",
+      "source": "superpowers",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#test-driven-development",
+      "name": "test-driven-development",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#using-git-worktrees",
+      "name": "using-git-worktrees",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#using-superpowers",
+      "name": "using-superpowers",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#verification-before-completion",
+      "name": "verification-before-completion",
+      "source": "superpowers",
+      "categories": [
+        "task-debug-review"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#writing-plans",
+      "name": "writing-plans",
+      "source": "superpowers",
+      "categories": [
+        "task-development"
+      ],
+      "kind": "legacy-description"
+    },
+    {
+      "target": "superpowers/README.md#writing-skills",
+      "name": "writing-skills",
+      "source": "superpowers",
+      "categories": [
+        "task-agent-integration"
+      ],
+      "kind": "legacy-description"
+    }
+  ],
+  "discoveries": [
+    {
+      "id": "user:a11y-debugging",
+      "source": "user",
+      "package": "a11y-debugging",
+      "call_name": "a11y-debugging",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "chrome-devtools-mcp/README.md#a11y-debugging"
+    },
+    {
+      "id": "user:agent-development",
+      "source": "user",
+      "package": "agent-development",
+      "call_name": "agent-development",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "plugin-dev/README.md#agent-development"
+    },
+    {
+      "id": "user:anthropic-academy-guide",
+      "source": "user",
+      "package": "anthropic-academy-guide",
+      "call_name": "anthropic-academy-guide",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-academy-guide"
+    },
+    {
+      "id": "user:anthropic-algorithmic-art",
+      "source": "user",
+      "package": "anthropic-algorithmic-art",
+      "call_name": "anthropic-algorithmic-art",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-algorithmic-art"
+    },
+    {
+      "id": "user:anthropic-brand-guidelines",
+      "source": "user",
+      "package": "anthropic-brand-guidelines",
+      "call_name": "anthropic-brand-guidelines",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-brand-guidelines"
+    },
+    {
+      "id": "user:anthropic-canvas-design",
+      "source": "user",
+      "package": "anthropic-canvas-design",
+      "call_name": "anthropic-canvas-design",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-canvas-design"
+    },
+    {
+      "id": "user:anthropic-claude-api",
+      "source": "user",
+      "package": "anthropic-claude-api",
+      "call_name": "anthropic-claude-api",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-claude-api"
+    },
+    {
+      "id": "user:anthropic-discernment-nudge",
+      "source": "user",
+      "package": "anthropic-discernment-nudge",
+      "call_name": "anthropic-discernment-nudge",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-discernment-nudge"
+    },
+    {
+      "id": "user:anthropic-doc-coauthoring",
+      "source": "user",
+      "package": "anthropic-doc-coauthoring",
+      "call_name": "anthropic-doc-coauthoring",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-doc-coauthoring"
+    },
+    {
+      "id": "user:anthropic-docx",
+      "source": "user",
+      "package": "anthropic-docx",
+      "call_name": "anthropic-docx",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-docx"
+    },
+    {
+      "id": "user:anthropic-frontend-design",
+      "source": "user",
+      "package": "anthropic-frontend-design",
+      "call_name": "anthropic-frontend-design",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-frontend-design"
+    },
+    {
+      "id": "user:anthropic-internal-comms",
+      "source": "user",
+      "package": "anthropic-internal-comms",
+      "call_name": "anthropic-internal-comms",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-internal-comms"
+    },
+    {
+      "id": "user:anthropic-mcp-builder",
+      "source": "user",
+      "package": "anthropic-mcp-builder",
+      "call_name": "anthropic-mcp-builder",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-mcp-builder"
+    },
+    {
+      "id": "user:anthropic-pdf",
+      "source": "user",
+      "package": "anthropic-pdf",
+      "call_name": "anthropic-pdf",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-pdf"
+    },
+    {
+      "id": "user:anthropic-pptx",
+      "source": "user",
+      "package": "anthropic-pptx",
+      "call_name": "anthropic-pptx",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-pptx"
+    },
+    {
+      "id": "user:anthropic-skill-creator",
+      "source": "user",
+      "package": "anthropic-skill-creator",
+      "call_name": "anthropic-skill-creator",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-skill-creator"
+    },
+    {
+      "id": "user:anthropic-slack-gif-creator",
+      "source": "user",
+      "package": "anthropic-slack-gif-creator",
+      "call_name": "anthropic-slack-gif-creator",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-slack-gif-creator"
+    },
+    {
+      "id": "user:anthropic-theme-factory",
+      "source": "user",
+      "package": "anthropic-theme-factory",
+      "call_name": "anthropic-theme-factory",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "anthropic-skills/README.md#anthropic-theme-factory"
+    },
+    {
+      "id": "user:anthropic-web-artifacts-builder",
+      "source": "user",
+      "package": "anthropic-web-artifacts-builder",
+      "call_name": "anthropic-web-artifacts-builder",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-web-artifacts-builder"
+    },
+    {
+      "id": "user:anthropic-webapp-testing",
+      "source": "user",
+      "package": "anthropic-webapp-testing",
+      "call_name": "anthropic-webapp-testing",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-webapp-testing"
+    },
+    {
+      "id": "user:anthropic-xlsx",
+      "source": "user",
+      "package": "anthropic-xlsx",
+      "call_name": "anthropic-xlsx",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "anthropic-skills/README.md#anthropic-xlsx"
+    },
+    {
+      "id": "user:brainstorming",
+      "source": "user",
+      "package": "brainstorming",
+      "call_name": "brainstorming",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#brainstorming"
+    },
+    {
+      "id": "user:cancel-ralph",
+      "source": "user",
+      "package": "cancel-ralph",
+      "call_name": "cancel-ralph",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/cancel-ralph/SKILL.md"
+    },
+    {
+      "id": "user:chrome-devtools",
+      "source": "user",
+      "package": "chrome-devtools",
+      "call_name": "chrome-devtools",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "chrome-devtools-mcp/README.md#chrome-devtools"
+    },
+    {
+      "id": "user:chrome-devtools-cli",
+      "source": "user",
+      "package": "chrome-devtools-cli",
+      "call_name": "chrome-devtools-cli",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "chrome-devtools-mcp/README.md#chrome-devtools-cli"
+    },
+    {
+      "id": "user:claude-api",
+      "source": "user",
+      "package": "claude-api",
+      "call_name": "claude-api",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/claude-api/SKILL.md"
+    },
+    {
+      "id": "user:claude-automation-recommender",
+      "source": "user",
+      "package": "claude-automation-recommender",
+      "call_name": "claude-automation-recommender",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "claude-code-setup/README.md#claude-automation-recommender"
+    },
+    {
+      "id": "user:claude-md-improver",
+      "source": "user",
+      "package": "claude-md-improver",
+      "call_name": "claude-md-improver",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "claude-md-management/README.md#claude-md-improver"
+    },
+    {
+      "id": "user:claude-news",
+      "source": "user",
+      "package": "claude-news",
+      "call_name": "claude-news",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/claude-news/SKILL.md"
+    },
+    {
+      "id": "user:code-review",
+      "source": "user",
+      "package": "code-review",
+      "call_name": "code-review",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/code-review/SKILL.md"
+    },
+    {
+      "id": "user:command-development",
+      "source": "user",
+      "package": "command-development",
+      "call_name": "command-development",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "plugin-dev/README.md#command-development"
+    },
+    {
+      "id": "user:coplay-funplay-unity-mcp-setup",
+      "source": "user",
+      "package": "coplay-funplay-unity-mcp-setup",
+      "call_name": "coplay-funplay-unity-mcp-setup",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/coplay-funplay-unity-mcp-setup/SKILL.md"
+    },
+    {
+      "id": "user:create-plugin",
+      "source": "user",
+      "package": "create-plugin",
+      "call_name": "create-plugin",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "plugin-dev/README.md#create-plugin"
+    },
+    {
+      "id": "user:daily-work-report",
+      "source": "user",
+      "package": "daily-work-report",
+      "call_name": "daily-work-report",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/daily-work-report/SKILL.md"
+    },
+    {
+      "id": "user:debug-optimize-lcp",
+      "source": "user",
+      "package": "debug-optimize-lcp",
+      "call_name": "debug-optimize-lcp",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "chrome-devtools-mcp/README.md#debug-optimize-lcp"
+    },
+    {
+      "id": "user:deep-research",
+      "source": "user",
+      "package": "deep-research",
+      "call_name": "deep-research",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/deep-research/SKILL.md"
+    },
+    {
+      "id": "user:delete-session",
+      "source": "user",
+      "package": "delete-session",
+      "call_name": "delete-session",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/delete-session/SKILL.md"
+    },
+    {
+      "id": "user:design-driven-delivery",
+      "source": "user",
+      "package": "design-driven-delivery",
+      "call_name": "design-driven-delivery",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "target": "../Owned-Skills/design-driven-delivery/SKILL.md"
+    },
+    {
+      "id": "user:diagnosing-superpowers",
+      "source": "user",
+      "package": "diagnosing-superpowers",
+      "call_name": "diagnosing-superpowers",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#diagnosing-superpowers"
+    },
+    {
+      "id": "user:dispatching-parallel-agents",
+      "source": "user",
+      "package": "dispatching-parallel-agents",
+      "call_name": "dispatching-parallel-agents",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#dispatching-parallel-agents"
+    },
+    {
+      "id": "user:executing-plans",
+      "source": "user",
+      "package": "executing-plans",
+      "call_name": "executing-plans",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#executing-plans"
+    },
+    {
+      "id": "user:feature-dev",
+      "source": "user",
+      "package": "feature-dev",
+      "call_name": "feature-dev",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/feature-dev/SKILL.md"
+    },
+    {
+      "id": "user:fewer-permission-prompts",
+      "source": "user",
+      "package": "fewer-permission-prompts",
+      "call_name": "fewer-permission-prompts",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/fewer-permission-prompts/SKILL.md"
+    },
+    {
+      "id": "user:figma-code-connect",
+      "source": "user",
+      "package": "figma-code-connect",
+      "call_name": "figma-code-connect",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "figma/README.md#figma-code-connect"
+    },
+    {
+      "id": "user:figma-create-new-file",
+      "source": "user",
+      "package": "figma-create-new-file",
+      "call_name": "figma-create-new-file",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "figma/README.md#figma-create-new-file"
+    },
+    {
+      "id": "user:figma-generate-design",
+      "source": "user",
+      "package": "figma-generate-design",
+      "call_name": "figma-generate-design",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "figma/README.md#figma-generate-design"
+    },
+    {
+      "id": "user:figma-generate-diagram",
+      "source": "user",
+      "package": "figma-generate-diagram",
+      "call_name": "figma-generate-diagram",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "figma/README.md#figma-generate-diagram"
+    },
+    {
+      "id": "user:figma-generate-library",
+      "source": "user",
+      "package": "figma-generate-library",
+      "call_name": "figma-generate-library",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "figma/README.md#figma-generate-library"
+    },
+    {
+      "id": "user:figma-generate-project-plan",
+      "source": "user",
+      "package": "figma-generate-project-plan",
+      "call_name": "figma-generate-project-plan",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/figma-generate-project-plan/SKILL.md"
+    },
+    {
+      "id": "user:figma-use",
+      "source": "user",
+      "package": "figma-use",
+      "call_name": "figma-use",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "figma/README.md#figma-use"
+    },
+    {
+      "id": "user:figma-use-figjam",
+      "source": "user",
+      "package": "figma-use-figjam",
+      "call_name": "figma-use-figjam",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "figma/README.md#figma-use-figjam"
+    },
+    {
+      "id": "user:figma-use-slides",
+      "source": "user",
+      "package": "figma-use-slides",
+      "call_name": "figma-use-slides",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "figma/README.md#figma-use-slides"
+    },
+    {
+      "id": "user:finishing-a-development-branch",
+      "source": "user",
+      "package": "finishing-a-development-branch",
+      "call_name": "finishing-a-development-branch",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#finishing-a-development-branch"
+    },
+    {
+      "id": "user:firecrawl",
+      "source": "user",
+      "package": "firecrawl",
+      "call_name": "firecrawl",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-firecrawl"
+    },
+    {
+      "id": "user:firecrawl-agent",
+      "source": "user",
+      "package": "firecrawl-agent",
+      "call_name": "firecrawl-agent",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-agent"
+    },
+    {
+      "id": "user:firecrawl-crawl",
+      "source": "user",
+      "package": "firecrawl-crawl",
+      "call_name": "firecrawl-crawl",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-crawl"
+    },
+    {
+      "id": "user:firecrawl-download",
+      "source": "user",
+      "package": "firecrawl-download",
+      "call_name": "firecrawl-download",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-download"
+    },
+    {
+      "id": "user:firecrawl-interact",
+      "source": "user",
+      "package": "firecrawl-interact",
+      "call_name": "firecrawl-interact",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-interact"
+    },
+    {
+      "id": "user:firecrawl-map",
+      "source": "user",
+      "package": "firecrawl-map",
+      "call_name": "firecrawl-map",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-map"
+    },
+    {
+      "id": "user:firecrawl-monitor",
+      "source": "user",
+      "package": "firecrawl-monitor",
+      "call_name": "firecrawl-monitor",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-monitor"
+    },
+    {
+      "id": "user:firecrawl-parse",
+      "source": "user",
+      "package": "firecrawl-parse",
+      "call_name": "firecrawl-parse",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-parse"
+    },
+    {
+      "id": "user:firecrawl-scrape",
+      "source": "user",
+      "package": "firecrawl-scrape",
+      "call_name": "firecrawl-scrape",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-scrape"
+    },
+    {
+      "id": "user:firecrawl-search",
+      "source": "user",
+      "package": "firecrawl-search",
+      "call_name": "firecrawl-search",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "firecrawl/README.md#firecrawl-search"
+    },
+    {
+      "id": "user:handover",
+      "source": "user",
+      "package": "handover",
+      "call_name": "handover",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/handover/SKILL.md"
+    },
+    {
+      "id": "user:help",
+      "source": "user",
+      "package": "help",
+      "call_name": "help",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/help/SKILL.md"
+    },
+    {
+      "id": "user:hf-cli",
+      "source": "user",
+      "package": "hf-cli",
+      "call_name": "hf-cli",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#hf-cli"
+    },
+    {
+      "id": "user:hook-development",
+      "source": "user",
+      "package": "hook-development",
+      "call_name": "hook-development",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "plugin-dev/README.md#hook-development"
+    },
+    {
+      "id": "user:huashu-design",
+      "source": "user",
+      "package": "huashu-design",
+      "call_name": "huashu-design",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "office-design-tools/README.md#huashu-design"
+    },
+    {
+      "id": "user:huggingface-best",
+      "source": "user",
+      "package": "huggingface-best",
+      "call_name": "huggingface-best",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-best"
+    },
+    {
+      "id": "user:huggingface-community-evals",
+      "source": "user",
+      "package": "huggingface-community-evals",
+      "call_name": "huggingface-community-evals",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-community-evals"
+    },
+    {
+      "id": "user:huggingface-datasets",
+      "source": "user",
+      "package": "huggingface-datasets",
+      "call_name": "huggingface-datasets",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-datasets"
+    },
+    {
+      "id": "user:huggingface-gradio",
+      "source": "user",
+      "package": "huggingface-gradio",
+      "call_name": "huggingface-gradio",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-gradio"
+    },
+    {
+      "id": "user:huggingface-llm-trainer",
+      "source": "user",
+      "package": "huggingface-llm-trainer",
+      "call_name": "huggingface-llm-trainer",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-llm-trainer"
+    },
+    {
+      "id": "user:huggingface-local-models",
+      "source": "user",
+      "package": "huggingface-local-models",
+      "call_name": "huggingface-local-models",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-local-models"
+    },
+    {
+      "id": "user:huggingface-lora-space-builder",
+      "source": "user",
+      "package": "huggingface-lora-space-builder",
+      "call_name": "huggingface-lora-space-builder",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-lora-space-builder"
+    },
+    {
+      "id": "user:huggingface-paper-publisher",
+      "source": "user",
+      "package": "huggingface-paper-publisher",
+      "call_name": "huggingface-paper-publisher",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-paper-publisher"
+    },
+    {
+      "id": "user:huggingface-papers",
+      "source": "user",
+      "package": "huggingface-papers",
+      "call_name": "huggingface-papers",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-papers"
+    },
+    {
+      "id": "user:huggingface-spaces",
+      "source": "user",
+      "package": "huggingface-spaces",
+      "call_name": "huggingface-spaces",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-spaces"
+    },
+    {
+      "id": "user:huggingface-tool-builder",
+      "source": "user",
+      "package": "huggingface-tool-builder",
+      "call_name": "huggingface-tool-builder",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-tool-builder"
+    },
+    {
+      "id": "user:huggingface-trackio",
+      "source": "user",
+      "package": "huggingface-trackio",
+      "call_name": "huggingface-trackio",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-trackio"
+    },
+    {
+      "id": "user:huggingface-vision-trainer",
+      "source": "user",
+      "package": "huggingface-vision-trainer",
+      "call_name": "huggingface-vision-trainer",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-vision-trainer"
+    },
+    {
+      "id": "user:huggingface-zerogpu",
+      "source": "user",
+      "package": "huggingface-zerogpu",
+      "call_name": "huggingface-zerogpu",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#huggingface-zerogpu"
+    },
+    {
+      "id": "user:init",
+      "source": "user",
+      "package": "init",
+      "call_name": "init",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/init/SKILL.md"
+    },
+    {
+      "id": "user:keybindings-help",
+      "source": "user",
+      "package": "keybindings-help",
+      "call_name": "keybindings-help",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/keybindings-help/SKILL.md"
+    },
+    {
+      "id": "user:kordoc",
+      "source": "user",
+      "package": "kordoc",
+      "call_name": "kordoc",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "kordoc/README.md#kordoc"
+    },
+    {
+      "id": "user:loop",
+      "source": "user",
+      "package": "loop",
+      "call_name": "loop",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/loop/SKILL.md"
+    },
+    {
+      "id": "user:mcp-integration",
+      "source": "user",
+      "package": "mcp-integration",
+      "call_name": "mcp-integration",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "plugin-dev/README.md#mcp-integration"
+    },
+    {
+      "id": "user:memory-leak-debugging",
+      "source": "user",
+      "package": "memory-leak-debugging",
+      "call_name": "memory-leak-debugging",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "chrome-devtools-mcp/README.md#memory-leak-debugging"
+    },
+    {
+      "id": "user:new-sdk-app",
+      "source": "user",
+      "package": "new-sdk-app",
+      "call_name": "new-sdk-app",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/new-sdk-app/SKILL.md"
+    },
+    {
+      "id": "user:officecli",
+      "source": "user",
+      "package": "officecli",
+      "call_name": "officecli",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "office-design-tools/README.md#officecli"
+    },
+    {
+      "id": "user:paseo",
+      "source": "user",
+      "package": "paseo",
+      "call_name": "paseo",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-paseo"
+    },
+    {
+      "id": "user:paseo-advisor",
+      "source": "user",
+      "package": "paseo-advisor",
+      "call_name": "paseo-advisor",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-paseo-advisor"
+    },
+    {
+      "id": "user:paseo-committee",
+      "source": "user",
+      "package": "paseo-committee",
+      "call_name": "paseo-committee",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-paseo-committee"
+    },
+    {
+      "id": "user:paseo-handoff",
+      "source": "user",
+      "package": "paseo-handoff",
+      "call_name": "paseo-handoff",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-paseo-handoff"
+    },
+    {
+      "id": "user:paseo-help",
+      "source": "user",
+      "package": "paseo-help",
+      "call_name": "paseo-help",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-paseo-help"
+    },
+    {
+      "id": "user:paseo-plugin",
+      "source": "user",
+      "package": "paseo-plugin",
+      "call_name": "paseo-plugin",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-paseo-plugin"
+    },
+    {
+      "id": "user:playground",
+      "source": "user",
+      "package": "playground",
+      "call_name": "playground",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "playground/README.md#playground"
+    },
+    {
+      "id": "user:plugin-settings",
+      "source": "user",
+      "package": "plugin-settings",
+      "call_name": "plugin-settings",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "plugin-dev/README.md#plugin-settings"
+    },
+    {
+      "id": "user:plugin-structure",
+      "source": "user",
+      "package": "plugin-structure",
+      "call_name": "plugin-structure",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "plugin-dev/README.md#plugin-structure"
+    },
+    {
+      "id": "user:ppt-master",
+      "source": "user",
+      "package": "ppt-master",
+      "call_name": "ppt-master",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "office-design-tools/README.md#ppt-master"
+    },
+    {
+      "id": "user:qodo-get-rules",
+      "source": "user",
+      "package": "qodo-get-rules",
+      "call_name": "qodo-get-rules",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "qodo-skills/README.md#qodo-get-rules"
+    },
+    {
+      "id": "user:qodo-pr-resolver",
+      "source": "user",
+      "package": "qodo-pr-resolver",
+      "call_name": "qodo-pr-resolver",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "qodo-skills/README.md#qodo-pr-resolver"
+    },
+    {
+      "id": "user:ralph-loop",
+      "source": "user",
+      "package": "ralph-loop",
+      "call_name": "ralph-loop",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/ralph-loop/SKILL.md"
+    },
+    {
+      "id": "user:receiving-code-review",
+      "source": "user",
+      "package": "receiving-code-review",
+      "call_name": "receiving-code-review",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#receiving-code-review"
+    },
+    {
+      "id": "user:requesting-code-review",
+      "source": "user",
+      "package": "requesting-code-review",
+      "call_name": "requesting-code-review",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#requesting-code-review"
+    },
+    {
+      "id": "user:review",
+      "source": "user",
+      "package": "review",
+      "call_name": "review",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/review/SKILL.md"
+    },
+    {
+      "id": "user:review-pr",
+      "source": "user",
+      "package": "review-pr",
+      "call_name": "review-pr",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/review-pr/SKILL.md"
+    },
+    {
+      "id": "user:revise-claude-md",
+      "source": "user",
+      "package": "revise-claude-md",
+      "call_name": "revise-claude-md",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "claude-md-management/README.md#revise-claude-md"
+    },
+    {
+      "id": "user:run",
+      "source": "user",
+      "package": "run",
+      "call_name": "run",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/run/SKILL.md"
+    },
+    {
+      "id": "user:schedule",
+      "source": "user",
+      "package": "schedule",
+      "call_name": "schedule",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "_builtin/README.md#schedule"
+    },
+    {
+      "id": "user:security-review",
+      "source": "user",
+      "package": "security-review",
+      "call_name": "security-review",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/security-review/SKILL.md"
+    },
+    {
+      "id": "user:simplify",
+      "source": "user",
+      "package": "simplify",
+      "call_name": "simplify",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/simplify/SKILL.md"
+    },
+    {
+      "id": "user:skill-development",
+      "source": "user",
+      "package": "skill-development",
+      "call_name": "skill-development",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "plugin-dev/README.md#skill-development"
+    },
+    {
+      "id": "user:source-command-delete-session",
+      "source": "user",
+      "package": "source-command-delete-session",
+      "call_name": "source-command-delete-session",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-source-command-delete-session"
+    },
+    {
+      "id": "user:source-command-handover",
+      "source": "user",
+      "package": "source-command-handover",
+      "call_name": "source-command-handover",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-source-command-handover"
+    },
+    {
+      "id": "user:subagent-driven-development",
+      "source": "user",
+      "package": "subagent-driven-development",
+      "call_name": "subagent-driven-development",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#subagent-driven-development"
+    },
+    {
+      "id": "user:systematic-debugging",
+      "source": "user",
+      "package": "systematic-debugging",
+      "call_name": "systematic-debugging",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#systematic-debugging"
+    },
+    {
+      "id": "user:test-driven-development",
+      "source": "user",
+      "package": "test-driven-development",
+      "call_name": "test-driven-development",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#test-driven-development"
+    },
+    {
+      "id": "user:train-sentence-transformers",
+      "source": "user",
+      "package": "train-sentence-transformers",
+      "call_name": "train-sentence-transformers",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#train-sentence-transformers"
+    },
+    {
+      "id": "user:transformers-js",
+      "source": "user",
+      "package": "transformers-js",
+      "call_name": "transformers-js",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#transformers-js"
+    },
+    {
+      "id": "user:trl-training",
+      "source": "user",
+      "package": "trl-training",
+      "call_name": "trl-training",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "huggingface-skills/README.md#trl-training"
+    },
+    {
+      "id": "user:troubleshooting",
+      "source": "user",
+      "package": "troubleshooting",
+      "call_name": "troubleshooting",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "chrome-devtools-mcp/README.md#troubleshooting"
+    },
+    {
+      "id": "user:unity-cli",
+      "source": "user",
+      "package": "unity-cli",
+      "call_name": "unity-cli",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#user-unity-cli"
+    },
+    {
+      "id": "user:update-config",
+      "source": "user",
+      "package": "update-config",
+      "call_name": "update-config",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/update-config/SKILL.md"
+    },
+    {
+      "id": "user:using-git-worktrees",
+      "source": "user",
+      "package": "using-git-worktrees",
+      "call_name": "using-git-worktrees",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#using-git-worktrees"
+    },
+    {
+      "id": "user:using-superpowers",
+      "source": "user",
+      "package": "using-superpowers",
+      "call_name": "using-superpowers",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#using-superpowers"
+    },
+    {
+      "id": "user:verification-before-completion",
+      "source": "user",
+      "package": "verification-before-completion",
+      "call_name": "verification-before-completion",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#verification-before-completion"
+    },
+    {
+      "id": "user:verify",
+      "source": "user",
+      "package": "verify",
+      "call_name": "verify",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "../Owned-Skills/verify/SKILL.md"
+    },
+    {
+      "id": "user:writing-plans",
+      "source": "user",
+      "package": "writing-plans",
+      "call_name": "writing-plans",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#writing-plans"
+    },
+    {
+      "id": "user:writing-skills",
+      "source": "user",
+      "package": "writing-skills",
+      "call_name": "writing-skills",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "superpowers/README.md#writing-skills"
+    },
+    {
+      "id": "codex-user:migrate-to-codex",
+      "source": "codex-user",
+      "package": "migrate-to-codex",
+      "call_name": "migrate-to-codex",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#codex-user-migrate-to-codex"
+    },
+    {
+      "id": "codex-system:imagegen",
+      "source": "codex-system",
+      "package": "imagegen",
+      "call_name": "imagegen",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#codex-system-imagegen"
+    },
+    {
+      "id": "codex-system:openai-docs",
+      "source": "codex-system",
+      "package": "openai-docs",
+      "call_name": "openai-docs",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#codex-system-openai-docs"
+    },
+    {
+      "id": "codex-system:review-agent",
+      "source": "codex-system",
+      "package": "review-agent",
+      "call_name": "review-agent",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "target": "codex-local/README.md#codex-system-review-agent"
+    },
+    {
+      "id": "codex-system:skill-creator",
+      "source": "codex-system",
+      "package": "skill-creator",
+      "call_name": "skill-creator",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#codex-system-skill-creator"
+    },
+    {
+      "id": "codex-system:skill-installer",
+      "source": "codex-system",
+      "package": "skill-installer",
+      "call_name": "skill-installer",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "target": "codex-local/README.md#codex-system-skill-installer"
+    },
+    {
+      "id": "user:firecrawl-cli",
+      "source": "user",
+      "package": "firecrawl-cli",
+      "call_name": "firecrawl-cli",
+      "session_exposed": false,
+      "excluded_reason": "루트 SKILL.md가 없어 독립 스킬 패키지로 집계하지 않음."
+    },
+    {
+      "id": "user:skill-gen",
+      "source": "user",
+      "package": "skill-gen",
+      "call_name": "skill-gen",
+      "session_exposed": false,
+      "excluded_reason": "루트 SKILL.md가 없어 독립 스킬 패키지로 집계하지 않음."
+    },
+    {
+      "id": "plugin:spreadsheets:excel-live-control",
+      "source": "plugin:spreadsheets",
+      "package": "skills/excel-live-control",
+      "call_name": "spreadsheets:excel-live-control",
+      "version": "26.1111.10934",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#spreadsheets-excel-live-control"
+    },
+    {
+      "id": "plugin:spreadsheets:Spreadsheets",
+      "source": "plugin:spreadsheets",
+      "package": "skills/spreadsheets",
+      "call_name": "spreadsheets:Spreadsheets",
+      "version": "26.1111.10934",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#spreadsheets-spreadsheets"
+    },
+    {
+      "id": "plugin:documents:documents",
+      "source": "plugin:documents",
+      "package": "skills/documents",
+      "call_name": "documents:documents",
+      "version": "26.1111.10934",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#documents-documents"
+    },
+    {
+      "id": "plugin:pdf:pdf",
+      "source": "plugin:pdf",
+      "package": "skills/pdf",
+      "call_name": "pdf:pdf",
+      "version": "26.1111.10934",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#pdf-pdf"
+    },
+    {
+      "id": "plugin:presentations:Presentations",
+      "source": "plugin:presentations",
+      "package": "skills/presentations",
+      "call_name": "presentations:Presentations",
+      "version": "26.1111.10934",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#presentations-presentations"
+    },
+    {
+      "id": "plugin:template-creator:template-creator",
+      "source": "plugin:template-creator",
+      "package": "skills/template-creator",
+      "call_name": "template-creator:template-creator",
+      "version": "26.1111.10934",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#template-creator-template-creator"
+    },
+    {
+      "id": "plugin:computer-use:computer-use",
+      "source": "plugin:computer-use",
+      "package": "skills/computer-use",
+      "call_name": "computer-use:computer-use",
+      "version": "26.1103.60933",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#computer-use-computer-use"
+    },
+    {
+      "id": "plugin:visualize:visualize",
+      "source": "plugin:visualize",
+      "package": "skills/visualize",
+      "call_name": "visualize:visualize",
+      "version": "1.0.84",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#visualize-visualize"
+    },
+    {
+      "id": "plugin:spotify:browse-collections",
+      "source": "plugin:spotify",
+      "package": "skills/browse-collections",
+      "call_name": "app-68de829bf7648191acd70a907364c67c:browse-collections",
+      "version": "4.3.0",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#spotify-browse-collections"
+    },
+    {
+      "id": "plugin:spotify:build-playlists",
+      "source": "plugin:spotify",
+      "package": "skills/build-playlists",
+      "call_name": "app-68de829bf7648191acd70a907364c67c:build-playlists",
+      "version": "4.3.0",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#spotify-build-playlists"
+    },
+    {
+      "id": "plugin:spotify:manage-library",
+      "source": "plugin:spotify",
+      "package": "skills/manage-library",
+      "call_name": "app-68de829bf7648191acd70a907364c67c:manage-library",
+      "version": "4.3.0",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#spotify-manage-library"
+    },
+    {
+      "id": "plugin:spotify:now-playing",
+      "source": "plugin:spotify",
+      "package": "skills/now-playing",
+      "call_name": "app-68de829bf7648191acd70a907364c67c:now-playing",
+      "version": "4.3.0",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#spotify-now-playing"
+    },
+    {
+      "id": "plugin:spotify:search-spotify",
+      "source": "plugin:spotify",
+      "package": "skills/search-spotify",
+      "call_name": "app-68de829bf7648191acd70a907364c67c:search-spotify",
+      "version": "4.3.0",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#spotify-search-spotify"
+    },
+    {
+      "id": "plugin:data-analytics:analyze-data-quality",
+      "source": "plugin:data-analytics",
+      "package": "skills/analyze-data-quality",
+      "call_name": "data-analytics:analyze-data-quality",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-analyze-data-quality"
+    },
+    {
+      "id": "plugin:data-analytics:answers-follow-up",
+      "source": "plugin:data-analytics",
+      "package": "skills/answers-follow-up",
+      "call_name": "data-analytics:answers-follow-up",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-answers-follow-up"
+    },
+    {
+      "id": "plugin:data-analytics:build-dashboard",
+      "source": "plugin:data-analytics",
+      "package": "skills/build-dashboard",
+      "call_name": "data-analytics:build-dashboard",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-build-dashboard"
+    },
+    {
+      "id": "plugin:data-analytics:build-report",
+      "source": "plugin:data-analytics",
+      "package": "skills/build-report",
+      "call_name": "data-analytics:build-report",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-build-report"
+    },
+    {
+      "id": "plugin:data-analytics:convert-to-doc",
+      "source": "plugin:data-analytics",
+      "package": "skills/convert-to-doc",
+      "call_name": "data-analytics:convert-to-doc",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-convert-to-doc"
+    },
+    {
+      "id": "plugin:data-analytics:convert-to-slides",
+      "source": "plugin:data-analytics",
+      "package": "skills/convert-to-slides",
+      "call_name": "data-analytics:convert-to-slides",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-convert-to-slides"
+    },
+    {
+      "id": "plugin:data-analytics:customize-data-plugin",
+      "source": "plugin:data-analytics",
+      "package": "skills/customize-data-plugin",
+      "call_name": "data-analytics:customize-data-plugin",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-customize-data-plugin"
+    },
+    {
+      "id": "plugin:data-analytics:design-kpis",
+      "source": "plugin:data-analytics",
+      "package": "skills/design-kpis",
+      "call_name": "data-analytics:design-kpis",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-design-kpis"
+    },
+    {
+      "id": "plugin:data-analytics:index",
+      "source": "plugin:data-analytics",
+      "package": "skills/index",
+      "call_name": "data-analytics:index",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-index"
+    },
+    {
+      "id": "plugin:data-analytics:jupyter-notebooks",
+      "source": "plugin:data-analytics",
+      "package": "skills/jupyter-notebooks",
+      "call_name": "data-analytics:jupyter-notebooks",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-jupyter-notebooks"
+    },
+    {
+      "id": "plugin:data-analytics:kpi-reporting",
+      "source": "plugin:data-analytics",
+      "package": "skills/kpi-reporting",
+      "call_name": "data-analytics:kpi-reporting",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-kpi-reporting"
+    },
+    {
+      "id": "plugin:data-analytics:market-sizing",
+      "source": "plugin:data-analytics",
+      "package": "skills/market-sizing",
+      "call_name": "data-analytics:market-sizing",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-market-sizing"
+    },
+    {
+      "id": "plugin:data-analytics:metric-diagnostics",
+      "source": "plugin:data-analytics",
+      "package": "skills/metric-diagnostics",
+      "call_name": "data-analytics:metric-diagnostics",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-metric-diagnostics"
+    },
+    {
+      "id": "plugin:data-analytics:onboarding",
+      "source": "plugin:data-analytics",
+      "package": "skills/onboarding",
+      "call_name": "data-analytics:onboarding",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-onboarding"
+    },
+    {
+      "id": "plugin:data-analytics:product-business-analysis",
+      "source": "plugin:data-analytics",
+      "package": "skills/product-business-analysis",
+      "call_name": "data-analytics:product-business-analysis",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-product-business-analysis"
+    },
+    {
+      "id": "plugin:data-analytics:publish-artifact-to-sites",
+      "source": "plugin:data-analytics",
+      "package": "skills/publish-artifact-to-sites",
+      "call_name": "data-analytics:publish-artifact-to-sites",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-publish-artifact-to-sites"
+    },
+    {
+      "id": "plugin:data-analytics:report-to-pdf",
+      "source": "plugin:data-analytics",
+      "package": "skills/report-to-pdf",
+      "call_name": "data-analytics:report-to-pdf",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-report-to-pdf"
+    },
+    {
+      "id": "plugin:data-analytics:schedule-refresh-jobs",
+      "source": "plugin:data-analytics",
+      "package": "skills/schedule-refresh-jobs",
+      "call_name": "data-analytics:schedule-refresh-jobs",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-schedule-refresh-jobs"
+    },
+    {
+      "id": "plugin:data-analytics:share-artifact-summary",
+      "source": "plugin:data-analytics",
+      "package": "skills/share-artifact-summary",
+      "call_name": "data-analytics:share-artifact-summary",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-share-artifact-summary"
+    },
+    {
+      "id": "plugin:data-analytics:validate-data",
+      "source": "plugin:data-analytics",
+      "package": "skills/validate-data",
+      "call_name": "data-analytics:validate-data",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-validate-data"
+    },
+    {
+      "id": "plugin:data-analytics:visualize-data",
+      "source": "plugin:data-analytics",
+      "package": "skills/visualize-data",
+      "call_name": "data-analytics:visualize-data",
+      "version": "1.1.0-exp-homepage",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#data-analytics-visualize-data"
+    },
+    {
+      "id": "plugin:notion:notion-build-my-engineering-wiki",
+      "source": "plugin:notion",
+      "package": "skills/notion-build-my-engineering-wiki",
+      "call_name": "notion:notion-build-my-engineering-wiki",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-build-my-engineering-wiki"
+    },
+    {
+      "id": "plugin:notion:notion-create-my-team-handbook",
+      "source": "plugin:notion",
+      "package": "skills/notion-create-my-team-handbook",
+      "call_name": "notion:notion-create-my-team-handbook",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-create-my-team-handbook"
+    },
+    {
+      "id": "plugin:notion:notion-database-designer",
+      "source": "plugin:notion",
+      "package": "skills/notion-database-designer",
+      "call_name": "notion:notion-database-designer",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-database-designer"
+    },
+    {
+      "id": "plugin:notion:notion-knowledge-capture",
+      "source": "plugin:notion",
+      "package": "skills/notion-knowledge-capture",
+      "call_name": "notion:notion-knowledge-capture",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-knowledge-capture"
+    },
+    {
+      "id": "plugin:notion:notion-meeting-prep",
+      "source": "plugin:notion",
+      "package": "skills/notion-meeting-prep",
+      "call_name": "notion:notion-meeting-prep",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-meeting-prep"
+    },
+    {
+      "id": "plugin:notion:notion-organize-my-semester",
+      "source": "plugin:notion",
+      "package": "skills/notion-organize-my-semester",
+      "call_name": "notion:notion-organize-my-semester",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-organize-my-semester"
+    },
+    {
+      "id": "plugin:notion:notion-plan-marketing-campaigns",
+      "source": "plugin:notion",
+      "package": "skills/notion-plan-marketing-campaigns",
+      "call_name": "notion:notion-plan-marketing-campaigns",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-plan-marketing-campaigns"
+    },
+    {
+      "id": "plugin:notion:notion-research-documentation",
+      "source": "plugin:notion",
+      "package": "skills/notion-research-documentation",
+      "call_name": "notion:notion-research-documentation",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-research-documentation"
+    },
+    {
+      "id": "plugin:notion:notion-set-up-my-project",
+      "source": "plugin:notion",
+      "package": "skills/notion-set-up-my-project",
+      "call_name": "notion:notion-set-up-my-project",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-set-up-my-project"
+    },
+    {
+      "id": "plugin:notion:notion-setup",
+      "source": "plugin:notion",
+      "package": "skills/notion-setup",
+      "call_name": "notion:notion-setup",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-setup"
+    },
+    {
+      "id": "plugin:notion:notion-spec-to-implementation",
+      "source": "plugin:notion",
+      "package": "skills/notion-spec-to-implementation",
+      "call_name": "notion:notion-spec-to-implementation",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-spec-to-implementation"
+    },
+    {
+      "id": "plugin:notion:notion-weekly-project-digest",
+      "source": "plugin:notion",
+      "package": "skills/notion-weekly-project-digest",
+      "call_name": "notion:notion-weekly-project-digest",
+      "version": "3.0.9",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#notion-notion-weekly-project-digest"
+    },
+    {
+      "id": "plugin:pages:maintain-space",
+      "source": "plugin:pages",
+      "package": "skills/maintain-space",
+      "call_name": "pages:maintain-space",
+      "version": "0.1.26",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#pages-maintain-space"
+    },
+    {
+      "id": "plugin:pages:manage-schedules",
+      "source": "plugin:pages",
+      "package": "skills/manage-schedules",
+      "call_name": "pages:manage-schedules",
+      "version": "0.1.26",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#pages-manage-schedules"
+    },
+    {
+      "id": "plugin:pages:organize-space",
+      "source": "plugin:pages",
+      "package": "skills/organize-space",
+      "call_name": "pages:organize-space",
+      "version": "0.1.26",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#pages-organize-space"
+    },
+    {
+      "id": "plugin:pages:write-page",
+      "source": "plugin:pages",
+      "package": "skills/write-page",
+      "call_name": "pages:write-page",
+      "version": "0.1.26",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#pages-write-page"
+    },
+    {
+      "id": "plugin:sites:sites",
+      "source": "plugin:sites",
+      "package": "skills/sites",
+      "call_name": "sites:sites",
+      "version": "1.1.6",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#sites-sites"
+    },
+    {
+      "id": "plugin:sites:sites-remix",
+      "source": "plugin:sites",
+      "package": "skills/sites-remix",
+      "call_name": "sites:sites-remix",
+      "version": "1.1.6",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#sites-sites-remix"
+    },
+    {
+      "id": "plugin:work-pets:create-pet",
+      "source": "plugin:work-pets",
+      "package": "skills/create-pet",
+      "call_name": "work-pets:create-pet",
+      "version": "0.1.6",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#work-pets-create-pet"
+    },
+    {
+      "id": "plugin:work-pets:pets",
+      "source": "plugin:work-pets",
+      "package": "skills/pets",
+      "call_name": "work-pets:pets",
+      "version": "0.1.6",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#work-pets-pets"
+    },
+    {
+      "id": "plugin:work-pets:update-pet",
+      "source": "plugin:work-pets",
+      "package": "skills/update-pet",
+      "call_name": "work-pets:update-pet",
+      "version": "0.1.6",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#work-pets-update-pet"
+    },
+    {
+      "id": "plugin:investment-banking:buyer-investor-list",
+      "source": "plugin:investment-banking",
+      "package": "skills/buyer-investor-list",
+      "call_name": "investment-banking:buyer-investor-list",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-buyer-investor-list"
+    },
+    {
+      "id": "plugin:investment-banking:capital-markets-issuance",
+      "source": "plugin:investment-banking",
+      "package": "skills/capital-markets-issuance",
+      "call_name": "investment-banking:capital-markets-issuance",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-capital-markets-issuance"
+    },
+    {
+      "id": "plugin:investment-banking:cim-builder",
+      "source": "plugin:investment-banking",
+      "package": "skills/cim-builder",
+      "call_name": "investment-banking:cim-builder",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-cim-builder"
+    },
+    {
+      "id": "plugin:investment-banking:cim-teardown",
+      "source": "plugin:investment-banking",
+      "package": "skills/cim-teardown",
+      "call_name": "investment-banking:cim-teardown",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-cim-teardown"
+    },
+    {
+      "id": "plugin:investment-banking:company-tearsheet",
+      "source": "plugin:investment-banking",
+      "package": "skills/company-tearsheet",
+      "call_name": "investment-banking:company-tearsheet",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-company-tearsheet"
+    },
+    {
+      "id": "plugin:investment-banking:comps-valuation",
+      "source": "plugin:investment-banking",
+      "package": "skills/comps-valuation",
+      "call_name": "investment-banking:comps-valuation",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-comps-valuation"
+    },
+    {
+      "id": "plugin:investment-banking:covenant-package-analyzer",
+      "source": "plugin:investment-banking",
+      "package": "skills/covenant-package-analyzer",
+      "call_name": "investment-banking:covenant-package-analyzer",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-covenant-package-analyzer"
+    },
+    {
+      "id": "plugin:investment-banking:dcf-model-builder",
+      "source": "plugin:investment-banking",
+      "package": "skills/dcf-model-builder",
+      "call_name": "investment-banking:dcf-model-builder",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-dcf-model-builder"
+    },
+    {
+      "id": "plugin:investment-banking:deal-process-tracker",
+      "source": "plugin:investment-banking",
+      "package": "skills/deal-process-tracker",
+      "call_name": "investment-banking:deal-process-tracker",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-deal-process-tracker"
+    },
+    {
+      "id": "plugin:investment-banking:distressed-recovery-waterfall",
+      "source": "plugin:investment-banking",
+      "package": "skills/distressed-recovery-waterfall",
+      "call_name": "investment-banking:distressed-recovery-waterfall",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-distressed-recovery-waterfall"
+    },
+    {
+      "id": "plugin:investment-banking:financials-normalizer",
+      "source": "plugin:investment-banking",
+      "package": "skills/financials-normalizer",
+      "call_name": "investment-banking:financials-normalizer",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-financials-normalizer"
+    },
+    {
+      "id": "plugin:investment-banking:ib-deck-qc",
+      "source": "plugin:investment-banking",
+      "package": "skills/ib-deck-qc",
+      "call_name": "investment-banking:ib-deck-qc",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-ib-deck-qc"
+    },
+    {
+      "id": "plugin:investment-banking:investment-banking",
+      "source": "plugin:investment-banking",
+      "package": "skills/investment-banking",
+      "call_name": "investment-banking:investment-banking",
+      "version": "0.1.29",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "router",
+      "target": "codex-plugins/README.md#investment-banking-investment-banking"
+    },
+    {
+      "id": "plugin:investment-banking:lbo-model-build",
+      "source": "plugin:investment-banking",
+      "package": "skills/lbo-model-build",
+      "call_name": "investment-banking:lbo-model-build",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-lbo-model-build"
+    },
+    {
+      "id": "plugin:investment-banking:meeting-prep",
+      "source": "plugin:investment-banking",
+      "package": "skills/meeting-prep",
+      "call_name": "investment-banking:meeting-prep",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-meeting-prep"
+    },
+    {
+      "id": "plugin:investment-banking:memo-builder",
+      "source": "plugin:investment-banking",
+      "package": "skills/memo-builder",
+      "call_name": "investment-banking:memo-builder",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-memo-builder"
+    },
+    {
+      "id": "plugin:investment-banking:merger-model-builder",
+      "source": "plugin:investment-banking",
+      "package": "skills/merger-model-builder",
+      "call_name": "investment-banking:merger-model-builder",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-merger-model-builder"
+    },
+    {
+      "id": "plugin:investment-banking:model-audit-tieout",
+      "source": "plugin:investment-banking",
+      "package": "skills/model-audit-tieout",
+      "call_name": "investment-banking:model-audit-tieout",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-model-audit-tieout"
+    },
+    {
+      "id": "plugin:investment-banking:pitch-deck-builder",
+      "source": "plugin:investment-banking",
+      "package": "skills/pitch-deck-builder",
+      "call_name": "investment-banking:pitch-deck-builder",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-pitch-deck-builder"
+    },
+    {
+      "id": "plugin:investment-banking:private-credit-underwriting",
+      "source": "plugin:investment-banking",
+      "package": "skills/private-credit-underwriting",
+      "call_name": "investment-banking:private-credit-underwriting",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-private-credit-underwriting"
+    },
+    {
+      "id": "plugin:investment-banking:scenario-sensitivity-generator",
+      "source": "plugin:investment-banking",
+      "package": "skills/scenario-sensitivity-generator",
+      "call_name": "investment-banking:scenario-sensitivity-generator",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-scenario-sensitivity-generator"
+    },
+    {
+      "id": "plugin:investment-banking:three-statement-model-builder",
+      "source": "plugin:investment-banking",
+      "package": "skills/three-statement-model-builder",
+      "call_name": "investment-banking:three-statement-model-builder",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-three-statement-model-builder"
+    },
+    {
+      "id": "plugin:investment-banking:user-context",
+      "source": "plugin:investment-banking",
+      "package": "skills/user-context",
+      "call_name": "investment-banking:user-context",
+      "version": "0.1.29",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#investment-banking-user-context"
+    },
+    {
+      "id": "plugin:public-equity-investing:catalyst-calendar",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/catalyst-calendar",
+      "call_name": "public-equity-investing:catalyst-calendar",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-catalyst-calendar"
+    },
+    {
+      "id": "plugin:public-equity-investing:company-tearsheet",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/company-tearsheet",
+      "call_name": "public-equity-investing:company-tearsheet",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-company-tearsheet"
+    },
+    {
+      "id": "plugin:public-equity-investing:comps-valuation",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/comps-valuation",
+      "call_name": "public-equity-investing:comps-valuation",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-comps-valuation"
+    },
+    {
+      "id": "plugin:public-equity-investing:dcf-model-builder",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/dcf-model-builder",
+      "call_name": "public-equity-investing:dcf-model-builder",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-dcf-model-builder"
+    },
+    {
+      "id": "plugin:public-equity-investing:deck-report-qc",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/deck-report-qc",
+      "call_name": "public-equity-investing:deck-report-qc",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-deck-report-qc"
+    },
+    {
+      "id": "plugin:public-equity-investing:earnings-deep-dive",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/earnings-deep-dive",
+      "call_name": "public-equity-investing:earnings-deep-dive",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-earnings-deep-dive"
+    },
+    {
+      "id": "plugin:public-equity-investing:earnings-preview",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/earnings-preview",
+      "call_name": "public-equity-investing:earnings-preview",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-earnings-preview"
+    },
+    {
+      "id": "plugin:public-equity-investing:economic-impact-report",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/economic-impact-report",
+      "call_name": "public-equity-investing:economic-impact-report",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-economic-impact-report"
+    },
+    {
+      "id": "plugin:public-equity-investing:equity-model-update",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/equity-model-update",
+      "call_name": "public-equity-investing:equity-model-update",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-equity-model-update"
+    },
+    {
+      "id": "plugin:public-equity-investing:event-driven-analyzer",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/event-driven-analyzer",
+      "call_name": "public-equity-investing:event-driven-analyzer",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-event-driven-analyzer"
+    },
+    {
+      "id": "plugin:public-equity-investing:financials-normalizer",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/financials-normalizer",
+      "call_name": "public-equity-investing:financials-normalizer",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-financials-normalizer"
+    },
+    {
+      "id": "plugin:public-equity-investing:idea-generation",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/idea-generation",
+      "call_name": "public-equity-investing:idea-generation",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-idea-generation"
+    },
+    {
+      "id": "plugin:public-equity-investing:initiating-coverage",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/initiating-coverage",
+      "call_name": "public-equity-investing:initiating-coverage",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-initiating-coverage"
+    },
+    {
+      "id": "plugin:public-equity-investing:long-short-pitch",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/long-short-pitch",
+      "call_name": "public-equity-investing:long-short-pitch",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-long-short-pitch"
+    },
+    {
+      "id": "plugin:public-equity-investing:meeting-prep",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/meeting-prep",
+      "call_name": "public-equity-investing:meeting-prep",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-meeting-prep"
+    },
+    {
+      "id": "plugin:public-equity-investing:memo-builder",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/memo-builder",
+      "call_name": "public-equity-investing:memo-builder",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-memo-builder"
+    },
+    {
+      "id": "plugin:public-equity-investing:model-audit-tieout",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/model-audit-tieout",
+      "call_name": "public-equity-investing:model-audit-tieout",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-model-audit-tieout"
+    },
+    {
+      "id": "plugin:public-equity-investing:portfolio-risk-management",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/portfolio-risk-management",
+      "call_name": "public-equity-investing:portfolio-risk-management",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-portfolio-risk-management"
+    },
+    {
+      "id": "plugin:public-equity-investing:public-equity-investing",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/public-equity-investing",
+      "call_name": "public-equity-investing:public-equity-investing",
+      "version": "0.1.31",
+      "session_exposed": true,
+      "allow_implicit_invocation": true,
+      "descriptor_kind": "router",
+      "target": "codex-plugins/README.md#public-equity-investing-public-equity-investing"
+    },
+    {
+      "id": "plugin:public-equity-investing:scenario-sensitivity-generator",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/scenario-sensitivity-generator",
+      "call_name": "public-equity-investing:scenario-sensitivity-generator",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-scenario-sensitivity-generator"
+    },
+    {
+      "id": "plugin:public-equity-investing:thesis-tracker",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/thesis-tracker",
+      "call_name": "public-equity-investing:thesis-tracker",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-thesis-tracker"
+    },
+    {
+      "id": "plugin:public-equity-investing:three-statement-model-builder",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/three-statement-model-builder",
+      "call_name": "public-equity-investing:three-statement-model-builder",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-three-statement-model-builder"
+    },
+    {
+      "id": "plugin:public-equity-investing:user-context",
+      "source": "plugin:public-equity-investing",
+      "package": "skills/user-context",
+      "call_name": "public-equity-investing:user-context",
+      "version": "0.1.31",
+      "session_exposed": false,
+      "allow_implicit_invocation": false,
+      "descriptor_kind": "explicit_constituent",
+      "target": "codex-plugins/README.md#public-equity-investing-user-context"
+    },
+    {
+      "id": "plugin:plugin-management:plugin-management",
+      "source": "plugin:plugin-management",
+      "package": "skills/plugin-management",
+      "call_name": "plugin-management:plugin-management",
+      "version": "0.1.0",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#plugin-management-plugin-management"
+    },
+    {
+      "id": "plugin:ponytail:ponytail",
+      "source": "plugin:ponytail",
+      "package": "skills/ponytail",
+      "call_name": "ponytail:ponytail",
+      "version": "5.3.3",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#ponytail-ponytail"
+    },
+    {
+      "id": "plugin:ponytail:ponytail-audit",
+      "source": "plugin:ponytail",
+      "package": "skills/ponytail-audit",
+      "call_name": "ponytail:ponytail-audit",
+      "version": "5.3.3",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#ponytail-ponytail-audit"
+    },
+    {
+      "id": "plugin:ponytail:ponytail-debt",
+      "source": "plugin:ponytail",
+      "package": "skills/ponytail-debt",
+      "call_name": "ponytail:ponytail-debt",
+      "version": "5.3.3",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#ponytail-ponytail-debt"
+    },
+    {
+      "id": "plugin:ponytail:ponytail-gain",
+      "source": "plugin:ponytail",
+      "package": "skills/ponytail-gain",
+      "call_name": "ponytail:ponytail-gain",
+      "version": "5.3.3",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#ponytail-ponytail-gain"
+    },
+    {
+      "id": "plugin:ponytail:ponytail-help",
+      "source": "plugin:ponytail",
+      "package": "skills/ponytail-help",
+      "call_name": "ponytail:ponytail-help",
+      "version": "5.3.3",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#ponytail-ponytail-help"
+    },
+    {
+      "id": "plugin:ponytail:ponytail-review",
+      "source": "plugin:ponytail",
+      "package": "skills/ponytail-review",
+      "call_name": "ponytail:ponytail-review",
+      "version": "5.3.3",
+      "session_exposed": true,
+      "allow_implicit_invocation": null,
+      "descriptor_kind": "top_level",
+      "target": "codex-plugins/README.md#ponytail-ponytail-review"
+    }
+  ]
+}

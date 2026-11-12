@@ -3,9 +3,9 @@
 
 ## 현재 구성과 길찾기.
 
-2026-11-12 기준이다. README는 시작 안내, GUIDE는 사용법, AGENTS와 rules는 행동 규칙이다. [스킬 카탈로그](../Skill/CATALOG.md)는 설명 144개를 26그룹으로 정리하며 [자체 제작 원본](../Owned-Skills/README.md)은 26패키지다. 설명 수는 설치·인증·현재 클라이언트 노출 수와 다르다. [MCP 안내](../MCP/README.md)도 도구별 조건과 작성 당시 상태를 구분한다.
+2026-11-12 기준이다. README는 시작 안내, GUIDE는 사용법, AGENTS와 rules는 행동 규칙이다. [스킬 카탈로그](../Skill/CATALOG.md)는 기존 144개 설명에 직접·시스템 보완 16개·현재 플러그인 패키지와 전문 가이드 108개·[자체 제작 원본](../Owned-Skills/README.md) 26개를 연결해 총 294개 주소를 등록한다. 상세 설명은 28그룹과 자체 제작 패키지에서 관리한다. 설명 수는 설치·인증·현재 노출 수와 다르다. [MCP 안내](../MCP/README.md)도 도구별 조건과 작성 당시 상태를 구분한다.
 
-[분야별 스킬 선택 안내](../Skill/BY-TASK.md)는 엑셀·PPT·문서·개발 등 12개 분야의 대표 도구와 선택 조건을 기존 상세 설명으로 연결한다. 한·영 README·스킬 인덱스·전체 카탈로그에서 진입하며, 전체 항목이나 설치·현재 노출 목록을 대체하지 않는다.
+[분야별 전체 스킬 안내](../Skill/BY-TASK.md)는 294개 등록 주소 모두를 최소 한 분야에 연결한다. 기존 12개 분야에 데이터 분석·지식 관리·금융·음악을 보완한 16개 분야다. 엑셀의 32개 관련 항목은 파일 편집·live Excel·데이터 분석·추출·금융 모델을 구분한다. 한·영 README·스킬 인덱스·전체 카탈로그에서 진입하며 이후 설치 변경은 [날짜별 조사](../references/skill-inventory-2026-11-12.json)를 다시 대조해야 한다.
 
 | 필요한 안내. | 기준 문서. |
 |---|---|
@@ -28,8 +28,14 @@
 
 [설계](superpowers/specs/2026-11-12-docs-refresh-design.md)·[계획](superpowers/plans/2026-11-12-docs-refresh.md)·[검증 기록](reviews/2026-11-12-docs-refresh.md)에 전수조사·보관·링크·보호·배포 결과를 기록한다. 이전 설치 작업의 최종 기록은 `3c4dd83`이다. 이번 정리 커밋 `1b380db`를 main에 통합·push하고 전체 103개 회귀·독립 리뷰·원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43142480610)을 확인했다. 소유 임시 worktree·브랜치는 정리했으며 전역 복제본·설치 환경은 이번 변경 대상에 포함하지 않았다.
 
-## 분야별 안내와 전역 복제.
+## 이전 대표 안내와 전역 복제.
 
 [설계](superpowers/specs/2026-11-12-task-navigation-design.md)·[계획](superpowers/plans/2026-11-12-task-navigation.md)·[검증 기록](reviews/2026-11-12-task-navigation.md)을 기준으로 한다. 사용자는 저장소를 기준으로 전역 문서를 동일하게 독립 복제하도록 승인했다. 기존 전역 문서·개인 자료·진입점은 비공개 백업에 보존하며, 설치 스킬·인증·권한은 변경하지 않는다.
 
 저장소와 main 통합 결과의 전체 106개 회귀·독립 리뷰를 통과했다. 전역 177개 파일의 동일성과 148개 Markdown 링크를 확인하고, 원본 저장소·임시 worktree 접근을 차단한 전역 전체 106개 회귀도 통과했다. 구현 커밋 `d7bffa3`을 main에 통합·push하고 원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43170669712)을 확인했다. 소유 임시 worktree·브랜치는 정리했으며 최종 증거 문서도 전역 동일성 검사에 포함한다.
+
+## 전체 스킬 누락 보완.
+
+[설계](superpowers/specs/2026-11-12-skill-coverage-design.md)·[계획](superpowers/plans/2026-11-12-skill-coverage.md)·[검증 기록](reviews/2026-11-12-skill-coverage.md)을 기준으로 한다. 기존 대표 목록과 제한된 카탈로그에서 빠졌던 시스템·플러그인과 전체 분야 배치를 보완한다. 조사한 유효 패키지는 직접·시스템 136개와 선택된 플러그인 108개, 합계 244개이며 조사 세션 노출은 181개다. 루트 SKILL이 없는 후보 2개는 제외 사유를 기록한다. 미노출 63개 중 금융 라우터 전문 가이드 44개·Data 부속 5개는 직접 호출 가능성으로 바꾸지 않는다.
+
+전체 108개 회귀와 독립 리뷰를 통과했고 발견된 라우터 metadata 분류는 RED→GREEN으로 수정했다. 전역 백업 후 183개 파일·SHA 동일성과 153개 Markdown 링크를 확인하고 원본 저장소·작업 공간 접근 차단 전체 108개 회귀도 통과했다. 현재 커밋·통합·배포를 진행하며 최종 증거 문서까지 전역 동일성을 다시 확인한다. 실행 스킬·권한·인증과 기존 history는 보존한다.

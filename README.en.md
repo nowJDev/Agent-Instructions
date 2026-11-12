@@ -96,7 +96,7 @@ The linked guides and catalogs below are in Korean.
 | How to use the instructions and understand files and terms. | [Detailed guide](GUIDE.md). |
 | Rules the agent should follow. | [Core rules](AGENTS.md), [verification](rules/01_enforcement-system.md), [tool boundaries](rules/02_tool-boundaries.md). |
 | Adaptation for another agent. | [Portability](PORTABILITY.md). |
-| Choose skills for spreadsheets, slides, and other tasks. | [Task-based selection guide](Skill/BY-TASK.md). |
+| Find all registered skills by task and choose a workflow. | [Complete task lists and quick selection](Skill/BY-TASK.md). |
 | All skills, external tools, sources, and setup requirements. | [Skill catalog](Skill/CATALOG.md), [sources and setup](Skill/README.md), [MCP guide](MCP/README.md). |
 | Tools and execution requirements for documents, design, and Unity. | [Anthropic skills](Skill/anthropic-skills/README.md), [Office and design tools](Skill/office-design-tools/README.md), [Unity connection](MCP/coplay-funplay-unity-mcp.md). |
 | Installable skills authored in this repository. | [Owned skills](Owned-Skills/README.md). |
@@ -109,6 +109,8 @@ A skill teaches an agent how to perform a task; MCP connects it to external tool
 <summary><strong>Are all listed tools installed automatically?</strong></summary>
 
 The skills and MCP catalogs provide descriptions and sources. They are separate from your environment's installation, exposure, and authentication state. Set up only the tools you need from their original sources. Installable skills authored here are in `Owned-Skills/`.
+
+The [task lists](Skill/BY-TASK.md) link every registered description and source, alongside quick selection guidance. The [dated inventory](references/skill-inventory-2026-11-12.json) reconciles direct installations, system packages, and currently provided plugin bundles with registered targets or exclusion reasons. Different implementations with the same name and specialist guides not directly exposed in the session remain distinct, so row counts do not represent currently callable skills.
 
 </details>
 

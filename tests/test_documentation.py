@@ -2,6 +2,7 @@
 from collections import Counter
 from html import unescape
 from pathlib import Path
+import json
 import re
 import tempfile
 import unittest
@@ -20,6 +21,7 @@ GROUPS = {
     'anthropic-skills': 19, 'office-design-tools': 3,
     '_disabled/vercel': 13, '_disabled/hookify': 5, '_disabled/neon': 2,
     '_disabled/railway': 1, '_disabled/semgrep': 1,
+    'codex-local': 16, 'codex-plugins': 108,
 }
 HISTORY = {
     '2026-10-12-readme-mermaid': 1, '2026-10-13-client-cli-setup': 3,
@@ -119,6 +121,66 @@ def link_errors(root, relative, text):
 
 
 class DocumentationTests(unittest.TestCase):
+    def test_every_registered_skill_is_reachable_by_task(self):
+        catalog = set(markdown_links((ROOT / 'Skill/CATALOG.md').read_text(encoding='utf-8')))
+        entries = {target for target in catalog if 'README.md#' in target or target.endswith('/SKILL.md')}
+        entries.update('../' + p.relative_to(ROOT).as_posix()
+                       for p in (ROOT / 'Owned-Skills').glob('*/SKILL.md'))
+        guide = set(markdown_links((ROOT / 'Skill/BY-TASK.md').read_text(encoding='utf-8')))
+        self.assertEqual(entries - guide, set(), '등록된 모든 항목을 분야에서 찾을 수 있어야 한다.')
+
+    def test_installed_and_plugin_inventory_has_no_unexplained_omissions(self):
+        path = ROOT / 'references/skill-inventory-2026-11-12.json'
+        self.assertTrue(path.is_file(), '설치·노출·제외를 대조한 전수조사 증거가 필요하다.')
+        inventory = json.loads(path.read_text(encoding='utf-8'))
+        records = inventory['discoveries']
+        self.assertEqual(len({r['id'] for r in records}), len(records))
+        registered = [r for r in records if r.get('target')]
+        self.assertEqual(len(registered), 244)
+        self.assertEqual(sum(r['session_exposed'] for r in registered), 181)
+        self.assertEqual(sum(r.get('allow_implicit_invocation') is False for r in registered), 63)
+        self.assertEqual(len(records) - len(registered), 2)
+        scopes = Counter(r['source'] for r in registered)
+        self.assertEqual({k: scopes[k] for k in ('user', 'codex-user', 'codex-system')},
+                         {'user': 130, 'codex-user': 1, 'codex-system': 5})
+        self.assertEqual(sum(v for k, v in scopes.items() if k.startswith('plugin:')), 108)
+        self.assertEqual(sum(k.startswith('plugin:') for k in scopes), 17)
+        entries = {r['target'] for r in inventory['entries']}
+        kinds = {r['target']: r['kind'] for r in inventory['entries']}
+        catalog = set(markdown_links((ROOT / 'Skill/CATALOG.md').read_text(encoding='utf-8')))
+        self.assertEqual(entries, {t for t in catalog if 'README.md#' in t or t.endswith('/SKILL.md')})
+        for record in records:
+            with self.subTest(id=record['id']):
+                self.assertNotIn('skill_path', record)
+                self.assertNotIn('policy_path', record)
+                self.assertTrue(bool(record.get('target')) != bool(record.get('excluded_reason')))
+                if record.get('target'):
+                    self.assertIn(record['target'], entries)
+                    if record.get('descriptor_kind') == 'router':
+                        self.assertEqual(kinds[record['target']], 'plugin-router')
+                    path, _, fragment = record['target'].partition('#')
+                    detail = (ROOT / 'Skill' / path).resolve().read_text(encoding='utf-8')
+                    if fragment:
+                        detail = catalog_sections(detail)[fragment]
+                    if record.get('allow_implicit_invocation') is False:
+                        self.assertIn('명시 호출', detail)
+                    if not record['session_exposed'] and record['source'].startswith('plugin:'):
+                        self.assertIn('비노출', detail)
+                else:
+                    self.assertGreater(len(record['excluded_reason']), 10)
+        names = {r['call_name'] for r in records if r['session_exposed']}
+        self.assertTrue({'spreadsheets:Spreadsheets', 'spreadsheets:excel-live-control',
+                         'data-analytics:analyze-data-quality', 'data-analytics:visualize-data',
+                         'data-analytics:build-dashboard'} <= names)
+        guide = (ROOT / 'Skill/BY-TASK.md').read_text(encoding='utf-8')
+        for entry in inventory['entries']:
+            self.assertTrue(entry['categories'], entry['target'])
+            for anchor in entry['categories']:
+                section = guide.split('<a id="' + anchor + '"></a>', 1)[1].split('<a id="task-', 1)[0]
+                self.assertIn(entry['target'], markdown_links(section))
+        encoded = json.dumps(inventory, ensure_ascii=False)
+        self.assertNotRegex(encoded, r'(?i)C:[/\\]+Users|AppData[/\\]|\.codex[/\\]+plugins[/\\]+cache')
+
     def test_task_navigation_routes_existing_entries(self):
         document = ROOT / 'Skill/BY-TASK.md'
         self.assertTrue(document.is_file(), '분야별 안내가 필요하다.')
@@ -136,10 +198,15 @@ class DocumentationTests(unittest.TestCase):
             'task-agent-integration': '../Owned-Skills/coplay-funplay-unity-mcp-setup/SKILL.md',
             'task-environment': '_personal/README.md#handover',
             'task-deployment': '_disabled/railway/README.md#use-railway',
+            'task-data-analysis': 'codex-plugins/README.md#data-analytics-analyze-data-quality',
+            'task-knowledge-management': 'codex-plugins/README.md#notion-notion-knowledge-capture',
+            'task-finance': 'codex-plugins/README.md#investment-banking-investment-banking',
+            'task-music': 'codex-plugins/README.md#spotify-search-spotify',
         }
         self.assertEqual({a for a in anchor_ids(text) if a.startswith('task-')}, set(routes))
         catalog = markdown_links((ROOT / 'Skill/CATALOG.md').read_text(encoding='utf-8'))
-        allowed = set(catalog) | {'README.md', 'CATALOG.md', '../Owned-Skills/README.md'}
+        allowed = set(catalog) | {'README.md', 'CATALOG.md', '../Owned-Skills/README.md',
+                                  '../references/skill-inventory-2026-11-12.json'}
         allowed.update('../' + p.relative_to(ROOT).as_posix()
                        for p in (ROOT / 'Owned-Skills').glob('*/SKILL.md'))
         allowed.update('#' + anchor for anchor in routes)
@@ -192,7 +259,7 @@ class DocumentationTests(unittest.TestCase):
             self.assertEqual(list(document.parent.glob('*.md')), [document])
         links = [target for target in markdown_links((ROOT / 'Skill/CATALOG.md').read_text(encoding='utf-8'))
                  if 'README.md#' in target]
-        self.assertEqual(len(links), 144)
+        self.assertEqual(len(links), sum(GROUPS.values()))
         self.assertEqual(set(links), expected_links)
 
     def test_catalog_boundaries_ignore_code_and_reject_duplicates(self):
