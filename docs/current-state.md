@@ -38,4 +38,4 @@
 
 [설계](superpowers/specs/2026-11-12-skill-coverage-design.md)·[계획](superpowers/plans/2026-11-12-skill-coverage.md)·[검증 기록](reviews/2026-11-12-skill-coverage.md)을 기준으로 한다. 기존 대표 목록과 제한된 카탈로그에서 빠졌던 시스템·플러그인과 전체 분야 배치를 보완한다. 조사한 유효 패키지는 직접·시스템 136개와 선택된 플러그인 108개, 합계 244개이며 조사 세션 노출은 181개다. 루트 SKILL이 없는 후보 2개는 제외 사유를 기록한다. 미노출 63개 중 금융 라우터 전문 가이드 44개·Data 부속 5개는 직접 호출 가능성으로 바꾸지 않는다.
 
-전체 108개 회귀와 독립 리뷰를 통과했고 발견된 라우터 metadata 분류는 RED→GREEN으로 수정했다. 전역 백업 후 183개 파일·SHA 동일성과 153개 Markdown 링크를 확인하고 원본 저장소·작업 공간 접근 차단 전체 108개 회귀도 통과했다. 현재 커밋·통합·배포를 진행하며 최종 증거 문서까지 전역 동일성을 다시 확인한다. 실행 스킬·권한·인증과 기존 history는 보존한다.
+전체 108개 회귀와 독립 리뷰를 통과했고 발견된 라우터 metadata 분류는 RED→GREEN으로 수정했다. 전역 백업 후 183개 파일·SHA 동일성과 153개 Markdown 링크를 확인하고 원본 저장소·작업 공간 접근 차단 전체 108개 회귀도 통과했다. 구현 커밋 `c4edf3c`을 main에 통합·push하고 원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43175064452)을 확인했다. 소유 임시 worktree·브랜치는 정리했으며 최종 증거 문서도 전역 동일성 검사에 포함한다. 실행 스킬·권한·인증과 기존 history는 보존한다.
