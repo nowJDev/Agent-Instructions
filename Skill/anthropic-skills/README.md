@@ -35,6 +35,8 @@ python -X utf8 -B scripts/install_anthropic_skills.py --apply
 
 설치 후 기본 검사 명령을 다시 실행하고 새 Codex 프로세스에서 19개 이름·실제 경로·본문·호출 정책을 확인한다. 파일 배치, 클라이언트 발견과 실제 기능 수행은 서로 다른 증거다. 이 설명만으로 특정 PC의 설치나 기능 검증 완료를 뜻하지 않는다. [승인 설계](../../docs/superpowers/specs/2026-11-12-anthropic-skills-design.md)와 [실행 계획](../../docs/superpowers/plans/2026-11-12-anthropic-skills.md)에 작업 범위를 기록한다.
 
+2026-11-12의 [19개 실제 샘플 검증](../../docs/reviews/2026-11-12-anthropic-functional.md)은 통과 13개·조건부 5개·번들 실패 1개를 구분한다. 이 Windows 환경에서는 Office helper의 AF_UNIX 의존, with_server의 자식 서버 정리와 웹 아티팩트의 SWC 실행 제한이 확인됐다. 설치 완료를 모든 보조 도구의 호환성 보장으로 해석하지 않는다. 전역 원본은 수정하지 않았으며 필요한 도구와 사용 조건은 해당 기록을 따른다.
+
 ## anthropic-academy-guide
 
 Claude를 배우려는 목적에 맞는 Academy 과정·튜토리얼·사용 사례를 찾는 스킬이다. 학습 안내에 사용하며 제품 사용법의 최신성은 원본이 연결하는 공식 자료에서 확인한다. 자동 선택을 허용한다. [원본 패키지](https://github.com/anthropics/skills/tree/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/academy-guide)를 따른다.

@@ -1,6 +1,17 @@
 <!-- 최신 작업과 이전 문서 통합의 구현·검증·배포 결과를 추적한다. -->
 # 설계 진행 체크리스트.
 
+## 2026-11-12 Anthropic 실제 작업 검증과 GitHub 반영.
+
+[계획](superpowers/plans/2026-11-12-anthropic-functional.md)과 [실제 작업 기록](reviews/2026-11-12-anthropic-functional.md)에 19개별 판정과 실행 범위를 기록한다.
+
+- [x] 개별 실제 작업 검증과 GitHub push의 추가 승인을 확인했다.
+- [x] 19개 전역 설치본을 읽고 문서·시각·웹·SDK·MCP·스킬 제작·문장 샘플을 실제 수행했다.
+- [x] 대표 통과 13개·조건부 5개·번들 실패 1개를 구분하고 원본 helper 호환성 실패를 보존했다.
+- [x] 독립 독자·합산 스킬 실행과 산출물 해시·소유 프로세스 정리를 확인했다.
+- [ ] 공개 보고 독립 검토·전체 회귀·문서 게이트 뒤 커밋·로컬 통합·GitHub push·원격 SHA와 CI를 확인한다.
+- [ ] 최종 기록과 소유 worktree·브랜치 정리를 마친다.
+
 ## 2026-11-12 Anthropic 스킬 설치.
 
 [설계](superpowers/specs/2026-11-12-anthropic-skills-design.md), [계획](superpowers/plans/2026-11-12-anthropic-skills.md), [전수조사·검증](reviews/2026-11-12-anthropic-skills.md)에 실제 범위와 증거를 기록한다.
