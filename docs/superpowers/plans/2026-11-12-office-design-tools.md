@@ -38,5 +38,5 @@
 - [x] `references/office-design-tools.lock.json`과 `Skill/office-design-tools/README.md`에 원본·설치·호출·제약을 기록했다.
 - [x] `Skill/README.md`, `Skill/CATALOG.md`, `tests/test_documentation.py`의 그룹과 설명 수를 함께 갱신했다. 단순 카탈로그 데이터 변경에는 새 동작 테스트를 만들지 않고 기존 구조·링크 검사를 실행했다.
 - [x] `docs/reviews/2026-11-12-office-design-tools.md`, 현재 상태·체크리스트에 실제 결과를 기록했다.
-- [ ] 전체 회귀·공개 정보 검사·독립 리뷰 후 커밋·main 통합·push·SHA·두 OS CI를 확인한다.
-- [ ] 소유 임시 worktree·브랜치·프로세스를 정리하고 증거를 보존한다.
+- [x] 전체 103개 회귀·공개 정보 검사·독립 리뷰 후 커밋 `91c5763`의 main 통합·push·SHA 일치·두 OS CI 성공을 확인했다.
+- [x] 소유 임시 worktree·브랜치·프로세스를 정리하고 증거를 보존했다.

@@ -3,7 +3,7 @@
 
 ## 2026-11-12 Office·디자인 도구 세 가지 설치.
 
-사용자 요청에 따라 PPT Master·OfficeCLI·Huashu Design의 전역 실행본과 [관리 안내](../Skill/office-design-tools/README.md)를 추가했다. [설계](superpowers/specs/2026-11-12-office-design-tools-design.md)·[계획](superpowers/plans/2026-11-12-office-design-tools.md)·[검증 기록](reviews/2026-11-12-office-design-tools.md)에 고정 원본·실제 샘플·실패 조건·사용 환경을 기록한다. 세 스킬은 명시 호출 전용이며 타사 실물·바이너리는 공개하지 않는다. PPT Master 원본 13,091파일·Huashu 445파일과 기존 전역 1,193파일을 보존했다. OfficeCLI는 1.0.160과 전용 사용자 PATH·자동 갱신/설치 제한을 적용했다. 새 사용자 Codex 프로세스의 홈·저장소에서 스킬 151개와 세 항목의 전역 발견·동명 중복 0개를 확인했다. 실제 파일 생성·변환·수식 계산을 검사했으며 일반 디자인 품질과 실제 Office 렌더는 미검증이다. 독립 리뷰·전체 회귀와 원격 배포는 최종 기록에서 확정한다.
+사용자 요청에 따라 PPT Master·OfficeCLI·Huashu Design의 전역 실행본과 [관리 안내](../Skill/office-design-tools/README.md)를 추가했다. [설계](superpowers/specs/2026-11-12-office-design-tools-design.md)·[계획](superpowers/plans/2026-11-12-office-design-tools.md)·[검증 기록](reviews/2026-11-12-office-design-tools.md)에 고정 원본·실제 샘플·실패 조건·사용 환경을 기록한다. 세 스킬은 명시 호출 전용이며 타사 실물·바이너리는 공개하지 않는다. PPT Master 원본 13,091파일·Huashu 445파일과 기존 전역 1,193파일을 보존했다. OfficeCLI는 1.0.160과 전용 사용자 PATH·자동 갱신/설치 제한을 적용했다. 새 사용자 Codex 프로세스의 홈·저장소에서 스킬 151개와 세 항목의 전역 발견·동명 중복 0개를 확인했다. 실제 파일 생성·변환·수식 계산을 검사했으며 일반 디자인 품질과 실제 Office 렌더는 미검증이다. 독립 리뷰와 전체 103개 회귀를 통과했다. 구현 커밋 `91c5763`을 main에 통합·push하고 병합 후 103개 재검사·원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43137534239)을 확인했다. 임시 worktree·브랜치·소유 검증 프로세스를 정리하고 비공개 증거는 보존했다.
 
 ## 2026-11-12 Anthropic 실제 작업 검증과 GitHub 반영.
 
