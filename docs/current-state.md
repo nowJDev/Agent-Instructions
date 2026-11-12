@@ -24,4 +24,4 @@
 
 ## 이번 문서 정리.
 
-[설계](superpowers/specs/2026-11-12-docs-refresh-design.md)·[계획](superpowers/plans/2026-11-12-docs-refresh.md)·[검증 기록](reviews/2026-11-12-docs-refresh.md)에 전수조사·보관·링크·보호·배포 결과를 기록한다. 이전 설치 작업은 main에 push됐고 최종 기록 커밋은 `3c4dd83`이다. 문서 정리의 검증·리뷰·새 커밋과 CI는 이번 작업 기록으로 확정한다.
+[설계](superpowers/specs/2026-11-12-docs-refresh-design.md)·[계획](superpowers/plans/2026-11-12-docs-refresh.md)·[검증 기록](reviews/2026-11-12-docs-refresh.md)에 전수조사·보관·링크·보호·배포 결과를 기록한다. 이전 설치 작업의 최종 기록은 `3c4dd83`이다. 이번 정리 커밋 `1b380db`를 main에 통합·push하고 전체 103개 회귀·독립 리뷰·원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43142480610)을 확인했다. 소유 임시 worktree·브랜치는 정리했으며 전역 복제본·설치 환경은 이번 변경 대상에 포함하지 않았다.
