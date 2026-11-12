@@ -1,5 +1,7 @@
 # railway (MCP)
 
+> 설치·활성·캐시·도구 접두사는 작성 당시 Claude Code 환경의 기록이다. 현재 클라이언트의 연결·인증·실제 도구명과 인자는 런타임 목록에서 확인한다.
+
 > Railway CLI를 백엔드로 하는 로컬 stdio MCP 서버. CLI 기반 플랫폼 작업(변수·도메인·서비스 설정·메트릭·버킷·문서·디렉토리 배포 등)을 MCP 도구로 노출.
 
 ## 📌 용도
@@ -48,4 +50,4 @@ railway mcp
 - 활성화: ⛔ OFF (enabledPlugins = false)
 - 연결 방식: 로컬 stdio (`command: railway`, `args: ["mcp"]`) — 도구는 런타임 노출 / 별도 원격 MCP(HTTP, `https://mcp.railway.com`) 옵션도 존재
 - 캐시 경로: `~/.claude/plugins/cache/claude-plugins-official/railway/1.2.4/.cursor-plugin/mcp.json`
-  - (지시상 경로는 `1.2.1`이었으나 현재 설치 최신본은 `1.2.4`. 동일 mcp.json 구조가 각 버전 디렉토리에 존재)
+  - (작성 당시 지시상 경로는 `1.2.1`이었으나 확인한 캐시의 최신본은 `1.2.4`였다. 동일 mcp.json 구조가 각 버전 디렉토리에 존재했다.)

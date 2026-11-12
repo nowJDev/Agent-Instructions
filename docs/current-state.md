@@ -1,46 +1,27 @@
-<!-- 최신 문서 구조와 검증·배포 결과 및 남은 검증 경계만 요약한다. -->
+<!-- 현재 문서 구성과 사용 안내·실제 검증 경계를 요약한다. -->
 # 현재 상태.
 
-## 2026-11-12 Office·디자인 도구 세 가지 설치.
+## 현재 구성과 길찾기.
 
-사용자 요청에 따라 PPT Master·OfficeCLI·Huashu Design의 전역 실행본과 [관리 안내](../Skill/office-design-tools/README.md)를 추가했다. [설계](superpowers/specs/2026-11-12-office-design-tools-design.md)·[계획](superpowers/plans/2026-11-12-office-design-tools.md)·[검증 기록](reviews/2026-11-12-office-design-tools.md)에 고정 원본·실제 샘플·실패 조건·사용 환경을 기록한다. 세 스킬은 명시 호출 전용이며 타사 실물·바이너리는 공개하지 않는다. PPT Master 원본 13,091파일·Huashu 445파일과 기존 전역 1,193파일을 보존했다. OfficeCLI는 1.0.160과 전용 사용자 PATH·자동 갱신/설치 제한을 적용했다. 새 사용자 Codex 프로세스의 홈·저장소에서 스킬 151개와 세 항목의 전역 발견·동명 중복 0개를 확인했다. 실제 파일 생성·변환·수식 계산을 검사했으며 일반 디자인 품질과 실제 Office 렌더는 미검증이다. 독립 리뷰와 전체 103개 회귀를 통과했다. 구현 커밋 `91c5763`을 main에 통합·push하고 병합 후 103개 재검사·원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43137534239)을 확인했다. 임시 worktree·브랜치·소유 검증 프로세스를 정리하고 비공개 증거는 보존했다.
+2026-11-12 기준이다. README는 시작 안내, GUIDE는 사용법, AGENTS와 rules는 행동 규칙이다. [스킬 카탈로그](../Skill/CATALOG.md)는 설명 144개를 26그룹으로 정리하며 [자체 제작 원본](../Owned-Skills/README.md)은 26패키지다. 설명 수는 설치·인증·현재 클라이언트 노출 수와 다르다. [MCP 안내](../MCP/README.md)도 도구별 조건과 작성 당시 상태를 구분한다.
 
-## 2026-11-12 Anthropic 실제 작업 검증과 GitHub 반영.
+| 필요한 안내. | 기준 문서. |
+|---|---|
+| Anthropic 19개 이름·이전·명시 호출 10개. | [전역 설치 안내](../Skill/anthropic-skills/README.md), [고정 명세](../references/anthropic-skills.lock.json). |
+| PPT Master·OfficeCLI·Huashu Design. | [설치·전용 런타임·명시 호출 안내](../Skill/office-design-tools/README.md), [고정 명세](../references/office-design-tools.lock.json). |
+| Unity MCP와 프로젝트 연결. | [Coplay·Funplay 안내](../MCP/coplay-funplay-unity-mcp.md). |
+| 다른 AI로 이식하거나 현재 도구 확인. | [PORTABILITY](../PORTABILITY.md), [사용 안내](../GUIDE.md). |
+| 실행 기록·과거 주소·버전별 증거. | [작업 기록 목차](history/README.md). |
 
-사용자가 후속 요청으로 19개 개별 스킬의 실제 작업 검증과 GitHub push를 승인했다. [실행 계획](superpowers/plans/2026-11-12-anthropic-functional.md)과 [실제 작업 기록](reviews/2026-11-12-anthropic-functional.md)에 산출물·도구·실패·미검증을 구분한다. 대표 샘플 통과 13개, 조건부 5개, 환경 제한으로 React 번들 실패 1개다. API는 로컬 SDK 정상·오류 처리만, Office는 파일 생성과 구조·색·폰트 검증만 완료한 항목이 있으며 DOCX/PPTX 렌더·XLSX 재계산은 미완료다. 웹 UI는 실제 조작을 통과했지만 원본 helper의 Windows 자식 서버 자동 정리는 실패해 이번 프로세스를 별도 확인·정리했다. 전역 원본·권한·개인 설정은 변경하지 않았다. 합성 문서는 독립 독자 검사와 수정·재검사를 수행했고 새 합산 스킬은 별도 실행자가 3개 입력을 통과했다. 커밋 `0905a06`을 main에 통합하고 병합 후 103개 회귀를 통과했다. 기존 미푸시 4개 커밋 이력을 보존해 push했으며 원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43134239347)을 확인했다. 임시 worktree·브랜치는 정리하고 비공개 증거는 보존했다. 아래 이전 작업의 미푸시 표기는 당시 상태다.
+종료한 설계·계획·리뷰 54개는 작업별 기록 20개로 보관한다. 과거의 설치 수·미푸시·대기 문구는 당시 상태이며 현재 지시가 아니다. 최초 파일 배치·새 프로세스 발견·실제 기능 수행은 서로 다른 검증이다.
 
-## 2026-11-12 Anthropic 스킬 설치.
+## 확인된 기능과 남은 경계.
 
-[승인 설계](superpowers/specs/2026-11-12-anthropic-skills-design.md)에 따라 공식 19개 스킬을 전역에 설치하고 기존 2개를 백업·이전했다. 설치기·고정 명세·공급자 접두어와 141개 설명 카탈로그를 추가했다. [계획](superpowers/plans/2026-11-12-anthropic-skills.md)과 [전수조사·검증 기록](reviews/2026-11-12-anthropic-skills.md)에 조사 범위·기존 역할 중첩·호출 제한 10개와 독립 리뷰 결함 4개의 수정 증거를 기록한다. Python 3.12 전체 103개 회귀, 보호 971파일 동일성, 재설치 무변경과 새 사용자 프로세스의 홈·저장소 스킬 147개 발견을 확인했다. 동명·원문·정규화 본문 중복은 모두 0개다. 사용자가 승인한 새 패키지·상태 파일의 Windows ACL 상속을 복원한 뒤 현재 에이전트의 19개 본문 직접 읽기와 검사 CLI도 통과했다. 구현 커밋 `44e85c8`을 로컬 main에 통합하고 병합 후 103개 회귀를 재검증한 뒤 소유 임시 worktree·브랜치를 정리했다. 다른 클라이언트·플러그인·자체 제작 스킬·개인 자료와 이번 설치와 무관한 기존 역할 중첩은 보존했다. 실제 모델 기능 실행과 원격 push는 수행하지 않았다.
+- Anthropic 설치·중복 조사는 [설치 기록](history/2026-11-12-anthropic-skills.md#review)에 있다. 별도 [실제 작업 검증](history/2026-11-12-anthropic-functional.md#review)은 대표 통과 13개·조건부 5개·SWC 번들 실패 1개다. Windows Office helper의 AF_UNIX·렌더·재계산과 웹 helper의 자동 자식 서버 정리 문제를 통과 처리하지 않는다.
+- Office/design 세 도구의 [별도 샘플](history/2026-11-12-office-design-tools.md#review)은 파일 생성·변환·수식 캐시·HTML 렌더와 실패 조건을 확인했다. 전용 Python과 Huashu 브라우저 경로가 필요하며 실제 Office 렌더 동일성·외부 API·전체 기능은 미검증이다. 다른 Anthropic helper의 실패를 수정한 증거는 아니다.
+- Unity의 [설치 기록](history/2026-11-11-coplay-funplay-unity-mcp.md#review)은 SDK 연결·도구와 새 스킬 발견을 확인했다. 두 프로젝트 패키지·실제 Editor 연결과 Funplay 주소 등록은 연기됐다.
+- 과거 글로벌 문서 복제·개인 자료 보존과 고정 출처 조사는 [보관 목차](history/README.md)에 있다. 이번 문서 정리는 지정 저장소를 대상으로 하며 전역 실행본·개인 설정·권한을 변경하지 않는다.
 
-## 2026-11-11 Unity MCP 추가.
+## 이번 문서 정리.
 
-사용자 요청에 따라 CoplayDev/unity-mcp와 FunplayAI/funplay-unity-mcp의 설치·전역 등록 안내를 [Unity MCP 문서](../MCP/coplay-funplay-unity-mcp.md)에 추가하고 MCP 목차·이식 표에서 연결했다. 프로젝트 설치는 나중으로 미룬다는 후속 지시에 따라 [coplay-funplay-unity-mcp-setup](../Owned-Skills/coplay-funplay-unity-mcp-setup/SKILL.md)을 자체 제작 원본에 추가했다. 자체 제작 원본은 26개다. CoplayDev/unity-mcp 전역 서버 `10.3.0`과 Codex stdio 등록, SDK의 MCP 응답·도구 48개를 확인했으며 기존 설정을 보존했다. 전역 스킬·문서의 원본 해시와 중복 정리를 확인했고 새 Codex 프로세스에서 새 스킬의 enabled·사용자 범위·실제 경로를 발견했다. Windows Python 3.12 전체 84개 회귀·내부 링크·diff 검사와 스킬 유효성 검사를 통과했다. FunplayAI/funplay-unity-mcp 주소 등록·두 Unity 패키지 설치·실제 Editor 연결은 연기했으며 실제 모델 호출·Codex 세션의 MCP 도구 발견은 미검증이다. [설계](superpowers/specs/2026-11-11-coplay-funplay-unity-mcp-design.md), [계획](superpowers/plans/2026-11-11-coplay-funplay-unity-mcp.md), [검증 기록](reviews/2026-11-11-coplay-funplay-unity-mcp.md)에 범위와 증거를 남긴다. 구현 커밋 `be04619`를 로컬 main에 통합하고 병합 후 전체 84개 회귀를 다시 통과했다. 이번 임시 worktree·브랜치는 정리했으며 원격 push는 수행하지 않았다.
-
-## 2026-11-11 README 개편.
-
-사용자가 승인한 [설계](superpowers/specs/2026-11-11-readme-bilingual-design.md)와 [계획](superpowers/plans/2026-11-11-readme-bilingual.md)에 따라 한국어 README를 정리하고 영어 전환·대표 이미지2개를 추가했다. 기존 fragment9개와 운영 규칙·GUIDE를 보존했다. Windows Python3.12 전체84개가 통과했고 독립 리뷰에서 확정 결함을 발견하지 못했다. 구현 커밋 `5278e2a`를 main에 병합·push하고 원격 SHA 일치, 실제 GitHub의 한·영 전환·데스크톱·모바일·테마 및 두 OS CI 성공을 확인했다. 임시 브랜치·worktree·탭·캡처도 정리했다. 상세 증거는 [검증 기록](reviews/2026-11-11-readme-bilingual.md)에 있다. 전역 복제본 동기화는 이번 요청 범위에 포함하지 않는다.
-
-## 이전 문서 통합 작업의 기록.
-
-2026-11-09 [승인 설계](superpowers/specs/2026-11-09-document-consolidation-design.md)에 따라 문서 통합과 글로벌 적용을 완료했다. [실행 계획](superpowers/plans/2026-11-09-document-consolidation.md)과 [검증·배포 기록](reviews/2026-11-09-document-consolidation.md)에 증거를 남겼다.
-
-## 문서 통합 당시 구성.
-
-- 전체 추적 파일은270개에서154개로116개 줄었다.
-- 카탈로그121개 설명은23개 그룹 README에 있다. [전체 항목 목차](../Skill/CATALOG.md)에서 해당 절로 이동한다.
-- 과거 설계·계획·리뷰37개는 [14개 작업 기록과 목차](history/README.md)로 보관한다. 승인·실패·미검증 원문을 유지한다.
-- 설치 가능한 자체 제작25개 패키지·62파일, MCP17파일, 출처 JSON과 평가 자료는 보존했다.
-
-## 검증과 적용.
-
-- Windows Python3.12 전체80개가 통과했다. 독립 리뷰의3개 발견은 실패 반례를 확인한 뒤 수정했다.
-- 구현 커밋 b040f65를 main에 통합·push하고 [GitHub CI](https://github.com/nowJDev/Agent-Instructions/actions/runs/42541330739)의 Ubuntu·Windows 성공을 확인했다. Ubuntu는80개 중 Windows 전용4개를 의도적으로 건너뛰고 Windows는80개 전부 통과했다.
-- 기존 글로벌 복사본은 관리 문서154개와 개인 문서2개를 합쳐156개다. 개인 목차·개인 지침과 설정·인증·실행 스킬743파일을 보존했다. 새 읽기 전용 CLI 세션에서 글로벌 지침과 통합 문서의 실제 로드를 확인했다.
-- 임시 브랜치·worktree 등록과 내용 파일을 정리했다. 비어 있는 임시 폴더 하나는 운영체제 프로세스 잠금으로 남아 있으며 사용자 앱을 강제로 종료하지 않았다. 복구 백업은 비공개 글로벌 백업 위치에 보존했다.
-
-## 과거 검증의 경계.
-
-[이전 Superpowers 작업](history/2026-11-05-superpowers-update.md#review)의 Claude 실제 모델 호출은 당시 미검증이었다. 이번 문서 통합으로 통과 처리하지 않는다. 전역102개·출처132개·새 CLI 발견122개는 [2026-11-06 기록](history/2026-11-06-codex-skills-update.md#review)의 서로 다른 집계다.
-
-일일 업무보고의 새 세션·회귀·합성 비교와 배치 시뮬레이션 제한은 [추가 검증 기록](history/2026-10-15-portable-skill-workflows.md#daily-work-report-verification)에 보존했다.
+[설계](superpowers/specs/2026-11-12-docs-refresh-design.md)·[계획](superpowers/plans/2026-11-12-docs-refresh.md)·[검증 기록](reviews/2026-11-12-docs-refresh.md)에 전수조사·보관·링크·보호·배포 결과를 기록한다. 이전 설치 작업은 main에 push됐고 최종 기록 커밋은 `3c4dd83`이다. 문서 정리의 검증·리뷰·새 커밋과 CI는 이번 작업 기록으로 확정한다.

@@ -1,7 +1,7 @@
 <!-- 같은 출처의 카탈로그 항목과 예제·실패 처리·출처를 모아 안내한다. -->
 # plugin-dev 설명 카탈로그.
 
-설명 문서이며 실행 스킬 설치본이 아니다. 활성 표시는 작성 당시 환경의 기록이다. [전체 항목 목차](../CATALOG.md)에서 다른 분류를 찾는다.
+설명 문서이며 실행 스킬 설치본이 아니다. ON/OFF·캐시 표시는 작성 당시 Claude Code 환경의 기록이며 현재 클라이언트의 설치·노출·인증 상태와 구분한다. [전체 항목 목차](../CATALOG.md)에서 다른 분류를 찾는다.
 
 - [agent-development](#agent-development).
 - [command-development](#command-development).

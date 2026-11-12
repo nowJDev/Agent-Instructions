@@ -1,5 +1,7 @@
 # notion
 
+> 설치·활성·캐시·도구 접두사는 작성 당시 Claude Code 환경의 기록이다. 현재 클라이언트의 연결·인증·실제 도구명과 인자는 런타임 목록에서 확인한다.
+
 > Notion 워크스페이스의 페이지·데이터베이스·블록·댓글·사용자를 Notion 공식 REST API로 직접 읽고 쓰는 MCP 서버.
 
 ## 📌 용도
@@ -78,7 +80,7 @@ Notion의 공식 `@notionhq/notion-mcp-server`를 stdio로 띄워, Claude가 Not
 
 ## 📦 출처 / 설치 상태
 - 제공: **글로벌 mcpServers** (`~/.claude.json` 최상위 `mcpServers`에 등록)
-- 활성화: ON (전역 등록이므로 모든 프로젝트에서 사용 가능)
+- 활성화 기록: 작성 당시 Claude Code의 전역 등록은 ON이었다. 현재 클라이언트의 연결·도구 노출·토큰 권한은 별도로 확인한다.
 - 연결 방식: **stdio** — `npx -y @notionhq/notion-mcp-server`
 - 인증: 환경변수나 클라이언트의 보안 저장소를 통해 Notion 통합 토큰과 `Notion-Version` 헤더를 주입
   - ⚠️ 실제 토큰·인증 헤더·개인 설정 파일은 저장소에 포함하지 않는다.

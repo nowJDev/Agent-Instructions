@@ -1,9 +1,11 @@
 # 스킬 인덱스
 
-2026-11-06의 [Codex 전용 업데이트](../references/codex-skill-update-2026-11-06.md)는 기존 후보 57개 중 48개 패키지를 갱신하고 9개를 동일 유지했다. 당시 Codex에서는 `firecrawl-cli`가 `firecrawl`로 바뀌고 `skill-gen`이 퇴역해 전역 설치는 102개였다. 아래 설명 카탈로그 100개와 Claude 설치 상태는 별개로 보존한다. [출처 관리 132개 목록](../references/codex-skill-versions-2026-11-06.json)은 새 CLI 발견 122개와 구분하며 원본 번들 버전을 실제 CLI·서버 버전으로 대신하지 않는다. Qodo 2개와 공식 경로에서 버전을 선택할 수 없는 네이티브 항목은 보류했다.
+2026-11-06의 [Codex 전용 업데이트](../references/codex-skill-update-2026-11-06.md)는 기존 후보 57개 중 48개 패키지를 갱신하고 9개를 동일 유지했다. 당시 Codex에서는 `firecrawl-cli`가 `firecrawl`로 바뀌고 `skill-gen`이 퇴역해 전역 설치는 102개였다. 당시 일반 설명 카탈로그 100개와 Claude 설치 상태는 그 날짜의 기록으로 보존한다. [출처 관리 132개 목록](../references/codex-skill-versions-2026-11-06.json)은 당시 새 CLI 발견 122개와 구분하며 원본 번들 버전을 실제 CLI·서버 버전으로 대신하지 않는다. Qodo 2개와 공식 경로에서 버전을 선택할 수 없는 네이티브 항목은 보류했다.
 
 카탈로그 일반 설명 항목 **122개**를 출처별로 정리했습니다. 2026-11-11에 kordoc 1개, 2026-11-12에 Anthropic 원본 저장소의 설치 이름 19개와 Office·디자인 도구 3개를 추가했습니다. OFF 22개를 포함한 144개 항목에는 스킬·명령·메타 문서와 다른 배포 경로의 설명이 함께 있으므로 고유 스킬 수나 현재 호출 가능한 스킬 수와 구분합니다. 실제 PC의 설치·노출·인증 상태와도 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
-※ 플러그인 내부 reference 하위 스킬(chrome-devtools 65개, huggingface 68개 등 SKILL.md)은 세션에서 직접 참고하는 단위가 아니므로 제외했습니다.
+카탈로그는 설명 단위를 선정한 목록이며 플러그인 내부 `references`·`node_modules`의 모든 `SKILL.md`를 집계하지 않습니다. 예를 들어 Huashu의 의존성 안 `playwright-trace`가 클라이언트에 별도로 발견될 수 있습니다. [2026-11-12 설치 검증의 enabled 발견 151개](../docs/history/2026-11-12-office-design-tools.md#review)는 이런 설치·클라이언트 발견 기준의 기록이며 설명 144개와 분모가 다릅니다. 명시 호출 전용 스킬은 암시적 선택 목록에 보이지 않을 수 있으므로 발견·노출·호출 정책도 구분합니다.
+
+아래 빌트인·기존 플러그인의 ON/OFF와 캐시 경로는 작성 당시 Claude Code 환경의 기록입니다. Codex 등 현재 클라이언트에서는 실제 스킬 목록·원본 경로·도구 노출·인증을 별도로 확인합니다. 문서의 플러그인 활성 표시가 현재 설치나 사용 권한을 보장하지는 않습니다.
 
 > 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(일반 설명 122 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
 
@@ -60,11 +62,11 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 `frontend-design`·`skill-creator` 그룹은 기존 Anthropic 플러그인 배포 경로의 설명으로 보존한다. 이번 Codex 설치에서는 해당 전역 실행본을 `anthropic-frontend-design`·`anthropic-skill-creator`로 이전한다. 자체 제작 `claude-api`와 OpenAI 내장 `skill-creator`는 별개로 보존한다. [이전·중복 처리와 호출 정책](anthropic-skills/README.md#설치와-중복-처리)을 따른다.
 
 ### ⛔ 비활성(OFF) 플러그인 스킬 (`_disabled/`, 22개)
-현재 `settings.json`에서 `enabledPlugins = false`라 세션에 노출되지 않음. 켜면 사용 가능 — "켜면 무엇이 추가되는가" 카탈로그.
+작성 당시 Claude Code의 `settings.json`에서 `enabledPlugins = false`였던 항목이다. 활성화 뒤에도 해당 클라이언트의 설치·필수 실행 도구·인증·실제 노출을 확인해야 한다.
 
 | 플러그인 | 구성 | 폴더 | 주제 |
 |---|---|---|---|
-| [vercel](_disabled/vercel/) | 스킬 7 + 커맨드 6 | `_disabled/vercel/` | 배포 커맨드(deploy·env·status…)는 사용자용 / benchmark·release·audit은 플러그인 내부 개발용 |
+| [vercel](_disabled/vercel/) | 스킬 7 + 명령 5 + 메타 문서 1 | `_disabled/vercel/` | 배포 커맨드(deploy·env·status…)는 사용자용 / benchmark·release·audit은 플러그인 내부 개발용 |
 | [hookify](_disabled/hookify/) | 스킬 1 + 커맨드 4 | `_disabled/hookify/` | 자연어 규칙→훅 자동 생성 |
 | [neon](_disabled/neon/) | 스킬 2 | `_disabled/neon/` | Neon Postgres·이그레스 최적화 ※원문 미vendoring → 메타데이터 기반 작성(문서는 완결) |
 | [railway](_disabled/railway/) | 스킬 1 | `_disabled/railway/` | Railway 배포·DB 운영 |
@@ -75,7 +77,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 
 ## ℹ️ 비노출 ON 플러그인 (의도된 제외)
 
-다음은 `enabledPlugins`에서 **ON이지만** 세션에 스킬/MCP로 노출되지 않아 이 카탈로그에서 제외됩니다. **누락이 아니라 의도된 제외**입니다.
+다음은 작성 당시 Claude Code의 `enabledPlugins`에서 **ON이었지만** 해당 세션에 스킬/MCP로 노출되지 않아 카탈로그에서 제외한 항목입니다. 현재 클라이언트의 설치·노출 여부는 별도로 확인합니다.
 - **LSP 4종** (`rust-analyzer`·`typescript`·`pyright`·`csharp`-lsp): 에디터 LSP 기능만 제공, 스킬/MCP 비노출.
 - **atomic-agents**: 세션에 노출되는 스킬/MCP 컴포넌트 없음.
 - **code-simplifier**: 전용 에이전트를 제공하며 동명 빌트인 simplify와 구분한다. pr-review-toolkit의 review-pr 명령은 위 카탈로그에 포함한다.

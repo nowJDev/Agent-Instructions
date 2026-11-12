@@ -159,10 +159,14 @@ flowchart TD
 | 웹 자료를 찾고 조사하기. | `firecrawl-*`, `deep-research`. |
 | 라이브러리의 공식 사용법 확인하기. | `context7` MCP. |
 | 디자인이나 관계 그림 다루기. | Figma 관련 스킬과 MCP. |
+| 문서·슬라이드·디자인 산출물 만들기. | [Anthropic 스킬](Skill/anthropic-skills/README.md), [Office·디자인 도구](Skill/office-design-tools/README.md)의 선택·명시 호출·실행 조건. |
+| Unity 프로젝트와 Editor 연결하기. | [Unity 연결 안내](MCP/coplay-funplay-unity-mcp.md)의 프로젝트별 패키지·브리지·검증 조건. |
 | AI 모델·데이터·데모 앱 다루기. | Hugging Face 관련 스킬과 MCP. |
 | 브라우저 동작 확인하기. | Playwright MCP나 Chrome DevTools 관련 스킬. |
 
 스킬 설명은 **용도, 사용할 상황, 예시, 도구와 입력값, 출처와 설치 상태**를 안내합니다. [스킬 전체 목록](Skill/CATALOG.md)에서 적합한 항목을 찾고 [출처·설치 안내](Skill/README.md)를 확인합니다.
+
+기능이 겹치는 스킬은 각 분류의 명시 호출 정책을 따릅니다. 카탈로그에 이름이 있어도 현재 세션에 노출된 스킬·도구와 같다고 보지 않으며, 패키지 설치와 Python·Node·CLI·브라우저 등 실행 종속성 준비도 구분합니다.
 
 ### 연결할 외부 도구의 예
 
@@ -173,9 +177,11 @@ flowchart TD
 | [Playwright](MCP/playwright.md) | 브라우저를 조작하며 동작을 확인합니다. 설치 버전의 도구와 입력값을 확인합니다. |
 | [Figma](MCP/figma.md) | 디자인·다이어그램을 다룹니다. 연결 지원과 로그인이 필요합니다. |
 | [Hugging Face](MCP/huggingface-skills.md) | 모델·데이터 등과 연결합니다. 지원 범위와 인증 상태를 확인합니다. |
-| [claude.ai PlayMCP](MCP/claude-ai-PlayMCP/README.md) | 네이버·사람인·미국주식·DART·카카오의 계정 연동 도구입니다. 다른 AI에서는 대체 서버나 API가 필요합니다. |
+| [PlayMCP](MCP/claude-ai-PlayMCP/README.md) | 네이버·사람인·미국주식·DART·카카오의 계정 연동 도구를 기록합니다. 기존 claude.ai 연결은 자동 이전되지 않으므로 대상 클라이언트의 별도 제공·연결·인증과 실제 도구를 확인합니다. |
 
 전체 목록과 인증 안내는 [MCP 인덱스](MCP/README.md)에 있습니다. ON과 OFF 표시는 작성 당시 환경의 활성·비활성 상태이며, 지금 내 환경의 상태를 뜻하지 않습니다. 활성 플러그인이라도 스킬이나 MCP를 제공하지 않으면 그 목록에 없을 수 있습니다.
+
+도구 선택은 현재 호스트가 실제로 노출한 도구와 권한을 먼저 확인합니다. 같은 서비스가 연결 플러그인으로 제공되면 그 지원 범위를 확인하고, 필요한 기능이 없을 때 대체 MCP나 API를 검토합니다.
 
 기존 도구로 해결하기 어려운 요구가 생겼을 때만 [추가 도구 검토 안내](references/starred-repo-adoption.md)를 참고합니다. 후보로 설명돼 있다고 설치하거나 활성화한 것은 아닙니다. 도구 추가 전에는 지원 환경, 필요한 권한, 외부로 전달되는 데이터와 검증 방법을 확인합니다.
 

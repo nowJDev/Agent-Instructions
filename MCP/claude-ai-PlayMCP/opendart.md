@@ -1,5 +1,7 @@
 # opendart (PlayMCP)
 
+> 설치·활성·캐시·도구 접두사는 작성 당시 Claude Code 환경의 기록이다. 현재 클라이언트의 연결·인증·실제 도구명과 인자는 런타임 목록에서 확인한다.
+
 > 금융감독원 전자공시시스템(DART)의 기업 공시·재무·지분 정보를 제공하는 PlayMCP 하위 서버.
 
 ## 📌 용도
@@ -52,7 +54,7 @@ DART OpenAPI를 통해 국내 상장/공시대상 법인의 공시 목록, 재�
 
 ## 📦 출처 / 설치 상태
 - 제공: **claude.ai 연동 / PlayMCP 하위 서버** (카카오 공식)
-- 활성화: PlayMCP 묶음으로 연결됨 (`claudeAiMcpEverConnected: ["claude.ai PlayMCP"]`)
+- 연결 기록: `claudeAiMcpEverConnected: ["claude.ai PlayMCP"]`는 과거 연결 이력이다. 현재 연결·인증·도구 노출은 해당 클라이언트에서 확인한다.
 - 연결 방식: claude.ai 원격 MCP (클라우드 호스팅, 금감원 DART OpenAPI 백엔드)
 - 입력 규칙: 대부분 도구가 DART 고유번호(`corp_code`)를 요구 → 먼저 `find_company`로 식별
 - 세션 내 도구 식별자: `mcp__claude_ai_PlayMCP__opendart-<도구>`

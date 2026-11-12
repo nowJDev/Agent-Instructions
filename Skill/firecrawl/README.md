@@ -1,7 +1,7 @@
 <!-- 같은 출처의 카탈로그 항목과 예제·실패 처리·출처를 모아 안내한다. -->
 # firecrawl 설명 카탈로그.
 
-설명 문서이며 실행 스킬 설치본이 아니다. 활성 표시는 작성 당시 환경의 기록이다. [전체 항목 목차](../CATALOG.md)에서 다른 분류를 찾는다.
+설명 문서이며 실행 스킬 설치본이 아니다. ON/OFF·캐시 표시는 작성 당시 Claude Code 환경의 기록이며 현재 클라이언트의 설치·노출·인증 상태와 구분한다. [전체 항목 목차](../CATALOG.md)에서 다른 분류를 찾는다.
 
 - [firecrawl-agent](#firecrawl-agent).
 - [firecrawl-cli](#firecrawl-cli).
@@ -76,6 +76,8 @@ firecrawl agent "get feature list" --urls "<url>" --wait -o .firecrawl/features.
 > Firecrawl CLI로 웹을 검색·스크래핑·상호작용하는 최상위 워크플로우 스킬. LLM에 최적화된 클린 마크다운 반환.
 
 > 참고: 이 스킬의 frontmatter `name`은 `firecrawl`이지만, 플러그인 디렉터리/슬래시 명칭은 `firecrawl-cli`다.
+
+이 절은 기존 Claude 플러그인 배포 이름을 보존한 설명이다. [2026-11-06 Codex 업데이트](../../references/codex-skill-update-2026-11-06.md)에서 전역 설치 이름은 `firecrawl`로 바뀌었다. 실행 전 현재 발견된 이름·원본 본문과 CLI의 설치·인증·`--help`를 확인한다.
 
 <a id="firecrawl-cli---용도"></a>
 ### 📌 용도
@@ -654,6 +656,8 @@ firecrawl search-feedback "$SEARCH_ID" \
 ## skill-gen
 
 > Firecrawl로 문서 URL을 스크래핑해 완전한 Agent Skill을 자동 생성하는 슬래시 명령어.
+
+과거 Claude 플러그인의 명령 설명이다. `skill-gen`은 [2026-11-06 Codex 업데이트](../../references/codex-skill-update-2026-11-06.md)에서 퇴역했으며 아래 예제가 현재 Codex에서 호출 가능함을 뜻하지 않는다. 새 스킬 작성은 현재 설치된 작성 도구와 [자체 제작 원본 안내](../../Owned-Skills/README.md)를 확인한다.
 
 <a id="skill-gen---용도"></a>
 ### 📌 용도

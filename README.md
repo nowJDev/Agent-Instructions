@@ -96,6 +96,7 @@ https://github.com/nowJDev/Agent-Instructions
 | AI가 따라야 할 작업 규칙 확인하기. | [핵심 규칙](AGENTS.md), [검증](rules/01_enforcement-system.md), [도구 경계](rules/02_tool-boundaries.md). |
 | 다른 AI 환경에 맞게 적용하기. | [환경별 적용](PORTABILITY.md). |
 | 필요한 스킬과 외부 도구 찾기. | [스킬 목록](Skill/CATALOG.md), [출처·설치 안내](Skill/README.md), [MCP 안내](MCP/README.md). |
+| 문서·디자인·Unity 작업의 도구와 실행 조건 확인하기. | [Anthropic 스킬](Skill/anthropic-skills/README.md), [Office·디자인 도구](Skill/office-design-tools/README.md), [Unity 연결](MCP/coplay-funplay-unity-mcp.md). |
 | 이 저장소에서 직접 만든 스킬 사용하기. | [자체 제작 스킬](Owned-Skills/README.md). |
 
 <a id="낯선-말은-이렇게-읽으세요"></a>

@@ -1,7 +1,7 @@
 <!-- 같은 출처의 카탈로그 항목과 예제·실패 처리·출처를 모아 안내한다. -->
 # figma 설명 카탈로그.
 
-설명 문서이며 실행 스킬 설치본이 아니다. 활성 표시는 작성 당시 환경의 기록이다. [전체 항목 목차](../CATALOG.md)에서 다른 분류를 찾는다.
+설명 문서이며 실행 스킬 설치본이 아니다. ON/OFF·캐시 표시는 작성 당시 Claude Code 환경의 기록이며 현재 클라이언트의 설치·노출·인증 상태와 구분한다. [전체 항목 목차](../CATALOG.md)에서 다른 분류를 찾는다.
 
 - [figma-code-connect](#figma-code-connect).
 - [figma-create-new-file](#figma-create-new-file).
@@ -288,6 +288,8 @@ Collection "Spacing"     modes: ["Value"]   spacing/xs = 4, spacing/md = 16
 
 > PRD(+선택적 코드베이스 컨텍스트)를 **FigJam 프로젝트 플랜 보드**로 변환하는 인터랙티브 워크플로 스킬. 섹션 후보 제안 → 사용자 선택 → 섹션별 콘텐츠·블록 확정 → FigJam 생성까지 단계마다 확인을 거친다.
 
+아래 상세는 기존 Claude 플러그인 워크플로의 설명이다. 현재 Codex의 동명 실행 원본은 [자체 제작 figma-generate-project-plan](../../Owned-Skills/figma-generate-project-plan/SKILL.md)이며 외부 Figma 원본 8개와 구분한다. 실제 호출에서는 설치 원본과 필수 선행 스킬·도구·인증을 확인하고, 전제가 없으면 로컬 초안까지만 준비한다.
+
 <a id="figma-generate-project-plan---용도"></a>
 ### 📌 용도
 PRD를 받아 FigJam에 프로젝트 플랜 보드를 그린다. 섹션 집합은 고정이 아니라 리서치에서 **후보를 제안하고 사용자가 포함할 섹션을 고른다.** 선택된 각 섹션마다 콘텐츠 + 렌더링 블록(표/멀티컬럼/스티키 컬럼/다이어그램 등)을 제안하고 사용자가 확인한다. 전체 **9단계**로 진행한다:
@@ -309,7 +311,7 @@ PRD를 받아 FigJam에 프로젝트 플랜 보드를 그린다. 섹션 집합�
 <a id="figma-generate-project-plan---제공-도구--주요-파라미터"></a>
 ### 🛠️ 제공 도구 / 주요 파라미터
 - **MCP 도구**: `create_new_file`, `use_figma`, `generate_diagram`, `whoami`(planKey 확인)
-- **선행 필수 스킬**: `figma-use`(세션당 1회 로드), `figma-use-figjam`(매 `use_figma` 호출 전 재로드), `figma-generate-diagram`(매 `generate_diagram` 전 재로드)
+- **선행 필수 스킬**: `figma-use`와 `figma-use-figjam`(매 `use_figma` 호출 전 로드), `figma-generate-diagram`(매 `generate_diagram` 전 로드).
 - **블록 서브스킬**(콘텐츠 타입별 reference): section / nested-section / intro-callout / text-primitives / table / multi-column-text / sticky-column / diagram-section / metadata-strip
 - **STRICT 규칙**: `section.name = ""`(제목은 내부 H2 텍스트), 섹션 배경은 `ARCH_PALE` 팔레트(FigJam 표준 SECTION 팔레트 금지 — 다이어그램과 색 충돌), 표 셀은 `Inter Bold` 16px, 자식 위치는 `prevChild.y + height + 24`(고정 오프셋 금지), `use_figma` 1회당 ≤10 논리 연산, 모든 write 스크립트는 `createdNodeIds`/`mutatedNodeIds` 반환
 - **다이어그램 주의**: reparent 후 커넥터는 **삭제·재생성**(stale elbow 방지), 커넥터 라벨은 `fontName`+`fontSize`+`characters`+`fills` 4개 모두 설정(기본 `fills=[]`라 투명)
@@ -319,7 +321,7 @@ PRD를 받아 FigJam에 프로젝트 플랜 보드를 그린다. 섹션 집합�
 - 플러그인: figma@claude-plugins-official
 - 활성화: ON
 - 관련 MCP: figma MCP (`create_new_file`·`use_figma`·`generate_diagram`·`whoami`)
-- 캐시 경로: `~/.claude/plugins/cache/claude-plugins-official/figma/2.2.12/workflow-skills/generate-project-plan/SKILL.md` (※ 다른 figma 스킬과 달리 `skills/`가 아닌 `workflow-skills/` 하위)
+- 과거 Claude 캐시 경로: `~/.claude/plugins/cache/claude-plugins-official/figma/2.2.12/workflow-skills/generate-project-plan/SKILL.md` (※ 다른 figma 스킬과 달리 `skills/`가 아닌 `workflow-skills/` 하위). 현재 Codex 출처는 위 자체 제작 원본이다.
 
 ## figma-use-figjam
 

@@ -30,6 +30,7 @@
 - Claude 전용 도구명은 Codex의 파일 읽기, 검색, 셸, MCP 도구로 번역한다.
 - `PORTABILITY.md`의 대체 표를 먼저 확인한다.
 - `design-driven-delivery`를 쓰려면 `Owned-Skills/design-driven-delivery`를 `~/.agents/skills/design-driven-delivery`에 복사하고 새 세션을 시작한다.
+- 추가 설치를 요청한 경우 [Anthropic 스킬](Skill/anthropic-skills/README.md)과 [Office·디자인 도구](Skill/office-design-tools/README.md)의 설치·명시 호출·이름 중첩·실행 종속성 조건을 확인한다. Unity 연결은 [프로젝트별 안내](MCP/coplay-funplay-unity-mcp.md)를 따른다. 이 항목들은 아래 최소 CLI 세팅에 자동 포함하지 않는다.
 
 ### Cursor, Gemini, Copilot 등
 

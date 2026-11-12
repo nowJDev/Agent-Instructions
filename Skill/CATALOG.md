@@ -7,7 +7,7 @@
 
 ## 일반 설명 항목 (122)
 
-다른 배포 경로의 설명을 포함한다. 항목 수는 고유 스킬 수나 현재 PC의 설치·노출 수를 뜻하지 않는다. 기존 `frontend-design`·`skill-creator`의 Codex 전역본은 이번 설치에서 `anthropic-` 이름으로 이전하며 아래 원래 이름은 다른 배포 경로의 설명으로 유지한다.
+다른 배포 경로의 설명을 포함한다. 일반 122개와 OFF 22개, 총 144개·26그룹이며 고유 스킬 수나 현재 PC의 설치·노출 수를 뜻하지 않는다. ON/OFF는 작성 당시 Claude Code 환경의 기록이고 실제 발견·의존성 내부 스킬·명시 호출 정책의 경계는 [인덱스](README.md)를 따른다. 기존 `frontend-design`·`skill-creator`의 Codex 전역본은 2026-11-12 설치에서 `anthropic-` 이름으로 이전했으며 아래 원래 이름은 다른 배포 경로의 설명으로 유지한다. `firecrawl-cli`와 `skill-gen`도 과거 배포 설명으로 보존하며 현재 Codex의 `firecrawl` 이름과 `skill-gen` 퇴역은 [해당 안내](firecrawl/)에서 구분한다.
 
 ### _builtin (13)
 - [**claude-api**](_builtin/README.md#claude-api) — Claude API / Anthropic SDK 레퍼런스 빌트인 스킬. model id·가격·파라미터·스트리밍·tool use·MCP·캐싱·토큰 카운팅·모델 마이그레이션을 다룬다. **Claude/Anthropic 관련 작업 시 파일을 열기 전에 먼저 읽는 트리거 스킬**.

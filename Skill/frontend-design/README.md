@@ -1,9 +1,11 @@
 <!-- 같은 출처의 카탈로그 항목과 예제·실패 처리·출처를 모아 안내한다. -->
 # frontend-design 설명 카탈로그.
 
-설명 문서이며 실행 스킬 설치본이 아니다. 활성 표시는 작성 당시 환경의 기록이다. [전체 항목 목차](../CATALOG.md)에서 다른 분류를 찾는다.
+설명 문서이며 실행 스킬 설치본이 아니다. ON/OFF·캐시 표시는 작성 당시 Claude Code 환경의 기록이며 현재 클라이언트의 설치·노출·인증 상태와 구분한다. [전체 항목 목차](../CATALOG.md)에서 다른 분류를 찾는다.
 
 - [frontend-design](#frontend-design).
+
+기존 Claude 플러그인 배포 경로의 설명을 보존한다. Codex 전역 실행본은 `anthropic-frontend-design`으로 이전했으며 [새 설치 이름·호출 안내](../anthropic-skills/README.md#anthropic-frontend-design)를 따른다.
 
 ## frontend-design
 

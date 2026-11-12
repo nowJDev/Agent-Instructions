@@ -1,5 +1,7 @@
 # SaraminMcp (PlayMCP)
 
+> 설치·활성·캐시·도구 접두사는 작성 당시 Claude Code 환경의 기록이다. 현재 클라이언트의 연결·인증·실제 도구명과 인자는 런타임 목록에서 확인한다.
+
 > 사람인(Saramin) 채용 데이터를 제공하는 PlayMCP 하위 서버.
 
 ## 📌 용도
@@ -44,7 +46,7 @@
 
 ## 📦 출처 / 설치 상태
 - 제공: **claude.ai 연동 / PlayMCP 하위 서버** (카카오 공식)
-- 활성화: PlayMCP 묶음으로 연결됨 (`claudeAiMcpEverConnected: ["claude.ai PlayMCP"]`)
+- 연결 기록: `claudeAiMcpEverConnected: ["claude.ai PlayMCP"]`는 과거 연결 이력이다. 현재 연결·인증·도구 노출은 해당 클라이언트에서 확인한다.
 - 연결 방식: claude.ai 원격 MCP (클라우드 호스팅, 사람인 API 백엔드)
 - 세션 내 도구 식별자: `mcp__claude_ai_PlayMCP__SaraminMcp-<도구>`
 - 묶음 개요: [README.md](./README.md)

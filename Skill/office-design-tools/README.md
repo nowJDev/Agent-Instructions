@@ -1,7 +1,7 @@
 <!-- 세 외부 도구의 단일 전역 설치·호출·런타임과 검증 경계를 안내한다. -->
 # Office·디자인 도구.
 
-이 문서는 설명 카탈로그이며 타사 실행 원본·바이너리·대형 자산을 포함하지 않는다. 원본은 사용자 전역에 한 번 설치하고 이 저장소에서도 같은 실행본을 사용한다. 프로젝트 안에 두 번째 `.agents/skills` 복사본을 만들지 않는다. [고정 설치 명세](../../references/office-design-tools.lock.json), [설치 설계](../../docs/superpowers/specs/2026-11-12-office-design-tools-design.md), [검증 기록](../../docs/reviews/2026-11-12-office-design-tools.md)을 함께 따른다.
+이 문서는 설명 카탈로그이며 타사 실행 원본·바이너리·대형 자산을 포함하지 않는다. 원본은 사용자 전역에 한 번 설치하고 이 저장소에서도 같은 실행본을 사용한다. 프로젝트 안에 두 번째 `.agents/skills` 복사본을 만들지 않는다. [고정 설치 명세](../../references/office-design-tools.lock.json), [설치 설계](../../docs/history/2026-11-12-office-design-tools.md#spec), [검증 기록](../../docs/history/2026-11-12-office-design-tools.md#review)을 함께 따른다.
 
 ### 설치와 재실행.
 

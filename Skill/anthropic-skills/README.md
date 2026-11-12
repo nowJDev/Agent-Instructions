@@ -33,9 +33,9 @@ python -X utf8 -B scripts/install_anthropic_skills.py --apply
 
 패키지의 `scripts`·`references`·`assets`·예제와 상대경로 리소스를 함께 보존한다. 스킬 설치가 개별 작업에 필요한 Python·Node 패키지, 브라우저, 외부 서비스 인증이나 MCP 서버를 자동 준비하지는 않는다. 해당 작업에서 원본의 요구사항과 실제 가용 도구를 확인한다. Claude 전용 도구·환경은 Codex의 동등 기능으로 해석하고 지원되지 않는 부분은 명시한다.
 
-설치 후 기본 검사 명령을 다시 실행하고 새 Codex 프로세스에서 19개 이름·실제 경로·본문·호출 정책을 확인한다. 파일 배치, 클라이언트 발견과 실제 기능 수행은 서로 다른 증거다. 이 설명만으로 특정 PC의 설치나 기능 검증 완료를 뜻하지 않는다. [승인 설계](../../docs/superpowers/specs/2026-11-12-anthropic-skills-design.md)와 [실행 계획](../../docs/superpowers/plans/2026-11-12-anthropic-skills.md)에 작업 범위를 기록한다.
+설치 후 기본 검사 명령을 다시 실행하고 새 Codex 프로세스에서 19개 이름·실제 경로·본문·호출 정책을 확인한다. 파일 배치, 클라이언트 발견과 실제 기능 수행은 서로 다른 증거다. 이 설명만으로 특정 PC의 설치나 기능 검증 완료를 뜻하지 않는다. [승인 설계](../../docs/history/2026-11-12-anthropic-skills.md#spec)와 [실행 계획](../../docs/history/2026-11-12-anthropic-skills.md#plan)에 작업 범위를 기록한다.
 
-2026-11-12의 [19개 실제 샘플 검증](../../docs/reviews/2026-11-12-anthropic-functional.md)은 통과 13개·조건부 5개·번들 실패 1개를 구분한다. 이 Windows 환경에서는 Office helper의 AF_UNIX 의존, with_server의 자식 서버 정리와 웹 아티팩트의 SWC 실행 제한이 확인됐다. 설치 완료를 모든 보조 도구의 호환성 보장으로 해석하지 않는다. 전역 원본은 수정하지 않았으며 필요한 도구와 사용 조건은 해당 기록을 따른다.
+2026-11-12의 [19개 실제 샘플 검증](../../docs/history/2026-11-12-anthropic-functional.md#review)은 통과 13개·조건부 5개·번들 실패 1개를 구분한다. 이 Windows 환경에서는 Office helper의 AF_UNIX 의존, with_server의 자식 서버 정리와 웹 아티팩트의 SWC 실행 제한이 확인됐다. 설치 완료를 모든 보조 도구의 호환성 보장으로 해석하지 않는다. 전역 원본은 수정하지 않았으며 필요한 도구와 사용 조건은 해당 기록을 따른다.
 
 ## anthropic-academy-guide
 

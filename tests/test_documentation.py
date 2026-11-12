@@ -30,6 +30,12 @@ HISTORY = {
     '2026-10-15-portable-skill-workflows': 3, '2026-10-15-regression-ci': 3,
     '2026-11-05-superpowers-update': 3, '2026-11-06-codex-skills-update': 3,
     '2026-11-06-skill-provenance': 3,
+    '2026-11-09-document-consolidation': 3,
+    '2026-11-11-readme-bilingual': 3,
+    '2026-11-11-coplay-funplay-unity-mcp': 3,
+    '2026-11-12-anthropic-skills': 3,
+    '2026-11-12-anthropic-functional': 2,
+    '2026-11-12-office-design-tools': 3,
 }
 
 
@@ -146,8 +152,8 @@ class DocumentationTests(unittest.TestCase):
             originals = re.findall(r'^원본 경로: `(docs/[^\n`]+\.md)`', text, re.M)
             self.assertEqual(len(originals), count, name)
             sources.extend(originals)
-        self.assertEqual(len(sources), 37)
-        self.assertEqual(len(set(sources)), 37)
+        self.assertEqual(len(sources), 54)
+        self.assertEqual(len(set(sources)), 54)
         self.assertTrue((directory / 'README.md').is_file())
 
     def test_repository_links(self):

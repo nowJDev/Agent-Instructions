@@ -1,5 +1,7 @@
 # claude.ai PlayMCP (묶음 개요)
 
+> 설치·활성·캐시·도구 접두사는 작성 당시 Claude Code 환경의 기록이다. 현재 클라이언트의 연결·인증·실제 도구명과 인자는 런타임 목록에서 확인한다.
+
 > 카카오가 공식 제공하는 안전한 원격 MCP 묶음. claude.ai 연동을 통해 한국형 데이터 서비스 5종을 하나의 MCP 엔드포인트로 제공한다.
 
 ## 📌 용도
@@ -25,8 +27,8 @@ PlayMCP는 단일 MCP 연결 아래에 **5개의 하위 서버**를 묶어 제�
 
 ## 📦 출처 / 설치 상태
 - 제공: **claude.ai 연동** (원격 MCP). `claudeAiMcpEverConnected: ["claude.ai PlayMCP"]`
-- 활성화: 연결 이력 있음(claude.ai 측 연동). 도구는 `mcp__claude_ai_PlayMCP__<서버>-<도구>` 형태로 노출
+- 연결 기록: claude.ai 측 연결 이력이 있으며 당시 도구는 `mcp__claude_ai_PlayMCP__<서버>-<도구>` 형태로 노출됐다. 이력만으로 현재 연결·인증을 확정하지 않는다.
 - 운영 주체: 카카오(Kakao) 공식
 - 연결 방식: claude.ai를 통한 원격 MCP (개별 stdio command 없음 — 클라우드 호스팅)
-- 설정 근거: `~/.claude.json` → `claudeAiMcpEverConnected` 배열
+- 기록 근거: `~/.claude.json` → `claudeAiMcpEverConnected` 배열. 현재 사용 가능 여부와 도구 목록은 사용 중인 클라이언트에서 별도로 확인한다.
 - 세션 내 도구 식별자 접두사: `mcp__claude_ai_PlayMCP__`

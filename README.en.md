@@ -97,6 +97,7 @@ The linked guides and catalogs below are in Korean.
 | Rules the agent should follow. | [Core rules](AGENTS.md), [verification](rules/01_enforcement-system.md), [tool boundaries](rules/02_tool-boundaries.md). |
 | Adaptation for another agent. | [Portability](PORTABILITY.md). |
 | Skills and external tools. | [Skill catalog](Skill/CATALOG.md), [sources and setup](Skill/README.md), [MCP guide](MCP/README.md). |
+| Tools and execution requirements for documents, design, and Unity. | [Anthropic skills](Skill/anthropic-skills/README.md), [Office and design tools](Skill/office-design-tools/README.md), [Unity connection](MCP/coplay-funplay-unity-mcp.md). |
 | Installable skills authored in this repository. | [Owned skills](Owned-Skills/README.md). |
 
 A skill teaches an agent how to perform a task; MCP connects it to external tools. Consult [terms and file roles](GUIDE.md#문서와-도구는-어떻게-연결되나요), [feedback rules](rules/03_feedback-loop.md), [cleanup rules](rules/04_garbage-collection.md), and [automated checks](docs/ci.md) as needed. These documents are also in Korean.

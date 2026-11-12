@@ -1,5 +1,7 @@
 # neon (MCP)
 
+> 설치·활성·캐시·도구 접두사는 작성 당시 Claude Code 환경의 기록이다. 현재 클라이언트의 연결·인증·실제 도구명과 인자는 런타임 목록에서 확인한다.
+
 > Neon(서버리스 Postgres)의 프로젝트·데이터베이스를 관리하는 원격 HTTP MCP 서버. `https://mcp.neon.tech/mcp`에 연결.
 
 ## 📌 용도
@@ -30,7 +32,7 @@ mcp.json은 도구를 정적으로 나열하지 않는다. `type: http`, `url: h
 ```
 
 ## 💻 사용 예시
-- 플러그인을 활성화(enabledPlugins=true)하면 `neon` MCP가 `https://mcp.neon.tech/mcp`에 연결되어 원격 노출 도구를 사용할 수 있다.
+- 플러그인 활성화(enabledPlugins=true) 후 `neon` MCP의 `https://mcp.neon.tech/mcp` 연결·인증과 런타임 도구 노출을 확인한 뒤 사용한다.
 - Neon 프로젝트/DB 생성·조회, 브랜치 관리, 연결 정보 획득 등은 원격 서버가 제공하는 도구로 수행 (구체 도구명은 런타임 결정).
 
 ## 📦 출처 / 설치 상태

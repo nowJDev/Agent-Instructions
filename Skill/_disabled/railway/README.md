@@ -1,7 +1,7 @@
 <!-- 같은 출처의 카탈로그 항목과 예제·실패 처리·출처를 모아 안내한다. -->
 # _disabled/railway 설명 카탈로그.
 
-설명 문서이며 실행 스킬 설치본이 아니다. 활성 표시는 작성 당시 환경의 기록이다. [전체 항목 목차](../../CATALOG.md)에서 다른 분류를 찾는다.
+설명 문서이며 실행 스킬 설치본이 아니다. ON/OFF·캐시 표시는 작성 당시 Claude Code 환경의 기록이며 현재 클라이언트의 설치·노출·인증 상태와 구분한다. [전체 항목 목차](../../CATALOG.md)에서 다른 분류를 찾는다.
 
 - [use-railway](#use-railway).
 
@@ -95,4 +95,4 @@ railway agent -p "why is my service crashing?"  # 자연어 조사 (OAuth 로그
 - 플러그인: railway@claude-plugins-official
 - 활성화: ⛔ **OFF** (enabledPlugins = false)
 - 캐시 경로: `~/.claude/plugins/cache/claude-plugins-official/railway/1.2.4/skills/use-railway/SKILL.md`
-  - (참고: 캐시에는 railway `1.2.1`~`1.2.4` 버전 디렉토리가 공존하며, 현재 설치된 최신본은 `1.2.4`. 최상위 스킬은 `use-railway` 단일 스킬이고, 부가 참조 문서는 `references/`(analyze-db, setup, deploy, configure, operate, request)에 분리되어 있음)
+  - (참고: 작성 당시 확인한 캐시에는 railway `1.2.1`~`1.2.4` 버전 디렉토리가 공존하며, 해당 캐시의 최신본은 `1.2.4`였다. 최상위 스킬은 `use-railway` 단일 스킬이고, 부가 참조 문서는 `references/`(analyze-db, setup, deploy, configure, operate, request)에 분리되어 있었다.)

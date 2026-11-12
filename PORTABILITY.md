@@ -1,7 +1,7 @@
 # PORTABILITY.md — 다른 AI 에이전트에서 사용하기
 
 > 이 저장소의 **스킬·MCP를 Claude 이외의 AI 에이전트**(OpenAI Codex/Agents SDK, Gemini, Cursor, Copilot 등)에서 쓰는 방법.
-> 핵심 원칙: **MCP는 그대로 이식**(오픈 표준), **타사 Skill은 출처 포인터 + 각자 설치**, **자체 제작 Skill은 `Owned-Skills/` 원본에서 설치**한다.
+> 핵심 원칙: **MCP는 대상 클라이언트의 연결·인증·도구 지원을 확인해 이식**, **타사 Skill은 출처 포인터 + 각자 설치**, **자체 제작 Skill은 `Owned-Skills/` 원본에서 설치**한다.
 
 ---
 
@@ -9,7 +9,7 @@
 
 | 대상 | 다른 AI에서 | 방법 |
 |---|---|---|
-| **MCP** | ✅ 그대로 | 오픈 표준. 각 클라이언트 설정에 **서버 등록**(아래 §2) |
+| **MCP** | ⚠️ 지원 조건 확인 | 서버의 연결 방식·인증과 클라이언트 지원을 확인한 뒤 등록·검증(아래 §2) |
 | **Skill** | ⚠️ 조건부 | 타사는 공개 **원본에서 각자 설치**(§3-A), 자체 제작은 `Owned-Skills/`, 미지원 AI는 참조 활용(§3-B)·MCP 래핑(§3-C) |
 
 > 전제: 이 저장소의 `Skill/`·`MCP/`는 **설명 문서(카탈로그)**다. 실행 실물이 아니다. 단, 직접 작성한 Agent Skill은 `Owned-Skills/`에 공개 원본을 함께 둔다.
@@ -20,7 +20,7 @@
 
 ## 1. 무엇이 왜 이식되는가
 
-- **MCP (Model Context Protocol)** — 오픈 표준. 2026년 기준 Anthropic·OpenAI·Google·Cloudflare·AWS·Microsoft·Cursor 등이 모두 지원(Linux Foundation 산하 관리). → 서버를 등록만 하면 어느 AI든 같은 도구를 쓴다.
+- **MCP (Model Context Protocol)** — 오픈 표준이다. 클라이언트가 서버의 연결 방식·인증과 필요한 도구 계약을 지원해야 한다. 서버 등록, 인증 완료, 실제 도구 노출과 호출 성공은 각각 확인한다.
 - **Agent Skills (SKILL.md)** — 역시 오픈 표준이나, **"skills-호환 에이전트"**여야 자동 작동한다. 타사 Skill은 원본에서 설치하고, 이 저장소가 직접 작성한 Skill은 `Owned-Skills/`에서 설치한다.
 
 ---
@@ -34,7 +34,7 @@
 | `rag_agent` (rag-search MCP) | 코드/프로젝트 RAG 검색 도구 | 자체 검색·임베딩, 또는 동등 RAG MCP |
 | `Skill` 도구 / "Using [skill]" | SKILL.md를 트리거·로드 | §3 경로 A(설치)/B(참조)/C(MCP 래핑) |
 | `Task` / `Explore` 서브에이전트 | 탐색·작업 위임 | 그 AI의 서브에이전트/위임 기능 |
-| `PreToolUse 훅` 자동차단 | 위험 명령(rm -rf·시크릿) 사전 차단 | **없음 → 수동 준수** (안전망 부재) |
+| `PreToolUse 훅` 자동차단 | 위험 명령(rm -rf·시크릿) 사전 차단 | 호스트의 사전 승인·정책 기능 확인. 동등한 자동 차단이 없어도 규칙은 직접 준수 |
 | `claude mcp add` | MCP 등록 CLI | 자기 `mcp.json`/SDK 설정 (§2.2) |
 | `TeamCreate`/`TeamDelete` · `team-monitor` clone(`rules/02 §3`) | 멀티에이전트 팀 + 모니터 | 그 AI의 멀티에이전트 기능, team-monitor clone은 건너뜀 |
 | `MEMORY.md` / `Compact` | 자동 메모리 / 컨텍스트 압축 | 동등 기능에 매핑, 없으면 제외 |
@@ -58,7 +58,7 @@
 | `figma` | http | `https://mcp.figma.com/mcp` (OAuth) | ✅ (http MCP 지원 시) |
 | `huggingface-skills` | http | `https://huggingface.co/mcp?login` (OAuth) | ✅ |
 | `notion` | stdio | `npx @notionhq/notion-mcp-server` (+ 통합 토큰) | ✅ (자기 토큰 필요) |
-| **claude.ai PlayMCP** | 연동 | — | ❌ **claude.ai 계정 종속, 이식 불가** (§2.4) |
+| **claude.ai PlayMCP** | 계정 연동 | 기존 연결 자동 이전 없음 | 대상 클라이언트의 별도 제공·연결·인증과 실제 도구 확인 (§2.4) |
 
 ### 2.2 클라이언트별 등록법
 
@@ -104,9 +104,12 @@ figma    = MCPServerStreamableHttp(params={"url": "https://mcp.figma.com/mcp"})
 - `figma`·`huggingface-skills` = **원격 http + OAuth**. 등록 후 브라우저 로그인으로 인증. 다른 AI 클라이언트도 http MCP + OAuth를 지원해야 한다.
 - `notion` = stdio지만 **통합 토큰** 필요. 받는 사람이 자기 Notion 토큰을 환경변수(`OPENAPI_MCP_HEADERS` 등)로 넣는다. **토큰을 저장소에 커밋하지 말 것.**
 
-### 2.4 이식 불가 — claude.ai PlayMCP
-`NaverSearch`·`KakaotalkChat`·`SaraminMcp`·`UsStockInfo`·`opendart`는 **claude.ai 계정에 연동된 MCP**라 다른 AI에서 직접 못 쓴다.
-→ 대안: 각 서비스(네이버/카카오/사람인 등)의 **독립 MCP 서버나 공개 API**를 찾아 별도 등록.
+<a id="24-이식-불가--claudeai-playmcp"></a>
+### 2.4 PlayMCP 연결과 클라이언트 지원.
+
+`NaverSearch`·`KakaotalkChat`·`SaraminMcp`·`UsStockInfo`·`opendart`는 작성 당시 **claude.ai 계정에 연결된 도구의 기록**이다. 이 연결과 권한은 다른 클라이언트로 자동 이전되지 않는다.
+
+대상 호스트가 PlayMCP나 같은 서비스를 별도 연결 도구로 제공하는지 먼저 확인하고, 현재 노출된 도구·지원 범위·계정 인증을 기준으로 사용한다. 제공되지 않거나 필요한 기능이 없으면 각 서비스의 **독립 MCP 서버나 공개 API**를 검토한다. 과거 연결 기록만으로 다른 AI의 지원 여부를 단정하지 않는다.
 
 ---
 
@@ -124,7 +127,7 @@ figma    = MCPServerStreamableHttp(params={"url": "https://mcp.figma.com/mcp"})
 
 ### 3.2 경로 A — 출처에서 각자 설치 (주력)
 
-**공식 플러그인 스킬**(`firecrawl`·`huggingface-skills`·`plugin-dev` 등 카탈로그의 ON 플러그인)의 공통 배포 마켓플레이스다. 제작자 원본은 플러그인별로 구분한다.
+카탈로그에 기록된 **일부 Claude Code 플러그인**의 배포 마켓플레이스다. ON 표시는 당시 환경의 기록이며, 제작자 원본과 현재 설치 경로는 각 분류의 안내에서 확인한다.
 ```
 github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마켓플레이스)
 ```
@@ -133,16 +136,18 @@ github.com/anthropics/claude-plugins-official   (= claude-plugins-official 마�
 - **받는 AI가 Agent Skills를 지원하면**: 해당 원본에서 **스킬 루트 디렉터리 전체**를 그 AI의 skills 폴더에 배치한다. `SKILL.md`가 참조하는 `scripts/`·`references/`·`assets/`·예제와 상대경로 의존 리소스를 함께 보존한다. 별도 플러그인의 커맨드·훅 등 Claude 전용 구성은 제외하고, 스킬의 도구·환경 요구는 대상 클라이언트에 맞게 확인한다. [Agent Skills 패키지 구조](https://agentskills.io/specification#directory-structure)를 따른다.
 - **스킬별 정확한 공개 원본·License**는 [`Skill/README.md`](Skill/README.md)의 **"📦 출처·설치 매핑"** 표 참조. 주의: 전부 마켓플레이스 번들이 아니다 — 일부는 **외부 repo가 원본**이다:
   - `superpowers` → `github.com/obra/superpowers` (MIT) · `huggingface-skills` → `github.com/huggingface/skills` (Apache-2.0) · `qodo-skills` → `github.com/qodo-ai/qodo-skills` (MIT) · `vercel`/`railway`/`neon`도 각사 repo
-  - Figma는 `github.com/figma/mcp-server-guide`, Firecrawl은 `github.com/firecrawl/firecrawl-claude-plugin`, Chrome DevTools는 `github.com/ChromeDevTools/chrome-devtools-mcp`에서 실제 원본을 확인했다. [스킬별 고정 원본과 변환 경계](references/skill-provenance-2026-11-06.md)를 따른다.
+  - Figma는 `github.com/figma/mcp-server-guide`, Firecrawl의 갱신 원본은 `github.com/firecrawl/cli`, Chrome DevTools는 `github.com/ChromeDevTools/chrome-devtools-mcp`다. [11월 6일 출처 조사](references/skill-provenance-2026-11-06.md)와 [같은 날 갱신 기록](references/codex-skill-update-2026-11-06.md)은 각각 당시 근거로 보존하며, 사용할 원본·설치 조건은 분류별 최신 안내를 확인한다.
   - Anthropic 제작과 외부 번들은 `github.com/anthropics/claude-plugins-official`을 통해 배포될 수 있다. **plugin.json에 license 미기재 항목은 원본 라이선스와 제작사 조건을 별도로 확인한다.**
 
 Codex에서 Superpowers를 패키지로 관리할 때는 확인한 원본의 15개 `skills/<name>`을 각각 `~/.agents/skills/<name>`에 배치하고 `scripts/`·`references/`·템플릿 등 상대경로 의존성을 보존한다. 플러그인 방식과 중복 설치하지 않으며, 기존 개인 파일·전역 지침·커스텀 스킬은 보존한다. 채널 버전과 파일 비교 후 새 세션에서 실제 발견·로드를 확인해야 설치 검증이 끝난다.
 
+[Anthropic 공식 스킬](Skill/anthropic-skills/README.md)과 [Office·디자인 도구](Skill/office-design-tools/README.md)는 각 분류의 고정 원본·명시 호출 정책·기존 도구와의 역할 중첩을 확인한다. 패키지 복사와 Python·Node·CLI·브라우저 등 실행 종속성 준비를 구분하고, 새 세션에서 실제 발견된 이름과 호출 정책을 확인한다. Unity 연결은 [프로젝트별 설치·브리지 안내](MCP/coplay-funplay-unity-mcp.md)를 따른다.
+
 ### 3.3 경로 B — 참조 활용 (자동 트리거 없이)
-받는 AI가 Agent Skills를 **미지원**하면, 카탈로그 문서(설명) 자체를 **컨텍스트에 넣어 지침으로** 쓴다. 자동 트리거·progressive disclosure는 없지만, "이 스킬이 무엇을 어떻게 하는지"를 AI가 읽고 같은 작업을 수행할 수 있다. (설명 문서 활용은 라이선스 자유)
+받는 AI가 Agent Skills를 **미지원**하면, 카탈로그 문서(설명) 자체를 **컨텍스트에 넣어 지침으로** 쓴다. 자동 트리거·progressive disclosure는 없지만, "이 스킬이 무엇을 어떻게 하는지"를 AI가 읽고 가용 도구로 수행할 수 있다. 자체 작성 설명은 이 저장소 [License](LICENSE)에 따라 활용하며 타사 원문·리소스에는 해당 출처의 조건을 적용한다.
 
 ### 3.4 경로 C — MCP/도구로 래핑 (가장 이식성 높음)
-스킬의 **기능**을 직접 MCP 서버나 함수 도구로 구현해 노출하면, MCP를 지원하는 **모든 AI**가 쓴다. 재배포가 아니라 자체 구현이므로 라이선스 자유. 노력은 크지만 가장 보편적.
+스킬의 **기능**을 직접 MCP 서버나 함수 도구로 구현해 노출할 수도 있다. 대상 AI의 연결·인증·도구 지원을 확인하고 실제 호출로 검증한다. 자체 구현 여부만으로 타사 원문·코드·리소스의 라이선스 조건이 사라지지는 않으며, 복제·변환·재배포한 자료의 출처와 이용 조건을 별도로 확인한다.
 
 ### 3.5 라이선스 가드 (필수 확인)
 - 이 저장소엔 **타사 Skill 실물을 넣지 않는다**(출처 링크만). 그래야 재배포 문제가 없다.
@@ -160,7 +165,7 @@ Codex에서 Superpowers를 패키지로 관리할 때는 확인한 원본의 15�
 
 - [ ] **MCP**: 필요한 서버를 대상 AI의 설정 형식에 맞춰 등록한다 (§2.2).
 - [ ] **MCP 인증**: figma·hf는 OAuth 로그인, notion은 자기 토큰 주입(커밋 금지)
-- [ ] **PlayMCP 제외**: claude.ai 종속이므로 대체 MCP/API로 교체 (§2.4)
+- [ ] **PlayMCP 지원 확인**: 기존 claude.ai 연결과 구분해 대상 호스트의 도구·연결·인증을 확인하고 필요하면 대체 MCP/API 검토 (§2.4).
 - [ ] **Skill 출처 확인**: 쓰려는 스킬의 공개 원본(`anthropics/claude-plugins-official` 등) 확보
 - [ ] **Skill 리소스 보존**: `SKILL.md`의 상대경로 참조·실행 스크립트·템플릿이 설치 위치에서도 존재하는지 확인한다.
 - [ ] **자체 제작 Skill**: `Owned-Skills/`의 선택 패키지 전체를 배치하고, 포함된 경우 `agents/openai.yaml`과 리소스를 보존한다.
@@ -170,4 +175,4 @@ Codex에서 Superpowers를 패키지로 관리할 때는 확인한 원본의 15�
 
 ---
 
-*이 문서는 이식 방법을 안내한다. 타사 Skill 실물은 담지 않고, 자체 제작 Skill만 `Owned-Skills/`에 보관하며, MCP 연결정보는 현 환경 `.mcp.json` 기준이다.*
+*이 문서는 이식 방법을 안내한다. 타사 Skill 실물은 담지 않고, 자체 제작 Skill만 `Owned-Skills/`에 보관한다. MCP 연결정보는 작성 당시 설정과 공개 안내의 예시이며 현재 호스트의 지원·연결·인증·도구 노출을 보장하지 않는다.*

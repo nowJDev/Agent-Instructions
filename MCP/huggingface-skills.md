@@ -1,5 +1,7 @@
 # huggingface-skills
 
+> 설치·활성·캐시·도구 접두사는 작성 당시 Claude Code 환경의 기록이다. 현재 클라이언트의 연결·인증·실제 도구명과 인자는 런타임 목록에서 확인한다.
+
 > Hugging Face Hub 공식 원격 MCP 서버. OAuth 로그인을 거쳐 HF 생태계(모델·데이터셋·Spaces·Jobs 등) 작업을 연동한다.
 
 ## 📌 용도
@@ -36,6 +38,6 @@ Hugging Face의 공식 HTTP MCP 서버(`https://huggingface.co/mcp?login`)에 �
 - 제공: **플러그인** `huggingface-skills@claude-plugins-official`
 - 활성화: ON (`settings.json` → `enabledPlugins["huggingface-skills@claude-plugins-official"]: true`)
 - 연결 방식: **http** — `https://huggingface.co/mcp?login` (원격 서버, OAuth 로그인 필요)
-- 캐시에 여러 버전 공존: `huggingface-skills\1.0.3 / 1.0.4 / 1.0.5 / 1.0.8\.mcp.json` (현재 최신 1.0.8 기준 동일 URL)
+- 확인한 캐시에 여러 버전 공존: `huggingface-skills\1.0.3 / 1.0.4 / 1.0.5 / 1.0.8\.mcp.json` (해당 캐시 스냅샷의 최신 1.0.8 기준 동일 URL).
 - 설정/캐시 경로: `~/.claude/plugins/cache/claude-plugins-official/huggingface-skills/1.0.8/.mcp.json`
 - 세션 내 도구 식별자 접두사: `mcp__plugin_huggingface-skills_huggingface-skills__`
