@@ -2,10 +2,10 @@
 
 2026-11-06의 [Codex 전용 업데이트](../references/codex-skill-update-2026-11-06.md)는 기존 후보 57개 중 48개 패키지를 갱신하고 9개를 동일 유지했다. 당시 Codex에서는 `firecrawl-cli`가 `firecrawl`로 바뀌고 `skill-gen`이 퇴역해 전역 설치는 102개였다. 아래 설명 카탈로그 100개와 Claude 설치 상태는 별개로 보존한다. [출처 관리 132개 목록](../references/codex-skill-versions-2026-11-06.json)은 새 CLI 발견 122개와 구분하며 원본 번들 버전을 실제 CLI·서버 버전으로 대신하지 않는다. Qodo 2개와 공식 경로에서 버전을 선택할 수 없는 네이티브 항목은 보류했다.
 
-카탈로그 일반 설명 항목 **119개**를 출처별로 정리했습니다. 2026-11-11에 kordoc 1개, 2026-11-12에 Anthropic 원본 저장소의 설치 이름 19개를 추가했습니다. OFF 22개를 포함한 141개 항목에는 스킬·명령·메타 문서와 다른 배포 경로의 설명이 함께 있으므로 고유 스킬 수나 현재 호출 가능한 스킬 수와 구분합니다. 실제 PC의 설치·노출·인증 상태와도 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
+카탈로그 일반 설명 항목 **122개**를 출처별로 정리했습니다. 2026-11-11에 kordoc 1개, 2026-11-12에 Anthropic 원본 저장소의 설치 이름 19개와 Office·디자인 도구 3개를 추가했습니다. OFF 22개를 포함한 144개 항목에는 스킬·명령·메타 문서와 다른 배포 경로의 설명이 함께 있으므로 고유 스킬 수나 현재 호출 가능한 스킬 수와 구분합니다. 실제 PC의 설치·노출·인증 상태와도 구분합니다. 입력·절차·실패·검증까지 직접 작성한 범용 보강 23개와 기존 전달 스킬은 [Owned-Skills](../Owned-Skills/README.md)에 있습니다. 아래 이름과 중복되므로 카탈로그 수에 다시 더하지 않습니다.
 ※ 플러그인 내부 reference 하위 스킬(chrome-devtools 65개, huggingface 68개 등 SKILL.md)은 세션에서 직접 참고하는 단위가 아니므로 제외했습니다.
 
-> 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(일반 설명 119 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
+> 📋 **각 스킬의 한 줄 설명 목차**는 [`CATALOG.md`](CATALOG.md) 참조(일반 설명 122 + OFF 22, 스킬별 요약). 이 README는 분류·수치·출처를 다룬다.
 
 ## 분류
 
@@ -55,6 +55,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 | [playground](playground/) | 1 | `playground/` | 인터랙티브 HTML 플레이그라운드 |
 | [kordoc](kordoc/) | 1 | `kordoc/` | 한국 공문서 읽기·생성·채움·편집·검증 |
 | [anthropic-skills](anthropic-skills/) | 19 | `anthropic-skills/` | Anthropic 원본을 `anthropic-` 이름으로 전역 설치하는 안내 |
+| [office-design-tools](office-design-tools/) | 3 | `office-design-tools/` | PPT Master·OfficeCLI·Huashu Design의 단일 전역 설치 안내 |
 
 `frontend-design`·`skill-creator` 그룹은 기존 Anthropic 플러그인 배포 경로의 설명으로 보존한다. 이번 Codex 설치에서는 해당 전역 실행본을 `anthropic-frontend-design`·`anthropic-skill-creator`로 이전한다. 자체 제작 `claude-api`와 OpenAI 내장 `skill-creator`는 별개로 보존한다. [이전·중복 처리와 호출 정책](anthropic-skills/README.md#설치와-중복-처리)을 따른다.
 
@@ -106,6 +107,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 | `atomic-agents`* | `github.com/BrainBlend-AI/atomic-agents` | MIT |
 | `kordoc` | [chrisryugj/kordoc](https://github.com/chrisryugj/kordoc), [스킬 경로·버전·설치 안내](kordoc/README.md#kordoc) | MIT |
 | `anthropic-skills` | [anthropics/skills](https://github.com/anthropics/skills), [고정 커밋·전역 설치 안내](anthropic-skills/README.md) | 원본 각 패키지의 라이선스·공통 고지를 보존한다. |
+| `ppt-master`·`officecli`·`huashu-design` | [출처·고정 버전·전역 설치 안내](office-design-tools/README.md) | PPT Master MIT·OfficeCLI Apache-2.0·Huashu MIT 및 일부 스티커 PolyForm Shield 예외를 보존한다. |
 
 \* atomic-agents는 세션 비노출(카탈로그 외)이나 출처 참고용 기재.
 
@@ -156,6 +158,6 @@ Claude Code에서 제작자 채널을 선택할 때의 명령은 다음과 같�
 
 ## 분류별 문서 구성.
 
-141개 설명은 25개 그룹 폴더의 README.md에 모았다. [CATALOG](CATALOG.md)의 항목을 누르면 해당 분류의 절로 이동한다. 각 항목의 용도·사용 조건·예제·실패 처리·출처·설치 확인 경계는 유지한다.
+144개 설명은 26개 그룹 폴더의 README.md에 모았다. [CATALOG](CATALOG.md)의 항목을 누르면 해당 분류의 절로 이동한다. 각 항목의 용도·사용 조건·예제·실패 처리·출처·설치 확인 경계는 유지한다.
 
 기존 개별 Markdown 주소는 같은 폴더 README.md의 파일명 앵커로 바뀌었다. 예를 들어 _personal/claude-news.md는 [개인 스킬의 claude-news 절](_personal/README.md#claude-news)에서 찾는다. [고정된 이전 버전](https://github.com/nowJDev/Agent-Instructions/tree/a559c66d71aee886e717ff91bffce6270accdb17/Skill)에서 옛 배치를 확인할 수 있다. 기존 그룹에 항목을 추가할 때는 새 파일 대신 해당 README의 절과 CATALOG 링크를 갱신한다.

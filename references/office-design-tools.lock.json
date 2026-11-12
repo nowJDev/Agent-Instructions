@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "name": "ppt-master",
+      "repository": "https://github.com/hugohe3/ppt-master",
+      "commit": "e2820d326d049f1fcbe90523983def3d52280233",
+      "source_path": "skills/ppt-master",
+      "upstream_version": "6.9.0",
+      "original_file_count": 13091,
+      "requirements_sha256": "79a24ff5bf57fce8b839c4ad8e7b5dfe4cf5fa833f3f386594d20b9d85e2a6cf",
+      "skill_sha256": "cda3f1f476a93a48385867dbdb89f661f27c35bfb670f51c7dbd53a3b300c856",
+      "implicit": false,
+      "license": "MIT; preserve LICENSE, SPONSORS and attribution guard"
+    },
+    {
+      "name": "officecli",
+      "repository": "https://github.com/iOfficeAI/OfficeCLI",
+      "commit": "c56512c8c7b76fe284f09940e4cd492470099d3e",
+      "source_path": "skills/officecli",
+      "upstream_version": "1.0.160",
+      "original_file_count": 1,
+      "skill_sha256": "c950d285ce60021712b4753fb2d9f592308d5622bab776229061dfecb1ce55d4",
+      "implicit": false,
+      "license": "Apache-2.0; preserve NOTICE and THIRD-PARTY-NOTICES.txt"
+    },
+    {
+      "name": "huashu-design",
+      "repository": "https://github.com/alchaincyf/huashu-design",
+      "commit": "e8d1148a80d5a281d4247cffe320add3df017928",
+      "source_path": ".",
+      "upstream_version": "3.3.0",
+      "original_file_count": 445,
+      "package_lock_sha256": "aad7b61d8a0230e329d4f0d3c31b0cecac04a2bd369911002965f79a86b19a73",
+      "skill_sha256": "a8d4e5e89ce17696fbaff477f8f864a1fd91f1b38665425b484c1e8f83e20584",
+      "implicit": false,
+      "license": "MIT with 22 sticker WebP assets under PolyForm Shield 1.0.0; preserve assets/style-specimens/xhs/_kit/stickers/LICENSE.md"
+    }
+  ],
+  "officecli_binary": {
+    "version": "1.0.160",
+    "platform": "win-x64",
+    "url": "https://github.com/iOfficeAI/OfficeCLI/releases/download/v1.0.160/officecli-win-x64.exe",
+    "bytes": 33546152,
+    "sha256": "c590ca9d464f2b03362825b0f2615efcae33ce3fc0edaeeef29f7ddacb4c5424",
+    "user_environment": {
+      "OFFICECLI_SKIP_UPDATE": "1",
+      "OFFICECLI_NO_AUTO_INSTALL": "1"
+    }
+  }
+}

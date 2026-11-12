@@ -5,7 +5,7 @@
 
 ---
 
-## 일반 설명 항목 (119)
+## 일반 설명 항목 (122)
 
 다른 배포 경로의 설명을 포함한다. 항목 수는 고유 스킬 수나 현재 PC의 설치·노출 수를 뜻하지 않는다. 기존 `frontend-design`·`skill-creator`의 Codex 전역본은 이번 설치에서 `anthropic-` 이름으로 이전하며 아래 원래 이름은 다른 배포 경로의 설명으로 유지한다.
 
@@ -167,6 +167,11 @@
 - [**anthropic-web-artifacts-builder**](anthropic-skills/README.md#anthropic-web-artifacts-builder) — 여러 UI 요소가 필요한 웹 산출물을 구성하는 명시 호출 전용 스킬.
 - [**anthropic-webapp-testing**](anthropic-skills/README.md#anthropic-webapp-testing) — 로컬 웹 앱의 브라우저 동작과 화면을 검증하는 명시 호출 전용 스킬.
 - [**anthropic-xlsx**](anthropic-skills/README.md#anthropic-xlsx) — 스프레드시트 작성·편집을 안내하는 명시 호출 전용 스킬.
+
+### office-design-tools (3)
+- [**ppt-master**](office-design-tools/README.md#ppt-master) — SVG에서 편집 가능한 PowerPoint를 만드는 명시 호출 전용 스킬.
+- [**officecli**](office-design-tools/README.md#officecli) — Office 없는 DOCX·XLSX·PPTX CLI와 명시 호출 전용 연동 스킬.
+- [**huashu-design**](office-design-tools/README.md#huashu-design) — HTML 기반 웹·앱·PPTX 디자인을 만드는 명시 호출 전용 스킬.
 
 ## ⛔ OFF 플러그인 (`_disabled/`, 22) — 켜야 사용
 

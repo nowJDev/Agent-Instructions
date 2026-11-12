@@ -1,6 +1,17 @@
 <!-- 최신 작업과 이전 문서 통합의 구현·검증·배포 결과를 추적한다. -->
 # 설계 진행 체크리스트.
 
+## 2026-11-12 Office·디자인 도구 세 가지 설치.
+
+[설계](superpowers/specs/2026-11-12-office-design-tools-design.md)·[계획](superpowers/plans/2026-11-12-office-design-tools.md)·[검증 기록](reviews/2026-11-12-office-design-tools.md)에 요청 범위와 증거를 기록한다.
+
+- [x] 세 저장소 설치·커밋·push 요청과 전역 단일 실행본·공개 관리 경계를 확인했다.
+- [x] 고정 원본·전체 리소스·고지·명시 호출 정책과 OfficeCLI 바이너리·사용자 환경을 준비했다.
+- [x] 새 사용자 프로세스의 세 스킬 발견·동명 중복 0개와 기존 1,193파일 보존을 확인했다.
+- [x] 세 도구의 최종 실제 샘플·실패 조건과 독립 재열기·화면 증거를 취합했다.
+- [ ] 전체 회귀·문서 게이트·독립 리뷰 후 커밋·main 통합·push·원격 SHA·CI를 확인한다.
+- [ ] 최종 기록과 소유 worktree·브랜치·프로세스 정리를 마친다.
+
 ## 2026-11-12 Anthropic 실제 작업 검증과 GitHub 반영.
 
 [계획](superpowers/plans/2026-11-12-anthropic-functional.md)과 [실제 작업 기록](reviews/2026-11-12-anthropic-functional.md)에 19개별 판정과 실행 범위를 기록한다.

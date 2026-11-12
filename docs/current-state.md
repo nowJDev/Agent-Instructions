@@ -1,6 +1,10 @@
 <!-- 최신 문서 구조와 검증·배포 결과 및 남은 검증 경계만 요약한다. -->
 # 현재 상태.
 
+## 2026-11-12 Office·디자인 도구 세 가지 설치.
+
+사용자 요청에 따라 PPT Master·OfficeCLI·Huashu Design의 전역 실행본과 [관리 안내](../Skill/office-design-tools/README.md)를 추가했다. [설계](superpowers/specs/2026-11-12-office-design-tools-design.md)·[계획](superpowers/plans/2026-11-12-office-design-tools.md)·[검증 기록](reviews/2026-11-12-office-design-tools.md)에 고정 원본·실제 샘플·실패 조건·사용 환경을 기록한다. 세 스킬은 명시 호출 전용이며 타사 실물·바이너리는 공개하지 않는다. PPT Master 원본 13,091파일·Huashu 445파일과 기존 전역 1,193파일을 보존했다. OfficeCLI는 1.0.160과 전용 사용자 PATH·자동 갱신/설치 제한을 적용했다. 새 사용자 Codex 프로세스의 홈·저장소에서 스킬 151개와 세 항목의 전역 발견·동명 중복 0개를 확인했다. 실제 파일 생성·변환·수식 계산을 검사했으며 일반 디자인 품질과 실제 Office 렌더는 미검증이다. 독립 리뷰·전체 회귀와 원격 배포는 최종 기록에서 확정한다.
+
 ## 2026-11-12 Anthropic 실제 작업 검증과 GitHub 반영.
 
 사용자가 후속 요청으로 19개 개별 스킬의 실제 작업 검증과 GitHub push를 승인했다. [실행 계획](superpowers/plans/2026-11-12-anthropic-functional.md)과 [실제 작업 기록](reviews/2026-11-12-anthropic-functional.md)에 산출물·도구·실패·미검증을 구분한다. 대표 샘플 통과 13개, 조건부 5개, 환경 제한으로 React 번들 실패 1개다. API는 로컬 SDK 정상·오류 처리만, Office는 파일 생성과 구조·색·폰트 검증만 완료한 항목이 있으며 DOCX/PPTX 렌더·XLSX 재계산은 미완료다. 웹 UI는 실제 조작을 통과했지만 원본 helper의 Windows 자식 서버 자동 정리는 실패해 이번 프로세스를 별도 확인·정리했다. 전역 원본·권한·개인 설정은 변경하지 않았다. 합성 문서는 독립 독자 검사와 수정·재검사를 수행했고 새 합산 스킬은 별도 실행자가 3개 입력을 통과했다. 커밋 `0905a06`을 main에 통합하고 병합 후 103개 회귀를 통과했다. 기존 미푸시 4개 커밋 이력을 보존해 push했으며 원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43134239347)을 확인했다. 임시 worktree·브랜치는 정리하고 비공개 증거는 보존했다. 아래 이전 작업의 미푸시 표기는 당시 상태다.

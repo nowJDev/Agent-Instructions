@@ -17,7 +17,7 @@ GROUPS = {
     'claude-md-management': 2, 'qodo-skills': 2, 'agent-sdk-dev': 1,
     'pr-review-toolkit': 1, 'feature-dev': 1, 'claude-code-setup': 1,
     'skill-creator': 1, 'frontend-design': 1, 'playground': 1, 'kordoc': 1,
-    'anthropic-skills': 19,
+    'anthropic-skills': 19, 'office-design-tools': 3,
     '_disabled/vercel': 13, '_disabled/hookify': 5, '_disabled/neon': 2,
     '_disabled/railway': 1, '_disabled/semgrep': 1,
 }
@@ -126,7 +126,7 @@ class DocumentationTests(unittest.TestCase):
             self.assertEqual(list(document.parent.glob('*.md')), [document])
         links = [target for target in markdown_links((ROOT / 'Skill/CATALOG.md').read_text(encoding='utf-8'))
                  if 'README.md#' in target]
-        self.assertEqual(len(links), 141)
+        self.assertEqual(len(links), 144)
         self.assertEqual(set(links), expected_links)
 
     def test_catalog_boundaries_ignore_code_and_reject_duplicates(self):
