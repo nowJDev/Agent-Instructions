@@ -22,7 +22,7 @@
 - Anthropic 설치·중복 조사는 [설치 기록](history/2026-11-12-anthropic-skills.md#review)에 있다. 별도 [실제 작업 검증](history/2026-11-12-anthropic-functional.md#review)은 대표 통과 13개·조건부 5개·SWC 번들 실패 1개다. Windows Office helper의 AF_UNIX·렌더·재계산과 웹 helper의 자동 자식 서버 정리 문제를 통과 처리하지 않는다.
 - Office/design 세 도구의 [별도 샘플](history/2026-11-12-office-design-tools.md#review)은 파일 생성·변환·수식 캐시·HTML 렌더와 실패 조건을 확인했다. 전용 Python과 Huashu 브라우저 경로가 필요하며 실제 Office 렌더 동일성·외부 API·전체 기능은 미검증이다. 다른 Anthropic helper의 실패를 수정한 증거는 아니다.
 - Unity의 [설치 기록](history/2026-11-11-coplay-funplay-unity-mcp.md#review)은 SDK 연결·도구와 새 스킬 발견을 확인했다. 두 프로젝트 패키지·실제 Editor 연결과 Funplay 주소 등록은 연기됐다.
-- 과거 글로벌 문서 복제·개인 자료 보존과 고정 출처 조사는 [보관 목차](history/README.md)에 있다. 이번 문서 정리는 지정 저장소를 대상으로 하며 전역 실행본·개인 설정·권한을 변경하지 않는다.
+- 과거 글로벌 문서 복제·개인 자료 보존과 고정 출처 조사는 [보관 목차](history/README.md)에 있다. 이전 문서 전체 정리는 지정 저장소만을 대상으로 했다. 이번 전역 문서 복제는 아래 별도 기록으로 구분하며 설치 스킬·인증·권한은 보존한다.
 
 ## 이전 문서 정리.
 
@@ -32,4 +32,4 @@
 
 [설계](superpowers/specs/2026-11-12-task-navigation-design.md)·[계획](superpowers/plans/2026-11-12-task-navigation.md)·[검증 기록](reviews/2026-11-12-task-navigation.md)을 기준으로 한다. 사용자는 저장소를 기준으로 전역 문서를 동일하게 독립 복제하도록 승인했다. 기존 전역 문서·개인 자료·진입점은 비공개 백업에 보존하며, 설치 스킬·인증·권한은 변경하지 않는다.
 
-저장소 전체 106개 회귀와 독립 리뷰를 통과했다. 전역 177개 파일의 동일성과 148개 Markdown 링크를 확인하고, 원본 저장소·임시 worktree 접근을 차단한 전역 전체 106개 회귀도 통과했다. 현재 커밋·main 통합·원격 배포를 진행한다.
+저장소와 main 통합 결과의 전체 106개 회귀·독립 리뷰를 통과했다. 전역 177개 파일의 동일성과 148개 Markdown 링크를 확인하고, 원본 저장소·임시 worktree 접근을 차단한 전역 전체 106개 회귀도 통과했다. 구현 커밋 `d7bffa3`을 main에 통합·push하고 원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43170669712)을 확인했다. 소유 임시 worktree·브랜치는 정리했으며 최종 증거 문서도 전역 동일성 검사에 포함한다.
