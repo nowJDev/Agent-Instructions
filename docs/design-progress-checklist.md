@@ -1,6 +1,17 @@
 <!-- 최신 작업과 이전 문서 통합의 구현·검증·배포 결과를 추적한다. -->
 # 설계 진행 체크리스트.
 
+## 2026-11-12 Anthropic 스킬 설치.
+
+[설계](superpowers/specs/2026-11-12-anthropic-skills-design.md), [계획](superpowers/plans/2026-11-12-anthropic-skills.md), [전수조사·검증](reviews/2026-11-12-anthropic-skills.md)에 실제 범위와 증거를 기록한다.
+
+- [x] 공급자 접두어·기존 2개 이전·전역 단일 설치와 저장소 설치 명세 관리 설계의 실행 승인을 확인했다.
+- [x] 로컬 308개 파일과 비활성 보관 경로, 사용자 새 CLI 130개 목록·플러그인 등록과 신규 19개 description을 조사했다.
+- [x] 설치기·명세·141개 설명 카탈로그를 추가하고 명시 호출 10개·자동 선택 9개를 구분했다.
+- [x] 독립 리뷰 결함 4개와 실제 Windows ACL 상속 오류를 반례 RED→GREEN으로 고치고 전체 103개 회귀를 통과했다.
+- [x] 전역 19개·469파일 배포, 기존 2개 이전·보호 971파일 동일성·재실행 무변경·새 사용자 프로세스 147개 발견과 중복 0개를 검증했다.
+- [ ] 최종 문서 게이트·한글 커밋·로컬 main 통합과 소유 임시 작업 정리를 마친다.
+
 ## 2026-11-11 Unity MCP 추가.
 
 [설계](superpowers/specs/2026-11-11-coplay-funplay-unity-mcp-design.md), [계획](superpowers/plans/2026-11-11-coplay-funplay-unity-mcp.md), [검증 기록](reviews/2026-11-11-coplay-funplay-unity-mcp.md)에 실제 진행 상태를 기록한다.

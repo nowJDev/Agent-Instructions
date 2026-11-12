@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "archive_sha256": "e5b0c67dbfae471c013d0e03abe66db20ca70cc0c79ab6154a386c8b026e5195",
+  "skills": [
+    {"source": "academy-guide", "name": "anthropic-academy-guide", "implicit": true},
+    {"source": "algorithmic-art", "name": "anthropic-algorithmic-art", "implicit": true},
+    {"source": "brand-guidelines", "name": "anthropic-brand-guidelines", "implicit": false},
+    {"source": "canvas-design", "name": "anthropic-canvas-design", "implicit": true},
+    {"source": "claude-api", "name": "anthropic-claude-api", "implicit": false},
+    {"source": "discernment-nudge", "name": "anthropic-discernment-nudge", "implicit": false},
+    {"source": "doc-coauthoring", "name": "anthropic-doc-coauthoring", "implicit": true},
+    {"source": "docx", "name": "anthropic-docx", "implicit": false},
+    {"source": "frontend-design", "name": "anthropic-frontend-design", "implicit": true, "migrate_from": "frontend-design"},
+    {"source": "internal-comms", "name": "anthropic-internal-comms", "implicit": true},
+    {"source": "mcp-builder", "name": "anthropic-mcp-builder", "implicit": true},
+    {"source": "pdf", "name": "anthropic-pdf", "implicit": false},
+    {"source": "pptx", "name": "anthropic-pptx", "implicit": false},
+    {"source": "skill-creator", "name": "anthropic-skill-creator", "implicit": false, "migrate_from": "skill-creator", "legacy_license_sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd", "legacy_license_source": "https://github.com/anthropics/claude-plugins-official/blob/cb421c81df4274fd28fd1ead817bc6ffea723fed/plugins/skill-creator/skills/skill-creator/LICENSE.txt"},
+    {"source": "slack-gif-creator", "name": "anthropic-slack-gif-creator", "implicit": true},
+    {"source": "theme-factory", "name": "anthropic-theme-factory", "implicit": true},
+    {"source": "web-artifacts-builder", "name": "anthropic-web-artifacts-builder", "implicit": false},
+    {"source": "webapp-testing", "name": "anthropic-webapp-testing", "implicit": false},
+    {"source": "xlsx", "name": "anthropic-xlsx", "implicit": false}
+  ]
+}

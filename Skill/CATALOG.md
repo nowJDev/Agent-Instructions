@@ -5,7 +5,9 @@
 
 ---
 
-## 노출 스킬 (100)
+## 일반 설명 항목 (119)
+
+다른 배포 경로의 설명을 포함한다. 항목 수는 고유 스킬 수나 현재 PC의 설치·노출 수를 뜻하지 않는다. 기존 `frontend-design`·`skill-creator`의 Codex 전역본은 이번 설치에서 `anthropic-` 이름으로 이전하며 아래 원래 이름은 다른 배포 경로의 설명으로 유지한다.
 
 ### _builtin (13)
 - [**claude-api**](_builtin/README.md#claude-api) — Claude API / Anthropic SDK 레퍼런스 빌트인 스킬. model id·가격·파라미터·스트리밍·tool use·MCP·캐싱·토큰 카운팅·모델 마이그레이션을 다룬다. **Claude/Anthropic 관련 작업 시 파일을 열기 전에 먼저 읽는 트리거 스킬**.
@@ -144,6 +146,27 @@
 
 ### kordoc (1)
 - [**kordoc**](kordoc/README.md#kordoc) — HWP·HWPX·HWPML과 한국 공문서를 읽고, 생성·채움·편집·비교·검증·미리보기하는 스킬.
+
+### anthropic-skills (19)
+- [**anthropic-academy-guide**](anthropic-skills/README.md#anthropic-academy-guide) — Claude 사용 목적에 맞는 Academy 과정·튜토리얼을 찾는 스킬.
+- [**anthropic-algorithmic-art**](anthropic-skills/README.md#anthropic-algorithmic-art) — 코드와 조절 가능한 매개변수로 알고리즘 아트를 만드는 스킬.
+- [**anthropic-brand-guidelines**](anthropic-skills/README.md#anthropic-brand-guidelines) — Anthropic의 브랜드 색상·타이포그래피를 적용하는 명시 호출 전용 스킬.
+- [**anthropic-canvas-design**](anthropic-skills/README.md#anthropic-canvas-design) — 포스터 등 정적인 시각 작품을 제작하는 스킬.
+- [**anthropic-claude-api**](anthropic-skills/README.md#anthropic-claude-api) — 공식 Claude API·SDK 원본 자료를 참고하는 명시 호출 전용 스킬.
+- [**anthropic-discernment-nudge**](anthropic-skills/README.md#anthropic-discernment-nudge) — 답변의 사실·추론·누락을 점검하는 후속 질문을 제안하는 명시 호출 전용 스킬.
+- [**anthropic-doc-coauthoring**](anthropic-skills/README.md#anthropic-doc-coauthoring) — 초안·구조·독자 관점 검토를 거쳐 문서를 공동 작성하는 스킬.
+- [**anthropic-docx**](anthropic-skills/README.md#anthropic-docx) — Word 문서 생성·편집을 안내하는 명시 호출 전용 스킬.
+- [**anthropic-frontend-design**](anthropic-skills/README.md#anthropic-frontend-design) — 의도적인 시각 방향을 가진 프런트엔드 UI를 만드는 스킬.
+- [**anthropic-internal-comms**](anthropic-skills/README.md#anthropic-internal-comms) — 상태 보고·사내 공지 등 내부 커뮤니케이션 문서를 작성하는 스킬.
+- [**anthropic-mcp-builder**](anthropic-skills/README.md#anthropic-mcp-builder) — 외부 서비스를 연결하는 MCP 서버를 설계·구현하는 스킬.
+- [**anthropic-pdf**](anthropic-skills/README.md#anthropic-pdf) — PDF 읽기·작성·변환을 안내하는 명시 호출 전용 스킬.
+- [**anthropic-pptx**](anthropic-skills/README.md#anthropic-pptx) — PowerPoint 슬라이드 생성·편집을 안내하는 명시 호출 전용 스킬.
+- [**anthropic-skill-creator**](anthropic-skills/README.md#anthropic-skill-creator) — 스킬 작성·수정·평가를 안내하는 명시 호출 전용 스킬.
+- [**anthropic-slack-gif-creator**](anthropic-skills/README.md#anthropic-slack-gif-creator) — Slack에 사용할 애니메이션 GIF를 만드는 스킬.
+- [**anthropic-theme-factory**](anthropic-skills/README.md#anthropic-theme-factory) — 문서·슬라이드·웹 산출물에 일관된 시각 테마를 적용하는 스킬.
+- [**anthropic-web-artifacts-builder**](anthropic-skills/README.md#anthropic-web-artifacts-builder) — 여러 UI 요소가 필요한 웹 산출물을 구성하는 명시 호출 전용 스킬.
+- [**anthropic-webapp-testing**](anthropic-skills/README.md#anthropic-webapp-testing) — 로컬 웹 앱의 브라우저 동작과 화면을 검증하는 명시 호출 전용 스킬.
+- [**anthropic-xlsx**](anthropic-skills/README.md#anthropic-xlsx) — 스프레드시트 작성·편집을 안내하는 명시 호출 전용 스킬.
 
 ## ⛔ OFF 플러그인 (`_disabled/`, 22) — 켜야 사용
 

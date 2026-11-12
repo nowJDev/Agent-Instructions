@@ -1,6 +1,10 @@
 <!-- 최신 문서 구조와 검증·배포 결과 및 남은 검증 경계만 요약한다. -->
 # 현재 상태.
 
+## 2026-11-12 Anthropic 스킬 설치.
+
+[승인 설계](superpowers/specs/2026-11-12-anthropic-skills-design.md)에 따라 공식 19개 스킬을 전역에 설치하고 기존 2개를 백업·이전했다. 설치기·고정 명세·공급자 접두어와 141개 설명 카탈로그를 추가했다. [계획](superpowers/plans/2026-11-12-anthropic-skills.md)과 [전수조사·검증 기록](reviews/2026-11-12-anthropic-skills.md)에 조사 범위·기존 역할 중첩·호출 제한 10개와 독립 리뷰 결함 4개의 수정 증거를 기록한다. Python 3.12 전체 103개 회귀, 보호 971파일 동일성, 재설치 무변경과 새 사용자 프로세스의 홈·저장소 스킬 147개 발견을 확인했다. 동명·원문·정규화 본문 중복은 모두 0개다. 사용자가 승인한 새 패키지·상태 파일의 Windows ACL 상속을 복원한 뒤 현재 에이전트의 19개 본문 직접 읽기와 검사 CLI도 통과했다. 로컬 통합·임시 작업 정리는 최종 게이트 뒤 수행한다. 다른 클라이언트·플러그인·자체 제작 스킬·개인 자료와 이번 설치와 무관한 기존 역할 중첩은 보존했다. 실제 모델 기능 실행과 원격 push는 수행하지 않는다.
+
 ## 2026-11-11 Unity MCP 추가.
 
 사용자 요청에 따라 CoplayDev/unity-mcp와 FunplayAI/funplay-unity-mcp의 설치·전역 등록 안내를 [Unity MCP 문서](../MCP/coplay-funplay-unity-mcp.md)에 추가하고 MCP 목차·이식 표에서 연결했다. 프로젝트 설치는 나중으로 미룬다는 후속 지시에 따라 [coplay-funplay-unity-mcp-setup](../Owned-Skills/coplay-funplay-unity-mcp-setup/SKILL.md)을 자체 제작 원본에 추가했다. 자체 제작 원본은 26개다. CoplayDev/unity-mcp 전역 서버 `10.3.0`과 Codex stdio 등록, SDK의 MCP 응답·도구 48개를 확인했으며 기존 설정을 보존했다. 전역 스킬·문서의 원본 해시와 중복 정리를 확인했고 새 Codex 프로세스에서 새 스킬의 enabled·사용자 범위·실제 경로를 발견했다. Windows Python 3.12 전체 84개 회귀·내부 링크·diff 검사와 스킬 유효성 검사를 통과했다. FunplayAI/funplay-unity-mcp 주소 등록·두 Unity 패키지 설치·실제 Editor 연결은 연기했으며 실제 모델 호출·Codex 세션의 MCP 도구 발견은 미검증이다. [설계](superpowers/specs/2026-11-11-coplay-funplay-unity-mcp-design.md), [계획](superpowers/plans/2026-11-11-coplay-funplay-unity-mcp.md), [검증 기록](reviews/2026-11-11-coplay-funplay-unity-mcp.md)에 범위와 증거를 남긴다. 구현 커밋 `be04619`를 로컬 main에 통합하고 병합 후 전체 84개 회귀를 다시 통과했다. 이번 임시 worktree·브랜치는 정리했으며 원격 push는 수행하지 않았다.
