@@ -31,6 +31,7 @@
 - `PORTABILITY.md`의 대체 표를 먼저 확인한다.
 - `design-driven-delivery`를 쓰려면 `Owned-Skills/design-driven-delivery`를 `~/.agents/skills/design-driven-delivery`에 복사하고 새 세션을 시작한다.
 - 추가 설치를 요청한 경우 [Anthropic 스킬](Skill/anthropic-skills/README.md)과 [Office·디자인 도구](Skill/office-design-tools/README.md)의 설치·명시 호출·이름 중첩·실행 종속성 조건을 확인한다. Unity 연결은 [프로젝트별 안내](MCP/coplay-funplay-unity-mcp.md)를 따른다. 이 항목들은 아래 최소 CLI 세팅에 자동 포함하지 않는다.
+- 데스크톱 GUI 자동화는 [agent-desktop 설치·검증](#agent-desktop-setup)을 따른다.
 
 ### Cursor, Gemini, Copilot 등
 
@@ -143,6 +144,23 @@ $clientHome
 6. 선택한 클라이언트, CLI 전체 경로·버전, 전역 지침·복제본·바로가기 위치, 작업 폴더, 아이콘 공식 출처, 실행·지침 로드·인증 결과와 남은 항목을 보고한다.
 
 기본 범위는 CLI 준비·전역 기본 지침·공식 아이콘 바탕화면 바로가기·실행 확인과 필요한 사용자 로그인 안내다. 스킬·MCP·플러그인·hooks·테마·상태줄·권한 변경·bypass 옵션은 자동 포함하지 않는다. 별도 확장 요청이 있을 때만 [Claude Code 확장 가이드](references/claude-code-cli-setup.md)나 각 도구 원본 안내를 사용한다. 미지원 OS·클라이언트는 이 Windows 예제를 임의 적용하지 않고 지원 범위와 미완료 사유를 보고한다.
+
+<a id="agent-desktop-setup"></a>
+
+### 4.2 데스크톱 GUI 도구 준비
+
+이 저장소에서 새 Codex 세션을 열면 프로젝트 `AGENTS.md`의 `agent-desktop` 우선 규칙이 적용된다. 다른 프로젝트에도 같은 기본값을 적용하려면 §4에 따라 이 저장소의 전역 템플릿을 해당 PC의 Codex 프로필에 병합한다.
+
+새 PC 또는 데스크톱 세션이 있는 작업 환경에서 사용자 전역 설치를 준비할 때 아래 명령을 실행한다. npm과 npx의 요구 버전은 [CLI 설치 문서](https://agent-browser.dev/desktop/installation)와 [Skills CLI 안내](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)를 확인한다. 이미 같은 CLI와 스킬이 있으면 재사용하고 버전 변경이 필요한 경우 기존 설치를 확인한다.
+
+```sh
+npm install -g agent-desktop@1.3.1
+npx --yes skills add vercel-labs/agent-desktop@v1.3.1 --agent codex --global --skill agent-desktop --copy --yes
+```
+
+Windows PowerShell에서 실행 정책이 npm 또는 npx 래퍼를 막으면 각각 `npm.cmd`와 `npx.cmd`를 사용한다. 설치 뒤 `agent-desktop version`으로 실행 파일을 확인하고, `agent-desktop status`에서 접근성 상태와 `supported_surfaces`를 확인한다. 새 Codex 세션의 스킬 목록에서 `agent-desktop`을 확인한다.
+
+스킬이 Codex 목록에 없어도 CLI가 사용 가능하면 `agent-desktop skills get desktop`과 `agent-desktop skills get platform`으로 실행 버전에 맞는 가이드를 읽을 수 있다. GUI 세션이 없는 클라우드에서는 이 도구로 데스크톱 앱을 검증할 수 없으므로, 작업 범위에서 지원되는 도구를 선택한다. 운영체제별 환경은 [agent-desktop 플랫폼 안내](https://agent-browser.dev/desktop/installation#grant-permissions)를 따른다.
 
 ## 5. 이 저장소가 하는 것과 하지 않는 것
 

@@ -52,6 +52,7 @@
 - 만들기 전 `brainstorming`→`writing-plans`, 구현은 `test-driven-development`·`systematic-debugging`, 마무리는 `verify`·`code-review`.
 - 웹 검색·자료 수집은 `firecrawl-*`, 깊은 리서치는 `deep-research`, 라이브러리 문서는 `context7` MCP, 코드 질문은 사용 가능한 RAG/MCP를 먼저 확인한다.
 - 웹 UI 테스트·브라우저 디버깅은 사용자 지정 도구를 우선하고, 지정이 없으면 사용 가능한 `chrome-devtools` MCP를 우선한다. 별도 Chrome의 자동 실행과 검증 절차는 [Chrome DevTools MCP 안내](MCP/chrome-devtools.md)를 따른다.
+- 도구 지정이 없는 데스크톱 GUI 작업은 `agent-desktop`을 우선하고, 미지원 시 `Computer Use`를 검토한다.
 - **상황→도구 매핑·전체 목록**: [`Skill/README.md`](Skill/README.md)·[`MCP/README.md`](MCP/README.md)(또는 [README 문서 안내](README.md#더-알고-싶을-때-찾는-문서)). 스킬이 적용되면 먼저 호출하고 "Using [skill]"를 알린다.
 
 ## 세부 문서 (필요할 때만)
