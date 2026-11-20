@@ -5,13 +5,13 @@
 
 엑셀·PPT 등 **하려는 작업으로 찾을 때는 [분야별 선택 안내](BY-TASK.md)**를 사용한다. 아래 전체 항목은 기존 출처별 분류로 유지한다.
 
-2026-11-12 전수 대조로 **설명·원본 주소 294개**를 등록했다. 기존 설명 144개, 직접·시스템 보완 16개, 현재 선택 플러그인 패키지·전문 가이드 108개, 자체 제작 원본 26개다. 같은 이름의 다른 구현과 과거 배포 설명을 포함하므로 고유 실행 스킬 수가 아니다. [조사 증거](../references/skill-inventory-2026-11-12.json)는 유효 직접 패키지 244개·세션 노출 181개와 루트 SKILL이 없는 제외 후보 2개를 별도 기록한다.
+**설명·원본 주소 296개**를 등록했다. 2026-11-12 전수 대조의 설명 144개, 직접·시스템 보완 16개, 선택 플러그인 패키지·전문 가이드 108개, 자체 제작 원본 26개에 Hallmark·Impeccable 설명을 추가했다. [당시 조사 증거](../references/skill-inventory-2026-11-12.json)는 유효 직접 패키지 244개·세션 노출 181개와 루트 SKILL이 없는 제외 후보 2개를 기록한다.
 
 ---
 
-## 기존 일반 설명 항목 (122)
+## 일반 설명 항목 (124)
 
-이 절과 기존 OFF 절은 다른 배포 경로의 설명을 포함한다. 기존 일반 122개와 OFF 22개, 합계 144개·26그룹이며 고유 스킬 수나 현재 PC의 설치·노출 수를 뜻하지 않는다. ON/OFF는 작성 당시 Claude Code 환경의 기록이고 실제 발견·의존성 내부 스킬·명시 호출 정책의 경계는 [인덱스](README.md)를 따른다. 기존 `frontend-design`·`skill-creator`의 Codex 전역본은 2026-11-12 설치에서 `anthropic-` 이름으로 이전했으며 아래 원래 이름은 다른 배포 경로의 설명으로 유지한다. `firecrawl-cli`와 `skill-gen`도 과거 배포 설명으로 보존하며 현재 Codex의 `firecrawl` 이름과 `skill-gen` 퇴역은 [해당 안내](firecrawl/)에서 구분한다.
+이 절의 일반 124개와 기존 OFF 22개는 합계 146개·26그룹이다. ON/OFF는 작성 당시 Claude Code 환경의 기록이고 실제 발견·의존성 내부 스킬·명시 호출 정책의 경계는 [인덱스](README.md)를 따른다. 기존 `frontend-design`·`skill-creator`의 Codex 전역본은 2026-11-12 설치에서 `anthropic-` 이름으로 이전했으며 아래 원래 이름은 다른 배포 경로의 설명으로 유지한다. `firecrawl-cli`와 `skill-gen`의 현재 Codex 이름·배포 여부는 [해당 안내](firecrawl/)에서 확인한다.
 
 ### _builtin (13)
 - [**claude-api**](_builtin/README.md#claude-api) — Claude API / Anthropic SDK 레퍼런스 빌트인 스킬. model id·가격·파라미터·스트리밍·tool use·MCP·캐싱·토큰 카운팅·모델 마이그레이션을 다룬다. **Claude/Anthropic 관련 작업 시 파일을 열기 전에 먼저 읽는 트리거 스킬**.
@@ -172,10 +172,12 @@
 - [**anthropic-webapp-testing**](anthropic-skills/README.md#anthropic-webapp-testing) — 로컬 웹 앱의 브라우저 동작과 화면을 검증하는 명시 호출 전용 스킬.
 - [**anthropic-xlsx**](anthropic-skills/README.md#anthropic-xlsx) — 스프레드시트 작성·편집을 안내하는 명시 호출 전용 스킬.
 
-### office-design-tools (3)
+### office-design-tools (5)
 - [**ppt-master**](office-design-tools/README.md#ppt-master) — SVG에서 편집 가능한 PowerPoint를 만드는 명시 호출 전용 스킬.
 - [**officecli**](office-design-tools/README.md#officecli) — Office 없는 DOCX·XLSX·PPTX CLI와 명시 호출 전용 연동 스킬.
 - [**huashu-design**](office-design-tools/README.md#huashu-design) — HTML 기반 웹·앱·PPTX 디자인을 만드는 명시 호출 전용 스킬.
+- [**hallmark**](office-design-tools/README.md#hallmark) — 새 웹페이지의 시각 방향·레이아웃을 잡고 품질을 검사하는 스킬.
+- [**impeccable**](office-design-tools/README.md#impeccable) — 웹·앱 UI의 레이아웃·접근성·반응형 동작을 검토하고 개선하는 스킬.
 
 ## ⛔ OFF 플러그인 (`_disabled/`, 22) — 켜야 사용
 

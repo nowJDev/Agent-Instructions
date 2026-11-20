@@ -1,6 +1,11 @@
 <!-- 이 문서는 Agent-Instructions 저장소의 공개 변경 이력을 기록한다. -->
 # Changelog
 
+## 2026-11-20
+
+- Hallmark와 Impeccable을 Office·디자인 그룹과 웹·앱 UI 분야에 등록했다. 전체 카탈로그는 296개 주소이며 2026-11-12 조사 기록은 당시 수치를 유지한다.
+- PPT Master·Hallmark·Impeccable의 사용자 전역과 체크아웃 설치 방법, 실행 조건을 사용 안내에 연결했다. 체크아웃의 `.agents/skills/`는 Git에서 제외한다.
+
 ## 2026-11-12
 
 ### Added

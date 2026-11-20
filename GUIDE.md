@@ -101,6 +101,7 @@ flowchart TD
 스킬과 MCP는 각각 별도 준비가 필요합니다.
 
 - 스킬은 해당 AI의 지원 여부를 확인하고 원본 안내를 따릅니다. `SKILL.md` 한 파일만 떼어 오지 않고 스크립트·참조 문서 등 필요한 리소스가 포함된 패키지를 유지합니다. Codex 전역 스킬은 `~/.agents/skills`의 설치 항목을 기준으로 확인합니다.
+- 이 체크아웃에 별도로 설치한 Codex 스킬은 `.agents/skills/`에 있으며 Git에서 제외됩니다. 스킬 설치 후 새 세션에서 경로를 확인하고, [분류·출처·설치 안내](Skill/README.md)와 [분야별 목록](Skill/BY-TASK.md)은 문서에서 직접 갱신합니다.
 - 직접 만든 스킬은 [Owned-Skills](Owned-Skills/README.md)의 원본을 사용합니다. 타사 스킬은 [출처·설치 안내](Skill/README.md)에서 원본과 이용 조건을 확인합니다.
 - MCP는 사용 중인 클라이언트의 설정 형식과 지원하는 연결 방식을 확인합니다. Claude Code의 `claude mcp add`와 설정 경로를 다른 AI에 그대로 적용하지 않습니다.
 - OAuth는 브라우저에서 계정에 로그인해 연결 권한을 허용하는 방식입니다. Notion·Figma·Hugging Face처럼 인증이 필요한 서비스는 사용자 계정으로 연결하고 비밀값을 공개 저장소에 넣지 않습니다.
@@ -160,6 +161,9 @@ flowchart TD
 | 라이브러리의 공식 사용법 확인하기. | `context7` MCP. |
 | 디자인이나 관계 그림 다루기. | Figma 관련 스킬과 MCP. |
 | 문서·슬라이드·디자인 산출물 만들기. | [Anthropic 스킬](Skill/anthropic-skills/README.md), [Office·디자인 도구](Skill/office-design-tools/README.md)의 선택·명시 호출·실행 조건. |
+| 편집 가능한 PPTX 만들기. | [PPT Master](Skill/office-design-tools/README.md#ppt-master). |
+| 새 웹페이지의 시각 방향 잡기. | [Hallmark](Skill/office-design-tools/README.md#hallmark). |
+| 웹·앱 UI 검토와 개선. | [Impeccable](Skill/office-design-tools/README.md#impeccable). |
 | Unity 프로젝트와 Editor 연결하기. | [Unity 연결 안내](MCP/coplay-funplay-unity-mcp.md)의 프로젝트별 패키지·브리지·검증 조건. |
 | AI 모델·데이터·데모 앱 다루기. | Hugging Face 관련 스킬과 MCP. |
 | 브라우저 동작 확인하기. | Playwright MCP나 Chrome DevTools 관련 스킬. |

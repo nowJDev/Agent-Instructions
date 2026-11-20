@@ -4,11 +4,11 @@
 
 ## 최신 전수 대조와 집계.
 
-2026-11-12의 [조사 증거](../references/skill-inventory-2026-11-12.json)는 기존 카탈로그·자체 제작 원본, 사용자·시스템 직접 패키지와 현재 세션의 선택된 플러그인 루트를 대조한다. **설명·원본 주소 294개를 16개 분야에서 찾을 수 있다.** 이는 같은 이름의 다른 구현·과거 배포 설명·라우터 하위 전문 가이드를 포함한 등록 주소 수다.
+**설명·원본 주소 296개를 16개 분야에서 찾을 수 있다.** 2026-11-12의 [조사 증거](../references/skill-inventory-2026-11-12.json)는 당시 등록 주소 294개와 직접 패키지·플러그인 루트를 대조한 기록이다. 이후 Office·디자인 그룹에 Hallmark와 Impeccable을 추가했다. 등록 주소에는 같은 이름의 다른 구현·과거 배포 설명·라우터 하위 전문 가이드도 포함된다.
 
 | 집계 대상 | 개수와 경계 |
 |---|---|
-| 기존 출처별 설명. | 일반 122개·작성 당시 OFF 22개, 합계 144개·26그룹을 보존한다. |
+| 출처별 설명. | 일반 124개·작성 당시 OFF 22개, 합계 146개·26그룹이다. |
 | 추가한 직접·시스템 설명. | [기존 목록에 없던 16개](codex-local/README.md)를 보완한다. |
 | 현재 선택 플러그인의 패키지·전문 가이드. | [108개 설명](codex-plugins/README.md) 중 59개가 조사 세션에 노출됐고 49개는 직접 비노출이다. |
 | 자체 제작 실행 원본. | 기존 [26패키지](../Owned-Skills/README.md)를 동명 내장·플러그인 설명과 구분해 전체 목록에 연결한다. |
@@ -77,7 +77,7 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 | [playground](playground/) | 1 | `playground/` | 인터랙티브 HTML 플레이그라운드 |
 | [kordoc](kordoc/) | 1 | `kordoc/` | 한국 공문서 읽기·생성·채움·편집·검증 |
 | [anthropic-skills](anthropic-skills/) | 19 | `anthropic-skills/` | Anthropic 원본을 `anthropic-` 이름으로 전역 설치하는 안내 |
-| [office-design-tools](office-design-tools/) | 3 | `office-design-tools/` | PPT Master·OfficeCLI·Huashu Design의 단일 전역 설치 안내 |
+| [office-design-tools](office-design-tools/) | 5 | `office-design-tools/` | PPT Master·OfficeCLI·Huashu Design·Hallmark·Impeccable의 설치·실행 안내 |
 
 `frontend-design`·`skill-creator` 그룹은 기존 Anthropic 플러그인 배포 경로의 설명으로 보존한다. 이번 Codex 설치에서는 해당 전역 실행본을 `anthropic-frontend-design`·`anthropic-skill-creator`로 이전한다. 자체 제작 `claude-api`와 OpenAI 내장 `skill-creator`는 별개로 보존한다. [이전·중복 처리와 호출 정책](anthropic-skills/README.md#설치와-중복-처리)을 따른다.
 
@@ -130,6 +130,8 @@ Claude Code 내장 스킬. 별도 파일 없이 하네스에 내장.
 | `kordoc` | [chrisryugj/kordoc](https://github.com/chrisryugj/kordoc), [스킬 경로·버전·설치 안내](kordoc/README.md#kordoc) | MIT |
 | `anthropic-skills` | [anthropics/skills](https://github.com/anthropics/skills), [고정 커밋·전역 설치 안내](anthropic-skills/README.md) | 원본 각 패키지의 라이선스·공통 고지를 보존한다. |
 | `ppt-master`·`officecli`·`huashu-design` | [출처·고정 버전·전역 설치 안내](office-design-tools/README.md) | PPT Master MIT·OfficeCLI Apache-2.0·Huashu MIT 및 일부 스티커 PolyForm Shield 예외를 보존한다. |
+| `hallmark` | [출처와 설치 안내](office-design-tools/README.md#hallmark) | MIT |
+| `impeccable` | [출처와 설치 안내](office-design-tools/README.md#impeccable) | Apache-2.0 |
 
 \* atomic-agents는 세션 비노출(카탈로그 외)이나 출처 참고용 기재.
 
@@ -180,6 +182,6 @@ Claude Code에서 제작자 채널을 선택할 때의 명령은 다음과 같�
 
 ## 분류별 문서 구성.
 
-기존 144개 설명·26그룹을 보존하고 직접·시스템 보완과 현재 플러그인 설명 두 그룹을 추가했다. 자체 제작 원본 26개는 기존 패키지에 둔다. [CATALOG](CATALOG.md)의 총 294개 등록 주소와 [분야별 전체 목록](BY-TASK.md)은 같은 항목 집합을 가리킨다. 상세 설명·호출·설치 조건은 출처별 문서에서 관리하고 날짜별 조사 증거에는 등록 주소 또는 제외 사유를 기록한다.
+출처별 146개 설명과 직접·시스템 및 플러그인 설명을 28그룹에서 관리한다. 자체 제작 원본 26개는 기존 패키지에 둔다. [CATALOG](CATALOG.md)의 총 296개 등록 주소와 [분야별 전체 목록](BY-TASK.md)은 같은 항목을 가리킨다. 상세 설명·호출·설치 조건은 출처별 문서에서 관리하고 날짜별 조사 증거에는 등록 주소 또는 제외 사유를 기록한다.
 
 기존 개별 Markdown 주소는 같은 폴더 README.md의 파일명 앵커로 바뀌었다. 예를 들어 _personal/claude-news.md는 [개인 스킬의 claude-news 절](_personal/README.md#claude-news)에서 찾는다. [고정된 이전 버전](https://github.com/nowJDev/Agent-Instructions/tree/a559c66d71aee886e717ff91bffce6270accdb17/Skill)에서 옛 배치를 확인할 수 있다. 기존 그룹에 항목을 추가할 때는 새 파일 대신 해당 README의 절과 CATALOG 링크를 갱신한다.

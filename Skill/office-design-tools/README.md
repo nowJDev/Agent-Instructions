@@ -1,7 +1,7 @@
-<!-- 세 외부 도구의 단일 전역 설치·호출·런타임과 검증 경계를 안내한다. -->
+<!-- Office·디자인 스킬의 출처, 설치 경로, 호출과 실행 조건을 안내한다. -->
 # Office·디자인 도구.
 
-이 문서는 설명 카탈로그이며 타사 실행 원본·바이너리·대형 자산을 포함하지 않는다. 원본은 사용자 전역에 한 번 설치하고 이 저장소에서도 같은 실행본을 사용한다. 프로젝트 안에 두 번째 `.agents/skills` 복사본을 만들지 않는다. [고정 설치 명세](../../references/office-design-tools.lock.json), [설치 설계](../../docs/history/2026-11-12-office-design-tools.md#spec), [검증 기록](../../docs/history/2026-11-12-office-design-tools.md#review)을 함께 따른다.
+Codex 사용자 전역에 설치하면 여러 프로젝트에서 같은 스킬을 쓸 수 있다. 프로젝트에 별도 설치가 필요하면 해당 체크아웃의 `.agents/skills/`에 스킬 디렉터리를 실제 파일로 복사한다. 이 경로는 Git에서 제외되며 다른 체크아웃에는 각자 설치한다. PPT Master·OfficeCLI·Huashu Design의 기존 고정 버전은 [고정 설치 명세](../../references/office-design-tools.lock.json), [설치 설계](../../docs/history/2026-11-12-office-design-tools.md#spec), [검증 기록](../../docs/history/2026-11-12-office-design-tools.md#review)을 참고한다.
 
 ### 설치와 재실행.
 
@@ -15,7 +15,7 @@ python $skillInstaller --repo iOfficeAI/OfficeCLI --ref c56512c8c7b76fe284f09940
 python $skillInstaller --repo alchaincyf/huashu-design --ref e8d1148a80d5a281d4247cffe320add3df017928 --path . --name huashu-design --dest $skillsDestination
 ```
 
-설치 후 세 패키지에 원본과 구분되는 `agents/openai.yaml` 정책을 추가한다. 원본 본문·제작자·고지는 유지한다. 세 이름이 기존 문서·디자인 기능과 역할이 겹치므로 명시 호출을 사용한다.
+설치 후 위 명령에 나온 세 패키지에 원본과 구분되는 `agents/openai.yaml` 정책을 추가한다. 원본 본문·제작자·고지는 유지한다. 세 이름이 기존 문서·디자인 기능과 역할이 겹치므로 명시 호출을 사용한다.
 
 ```yaml
 policy:
@@ -23,6 +23,28 @@ policy:
 ```
 
 실행 종속성은 이 스킬 복사 명령이 자동 준비하지 않는다. 이 PC의 PPT Master Python은 `%LOCALAPPDATA%/AgentTools/ppt-master/.venv/Scripts/python.exe`, Huashu Python은 `%LOCALAPPDATA%/AgentTools/huashu-design/Scripts/python.exe`다. 원본 venv 자동 선택 기능은 없으므로 기본 `python`의 가용성과 혼동하지 않는다. Node 의존성은 Huashu 패키지의 원본 `package-lock.json`을 기준으로 `npm ci`로 준비한다. 이 설치는 별도 실행 스크립트를 재구현하지 않고 공식 도구를 사용한다.
+
+### 이 체크아웃에 설치.
+
+아래 PowerShell 예시는 저장소 루트에서 전역 설치를 확인한 직후 실행한다. 각 스킬의 `SKILL.md`와 리소스를 복사하고, 기존 프로젝트 사본이 있으면 그대로 둔다. 프로젝트 설치 이후에도 전역 사본과 실행 도구는 각각의 사용자 경로에 남는다.
+
+```powershell
+$globalSkills = Join-Path $env:USERPROFILE '.agents/skills'
+$projectSkills = Join-Path (Get-Location) '.agents/skills'
+New-Item -ItemType Directory -Force -Path $projectSkills | Out-Null
+foreach ($name in 'ppt-master', 'hallmark', 'impeccable') {
+    $source = Join-Path $globalSkills $name
+    $destination = Join-Path $projectSkills $name
+    if (!(Test-Path -LiteralPath (Join-Path $source 'SKILL.md') -PathType Leaf)) {
+        throw "전역 스킬을 먼저 설치하세요. $name"
+    }
+    if (!(Test-Path -LiteralPath $destination)) {
+        Copy-Item -LiteralPath $source -Destination $destination -Recurse -Force -ErrorAction Stop
+    }
+}
+```
+
+설치 후 새 Codex 세션에서 세 이름과 `SKILL.md` 경로를 확인한다. 저장소 밖에서는 전역 경로가 검색되어야 한다. 스킬 패키지 설치와 카탈로그 문서 갱신은 별도 작업이다.
 
 ## ppt-master
 
@@ -47,3 +69,15 @@ Windows 실행본은 [v1.0.160 릴리스](https://github.com/iOfficeAI/OfficeCLI
 전용 Python venv와 패키지 내부 Node 의존성을 사용한다. 원본 `scripts/capabilities.py --json`으로 실제 가용 기능을 확인하고 원본 테스트·HTML 검증·PPTX 재열기로 대표 흐름을 확인한다. 이 PC의 Python Playwright 1.59.0과 Node lock의 1.59.1은 같은 Chromium 1217을 사용한다. 해당 작업 프로세스에 `PLAYWRIGHT_BROWSERS_PATH=%LOCALAPPDATA%/AgentTools/huashu-design/browsers`를 지정한다. Chromium·ffmpeg·이미지 검색·클라우드 음성 등은 서로 다른 요구사항이다. 외부 서비스나 자동 hooks를 이 설치 범위에서 추가하지 않는다. 개인 기억은 기본 `~/.huashu-design`에 저장될 수 있으며 검증에서는 `HUASHU_DESIGN_HOME`을 비공개 검증 폴더로 지정한다.
 
 설치·호출 정책은 새 Codex 세션에서 확인한다. 대표 샘플 성공을 모든 디자인의 품질이나 모든 변환 기능의 호환성으로 확대하지 않는다.
+
+## hallmark
+
+새 웹사이트·랜딩 페이지의 시각 방향과 레이아웃을 잡고 정적 품질 검사를 수행하는 [Hallmark](https://github.com/Nutlope/hallmark) 스킬이다. `$hallmark`로 지정할 수 있다. 기존 디자인에 적용하려면 `$hallmark redesign <경로>` 또는 `$hallmark audit <경로>`로 범위를 명시한다.
+
+원본은 MIT이며 `skills/hallmark`가 설치 단위다. Codex 전역 설치는 `npx skills add Nutlope/hallmark --agent codex --skill hallmark -g`, 프로젝트 설치는 저장소 루트에서 `-g`를 빼고 실행한다. Node.js 18 이상이 필요하며 `sloplint --render`와 캡처에는 Chrome과 `puppeteer-core`가 필요하다. 외부 사진을 사용할 때는 이미지별 라이선스와 크레디트를 확인한다.
+
+## impeccable
+
+웹·앱 UI의 타이포그래피, 레이아웃, 접근성, 반응형 동작을 점검하고 개선하는 [Impeccable](https://github.com/pbakaus/impeccable) 스킬이다. Codex에서 `$impeccable audit`, `$impeccable polish`처럼 작업을 지정한다. `$impeccable init`은 실제 UI 프로젝트의 `PRODUCT.md`를 작성하는 단계다.
+
+원본은 Apache-2.0이다. 스킬 파일만 준비하려면 원본 `.agents/skills/impeccable/` 전체를 사용자 또는 프로젝트 `.agents/skills/`에 복사하고 원본의 라이선스와 고지를 보존한다. Windows의 `scripts/impeccable.cmd`는 패키지 옆 엔진이나 `~/.impeccable/bin/`의 버전별 캐시를 사용한다. 첫 실행에서 엔진이 필요하면 로컬 `VERSION`이 고정한 릴리스를 받아 체크섬을 확인한다. 공식 `npx impeccable install`은 훅 설치도 제안하므로 설정 변경이 필요한 경우에 선택한다.

@@ -1,7 +1,7 @@
 <!-- 전체 등록 항목을 분야별로 연결하고 빠른 선택과 호출 상태를 구분한다. -->
 # 분야별 전체 스킬 안내.
 
-엑셀·PPT 등 **하려는 작업에서 전체 등록 항목을 찾는 목차**다. 각 분야의 빠른 선택 뒤에 전체 목록을 둔다. [전체 카탈로그](CATALOG.md)의 설명·원본 주소 294개 모두가 최소 한 분야에 있으며, 같은 도구는 여러 분야에 나타날 수 있다. 분야별 행 수를 더해 고유 스킬 수로 세지 않는다.
+엑셀·PPT 등 **하려는 작업에서 전체 등록 항목을 찾는 목차**다. 각 분야의 빠른 선택 뒤에 전체 목록을 둔다. [전체 카탈로그](CATALOG.md)의 설명·원본 주소 296개 모두가 최소 한 분야에 있으며, 같은 도구는 여러 분야에 나타날 수 있다.
 
 기존 설명·과거 배포·자체 제작 원본과 조사 당시의 직접 설치·플러그인 제공을 구분한다. 세션 노출은 실제 실행·인증 성공과 다르며, 명시 정책·직접 비노출·상위 라우터 조건을 각 행과 상세 설명에서 확인한다. 문서 추가는 설치·호출 정책을 변경하지 않는다. [출처·집계 안내](README.md)와 [조사 증거](../references/skill-inventory-2026-11-12.json)는 날짜가 있는 기준이며 이후 설치 변경은 다시 대조해야 한다.
 
@@ -11,7 +11,7 @@
 | [PPT·발표자료](#task-ppt). | 13개. |
 | [Word·한글·PDF·보고서](#task-documents). | 20개. |
 | [이미지·시각 디자인·캐릭터](#task-visual-design). | 11개. |
-| [웹·앱 UI·Figma](#task-web-ui). | 23개. |
+| [웹·앱 UI·Figma](#task-web-ui). | 25개. |
 | [데이터 분석·지표·시각화](#task-data-analysis). | 22개. |
 | [검색·자료 수집·리서치](#task-research). | 20개. |
 | [개발 설계·구현](#task-development). | 25개. |
@@ -225,6 +225,8 @@ PPTX와 Figma Slides 등 편집 대상과 제작 방식을 확인한다.
 | Figma 기반 편집과 새 파일 생성. | [figma-use](figma/README.md#figma-use), [figma-create-new-file](figma/README.md#figma-create-new-file). | 편집·생성 도구의 필수 선행 가이드를 따른다. |
 | 한 파일로 조절 가능한 HTML 탐색기 제작. | [playground](playground/README.md#playground). | 컨트롤과 라이브 미리보기가 필요한 작업에 사용한다. |
 | HTML 기반 웹·앱 디자인. | [huashu-design](office-design-tools/README.md#huashu-design). | `$huashu-design` 명시 호출. 실제 제작 기능·브라우저 조건을 확인한다. |
+| 새 웹페이지 방향과 레이아웃 잡기. | [hallmark](office-design-tools/README.md#hallmark). | 기존 디자인은 `$hallmark redesign` 또는 `$hallmark audit`로 범위를 지정한다. |
+| 웹·앱 UI 진단과 마무리 개선. | [impeccable](office-design-tools/README.md#impeccable). | `$impeccable audit` 또는 `$impeccable polish`로 작업을 지정한다. |
 | 여러 UI 요소가 있는 웹 산출물 제작. | [anthropic-web-artifacts-builder](anthropic-skills/README.md#anthropic-web-artifacts-builder). | `$anthropic-web-artifacts-builder` 명시 호출. 번들 실행·게시 조건을 따로 확인한다. |
 
 ### 이 분야의 전체 목록.
@@ -252,6 +254,8 @@ PPTX와 Figma Slides 등 편집 대상과 제작 방식을 확인한다.
 | [huggingface-gradio](huggingface-skills/README.md#huggingface-gradio). | Python으로 Gradio 웹 UI와 ML 데모를 만드는 스킬 (Interface/Blocks/ChatInterface, 컴포넌트, 이벤트 리스너). | huggingface-skills · 조사 세션 노출. 현재 스킬 설명의 적용 조건과 실제 도구·인증 가용성을 확인한다. |
 | [transformers-js](huggingface-skills/README.md#transformers-js). | Transformers.js로 최신 ML 모델을 JavaScript/TypeScript에서 직접 실행하는 스킬 (브라우저·Node.js·Bun·Deno, WebGPU/WASM). | huggingface-skills · 조사 세션 노출. 현재 스킬 설명의 적용 조건과 실제 도구·인증 가용성을 확인한다. |
 | [huashu-design](office-design-tools/README.md#huashu-design). | HTML 기반 웹·앱·PPTX 디자인을 만드는 명시 호출 전용 스킬. | office-design-tools · 명시 호출 전용. 설치 파일 확인·현재 세션 비노출. 명시 호출 전용이며 실제 실행 조건을 상세 안내에서 확인한다. |
+| [hallmark](office-design-tools/README.md#hallmark). | 새 웹페이지의 시각 방향·레이아웃을 잡고 품질을 검사한다. | Nutlope · Node.js 및 브라우저 검사 조건을 확인한다. |
+| [impeccable](office-design-tools/README.md#impeccable). | 웹·앱 UI의 레이아웃·접근성·반응형 동작을 검토하고 개선한다. | pbakaus · CLI 보조 기능의 엔진과 브라우저 조건을 확인한다. |
 | [playground](playground/README.md#playground). | 컨트롤·라이브 프리뷰·프롬프트 출력을 갖춘 자기완결형 단일 HTML 인터랙티브 탐색기를 만드는 스킬. | playground · 조사 세션 노출. 현재 스킬 설명의 적용 조건과 실제 도구·인증 가용성을 확인한다. |
 | [figma-generate-project-plan](../Owned-Skills/figma-generate-project-plan/SKILL.md). | PRD를 FigJam 프로젝트 계획으로 정리하고 실제 도구 조건에 맞춰 반영한다. | 자체 제작 공개 패키지 · 조사 세션 노출. 설치된 자체 제작 구현을 사용하며 실제 입력·호스트·도구 조건과 검증 절차를 확인한다. |
 

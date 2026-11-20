@@ -18,10 +18,14 @@ GROUPS = {
     'claude-md-management': 2, 'qodo-skills': 2, 'agent-sdk-dev': 1,
     'pr-review-toolkit': 1, 'feature-dev': 1, 'claude-code-setup': 1,
     'skill-creator': 1, 'frontend-design': 1, 'playground': 1, 'kordoc': 1,
-    'anthropic-skills': 19, 'office-design-tools': 3,
+    'anthropic-skills': 19, 'office-design-tools': 5,
     '_disabled/vercel': 13, '_disabled/hookify': 5, '_disabled/neon': 2,
     '_disabled/railway': 1, '_disabled/semgrep': 1,
     'codex-local': 16, 'codex-plugins': 108,
+}
+CATALOG_ADDITIONS_SINCE_INVENTORY = {
+    'office-design-tools/README.md#hallmark': 'task-web-ui',
+    'office-design-tools/README.md#impeccable': 'task-web-ui',
 }
 HISTORY = {
     '2026-10-12-readme-mermaid': 1, '2026-10-13-client-cli-setup': 3,
@@ -148,7 +152,9 @@ class DocumentationTests(unittest.TestCase):
         entries = {r['target'] for r in inventory['entries']}
         kinds = {r['target']: r['kind'] for r in inventory['entries']}
         catalog = set(markdown_links((ROOT / 'Skill/CATALOG.md').read_text(encoding='utf-8')))
-        self.assertEqual(entries, {t for t in catalog if 'README.md#' in t or t.endswith('/SKILL.md')})
+        catalog_entries = {t for t in catalog if 'README.md#' in t or t.endswith('/SKILL.md')}
+        self.assertEqual(entries - catalog_entries, set())
+        self.assertEqual(catalog_entries - entries, CATALOG_ADDITIONS_SINCE_INVENTORY.keys())
         for record in records:
             with self.subTest(id=record['id']):
                 self.assertNotIn('skill_path', record)
@@ -178,6 +184,9 @@ class DocumentationTests(unittest.TestCase):
             for anchor in entry['categories']:
                 section = guide.split('<a id="' + anchor + '"></a>', 1)[1].split('<a id="task-', 1)[0]
                 self.assertIn(entry['target'], markdown_links(section))
+        for target, anchor in CATALOG_ADDITIONS_SINCE_INVENTORY.items():
+            section = guide.split('<a id="' + anchor + '"></a>', 1)[1].split('<a id="task-', 1)[0]
+            self.assertIn(target, markdown_links(section))
         encoded = json.dumps(inventory, ensure_ascii=False)
         self.assertNotRegex(encoded, r'(?i)C:[/\\]+Users|AppData[/\\]|\.codex[/\\]+plugins[/\\]+cache')
 
@@ -286,9 +295,10 @@ class DocumentationTests(unittest.TestCase):
     def test_repository_links(self):
         errors = []
         for document in ROOT.rglob('*.md'):
-            if '.git' in document.parts or '.superpowers' in document.parts:
-                continue
             relative = document.relative_to(ROOT)
+            if ('.git' in relative.parts or '.superpowers' in relative.parts
+                    or relative.parts[:2] == ('.agents', 'skills')):
+                continue
             text = document.read_text(encoding='utf-8')
             anchor_ids(text)
             errors.extend((relative.as_posix(), target) for target in link_errors(ROOT, relative, text))

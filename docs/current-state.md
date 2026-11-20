@@ -3,14 +3,15 @@
 
 ## 현재 구성과 길찾기.
 
-2026-11-12 기준이다. README는 시작 안내, GUIDE는 사용법, AGENTS와 rules는 행동 규칙이다. [스킬 카탈로그](../Skill/CATALOG.md)는 기존 144개 설명에 직접·시스템 보완 16개·현재 플러그인 패키지와 전문 가이드 108개·[자체 제작 원본](../Owned-Skills/README.md) 26개를 연결해 총 294개 주소를 등록한다. 상세 설명은 28그룹과 자체 제작 패키지에서 관리한다. 설명 수는 설치·인증·현재 노출 수와 다르다. [MCP 안내](../MCP/README.md)도 도구별 조건과 작성 당시 상태를 구분한다.
+README는 시작 안내, GUIDE는 사용법, AGENTS와 rules는 행동 규칙이다. [스킬 카탈로그](../Skill/CATALOG.md)는 출처별 설명 146개, 직접·시스템 보완 16개, 플러그인 패키지와 전문 가이드 108개, [자체 제작 원본](../Owned-Skills/README.md) 26개를 연결해 총 296개 주소를 등록한다. 상세 설명은 28그룹과 자체 제작 패키지에서 관리한다. [MCP 안내](../MCP/README.md)는 도구별 실행 조건과 작성 당시 상태를 안내한다.
 
-[분야별 전체 스킬 안내](../Skill/BY-TASK.md)는 294개 등록 주소 모두를 최소 한 분야에 연결한다. 기존 12개 분야에 데이터 분석·지식 관리·금융·음악을 보완한 16개 분야다. 엑셀의 32개 관련 항목은 파일 편집·live Excel·데이터 분석·추출·금융 모델을 구분한다. 한·영 README·스킬 인덱스·전체 카탈로그에서 진입하며 이후 설치 변경은 [날짜별 조사](../references/skill-inventory-2026-11-12.json)를 다시 대조해야 한다.
+[분야별 전체 스킬 안내](../Skill/BY-TASK.md)는 296개 등록 주소를 16개 분야에 연결한다. 엑셀 관련 32개 항목은 파일 편집·live Excel·데이터 분석·추출·금융 모델을 다룬다. [2026-11-12 조사](../references/skill-inventory-2026-11-12.json)는 당시 294개 주소의 설치·노출과 제외 사유를 기록한다.
 
 | 필요한 안내. | 기준 문서. |
 |---|---|
 | Anthropic 19개 이름·이전·명시 호출 10개. | [전역 설치 안내](../Skill/anthropic-skills/README.md), [고정 명세](../references/anthropic-skills.lock.json). |
 | PPT Master·OfficeCLI·Huashu Design. | [설치·전용 런타임·명시 호출 안내](../Skill/office-design-tools/README.md), [고정 명세](../references/office-design-tools.lock.json). |
+| Hallmark·Impeccable. | [새 웹페이지 디자인](../Skill/office-design-tools/README.md#hallmark), [웹·앱 UI 진단과 개선](../Skill/office-design-tools/README.md#impeccable). |
 | Unity MCP와 프로젝트 연결. | [Coplay·Funplay 안내](../MCP/coplay-funplay-unity-mcp.md). |
 | 다른 AI로 이식하거나 현재 도구 확인. | [PORTABILITY](../PORTABILITY.md), [사용 안내](../GUIDE.md). |
 | 실행 기록·과거 주소·버전별 증거. | [작업 기록 목차](history/README.md). |
