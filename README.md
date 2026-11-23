@@ -57,6 +57,8 @@ https://github.com/nowJDev/Agent-Instructions
 
 </details>
 
+다른 Windows PC에서도 같은 Codex 스킬 구성을 쓰려면 [Skillshare 전역 스킬 복원 안내](GETTING_STARTED.md#skillshare-restore)를 따르세요.
+
 <a id="무엇에-쓰는-건가요"></a>
 ## 제공하는 내용
 

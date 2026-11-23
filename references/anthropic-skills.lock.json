@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "repository": "https://github.com/anthropics/skills",
-  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
-  "archive_sha256": "e5b0c67dbfae471c013d0e03abe66db20ca70cc0c79ab6154a386c8b026e5195",
+  "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+  "archive_sha256": "28cc73b0b22d9129002f027bc2420d2a0faef0313e8806d4624adb80f0c2ea08",
   "skills": [
     {"source": "academy-guide", "name": "anthropic-academy-guide", "implicit": true},
     {"source": "algorithmic-art", "name": "anthropic-algorithmic-art", "implicit": true},

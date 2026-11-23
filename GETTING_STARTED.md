@@ -162,6 +162,18 @@ Windows PowerShell에서 실행 정책이 npm 또는 npx 래퍼를 막으면 각
 
 스킬이 Codex 목록에 없어도 CLI가 사용 가능하면 `agent-desktop skills get desktop`과 `agent-desktop skills get platform`으로 실행 버전에 맞는 가이드를 읽을 수 있다. GUI 세션이 없는 클라우드에서는 이 도구로 데스크톱 앱을 검증할 수 없으므로, 작업 범위에서 지원되는 도구를 선택한다. 운영체제별 환경은 [agent-desktop 플랫폼 안내](https://agent-browser.dev/desktop/installation#grant-permissions)를 따른다.
 
+<a id="skillshare-restore"></a>
+### 4.3 다른 Windows PC에서 Skillshare 전역 스킬 복원 (선택).
+
+기존 PC의 스킬 구성까지 옮기려면 Windows 기본 세팅을 마친 뒤 이 절차를 사용한다. 현재 공개 설치 출처와 고정 버전은 [스킬 인덱스](Skill/README.md), [자체 제작 스킬](Owned-Skills/README.md), [버전 대조 기록](docs/current-state.md#skillshare-baseline)에서 확인한다.
+
+1. 기존 PC에서 `skillshare status --global`로 **Source의 skills 경로와 연결 개수**를 확인하고, 새 Codex 세션에서 발견된 전역 스킬 이름을 기록한다. 원본 폴더의 내용을 하위 구조와 숨김 파일을 포함해 공개 저장소 밖의 비공개 백업에 복사한다. 링크로 연결된 원본이 있다면 백업에 실제 파일이 들어 있는지 확인한다. 폴더 이름과 상대 파일 목록, 파일 해시를 백업과 대조한다. [공개 범위](SECURITY.md)를 따른다.
+2. 새 PC에 공식 Skillshare를 준비한다. 아직 설정하지 않았다면 `skillshare init --targets codex --mode merge --no-copy --no-git --no-skill`로 시작한다. `skillshare status --global`에서 원본 경로와 Codex 대상이 사용자 전역 `~/.agents/skills`인지 확인한다. 기존 설정이 있으면 재사용하고, 같은 이름에 다른 내용이 있으면 백업과 대조해 복원 범위를 결정한다.
+3. 백업의 **내용**을 새 PC의 원본 폴더에 복원한다. `skillshare sync --global --dry-run`으로 대상과 충돌을 확인한 뒤 `skillshare sync --global`를 실행한다. 원본과 기존 로컬 폴더가 충돌하면 일반 동기화가 로컬 폴더를 보존하므로, 백업해 둔 뒤 충돌을 해소하고 다시 실행한다.
+4. `skillshare status --global`의 연결 개수와 새 Codex 세션에서 발견되는 전역 스킬 이름을 기존 PC 기록과 대조한다. 실행에 필요한 Python·Node·브라우저·MCP·서비스 인증은 각 설치 안내에 따라 별도로 확인한다.
+
+Skillshare의 원본 폴더를 기준으로 복원한다. 같은 스킬을 프로젝트 `.agents/skills`에도 배치하면 Codex에 중복으로 표시될 수 있다. [Skillshare의 Codex 연결 안내](https://skillshare.runkids.work/docs/learn/with-codex/)를 참고한다.
+
 ## 5. 이 저장소가 하는 것과 하지 않는 것
 
 하는 것.

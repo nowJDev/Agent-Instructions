@@ -25,6 +25,21 @@ README는 시작 안내, GUIDE는 사용법, AGENTS와 rules는 행동 규칙이
 - Unity의 [설치 기록](history/2026-11-11-coplay-funplay-unity-mcp.md#review)은 SDK 연결·도구와 새 스킬 발견을 확인했다. 두 프로젝트 패키지·실제 Editor 연결과 Funplay 주소 등록은 연기됐다.
 - 과거 글로벌 문서 복제·개인 자료 보존과 고정 출처 조사는 [보관 목차](history/README.md)에 있다. 이전 문서 전체 정리는 지정 저장소만을 대상으로 했다. 이번 전역 문서 복제는 아래 별도 기록으로 구분하며 설치 스킬·인증·권한은 보존한다.
 
+<a id="skillshare-baseline"></a>
+## Skillshare 전역 스킬 버전 대조.
+
+2026-11-23 Windows 환경에서 Skillshare 전역 링크 130개가 새 Codex 세션에 나타나는 것을 확인했다. 로컬 변환본 3개와 사용하지 않는 Qodo 스킬 2개를 해당 구성에서 제외했다. 다른 PC 복원 절차는 [시작 안내](../GETTING_STARTED.md#skillshare-restore)를 따른다.
+
+| 갱신을 확인한 스킬. | 대조한 공식 원본. |
+|---|---|
+| `chrome-devtools`, `chrome-devtools-cli`. | [Chrome DevTools MCP v1.13.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/commit/b1e35e3ab1774664dfc66a2cb813a392535fe160). |
+| `figma-generate-design`, `figma-generate-library`, `figma-use-slides`. | [Figma MCP 스킬 원본](https://github.com/figma/mcp-server-guide/commit/43a06ff1738935ad5c3d9b0437b5373aaf45cdc3). |
+| `firecrawl`, `hf-cli`. | [Firecrawl CLI](https://github.com/firecrawl/cli/commit/a9ce64e4d114fd203d8402ca000339d66e902cde)의 설치 안내 변경과 [Hugging Face Skills](https://github.com/huggingface/skills/commit/5291c2b9365e06b175dc04817610c778623f4836). |
+| `anthropic-docx`, `anthropic-pdf`, `anthropic-pptx`, `anthropic-xlsx`. | [Anthropic의 고정 커밋과 ZIP 해시](../references/anthropic-skills.lock.json). |
+| `kordoc`, `paseo`. | [Kordoc v4.25.3](https://github.com/chrisryugj/kordoc/commit/c0c10da45c9d83745a420a6e76ee42247fe5153a), [Paseo v0.17.3](https://github.com/getpaseo/paseo/commit/dd7c0499a8c311fae7b3244722a64d73cc178e4a). |
+
+갱신을 보류한 스킬은 이전 버전으로 복원한다. `figma-use`, `mcp-integration`, `unity-cli`, `ppt-master`, `huashu-design`은 최신 후보가 기본 감사에서 차단됐고, `paseo-plugin`은 별도 적용 검토에서 보류됐다. 위 표는 원본 대조·파일 배치·클라이언트 발견을 확인한 기록이다. Firecrawl처럼 로컬 보완을 포함한 구성은 비공개 원본 백업에서 복원한다. 개별 외부 도구의 실제 동작은 작업별로 검증한다.
+
 ## 이전 문서 정리.
 
 [설계](superpowers/specs/2026-11-12-docs-refresh-design.md)·[계획](superpowers/plans/2026-11-12-docs-refresh.md)·[검증 기록](reviews/2026-11-12-docs-refresh.md)에 전수조사·보관·링크·보호·배포 결과를 기록한다. 이전 설치 작업의 최종 기록은 `3c4dd83`이다. 이번 정리 커밋 `1b380db`를 main에 통합·push하고 전체 103개 회귀·독립 리뷰·원격 SHA 일치와 [Ubuntu·Windows CI 성공](https://github.com/nowJDev/Agent-Instructions/actions/runs/43142480610)을 확인했다. 소유 임시 worktree·브랜치는 정리했으며 전역 복제본·설치 환경은 이번 변경 대상에 포함하지 않았다.

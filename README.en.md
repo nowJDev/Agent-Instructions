@@ -59,6 +59,8 @@ If you prefer a tool, add “Use Codex” or “Use Claude Code.” Only the sel
 
 </details>
 
+To reuse the same Codex skills on another Windows PC, follow the [Skillshare global skills restore guide (Korean)](GETTING_STARTED.md#skillshare-restore).
+
 ## What you get
 
 Give agents that read files, make changes, and use tools a **working process and verification criteria**. They can find relevant guidance as needed instead of memorizing every document.
